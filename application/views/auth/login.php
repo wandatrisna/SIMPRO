@@ -40,13 +40,13 @@
                                 <div class="col-md-12"><center>
                                         <img width="300"
                                             src="<?=base_url('assets/')?>images/brks.png" alt="login.png"> <br><br>
-                                            <center><h4 style="color: black;">WEBSITE MANAJEMEN PROYEK</h4>
-                                            <h5 style="color: black;">Bank Riau Kepri Syariah</h5>
+                                            <center><h4 style="color: black;">PROJECT MANAGEMENT SYSTEM</h4>
+                                            <h5 style="color: black;">TSI - Bank Riau Kepri Syariah</h5>
                                         </center> 
                                     </div>
                                     <div class="text-center">
                                         <br>
-                                        <b><h1 class="h4 text-gray-900 mb-4">MASUK</h1></b>
+                                        <b><h1 class="h4 text-gray-900 mb-4">LOGIN</h1></b>
                                     </div>
                                     <form action="<?= base_url('Auth'); ?>" method="post">
                                         <div class="form-group">

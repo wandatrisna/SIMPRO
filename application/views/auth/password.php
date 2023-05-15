@@ -42,8 +42,8 @@
                                             <img width="300" src="<?=base_url('assets/')?>images/brks.png"
                                                 alt="login.png"> <br><br>
                                             <center>
-                                                <h4 style="color: black;">WEBSITE MANAJEMEN PROYEK</h4>
-                                                <h5 style="color: black;">Bank Riau Kepri Syariah</h5>
+                                                <h4 style="color: black;">PROJECT MANAGEMENT SYSTEM</h4>
+                                                <h5 style="color: black;">TSI - Bank Riau Kepri Syariah</h5>
                                             </center>
                                     </div>
                                     <div class="text-center">
@@ -57,32 +57,32 @@
                                         <div class="form-group">
                                             <input type="text" name="NIK" class="form-control"
                                                 value="<?= set_value('NIK'); ?>" id="password1"
-                                                placeholder="Masukkan NIK anda">
+                                                placeholder="NIK">
                                             <?= form_error('NIK', '<small class="text-danger p1-3">', '</small>'); ?>
 
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password1" class="form-control"
                                                 value="<?= set_value('password'); ?>" id="password1"
-                                                placeholder="Masukkan password baru">
+                                                placeholder="New Password">
                                             <?= form_error('password1', '<small class="text-danger p1-3">', '</small>'); ?>
 
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password2" class="form-control"
                                                 value="<?= set_value('password'); ?>" id="password2"
-                                                placeholder="Konfirmasi password baru">
+                                                placeholder="Repeat New Password">
                                             <?= form_error('password2', '<small class="text-danger p1-3">', '</small>'); ?>
 
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Ubah Kata Sandi
+                                            Reset My Password
                                         </button>
                                         <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('Auth') ?>">Kembali</a>
+                                        <a class="small" href="<?= base_url('Auth') ?>">Back</a>
                                     </div>
                                 </div>
                             </div>

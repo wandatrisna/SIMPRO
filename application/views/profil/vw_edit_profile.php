@@ -3,14 +3,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8 ">
             <div class="float">
-                <a href="<?= base_url('Profile//') ?>" class="btn btn-info">&larr; Kembali</a>
+                <a href="<?= base_url('Profile//') ?>" class="btn btn-info">&larr; Back</a>
             </div>
             <br>
             <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                 <div class="row">
                     <div class="card-body">
                         <center>
-                            <h4 class="title"><strong>Profil Saya</strong></h4><br><br>
+                            <h4 class="title"><strong>My Profile</strong></h4><br><br>
                         </center>
                         <form action="" method="POST" enctype="multipart/form-data">
 
@@ -37,7 +37,7 @@
                                         <h6>&emsp;&emsp;<strong>NIK</strong></h6>
                                         <p>&emsp;&emsp;<?= $user1['NIK'] ?> </p>
 
-                                        <h6>&emsp;&emsp;<strong>Jenis Kelamin</strong></h6>
+                                        <h6>&emsp;&emsp;<strong>Gender</strong></h6>
                                         <p>&emsp;&emsp;<?= $user1['jk'] ?></p>
 
                                         <h6>&emsp;&emsp;<strong>Role</strong></h6>
@@ -56,7 +56,7 @@
 
                                             <div class="col-md-12">
                                                 &emsp;&emsp;<button type="submit" name="tambah"
-                                                    class="btn btn-primary float">Perbarui</button>
+                                                    class="btn btn-primary float">Update</button>
                                             </div>
                                         </div>
                                     </div>

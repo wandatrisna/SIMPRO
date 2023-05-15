@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php $page = ''; ?>
 <head>
 
     <meta charset="utf-8">
@@ -27,10 +26,8 @@
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
-
         <!-- Sidebar -->
         <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color:#B62327;">
 
@@ -52,7 +49,6 @@
                     src="<?= base_url('assets/images/profile/') . $user1['gambar']; ?>">
     
                 <div class="user-details">
-
                     <font color="white">
                         <b> <span class=""><?= $user1['nama']; ?></span></b>
                         <br>
@@ -64,21 +60,18 @@
                 </div>
                 <br>
             </center>
-            <!-- Nav Item - Dashboard -->
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Pages Collapse Menu -->
-
-
             <?php
             if ($user1['role'] == 'Superuser') { ?>
             <li class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('User') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-home"></i>
-                    <span>Beranda</span>
+                    <span>Dashboard</span>
                 </a>
             </li>
 
@@ -87,15 +80,15 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>Pengguna</span>
+                    <span>User</span>
                 </a>
                 <div id="collapsePages" class="collapse <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
                                 $this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' ? ' show' : '' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Daftar Pengguna :</h6>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserplanning' ? ' active' : '' ?>" href="<?= base_url('User/indexuserplanning') ?>">Planning</a>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserdevelopment' ? ' active' : '' ?>" href="<?= base_url('User/indexuserdevelopment') ?>">Development</a>
+                        <h6 class="collapse-header">User List :</h6>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>" href="<?= base_url('User/indexuserpinbag') ?>">Pinbag</a>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserplanning' ? ' active' : '' ?>" href="<?= base_url('User/indexuserplanning') ?>">IT Planning</a>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserdevelopment' ? ' active' : '' ?>" href="<?= base_url('User/indexuserdevelopment') ?>">IT Development</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexusersupport' ? ' active' : '' ?>" href="<?= base_url('User/indexusersupport') ?>">IT Support</a>
                     </div>
             </li>
@@ -111,11 +104,11 @@
                                 $this->uri->segment(2) == 'indexproj' || $this->uri->segment(2) == 'indexdiv' ? ' show' : '' ?>" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Daftar Parameter :</h6>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexdiv' ? ' active' : '' ?>" href="<?= base_url('Parameter/indexdiv') ?>">Divisi</a>
+                        <h6 class="collapse-header">Parameter List :</h6>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexdiv' ? ' active' : '' ?>" href="<?= base_url('Parameter/indexdiv') ?>">Division</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexpmf' ? ' active' : '' ?>" href="<?= base_url('Parameter/indexpmf') ?>">PMF</a>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexapp' ? ' active' : '' ?>" href="<?= base_url('Parameter/indexapp') ?>">Aplikasi</a>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexproj' ? ' active' : '' ?>" href="<?= base_url('Parameter/indexproj') ?>">Proyek</a>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexapp' ? ' active' : '' ?>" href="<?= base_url('Parameter/indexapp') ?>">Application</a>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexproj' ? ' active' : '' ?>" href="<?= base_url('Parameter/indexproj') ?>">Project</a>
                     </div>
             </li>
 
@@ -125,12 +118,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-list"></i>
-                    <span>Aplikasi</span>
+                    <span>Application</span>
                 </a>
                 <div id="collapsePages1" class="collapse <?=$this->uri->segment(2) == 'indexinhouse' || $this->uri->segment(2) == 'indexeksternal' ? ' show' : '' ?>" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Pilihan Aplikasi:</h6>
+                        <h6 class="collapse-header">Application List :</h6>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexinhouse' ? ' active' : '' ?>" href="<?= base_url('Aplikasi/indexinhouse') ?>">Inhouse</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexeksternal' ? ' active' : '' ?>" href="<?= base_url('Aplikasi/indexeksternal') ?>">Eksternal</a>
 
@@ -143,12 +136,12 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-list"></i>
-                    <span>Aplikasi</span>
+                    <span>Application</span>
                 </a>
                 <div id="collapsePages1" class="collapse <?=$this->uri->segment(2) == 'sup_indexinhouse' || $this->uri->segment(2) == 'sup_indexeksternal' ? ' show' : '' ?>" aria-labelledby="headingPages"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Pilihan Aplikasi:</h6>
+                        <h6 class="collapse-header">Application List :</h6>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexinhouse' ? ' active' : '' ?>" href="<?= base_url('Aplikasi/sup_indexinhouse') ?>">Inhouse</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexeksternal' ? ' active' : '' ?>" href="<?= base_url('Aplikasi/sup_indexeksternal') ?>">Eksternal</a>
 
@@ -196,32 +189,6 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-                        <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-search fa-fw"></i>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                                aria-labelledby="searchDropdown">
-                                <form class="form-inline mr-auto w-100 navbar-search">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small"
-                                            placeholder="Search for..." aria-label="Search"
-                                            aria-describedby="basic-addon2">
-                                        <div class="input-group-append">
-                                            <button class="btn btn-primary" type="button">
-                                                <i class="fas fa-search fa-sm"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </li>
-
-
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
@@ -238,13 +205,13 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="<?= base_url('Profile/') ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profil
+                                    Profile
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?=base_url('Auth/')?>" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Keluar
+                                    Logout
                                 </a>
                             </div>
                         </li>

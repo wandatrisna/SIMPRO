@@ -37,7 +37,7 @@ class Inhouse_model extends CI_Model
     public function getByNama($nama_in) 
     {
         $nama = str_replace("%20", " ", $nama_in);
-        $query = $this->db->query("SELECT * from inhouse where nama_in = '$nama' ");
+        $query = $this->db->query("SELECT * from inhouse where nama_in = '$nama'");
         return $query->result_array();
     }
 

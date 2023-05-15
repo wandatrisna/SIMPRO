@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12 ">
-            <a href="<?= base_url() ?>User/" class="btn btn-info">&larr; Kembali ke Dashboard</a>
+            <a href="<?= base_url() ?>User/" class="btn btn-info">&larr; Back to Dashboard</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
@@ -14,7 +14,7 @@
 
                         <div class="form-group">
                             <div class="form-group">
-                                <label class="col-sm-2 col-form-label">Gambar</label>
+                                <label class="col-sm-2 col-form-label">Image</label>
                                 <img src="<?= base_url('assets/images/profile/') . $user['gambar']; ?>"
                                     style="width : 250px;" class="img-thumbnail">
                                 <label for="gambar"> </label>
@@ -33,7 +33,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Nama Lengkap</label>
+                            <label class="col-sm-2 col-form-label">Full Name</label>
                             <div class="col-sm-10">
                                 <input type="text" name="nama" value="<?= $user['nama']; ?>" class="form-control"
                                     id="nama">
@@ -42,12 +42,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                            <label class="col-sm-2 col-form-label">Gender</label>
                             <div class="col-sm-10">
                                 <select name="jk" value="<?= $user['jk']; ?>" class="form-control" id="jk">
                                     <option value="<?= $user['jk']; ?>"><?= $user['jk']; ?></option>
-                                    <option value="Pria">Pria</option>
-                                    <option value="Wanita">Wanita</option>
+                                    <option value="Male">PriMalea</option>
+                                    <option value="Female">Female</option>
                                 </select>
                                 <?= form_error('jk','<small class="text-danger pl-3">','</small>'); ?>
                             </div>

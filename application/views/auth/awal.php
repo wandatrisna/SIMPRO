@@ -40,21 +40,22 @@
                                     <div class="text-center">
                                         <br>
                                         <b>
-                                            <h1>SELAMAT DATANG</h1>
+                                            <h1>WELCOME</h1>
                                         </b>
                                     </div>
                                     <div class="col-md-12">
                                         <center>
-                                            <img width="300" src="<?=base_url('assets/')?>images/brks.png"
+                                        <br>
+                                            <img width="350" src="<?=base_url('assets/')?>images/brks.png"
                                                 alt="login.png"> <br><br>
                                             <center>
-                                                <h4 style="color: black;">WEBSITE MANAJEMEN PROYEK</h4>
-                                                <h5 style="color: black;">Bank Riau Kepri Syariah</h5>
+                                                <br><h4 style="color: black;">PROJECT MANAGEMENT SYSTEM</h4>
+                                                <h5 style="color: black;">TSI - Bank Riau Kepri Syariah</h5>
                                             </center>
                                     </div>
                                     <br>
                                     <a href="<?= base_url() ?>Auth/" class="btn btn-primary btn-user btn-block">
-                                        LANJUT
+                                        Next
                                     </a>
 
                                 </div>

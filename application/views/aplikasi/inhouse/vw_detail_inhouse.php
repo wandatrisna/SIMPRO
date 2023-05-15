@@ -5,12 +5,12 @@
         <?php
                             if ($user1['role'] == 'Planning') {?>
                         <div class="float">
-                            <a href="<?= base_url() ?>Aplikasi/indexinhouse" class="btn btn-info">&larr; Kembali</a>
+                            <a href="<?= base_url() ?>Aplikasi/indexinhouse" class="btn btn-info">&larr; Back</a>
                         </div>
                         <?php
 							} elseif ($user1['role'] == 'IT Support') { ?>
                         <div class="float">
-                            <a href="<?= base_url() ?>Aplikasi/sup_indexinhouse" class="btn btn-info">&larr; Kembali</a>
+                            <a href="<?= base_url() ?>Aplikasi/sup_indexinhouse" class="btn btn-info">&larr; Back</a>
                         </div>
                         <?php }?>
                         <br>
@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="card-body">
                         <center>
-                            <h4 class="title"><strong>Detail Data Inhouse</strong></h4><br><br>
+                            <h4 class="title"><strong>Inhouse Detail</strong></h4><br><br>
                         </center>
                         <?= $this->session->flashdata('message') ?>
 
@@ -32,8 +32,7 @@
 
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Nama
-                                                    Aplikasi</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Application Name</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -42,8 +41,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal
-                                                    Penyerahan PMF</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Date</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -52,8 +50,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal
-                                                    Migrasi Prod</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Date</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -63,7 +60,7 @@
 
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    Planning</strong>
+                                                    (Planning)</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -73,7 +70,7 @@
 
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    Development</strong>
+                                                    (Development)</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -83,7 +80,7 @@
 
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    Migrasi</strong>
+                                                    (Migrasi)</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -92,8 +89,8 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Form
-                                                    PMF</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;
+                                                    PMF Form</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -113,8 +110,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen
-                                                    Library</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Library Document</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -133,8 +129,8 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen
-                                                    Check List</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;
+                                                    Check List Document</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -153,7 +149,7 @@
 
                                         </div>
 
-                                        <label class="col-sm-12 col-form-label"><strong>Keterangan</strong>
+                                        <label class="col-sm-12 col-form-label"><strong>Description</strong>
                                         </label>
                                         <br>
                                         <label class="col-sm-12 col-form-label">
@@ -166,14 +162,13 @@
             ?>
                                 <div class="col-md-12">
                                     <a href="<?= base_url('Aplikasi/editinhouse/'). $inhouse['id_in']; ?>"
-                                        class="btn btn-warning btn-round btn-block">Perbarui Data
-                                        Dokumen</a>
+                                        class="btn btn-warning btn-round btn-block">Update (Document)</a>
                                 </div>
                                 <?php
             } elseif ($user1['role'] == 'IT Support') { ?>
                                 <div class="col-md-12">
                                     <a href="<?= base_url('Aplikasi/sup_editinhouse/'). $inhouse['id_in']; ?>"
-                                        class="btn btn-warning btn-round btn-block">Perbarui Data</a>
+                                        class="btn btn-warning btn-round btn-block">Update Data</a>
                                 </div>
                                 <?php
             }
