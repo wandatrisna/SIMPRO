@@ -11,10 +11,11 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+        <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <th width="5px">Number</th>
+                        <tr class="table-warning">
+                            <th width="5px">Number</th>
                         <th>Image</th>
                         <th>Name</th>
                         <th>Gender</th>

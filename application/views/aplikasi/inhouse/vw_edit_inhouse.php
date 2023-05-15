@@ -6,6 +6,7 @@
             <a href="<?= base_url('Aplikasi/detailinhouse/'). $inhouse['id_in']; ?>"
             class="btn btn-info">&larr; Kembali</a>
         </div>
+        <br>
         <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
             <div class="row">
                 <div class="card-body">

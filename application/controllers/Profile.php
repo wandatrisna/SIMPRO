@@ -39,22 +39,8 @@ class Profile extends CI_Controller
         $data['user'] = $this->User_model->getById($id);
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
-         $this->form_validation->set_rules('NIK', 'NIK', 'required',[
-            'required' => 'NIK tidak boleh kosong',   
-            ]);
-            $this->form_validation->set_rules('nama', 'nama', 'required', [
-                'required' => 'Nama user tidak boleh kosong'
-            ]);
-            $this->form_validation->set_rules('jk', 'jk', 'required', [
-                'required' => 'Jenis Kelamin user tidak boleh kosong'
-            ]);
-
-            $this->form_validation->set_rules('role', 'role', 'required', [
-                'required' => 'Tahun Mulai Bekerja tidak boleh kosong'
-            ]);
-
-            $this->form_validation->set_rules('gambar', 'gambar', 'required|dimensions:ratio=1/1', [
-                'required' => 'Gambar harus persegi!'
+            $this->form_validation->set_rules('gambar', 'gambar', 'dimensions:ratio=1/1', [
+                'dimensions' => 'Gambar harus persegi!'
             ]);
             
             $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]',
@@ -94,6 +80,7 @@ class Profile extends CI_Controller
                             }
                         $new_image = $this->upload->data('file_name');
                         $this->db->set('gambar', $new_image);
+                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil perbarui foto!</div>');
                         } else {
                             echo $this->upload->display_errors();
                             }
@@ -101,7 +88,6 @@ class Profile extends CI_Controller
                              
             $id_user = $this->input->post('id_user');
             $this->User_model->update(['id_user' => $id_user], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil perbarui foto!</div>');
             redirect('Profile');
         }
     
