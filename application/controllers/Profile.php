@@ -90,8 +90,5 @@ class Profile extends CI_Controller
             $this->User_model->update(['id_user' => $id_user], $data);
             redirect('Profile');
         }
-    
     }
-
-
 }
