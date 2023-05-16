@@ -1,31 +1,84 @@
-<div class="col-md-12">
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-        <div class="float-right">
-            <a href="<?= base_url() ?>Project/tambahproject" class="btn btn-primary btn-icon-split btn-sm">
-                <span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span>
-                <span class="text">Tambah Aplikasi</span> </a>
-        </div>
-        <h6 class="m-0 font-weight-bold text-primary">TABEL APLIKASI ON GOING</h6>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                <thead>
-												<tr class="table-warning">
-													<th width="5px">Nomor</th>
-													<th>Nama Aplikasi</th>
-													<th>Progres</th>
-													<th>Status</th>
-													<th>Keterangan</th>
-													<th>Aksi</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php $i =1; ?>
-												<?php foreach ($project as $pro) : ?>
+<div class="container-fluid">
+	<!-- Content Row -->
+	<div class="row">
+
+		<!-- Earnings (Monthly) Card Example -->
+		<div class="col-xl-4 col-md-6 mb-4" onclick="location.href='<?= base_url('Project/undone/')?>';">
+			<div class="card border-left-warning shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+								ONGOING</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">
+								<?= $progrespro ?></div>
+						</div>
+						<div class="col-auto">
+                                            <i class="fas fa-edit fa-2x text-gray-300"></i>
+                                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-4 col-md-6 mb-4" onclick="location.href='<?= base_url('Project/done/')?>';">
+			<div class="card border-left-success shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+								DONE</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $donepro ?>
+							</div>
+						</div>
+						<div class="col-auto">
+							<i class="fas fa-check fa-2x text-gray-300"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-4 col-md-6 mb-4" onclick="location.href='<?= base_url('Project/')?>';">
+			<div class="card border-left-primary shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+								ALL PROJECT</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $allpro ?>
+							</div>
+						</div>
+						<div class="col-auto">
+                                            <i class="fas fa-list-alt fa-2x text-gray-300"></i>
+                                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-md-12">
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">USER TABLE</h6>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr class="table-warning">
+							<th width="5px">Nomor</th>
+								<th>Nama Aplikasi</th>
+								<th>Progres</th>
+								<th>Status</th>
+								<th>Keterangan</th>
+								<th>Aksi</th>
+							</tr>
+						</thead>
+						<tbody>
+													<?php $i =1; ?>
+													<?php foreach ($project as $pro) : ?>
 												<tr>
 													<td><?= $i; ?>.</td>
 													<td><?= $pro['namaaplikasi']; ?></td>
@@ -118,16 +171,15 @@
 												</tr>
 												<?php $i++; ?>
 												<?php endforeach; ?>
-											</tbody>
-										</table>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-
-					</div>
+								</tbody>
+					</table>
 				</div>
 			</div>
 		</div>
 	</div>
-	</div>
+</div>

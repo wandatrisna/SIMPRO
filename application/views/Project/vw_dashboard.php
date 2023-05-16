@@ -1,108 +1,84 @@
-<section class="common-img-bg1">
-	<div class="pcoded-content">
-		<div class="pcoded-inner-content">
-			<div class="main-body">
-				<div class="page-wrapper">
-					<div class="page-header card">
-						<div class="row align-items-end">
-							<div class="col-lg-8">
-								<div class="page-header-title">
-									<div class="d-inline">
-										<h4>Dashboard</h4><br>
-									</div>
-								</div>
-							</div>
-							<div class="col-lg-4">
-								<div class="page-header-breadcrumb">
-									<ul class="breadcrumb-title">
-										<li class="breadcrumb-item">
-											<a href="<?= base_url() ?>Project">
-												<i class="icofont icofont-home"></i>
-											</a>
-										</li>
-										<li class="breadcrumb-item"><a href="<?= base_url() ?>Project">Dashboard</a>
-										</li>
-									</ul>
-								</div>
+<div class="container-fluid">
+	<!-- Content Row -->
+	<div class="row">
+
+		<!-- Earnings (Monthly) Card Example -->
+		<div class="col-xl-4 col-md-6 mb-4" onclick="location.href='<?= base_url('Project/undone/')?>';">
+			<div class="card border-left-warning shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+								ONGOING</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">
+								<?= $progrespro ?></div>
+						</div>
+						<div class="col-auto">
+                                            <i class="fas fa-edit fa-2x text-gray-300"></i>
+                                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-4 col-md-6 mb-4" onclick="location.href='<?= base_url('Project/done/')?>';">
+			<div class="card border-left-success shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+								DONE</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $donepro ?>
 							</div>
 						</div>
+						<div class="col-auto">
+							<i class="fas fa-check fa-2x text-gray-300"></i>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 
-						<!-- Page-body start -->
-						<div class="page-body">
-							<div class="row">
-								<div class="col-md-6 col-xl-4">
-									<div class="card widget-card-1">
-										<div class="card-block-small">
-											<i class="ti-time bg-c-green card1-icon"></i>
-											<span class="text-c-green f-w-600">Sedang dikerjakan</span>
-											<h4><?= $progrespro ?></h4>
-											<div>
-												<span class="f-left m-t-10 text-muted">
-													<i class="text-c-blue f-16 "></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 col-xl-4">
-									<div class="card widget-card-1">
-										<div class="card-block-small">
-											<i class="ti-check bg-c-yellow card1-icon"></i>
-											<span class="text-c-yellow f-w-600">Selesai</span>
-											<h4><?= $donepro ?></h4>
-											<div>
-												<span class="f-left m-t-10 text-muted">
-													<i class="text-c-pink f-16 "></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-6 col-xl-4">
-									<div class="card widget-card-1">
-										<div class="card-block-small">
-											<i class="ti-view-list-alt bg-c-pink card1-icon"></i>
-											<span class="text-c-pink f-w-600">Semua Proyek</span>
-											<h4><?= $allpro ?></h4>
-											<div>
-												<span class="f-left m-t-10 text-muted">
-													<i class="text-c-green f-16 "></i>
-												</span>
-											</div>
-										</div>
-									</div>
-								</div>
+		<div class="col-xl-4 col-md-6 mb-4" onclick="location.href='<?= base_url('Project/')?>';">
+			<div class="card border-left-primary shadow h-100 py-2">
+				<div class="card-body">
+					<div class="row no-gutters align-items-center">
+						<div class="col mr-2">
+							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+								ALL PROJECT</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $allpro ?>
 							</div>
+						</div>
+						<div class="col-auto">
+                                            <i class="fas fa-list-alt fa-2x text-gray-300"></i>
+                                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
-							<div class="card">
-								<div class="card-header">
-									<h5>Menampilkan keseluruhan data Project</h5>
-									<div class="card-header-right">
-										<ul class="list-unstyled card-option">
-											<li><i class="icofont icofont-simple-left "></i></li>
-											<li><i class="icofont icofont-maximize full-card"></i></li>
-											<li><i class="icofont icofont-minus minimize-card"></i></li>
-											<li><i class="icofont icofont-refresh reload-card"></i></li>
-											<li><i class="icofont icofont-error close-card"></i></li>
-										</ul>
-									</div>
-								</div>
-								<div class="card-block table-border-style">
-									<div class="table-responsive">
-										<table class="table">
-											<thead>
-												<tr class="table-warning">
-													<th>Nomor</th>
-													<th>Nama Aplikasi</th>
-													<th>Progres</th>
-													<th>Status</th>
-													<th>Keterangan</th>
-													<th>Aksi</th>
-												</tr>
-											</thead>
-											<tbody>
-												<?php $i =1; ?>
-												<?php foreach ($project as $pro) : ?>
+	<div class="col-md-12">
+		<div class="card shadow mb-4">
+			<div class="card-header py-3">
+				<h6 class="m-0 font-weight-bold text-primary">USER TABLE</h6>
+			</div>
+			<div class="card-body">
+				<div class="table-responsive">
+					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+						<thead>
+							<tr class="table-warning">
+								<th>Nomor</th>
+								<th>Nama Aplikasi</th>
+								<th>Progres</th>
+								<th>Status</th>
+								<th>Keterangan</th>
+								<th>Aksi</th>
+							</tr>
+						</thead>
+						<tbody>
+													<?php $i =1; ?>
+													<?php foreach ($project as $pro) : ?>
 												<tr>
 													<td><?= $i; ?>.</td>
 													<td><?= $pro['namaaplikasi']; ?></td>
@@ -185,29 +161,25 @@
 													<td>
 														<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
 															class="badge badge-warning">Detail</a>
+															<?php if ($user1['role'] == 'Planning') {   ?> 
 														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"
 															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
 															class="ik ik-trash-2 text-red">Hapus</a>
+															<?php } ?>
 													</td>
 												</tr>
 												<?php $i++; ?>
 												<?php endforeach; ?>
-											</tbody>
-										</table>
+												</tbody>
+											</table>
+										</div>
 									</div>
 								</div>
-							</div>
-							</tbody>
-							</table>
-						</div>
-					</div>
+								</tbody>
+					</table>
 				</div>
-				</tbody>
-				</table>
 			</div>
 		</div>
 	</div>
-	</div>
-	</div>
-	</div>
+</div>

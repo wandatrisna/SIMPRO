@@ -1,24 +1,30 @@
-<div class="pcoded-content">
-	<section class="common-img-bg1">
-		<div class="pcoded-inner-content">
-			<div class="main-body">
-				<div class="page-wrapper">
-					<div class="page-body">
-						<div class="float">
-							<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-								class="btn btn-danger mb-2">Kembali</a>
-						</div>
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
-									<div class="card-header">
-										<h4 class="title"><strong>Migrasi</strong></h4><br>
-										<div class="card-header-right"><i class="icofont icofont-spinner-alt-5"></i>
-											<div class="page-header-breadcrumb">
-												<ul class="breadcrumb-title">
-													<?php
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-md-10 ">
+			<div class="pcoded-content">
+				<section class="common-img-bg1">
+					<div class="pcoded-inner-content">
+						<div class="main-body">
+							<div class="page-wrapper">
+								<div class="page-body">
+									<div class="float">
+										<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
+											class="btn btn-danger mb-2">Kembali</a>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
+												<div class="card-header">
+													<h4 class="title"><strong>MIGRASI</strong></h4><br>
+													<div class="card-header-right">
+														<i class="icofont icofont-spinner-alt-5"></i>
+														<div class="float-right">
+														<?php
                                                 if ($user1['role'] == 'Development') {
                                                 ?>
+															<a href="<?= base_url() ?>Project/editmigrasi"
+																class="btn btn-warning btn-icon-split btn-sm">
+													
 													<a href="javascript:;"
 														data-id="<?php echo $project1['id_project'] ?>"
 														data-bobot="<?php echo $project1['bobotmigrasi'] ?>"

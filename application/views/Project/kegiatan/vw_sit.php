@@ -1,24 +1,30 @@
-<div class="pcoded-content">
-	<section class="common-img-bg1">
-		<div class="pcoded-inner-content">
-			<div class="main-body">
-				<div class="page-wrapper">
-					<div class="page-body">
-						<div class="float">
-							<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-								class="btn btn-danger mb-2">Kembali</a>
-						</div>
-						<div class="row">
-							<div class="col-sm-12">
-								<div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
-									<div class="card-header">
-										<h4 class="title"><strong>SIT</strong></h4><br>
-										<div class="card-header-right"><i class="icofont icofont-spinner-alt-5"></i>
-											<div class="page-header-breadcrumb">
-												<ul class="breadcrumb-title">
-													<?php
+<div class="container-fluid">
+	<div class="row justify-content-center">
+		<div class="col-md-10 ">
+			<div class="pcoded-content">
+				<section class="common-img-bg1">
+					<div class="pcoded-inner-content">
+						<div class="main-body">
+							<div class="page-wrapper">
+								<div class="page-body">
+									<div class="float">
+										<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
+											class="btn btn-danger mb-2">Kembali</a>
+									</div>
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
+												<div class="card-header">
+													<h4 class="title"><strong>SIT</strong></h4><br>
+													<div class="card-header-right">
+														<i class="icofont icofont-spinner-alt-5"></i>
+														<div class="float-right">
+														<?php
                                                 if ($user1['role'] == 'Development') {
                                                 ?>
+															<a href="<?= base_url() ?>Project/editsit"
+																class="btn btn-warning btn-icon-split btn-sm">
+													
 													<a href="javascript:;"
 														data-id="<?php echo $project1['id_project'] ?>"
 														data-bobot="<?php echo $project1['bobotsit'] ?>"
@@ -135,14 +141,19 @@
 															</div>
 														</td>
 														<td>
-															<p class="d-inline-block m-r-20">
-																<?= $project1['filesit'] ?>
-															</p>
-														</td>
+														<a class="d-inline-block m-r-20" href="<?php echo base_url('assets/dokumensit/' . $project1['filesit']); ?>"><?= $project1['filesit'] ?></a>
+														<!-- <img src="<?php echo base_url('assets/dokumensit/' . $project1['filesit']); ?>"> -->
+														<div class="progress d-inline-block">
+															<div class="progress-bar bg-c-blue" role="progressbar"
+																aria-valuemin="0" aria-valuemax="100" style="width:50%">
+															</div>
+														</div>
+													</td>
 													</tr>
 												</tbody>
 											</table>
-										</div>
+											</div>
+											</div>
 
 										<form
 											action="<?php echo base_url('Project/editsit/'). $project1['id_project'];?>"
@@ -260,7 +271,8 @@
 													</div>
 												</div>
 										</form>
-
+										</div>
+									</div>
 										<script>
 											$(document).ready(function () {
 												// Untuk sunting
