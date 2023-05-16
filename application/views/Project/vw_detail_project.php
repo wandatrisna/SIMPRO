@@ -1,4 +1,6 @@
-<div class="pcoded-content">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-10 "><div class="pcoded-content">
 	<section class="common-img-bg1">
 		<div class="pcoded-inner-content">
 			<div class="main-body">
@@ -59,7 +61,8 @@
 														</div>
 													</td>
 													<td>
-														<p class="d-inline-block m-r-20"><?= $project1['urf'] ?></p>
+														<a class="d-inline-block m-r-20" href="<?php echo base_url('assets/dokumenurf/' . $project1['urf']); ?>"><?= $project1['urf'] ?></a>
+														<!-- <img src="<?php echo base_url('assets/dokumenurf/' . $project1['urf']); ?>"> -->
 														<div class="progress d-inline-block">
 															<div class="progress-bar bg-c-blue" role="progressbar"
 																aria-valuemin="0" aria-valuemax="100" style="width:50%">

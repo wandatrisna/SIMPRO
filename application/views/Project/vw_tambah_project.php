@@ -1,36 +1,20 @@
-<div class="pcoded-content">
-    <section class="common-img-bg1">
-        <div class="pcoded-inner-content">
-            <div class="main-body">
-                <div class="page-wrapper">
-                    <div class="page-body">
-                        <div class="float">
-                            <a href="<?= base_url() ?>User" class="btn btn-danger mb-2">Kembali</a>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-10 "><div class="pcoded-content">
+	<section class="common-img-bg1">
+		<div class="pcoded-inner-content">
+			<div class="main-body">
+				<div class="page-wrapper">
+					<div class="page-body">
+						<div class="float">
+                            <a href="<?= base_url() ?>Project/indexlistproject" class="btn btn-danger mb-2">Kembali</a>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                                     <div class="card-header">
-                                        <h4 class="title"><strong>Tambah User</strong></h4><br>
-                                        <div class="card-header-right"><i class="icofont icofont-spinner-alt-5"></i>
-                                            <div class="page-header-breadcrumb">
-                                                <ul class="breadcrumb-title">
-                                                    <li class="breadcrumb-item">
-                                                        <a href="<?= base_url() ?>Project/">
-                                                            <i class="icofont icofont-home"></i>
-                                                        </a>
-                                                    </li>
-                                                    <!-- <li class="breadcrumb-item"><a
-                                                            href="<?= base_url() ?>User/indexuserplanning">User
-                                                            Planning</a>
-                                                    </li> -->
-                                                    <li class="breadcrumb-item"><a
-                                                            href="<?= base_url() ?>Project/tambahproject">Tambah
-                                                            Project</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                        <h4 class="title"><strong>Tambah Aplikasi</strong></h4><br>
+                                    
 
                                         <div class="card-header-right">
                                             <i class="icofont icofont-spinner-alt-5"></i>
@@ -151,7 +135,7 @@
 									</div>
 
 
-									<div class="col-md-12">
+									<div class="float-right">
 										<button type="submit" name="tambah" class="btn btn-primary float-right">Tambah
 											Data</button>
 									</div>

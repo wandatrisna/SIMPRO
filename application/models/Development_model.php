@@ -14,6 +14,20 @@ class Development_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
+
+	public function getidd($id)
+    {
+        $this->db->from($this->table);
+		$this->db->where('id', $id);
+        $query = $this->db->get();
+        return $query->row();
+    }
+	public function getBobot($id)
+    {
+        $query = 'SELECT sum(bobot) as bobot FROM `tb_dev` WHERE project_id = "'.$id.'"';
+        return $this->db->query($query)->row_array();
+    }
+
     public function getBy()
     {
         $this->db->from($this->table);
@@ -61,12 +75,21 @@ class Development_model extends CI_Model
         $this->db->insert($this->table, $data);
         return $this->db->insert_id();
     }
+	
     public function delete($id)
     {
         $this->db->where($this->id, $id);
         $this->db->delete($this->table);
         return $this->db->affected_rows();
     }
+
+	public function deletekeg($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete($this->table);
+        return $this->db->affected_rows();
+    }
+
     public function searchRecord($key)
     {
         $this->db->select('p.*,u.nama as nama,');
