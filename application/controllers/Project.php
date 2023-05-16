@@ -62,7 +62,7 @@ class Project extends CI_Controller
 	public function indexlistproject()
 	{
 		$data['user'] = $this->User_model->get();
-		$data['project'] = $this->Project_model->get();
+		$data['project'] = $this->Project_model->getUndone();
 		$data['dev'] = $this->Development_model->get();
 		// $data['devbyid'] = $this->Development_model->getkeg($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();

@@ -169,6 +169,7 @@
 																class="btn btn-warning">Ubah</button>
 														</a>
 													</td>
+													<td></td>
 												</tr>
 
 											</tbody>

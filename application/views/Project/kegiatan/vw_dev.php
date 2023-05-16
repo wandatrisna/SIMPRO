@@ -37,10 +37,11 @@
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr class="table-warning">
-							<th>Nomor</th>
+						<th width="5px">Nomor</th>
 							<th>Nama Kegiatan</th>
 							<th>Bobot</th>
 							<th>Progres</th>
+							<th>Persentase</th>
 							<th>Plan Start Date</th>
 							<th>Plan End Date</th>
 							<th>Actual Start Date</th>
@@ -63,6 +64,9 @@
 							</td>
 							<td>
 								<?php echo $d->progres; ?>
+							</td>
+							<td>
+								
 							</td>
 							<td>
 								<?php echo $d->planstdate; ?>

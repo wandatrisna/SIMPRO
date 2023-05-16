@@ -68,7 +68,7 @@
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr class="table-warning">
-								<th>Nomor</th>
+							<th width="5px">Nomor</th>
 								<th>Nama Aplikasi</th>
 								<th>Progres</th>
 								<th>Status</th>
