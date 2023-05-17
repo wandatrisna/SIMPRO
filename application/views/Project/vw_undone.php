@@ -61,7 +61,7 @@
 	<div class="col-md-12">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">USER TABLE</h6>
+				<h6 class="m-0 font-weight-bold text-primary">TABLE ONGOING</h6>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">

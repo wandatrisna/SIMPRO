@@ -14,8 +14,8 @@
 								<?= $progrespro ?></div>
 						</div>
 						<div class="col-auto">
-                                            <i class="fas fa-edit fa-2x text-gray-300"></i>
-                                        </div>
+							<i class="fas fa-edit fa-2x text-gray-300"></i>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -50,8 +50,8 @@
 							</div>
 						</div>
 						<div class="col-auto">
-                                            <i class="fas fa-list-alt fa-2x text-gray-300"></i>
-                                        </div>
+							<i class="fas fa-list-alt fa-2x text-gray-300"></i>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -61,7 +61,7 @@
 	<div class="col-md-12">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">USER TABLE</h6>
+				<h6 class="m-0 font-weight-bold text-primary">TABLE SELURUH PROJECT</h6>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -77,13 +77,13 @@
 							</tr>
 						</thead>
 						<tbody>
-													<?php $i =1; ?>
-													<?php foreach ($project as $pro) : ?>
-												<tr>
-													<td><?= $i; ?>.</td>
-													<td><?= $pro['namaaplikasi']; ?></td>
-													<td>
-														<?php if($pro['progresbrd'] != null || $pro['bobotbrd'] != null ||
+							<?php $i =1; ?>
+							<?php foreach ($project as $pro) : ?>
+							<tr>
+								<td><?= $i; ?>.</td>
+								<td><?= $pro['namaaplikasi']; ?></td>
+								<td>
+									<?php if($pro['progresbrd'] != null || $pro['bobotbrd'] != null ||
 														 $pro['bobotfsd']  != null || $pro['bobotsit']  != null ||
 														 $pro['bobotuat']  != null || $pro['bobotmigrasi']  != null){
 															$hasil= $pro['progresbrd'];
@@ -155,31 +155,29 @@
 													
 														 
 														?>
-													%</td>
-													<td><?php ?></td>
-													<td><?= $pro['keterangan']; ?></td>
-													<td>
-														<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
-															class="badge badge-warning">Detail</a>
-															<?php if ($user1['role'] == 'Planning') {   ?> 
-														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
-															class="badge badge-danger"
-															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
-															class="ik ik-trash-2 text-red">Hapus</a>
-															<?php } ?>
-													</td>
-												</tr>
-												<?php $i++; ?>
-												<?php endforeach; ?>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-								</tbody>
+									%</td>
+								<td><?php ?></td>
+								<td><?= $pro['keterangan']; ?></td>
+								<td>
+									<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
+										class="badge badge-warning">Detail</a>
+									<?php if ($user1['role'] == 'Planning') {   ?>
+									<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
+										class="badge badge-danger"
+										onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+										class="ik ik-trash-2 text-red">Hapus</a>
+									<?php } ?>
+								</td>
+							</tr>
+							<?php $i++; ?>
+							<?php endforeach; ?>
+						</tbody>
 					</table>
 				</div>
+
+				</table>
 			</div>
 		</div>
 	</div>
+</div>
 </div>

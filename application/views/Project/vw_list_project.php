@@ -8,7 +8,7 @@
                 </span>
                 <span class="text">Tambah Aplikasi</span> </a>
         </div>
-        <h6 class="m-0 font-weight-bold text-primary">TABEL APLIKASI ON GOING</h6>
+        <h6 class="m-0 font-weight-bold text-primary">TABEL PROJECT ONGOING</h6>
     </div>
     <div class="card-body">
         <div class="table-responsive">
@@ -119,15 +119,9 @@
 												<?php $i++; ?>
 												<?php endforeach; ?>
 											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-
-					</div>
-				</div>
+											</table>
 			</div>
 		</div>
 	</div>
-	</div>
+</div>
+</div>
