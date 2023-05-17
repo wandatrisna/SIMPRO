@@ -22,9 +22,13 @@
                                             src="<?= base_url('assets/images/profile/') . $user1['gambar']; ?>">
 
                                         <center>
-                                            <br> &emsp; &emsp; &emsp;<input type="file" name="gambar" id="gambar"
+                                            
+                                            <br>
+                                                &emsp; &emsp; &emsp;<input type="file" name="gambar" id="gambar"
                                                 accept="image/png, image/jpeg, image/jpg, image/gif">
                                                 <?= form_error('gambar','<small class="text-danger pl-3">','</small>'); ?>
+                                                <br> 
+                                            <label style="color:red">Please upload 1:1 (square) picture</label>
                                         </center>
                                     </div>
 
