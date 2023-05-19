@@ -255,7 +255,8 @@ class Project extends CI_Controller
 			'planstdatebrd' => $this->input->post('planstdatebrd'),
 			'planendatebrd' => $this->input->post('planendatebrd'),
 			'actualstdatebrd' => $this->input->post('actualstdatebrd'),
-			'actualendatebrd' => $this->input->post('actualendatebrd')
+			'actualendatebrd' => $this->input->post('actualendatebrd'),
+			'status' => 'Terakhir Diubah Oleh BRD'
 		);
 		$upload_image = $_FILES['filebrd']['name'];
 		if ($upload_image) {
@@ -300,7 +301,8 @@ class Project extends CI_Controller
 			'planstdatefsd' => $this->input->post('planstdatefsd'),
 			'planendatefsd' => $this->input->post('planendatefsd'),
 			'actualstdatefsd' => $this->input->post('actualstdatefsd'),
-			'actualendatefsd' => $this->input->post('actualendatefsd')
+			'actualendatefsd' => $this->input->post('actualendatefsd'),
+			'status' => 'Terakhir Diubah Oleh FSD'
 		);
 		$upload_image = $_FILES['filefsd']['name'];
 		if ($upload_image) {
@@ -320,6 +322,7 @@ class Project extends CI_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
+		'actualendatefsd' => $this->input->post('actualendatefsd');
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button></div>');
 		redirect('project/detailfsd/' . $id);
 	}
@@ -380,6 +383,19 @@ class Project extends CI_Controller
 				'actualendate' => $this->input->post('actualendate'),
 				'file' => $filename
 			];
+			$data1 = array(
+				'bobotdev' => $this->input->post('bobot'),
+				'progresdev' => $this->input->post('progres'),
+				'planstdatedev' => $this->input->post('planstdate'),
+				'planendatedev' => $this->input->post('planendate'),
+				'actualstdatedev' => $this->input->post('actualstdate'),
+				'actualendatedev' => $this->input->post('actualendate'),
+				'filedev' => $filename,
+				'status' => 'Terakhir Diubah Oleh Development'
+			);
+			$this->Project_model->ubah($data1, $id);
+			// var_dump($id);
+			// die();
 			$this->Development_model->insert($data);
 			$this->session->set_flashdata('acc', 'Data baru ditambah!');
 		} else if ($bobot['bobot'] + $this->input->post('bobot') >= 60) {
@@ -464,6 +480,7 @@ class Project extends CI_Controller
 			'actualstdate' => $this->input->post('actualstdatebrd'),
 			'actualendate' => $this->input->post('actualendatebrd'),
 			'file' => $filename,
+			'status' => 'Terakhir Diubah Oleh Development'
 		];
 		$this->Development_model->ubah($data, $id);
 		redirect('Project/detaildev/' . $idd);
@@ -491,7 +508,8 @@ class Project extends CI_Controller
 			'planstdatesit' => $this->input->post('planstdatesit'),
 			'planendatesit' => $this->input->post('planendatesit'),
 			'actualstdatesit' => $this->input->post('actualstdatesit'),
-			'actualendatesit' => $this->input->post('actualendatesit')
+			'actualendatesit' => $this->input->post('actualendatesit'),
+			'status' => 'Terakhir Diubah Oleh SIT'
 		);
 		$upload_image = $_FILES['filesit']['name'];
 		if ($upload_image) {
@@ -534,7 +552,8 @@ class Project extends CI_Controller
 			'planstdateuat' => $this->input->post('planstdateuat'),
 			'planendateuat' => $this->input->post('planendateuat'),
 			'actualstdateuat' => $this->input->post('actualstdateuat'),
-			'actualendateuat' => $this->input->post('actualendateuat')
+			'actualendateuat' => $this->input->post('actualendateuat'),
+			'status' => 'Terakhir Diubah Oleh UAT'
 		);
 		$upload_image = $_FILES['fileuat']['name'];
 		if ($upload_image) {
@@ -554,6 +573,7 @@ class Project extends CI_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
+		'actualendateuat' => $this->input->post('actualendateuat');
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detailuat/' . $id);
 	}
@@ -578,7 +598,8 @@ class Project extends CI_Controller
 			'planstdatemigrasi' => $this->input->post('planstdatemigrasi'),
 			'planendatemigrasi' => $this->input->post('planendatemigrasi'),
 			'actualstdatemigrasi' => $this->input->post('actualstdatemigrasi'),
-			'actualendatemigrasi' => $this->input->post('actualendatemigrasi')
+			'actualendatemigrasi' => $this->input->post('actualendatemigrasi'),
+			'status' => 'Terakhir Diubah Oleh Migrasi'
 		);
 		$upload_image = $_FILES['filemigrasi']['name'];
 		if ($upload_image) {
@@ -598,6 +619,7 @@ class Project extends CI_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
+		'actualendatemigrasi' => $this->input->post('actualendatemigrasi');
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detailmigrasi/' . $id);
 	}

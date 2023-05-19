@@ -142,10 +142,16 @@
 															</div>
 														</td>
 														<td>
-															<p class="d-inline-block m-r-20">
-																<?= $project1['filemigrasi'] ?>
-															</p>
-														</td>
+																		<a class="d-inline-block m-r-20"
+																			href="<?php echo base_url('assets/dokumenmigrasi/' . $project1['filemigrasi']); ?>"><?= $project1['filemigrasi'] ?></a>
+																		<!-- <img src="<?php echo base_url('assets/dokumenmigrasi/' . $project1['filemigrasi']); ?>"> -->
+																		<div class="progress d-inline-block">
+																			<div class="progress-bar bg-c-blue"
+																				role="progressbar" aria-valuemin="0"
+																				aria-valuemax="100" style="width:50%">
+																			</div>
+																		</div>
+																	</td>
 													</tr>
 												</tbody>
 											</table>
