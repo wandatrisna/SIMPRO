@@ -322,7 +322,6 @@ class Project extends CI_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		'actualendatefsd' => $this->input->post('actualendatefsd');
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button></div>');
 		redirect('project/detailfsd/' . $id);
 	}
@@ -573,7 +572,6 @@ class Project extends CI_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		'actualendateuat' => $this->input->post('actualendateuat');
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detailuat/' . $id);
 	}
@@ -619,7 +617,6 @@ class Project extends CI_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		'actualendatemigrasi' => $this->input->post('actualendatemigrasi');
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Data Berhasil diubah <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detailmigrasi/' . $id);
 	}
