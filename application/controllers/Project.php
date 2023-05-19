@@ -383,13 +383,13 @@ class Project extends CI_Controller
 				'file' => $filename
 			];
 			$data1 = array(
-				'bobotdev' => $this->input->post('bobot'),
-				'progresdev' => $this->input->post('progres'),
-				'planstdatedev' => $this->input->post('planstdate'),
-				'planendatedev' => $this->input->post('planendate'),
-				'actualstdatedev' => $this->input->post('actualstdate'),
-				'actualendatedev' => $this->input->post('actualendate'),
-				'filedev' => $filename,
+				'bobot' => $this->input->post('bobot'),
+				'progres' => $this->input->post('progres'),
+				'planstdate' => $this->input->post('planstdate'),
+				'planendate' => $this->input->post('planendate'),
+				'actualstdate' => $this->input->post('actualstdate'),
+				'actualendate' => $this->input->post('actualendate'),
+				'file' => $filename,
 				'status' => 'Terakhir Diubah Oleh Development'
 			);
 			$this->Project_model->ubah($data1, $id);
@@ -397,7 +397,7 @@ class Project extends CI_Controller
 			// die();
 			$this->Development_model->insert($data);
 			$this->session->set_flashdata('acc', 'Data baru ditambah!');
-		} else if ($bobot['bobot'] + $this->input->post('bobot') >= 60) {
+		} else if ($bobot['bobot'] + $this->input->post('bobot') > 60) {
 			$this->session->set_flashdata('err', 'Data tidak dapat ditambah karena total bobot dapat melebihi 60!');
 		}
 		redirect('Project/detaildev/' . $id);

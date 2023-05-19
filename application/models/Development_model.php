@@ -14,7 +14,13 @@ class Development_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-
+    public function getSub($id)
+    {
+        $this->db->from('sub_dev');
+		$this->db->where('id_dev', $id);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 	public function getidd($id)
     {
         $this->db->from($this->table);

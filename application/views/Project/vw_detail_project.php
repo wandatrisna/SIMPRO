@@ -79,7 +79,7 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20">
-																			<strong>Plan</strong></p>
+																			<strong>Target Planing</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -115,7 +115,7 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20">
-																			<strong>Target</strong></p>
+																			<strong>Target Selesai</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -133,7 +133,7 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20"><strong>Tanggal
-																				Register</strong></p>
+																				Mulai</strong></p>
 																	</div>
 																</td>
 																<td>

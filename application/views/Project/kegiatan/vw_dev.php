@@ -340,18 +340,18 @@
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label">Bobot</label>
 						<div class="col-sm-9">
-							<input type="number" name="bobotbrd" class="form-control" id="bobotbrd"
+							<input type="number" name="bobot" class="form-control" id="bobot"
 								value="<?php echo $d->bobot; ?>" readonly>
-							<?= form_error('bobotbrd', '<small class="text-danger pl-3">', '</small>'); ?>
+							<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label">Progres</label>
 						<div class="col-sm-9">
-							<input type="number" name="progresbrd" class="form-control form-control-user"
-								id="progresbrd" value="<?php echo $d->progres; ?>" placeholder="Masukkan progres">
-							<?= form_error('progresbrd', '<small class="text-danger pl-3">', '</small>'); ?>
+							<input type="number" name="progres" class="form-control form-control-user"
+								id="progres" value="<?php echo $d->progres; ?>" placeholder="Masukkan progres">
+							<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 
@@ -359,10 +359,10 @@
 						<label class="col-sm-3 col-form-label">Plan
 							Start Date</label>
 						<div class="col-sm-9">
-							<input type="date" id="planstdatebrd" name="planstdatebrd"
+							<input type="date" id="planstdate" name="planstdate"
 								value="<?php echo $d->planstdate; ?>" class="form-control form-control-user"
-								id="planstdatebrd">
-							<?= form_error('planstdatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+								id="planstdate">
+							<?= form_error('planstdate', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 
@@ -370,10 +370,10 @@
 						<label class="col-sm-3 col-form-label">Plan
 							End Date</label>
 						<div class="col-sm-9">
-							<input type="date" id="planendatebrd" name="planendatebrd"
+							<input type="date" id="planendate" name="planendate"
 								class="form-control form-control-user" value="<?php echo $d->planendate; ?>"
-								id="planendatebrd">
-							<?= form_error('planendatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+								id="planendate">
+							<?= form_error('planendate', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 
@@ -381,10 +381,10 @@
 						<label class="col-sm-3 col-form-label">Actual Start Date
 						</label>
 						<div class="col-sm-9">
-							<input type="date" id="actualstdatebrd" name="actualstdatebrd"
+							<input type="date" id="actualstdate" name="actualstdate"
 								class="form-control form-control-user" value="<?php echo $d->actualstdate; ?>"
-								id="actualstdatebrd">
-							<?= form_error('actualstdatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+								id="actualstdate">
+							<?= form_error('actualstdate', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 
@@ -392,10 +392,10 @@
 						<label class="col-sm-3 col-form-label">Actual EndDate
 						</label>
 						<div class="col-sm-9">
-							<input type="date" id="actualendatebrd" name="actualendatebrd"
+							<input type="date" id="actualendate" name="actualendate"
 								class="form-control form-control-user" value="<?php echo $d->actualendate; ?>"
-								id="actualendatebrd">
-							<?= form_error('actualendatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+								id="actualendate">
+							<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -403,9 +403,9 @@
 							File</label>
 						<div class="col-sm-9">
 							<?php echo $d->file; ?>
-							<input type="file" name="filebrd" class="form-control form-control-user"
+							<input type="file" name="file" class="form-control form-control-user"
 								value="<?php echo $d->file; ?>" id="file" placeholder="Masukkan file">
-							<?= form_error('filebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+							<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 
