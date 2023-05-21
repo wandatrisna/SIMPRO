@@ -14,7 +14,14 @@ class Sub_model extends CI_Model
         $query = $this->db->get();
         return $query->result_array();
     }
-
+    public function getDev($id)
+    {
+        $this->db->select('SUM(bobot) as bobot');
+        $this->db->from($this->table);
+        $this->db->where('id_dev', $id);
+        $query = $this->db->get();
+        return $query->result();
+    }
     public function update($where, $data)
     {
         $this->db->update($this->table, $data, $where);

@@ -65,7 +65,7 @@
 								<?php echo $d->progres; ?>
 							</td>
 							<td>
-
+								<?php echo $d->progres/$d->bobot*100; ?> %
 							</td>
 							<td>
 								<?php echo $d->planstdate; ?>
@@ -320,165 +320,171 @@
 <!-- Modal Ubah Kegiatan -->
 
 <?php foreach ($dev as $d): ?>
-<form action="<?php echo site_url('Project/ubahdev/') . $d->id ?>" method="POST" enctype="multipart/form-data"
-	onsubmit="return validateForm()">
-	<div class="modal fade" id="editModal_<?php echo $d->id ?>" role="dialog" tabindex="-1"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<input type="hidden" name="project_id" value="<?= $project1['id_project']; ?>" id="project_id">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Edit
-					</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
+							<form action="<?php echo site_url('Project/ubahdev/') . $d->id ?>" method="POST"
+								enctype="multipart/form-data" onsubmit="return validateForm()">
+								<div class="modal fade" id="editModal_<?php echo $d->id ?>" role="dialog" tabindex="-1"
+									aria-labelledby="exampleModalLabel" aria-hidden="true">
+									<div class="modal-dialog modal-lg" role="document">
+										<div class="modal-content">
+										<input type="hidden" name="project_id"
+												value="<?= $project1['id_project']; ?>" id="project_id">
+											<div class="modal-header">
+												<h5 class="modal-title" id="exampleModalLabel">Edit
+												</h5>
+												<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
 
-				<div class="modal-body">
-					<input type="hidden" name="id_project">
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Bobot</label>
-						<div class="col-sm-9">
-							<input type="number" name="bobot" class="form-control" id="bobot"
-								value="<?php echo $d->bobot; ?>" readonly>
-							<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
+											<div class="modal-body">
+												<input type="hidden" name="id_project">
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label">Bobot</label>
+													<div class="col-sm-9">
+														<input type="number" name="bobotbrd" class="form-control"
+															id="bobotbrd" value="<?php echo $d->bobot; ?>" readonly>
+														<?= form_error('bobotbrd', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label">Progres</label>
+													<div class="col-sm-9">
+														<input type="number" name="progresbrd"
+															class="form-control form-control-user" id="progresbrd"
+															value="<?php echo $d->progres; ?>"
+															placeholder="Masukkan progres">
+														<?= form_error('progresbrd', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label">Plan
+														Start Date</label>
+													<div class="col-sm-9">
+														<input type="date" id="planstdatebrd" name="planstdatebrd"
+															value="<?php echo $d->planstdate; ?>"
+															class="form-control form-control-user" id="planstdatebrd">
+														<?= form_error('planstdatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label">Plan
+														End Date</label>
+													<div class="col-sm-9">
+														<input type="date" id="planendatebrd" name="planendatebrd"
+															class="form-control form-control-user"
+															value="<?php echo $d->planendate; ?>" id="planendatebrd">
+														<?= form_error('planendatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label">Actual Start Date
+													</label>
+													<div class="col-sm-9">
+														<input type="date" id="actualstdatebrd" name="actualstdatebrd"
+															class="form-control form-control-user"
+															value="<?php echo $d->actualstdate; ?>" id="actualstdatebrd">
+														<?= form_error('actualstdatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+												</div>
+
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label">Actual EndDate
+													</label>
+													<div class="col-sm-9">
+														<input type="date" id="actualendatebrd" name="actualendatebrd"
+															class="form-control form-control-user"
+															value="<?php echo $d->actualendate; ?>" id="actualendatebrd">
+														<?= form_error('actualendatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+												</div>
+												<div class="form-group row">
+													<label class="col-sm-3 col-form-label">Upload
+														File</label>
+													<div class="col-sm-9">
+														<?php echo $d->file; ?>
+														<input type="file" name="filebrd"
+															class="form-control form-control-user"
+															value="<?php echo $d->file; ?>" id="file"
+															placeholder="Masukkan file">
+														<?= form_error('filebrd', '<small class="text-danger pl-3">', '</small>'); ?>
+													</div>
+												</div>
+
+
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary"
+														data-dismiss="modal">Close</button>
+													<button type="submit" class="btn btn-primary" onclick="validateForm()"
+														id="btn-ok">Update</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<div class="modal fade" id="subdevModal_<?php echo $d->id ?>" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Daftar Sub Kegiatan <?php echo $d->namakeg ?>
+											</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<table class="table">
+												<thead>
+													<tr class="table-warning">
+														<th>Nama Sub</th>
+														<th>Bobot</th>
+														<th>Progres</th>
+														<th>Plan Start Date</th>
+														<th>Plan End Date</th>
+														<th>Actual Start Date</th>
+														<th>Actual End Date</th>
+													</tr>
+												</thead>
+												<tbody>
+													<?php $i = 1; $sub = $this->Development_model->getSub($d->id);?>
+													<?php foreach ($sub as $d): ?>
+														<tr>
+															<td>
+																<?php echo $d['namakeg']; ?>
+															</td>
+															<td>
+																<?php echo $d['bobot']; ?>
+															</td>
+															<td>
+																<?php echo $d['progres']; ?>
+															</td>
+															<td>
+																<?php echo $d['planstdate']; ?>
+															</td>
+															<td>
+																<?php echo $d['planendate']; ?>
+															</td>
+															<td>
+																<?php echo $d['actualstdate']; ?>
+															</td>
+															<td>
+																<?php echo $d['actualendate']; ?>
+															</td>
+														</tr>
+														<?php $i++; ?>
+													<?php endforeach; ?>
+												</tbody>
+											</table>
+										</div>
+								</div>
+							</div>
 						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Progres</label>
-						<div class="col-sm-9">
-							<input type="number" name="progres" class="form-control form-control-user"
-								id="progres" value="<?php echo $d->progres; ?>" placeholder="Masukkan progres">
-							<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Plan
-							Start Date</label>
-						<div class="col-sm-9">
-							<input type="date" id="planstdate" name="planstdate"
-								value="<?php echo $d->planstdate; ?>" class="form-control form-control-user"
-								id="planstdate">
-							<?= form_error('planstdate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Plan
-							End Date</label>
-						<div class="col-sm-9">
-							<input type="date" id="planendate" name="planendate"
-								class="form-control form-control-user" value="<?php echo $d->planendate; ?>"
-								id="planendate">
-							<?= form_error('planendate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Actual Start Date
-						</label>
-						<div class="col-sm-9">
-							<input type="date" id="actualstdate" name="actualstdate"
-								class="form-control form-control-user" value="<?php echo $d->actualstdate; ?>"
-								id="actualstdate">
-							<?= form_error('actualstdate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Actual EndDate
-						</label>
-						<div class="col-sm-9">
-							<input type="date" id="actualendate" name="actualendate"
-								class="form-control form-control-user" value="<?php echo $d->actualendate; ?>"
-								id="actualendate">
-							<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Upload
-							File</label>
-						<div class="col-sm-9">
-							<?php echo $d->file; ?>
-							<input type="file" name="file" class="form-control form-control-user"
-								value="<?php echo $d->file; ?>" id="file" placeholder="Masukkan file">
-							<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary" onclick="validateForm()"
-							id="btn-ok">Update</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</form>
-<div class="modal fade" id="subdevModal_<?php echo $d->id ?>" tabindex="-1" role="dialog"
-	aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Daftar Sub Kegiatan <?php echo $d->namakeg ?>
-				</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-				<table class="table">
-					<thead>
-						<tr class="table-warning">
-							<th>Nama Sub</th>
-							<th>Bobot</th>
-							<th>Progres</th>
-							<th>Plan Start Date</th>
-							<th>Plan End Date</th>
-							<th>Actual Start Date</th>
-							<th>Actual End Date</th>
-						</tr>
-					</thead>
-					<tbody>
-						<?php $i = 1; $sub = $this->Development_model->getSub($d->id);?>
-						<?php foreach ($sub as $d): ?>
-						<tr>
-							<td>
-								<?php echo $d['namakeg']; ?>
-							</td>
-							<td>
-								<?php echo $d['bobot']; ?>
-							</td>
-							<td>
-								<?php echo $d['progres']; ?>
-							</td>
-							<td>
-								<?php echo $d['planstdate']; ?>
-							</td>
-							<td>
-								<?php echo $d['planendate']; ?>
-							</td>
-							<td>
-								<?php echo $d['actualstdate']; ?>
-							</td>
-							<td>
-								<?php echo $d['actualendate']; ?>
-							</td>
-						</tr>
-						<?php $i++; ?>
 						<?php endforeach; ?>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
-</div>
-<?php endforeach; ?>
 
 </div>
 </div>

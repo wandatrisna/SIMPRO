@@ -249,12 +249,12 @@
 																	</td>
 																</tr>
 																<tr>
-																	<td>Development</td>
-																	<td><?php $hasil= $project1['bobotdev']*100;
+																<td>Development</td>
+														<td><?php $hasil= $project1['progresdev']*100;
 														if ($hasil==0){
 															echo $total=0  ;
 														}else{
-															echo $total=$hasil/$project1['progresdev'];
+															echo $total=$hasil/$project1['bobotdev'];
 														}
 
 														?>%</td>

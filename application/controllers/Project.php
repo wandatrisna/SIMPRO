@@ -368,7 +368,7 @@ class Project extends CI_Controller
 		$this->upload->do_upload('file');
 		//var_dump( $this->upload->data('file_name'));die();
 		$filename = $this->upload->data('file_name');
-		if ($bobot['bobot'] + $this->input->post('bobot') < 60) {
+		if ($bobot['bobot'] + $this->input->post('bobot') <= 60) {
 			$data['dev1'] = $this->Development_model->getById($id);
 			$id = $this->input->post('project_id');
 			$data = [
@@ -409,6 +409,8 @@ class Project extends CI_Controller
 		$data['judul'] = "";
 		$data['user'] = $this->User_model->get();
 		$data['project'] = $this->Project_model->getById($id);
+		$dev = $this->Development_model->getDev($this->input->post('id_dev'));
+		$sub = $this->Sub_model->getDev($this->input->post('id_dev'));
 		$data['dev'] = $this->Development_model->get();
 		// $bobot = $this->Development_model->getBobot($id);
 		$filename = uniqid();
@@ -435,8 +437,12 @@ class Project extends CI_Controller
 			'actualendate' => $this->input->post('actualendate'),
 			'file' => $filename
 		];
-		$this->Sub_model->insert($data);
-		$this->session->set_flashdata('acc', 'Data baru ditambah!');
+		if($sub[0]->bobot+$this->input->post('bobot') <= $dev[0]->bobot){
+			$this->Sub_model->insert($data);
+			$this->session->set_flashdata('acc', 'Data baru ditambah!');
+		}else{
+			$this->session->set_flashdata('err', 'Data baru tidak dapat ditambah!');
+		}
 		redirect('Project/detaildev/' . $id);
 	}
 
@@ -479,8 +485,18 @@ class Project extends CI_Controller
 			'actualstdate' => $this->input->post('actualstdatebrd'),
 			'actualendate' => $this->input->post('actualendatebrd'),
 			'file' => $filename,
-			'status' => 'Terakhir Diubah Oleh Development'
 		];
+		$data1 = array(
+			'bobotdev' => $this->input->post('bobotbrd'),
+			'progresdev' => $this->input->post('progresbrd'),
+			'planstdatedev' => $this->input->post('planstdatebrd'),
+			'planendatedev' => $this->input->post('planendatebrd'),
+			'actualstdatedev' => $this->input->post('actualstdatebrd'),
+			'actualendatedev' => $this->input->post('actualendatebrd'),
+			'filedev' => $filename,
+			'status' => 'Terakhir Diubah Oleh Development'
+		);
+		$this->Project_model->ubah($data1, $idd);
 		$this->Development_model->ubah($data, $id);
 		redirect('Project/detaildev/' . $idd);
 	}

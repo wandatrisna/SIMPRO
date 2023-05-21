@@ -192,7 +192,57 @@
 					</div>
 			</li>
 
+<?php } else if ($user1['role'] == 'Pinbag'){ ?>
+			<li class="nav-item <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail'
+				|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'tambahproject' || $this->uri->segment(2) == 'hapusproject'
+				|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
+				|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
+				|| $this->uri->segment(2) == 'subdev' || $this->uri->segment(2) == 'hapuskeg' || $this->uri->segment(2) == 'ubahdev'
+				|| $this->uri->segment(2) == 'detailsit' || $this->uri->segment(2) == 'editsit' || $this->uri->segment(2) == 'detailuat'
+				|| $this->uri->segment(2) == 'edituat' || $this->uri->segment(2) == 'detailmigrasi' || $this->uri->segment(2) == 'editmigrasi'
+				 ? ' active' : '' ?>">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
+					aria-expanded="true" aria-controls="collapsePages">
+					<i class="fas fa-fw fa-list"></i>
+					<span>Project</span>
+				</a>
+				<div id="collapsePages1"
+					class="collapse <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail'
+				|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'tambahproject' || $this->uri->segment(2) == 'hapusproject'
+				|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
+				|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
+				|| $this->uri->segment(2) == 'subdev' || $this->uri->segment(2) == 'hapuskeg' || $this->uri->segment(2) == 'ubahdev'
+				|| $this->uri->segment(2) == 'detailsit' || $this->uri->segment(2) == 'editsit' || $this->uri->segment(2) == 'detailuat'
+				|| $this->uri->segment(2) == 'edituat' || $this->uri->segment(2) == 'detailmigrasi' || $this->uri->segment(2) == 'editmigrasi' ? ' show' : '' ?>"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Project List :</h6>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexlistproject' ? ' active' : '' ?>"
+							href="<?= base_url('Project/indexlistproject') ?>">Project List</a>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexhistory' ? ' active' : '' ?>"
+							href="<?= base_url('Project/indexhistory') ?>">Project History</a>
 
+					</div>
+			</li>
+			<li
+				class="nav-item <?=$this->uri->segment(2) == 'indexinhouse' || $this->uri->segment(2) == 'indexeksternal' ? ' active' : '' ?>">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+					aria-expanded="true" aria-controls="collapsePages">
+					<i class="fas fa-fw fa-list"></i>
+					<span>Application</span>
+				</a>
+				<div id="collapsePages2"
+					class="collapse <?=$this->uri->segment(2) == 'indexinhouse' || $this->uri->segment(2) == 'indexeksternal' ? ' show' : '' ?>"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">Application List :</h6>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexinhouse' ? ' active' : '' ?>"
+							href="<?= base_url('Aplikasi/indexinhouse') ?>">Inhouse</a>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexeksternal' ? ' active' : '' ?>"
+							href="<?= base_url('Aplikasi/indexeksternal') ?>">Eksternal</a>
+
+					</div>
+			</li>
             <?php } else if ($user1['role'] == 'Development'){ ?>
 
 <li
