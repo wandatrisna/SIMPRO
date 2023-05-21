@@ -78,6 +78,15 @@
 			</li>
 
 			<li
+				class="nav-item <?=$this->uri->segment(2) == 'User/dash1' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+				<a class="nav-link collapsed" href="<?= base_url('User/dash1') ?>" data-target="#collapseTwo"
+					aria-expanded="true" aria-controls="collapseTwo">
+					<i class="fas fa-fw fa-home"></i>
+					<span>Dashboard Testing</span>
+				</a>
+			</li>
+
+			<li
 				class="nav-item <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
                                 $this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>">
 				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"

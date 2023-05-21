@@ -57,6 +57,13 @@ class User_model extends CI_Model
         return $this->db->affected_rows();
     }
 
+    public function count_user()
+    {
+        $this->db->from($this->table);
+        $query = $this->db->get();
+        $query = $this->db->query("SELECT * from user where NOT role = 'Superuser'");
+        return $query->num_rows();
+    }
     public function uplanning()
     {
         $this->db->from($this->table);
