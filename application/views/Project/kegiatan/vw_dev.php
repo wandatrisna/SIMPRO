@@ -45,6 +45,7 @@
 							<th>Plan End Date</th>
 							<th>Actual Start Date</th>
 							<th>Actual End Date</th>
+							<th>File</th>
 							<th>Aksi</th>
 						</tr>
 					</thead>
@@ -65,7 +66,7 @@
 								<?php echo $d->progres; ?>
 							</td>
 							<td>
-								<?php echo $d->progres/$d->bobot*100; ?> %
+								<?php echo floor($d->progres/$d->bobot*100); ?> %
 							</td>
 							<td>
 								<?php echo $d->planstdate; ?>
@@ -79,6 +80,17 @@
 							<td>
 								<?php echo $d->actualendate; ?>
 							</td>
+							<td>
+																		<a class="d-inline-block m-r-20"
+																			href="<?php echo base_url('assets/dokumendev/' . $project1['filedev']); ?>"><?= $project1['filedev'] ?></a>
+																		<!-- <img src="<?php echo base_url('assets/dokumendev/' . $project1['filedev']); ?>"> -->
+																		<div class="progress d-inline-block">
+																			<div class="progress-bar bg-c-blue"
+																				role="progressbar" aria-valuemin="0"
+																				aria-valuemax="100" style="width:50%">
+																			</div>
+																		</div>
+																	</td>
 							<td>
 								<a href="javascript:;" data-id="<?php echo $d->id ?>"
 									data-idpro="<?php echo $d->project_id ?>"
@@ -114,212 +126,234 @@
 </div>
 <!-- Modal Tambah Kegiatan -->
 
-<div class="modal fade" id="modalAdd1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Tambah Kegiatan Baru</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<form action="<?php echo base_url('Project/editdev/' . $project1['id_project']); ?>" method="post"
-				enctype="multipart/form-data">
-				<div class="modal-body">
+<div class="modal fade" id="modalAdd1" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">Tambah Kegiatan Baru</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<form action="<?php echo base_url('Project/editdev/' . $project1['id_project']); ?>"
+										method="post"enctype="multipart/form-data">
+										<div class="modal-body">
 
-					<input type="hidden" name="project_id" value="<?= $project1['id_project']; ?>" id="project_id">
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nama Kegiatan</label>
-						<div class="col-sm-10">
-							<input type="text" name="namakeg" class="form-control form-control-user"
-								value="<?= set_value('namakeg'); ?>" id="namakeg" placeholder="Masukkan nama kegiatan ">
-							<?= form_error('namakeg', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Bobot</label>
-						<div class="col-sm-10">
-							<input type="text" name="bobot" class="form-control form-control-user"
-								value="<?= set_value('bobot'); ?>" id="bobot" placeholder="Masukkan bobot ">
-							<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Progres</label>
-						<div class="col-sm-10">
-							<input type="text" name="progres" class="form-control form-control-user"
-								value="<?= set_value('progres'); ?>" id="progres" placeholder="Masukkan progres">
-							<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Plan Start Date</label>
-						<div class="col-sm-10">
-							<input type="date" id="planstartdate" name="planstdate"
-								class="form-control form-control-user" value="<?= set_value('planstdate'); ?>"
-								id="planstdate">
-							<?= form_error('planstdate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
+											<input type="hidden" name="project_id"
+												value="<?= $project1['id_project']; ?>" id="project_id">
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Nama Kegiatan</label>
+												<div class="col-sm-10">
+													<input type="text" name="namakeg"
+														class="form-control form-control-user"
+														value="<?= set_value('namakeg'); ?>" id="namakeg"
+														placeholder="Masukkan nama kegiatan ">
+													<?= form_error('namakeg', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Bobot</label>
+												<div class="col-sm-10">
+													<input type="text" name="bobot"
+														class="form-control form-control-user"
+														value="<?= set_value('bobot'); ?>" id="bobot"
+														placeholder="Masukkan bobot ">
+													<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Progres</label>
+												<div class="col-sm-10">
+													<input type="text" name="progres"
+														class="form-control form-control-user"
+														value="<?= set_value('progres'); ?>" id="progres"
+														placeholder="Masukkan progres">
+													<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Plan Start Date</label>
+												<div class="col-sm-10">
+													<input type="date" id="planstartdate" name="planstdate"
+														class="form-control form-control-user"
+														value="<?= set_value('planstdate'); ?>" id="planstdate">
+													<?= form_error('planstdate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
 
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Plan End Date</label>
-						<div class="col-sm-10">
-							<input type="date" id="planendate" name="planendate" class="form-control form-control-user"
-								value="<?= set_value('planendate'); ?>" id="planendate">
-							<?= form_error('planendate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Plan End Date</label>
+												<div class="col-sm-10">
+													<input type="date" id="planendate" name="planendate"
+														class="form-control form-control-user"
+														value="<?= set_value('planendate'); ?>" id="planendate">
+													<?= form_error('planendate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
 
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Actual Start Date </label>
-						<div class="col-sm-10">
-							<input type="date" id="actualstdate" name="actualstdate"
-								class="form-control form-control-user" value="<?= set_value('actualstdate'); ?>"
-								id="actualstdate">
-							<?= form_error('actualstdate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Actual End Date </label>
-						<div class="col-sm-10">
-							<input type="date" id="actualendate" name="actualendate"
-								class="form-control form-control-user" value="<?= set_value('actualendate'); ?>"
-								id="actualendate">
-							<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Actual Start Date </label>
+												<div class="col-sm-10">
+													<input type="date" id="actualstdate" name="actualstdate"
+														class="form-control form-control-user"
+														value="<?= set_value('actualstdate'); ?>" id="actualstdate">
+													<?= form_error('actualstdate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Actual End Date </label>
+												<div class="col-sm-10">
+													<input type="date" id="actualendate" name="actualendate"
+														class="form-control form-control-user"
+														value="<?= set_value('actualendate'); ?>" id="actualendate">
+													<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
 
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Upload File</label>
-						<div class="col-sm-10">
-							<input type="file" name="file" class="form-control form-control-user"
-								value="<?= set_value('namaproject'); ?>" id="file" placeholder="Masukkan nama aplikasi">
-							<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Upload File</label>
+												<div class="col-sm-10">
+													<input type="file" name="file"
+														class="form-control form-control-user"
+														value="<?= set_value('namaproject'); ?>" id="file"
+														placeholder="Masukkan nama aplikasi">
+													<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Close</button>
+												<button type="submit" class="btn btn-primary">Save</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
 
-<!-- Modal Tambah Sub Kegiatan -->
+						<!-- Modal Tambah Sub Kegiatan -->
 
-<div class="modal fade" id="modalSub2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog modal-lg" role="document">
-		<div class="modal-content">
-			<form action="<?php echo base_url('Project/subdev/' . $project1['id_project']); ?>" method="post"
-				enctype="multipart/form-data">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Tambah Sub Kegiatan Baru
-					</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<input type="hidden" name="project_id" value="<?= $project1['id_project']; ?>" id="project_id">
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nama Main Kegiatan</label>
-						<div class="col-sm-10">
-							<select name="id_dev" id="id_dev" class="form-control">
-								<option hidden>Pilih Main Kegiatan</option>
-								<?php foreach ($dev as $k): ?>
-								<option value="<?= $k->id; ?>"><?= $k->namakeg ?></option>
-								<?php endforeach; ?>
-							</select>
-							<?= form_error('sumber', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Nama Kegiatan</label>
-						<div class="col-sm-10">
-							<input type="text" name="namakeg" class="form-control form-control-user"
-								value="<?= set_value('namakeg'); ?>" id="namakeg" placeholder="Masukkan nama kegiatan ">
-							<?= form_error('namakeg', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Bobot</label>
-						<div class="col-sm-10">
-							<input type="number" name="bobot" class="form-control form-control-user"
-								value="<?= set_value('bobot'); ?>" id="bobot" placeholder="Masukkan bobot ">
-							<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Progres</label>
-						<div class="col-sm-10">
-							<input type="number" name="progres" class="form-control form-control-user"
-								value="<?= set_value('progres'); ?>" id="progres" placeholder="Masukkan progres">
-							<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Plan Start Date</label>
-						<div class="col-sm-10">
-							<input type="date" id="planstartdate" name="planstdate"
-								class="form-control form-control-user" value="<?= set_value('planstdate'); ?>"
-								id="planstdate">
-							<?= form_error('planstdate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
+						<div class="modal fade" id="modalSub2" tabindex="-1" role="dialog"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog modal-lg" role="document">
+								<div class="modal-content">
+									<form action="<?php echo base_url('Project/subdev/' . $project1['id_project']); ?>"
+										method="post"enctype="multipart/form-data">
+										<div class="modal-header">
+											<h5 class="modal-title" id="exampleModalLabel">Tambah Sub Kegiatan Baru
+											</h5>
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+										<div class="modal-body">
+											<input type="hidden" name="project_id"
+												value="<?= $project1['id_project']; ?>" id="project_id">
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Nama Main Kegiatan</label>
+												<div class="col-sm-10">
+													<select name="id_dev" id="id_dev" class="form-control">
+														<option hidden>Pilih Main Kegiatan</option>
+														<?php foreach ($dev as $k): ?>
+															<option value="<?= $k->id; ?>"><?= $k->namakeg ?></option>
+														<?php endforeach; ?>
+													</select>
+													<?= form_error('sumber', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Nama Kegiatan</label>
+												<div class="col-sm-10">
+													<input type="text" name="namakeg"
+														class="form-control form-control-user"
+														value="<?= set_value('namakeg'); ?>" id="namakeg"
+														placeholder="Masukkan nama kegiatan ">
+													<?= form_error('namakeg', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Bobot</label>
+												<div class="col-sm-10">
+													<input type="number" name="bobot"
+														class="form-control form-control-user"
+														value="<?= set_value('bobot'); ?>" id="bobot"
+														placeholder="Masukkan bobot ">
+													<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Progres</label>
+												<div class="col-sm-10">
+													<input type="number" name="progres"
+														class="form-control form-control-user"
+														value="<?= set_value('progres'); ?>" id="progres"
+														placeholder="Masukkan progres">
+													<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Plan Start Date</label>
+												<div class="col-sm-10">
+													<input type="date" id="planstartdate" name="planstdate"
+														class="form-control form-control-user"
+														value="<?= set_value('planstdate'); ?>" id="planstdate">
+													<?= form_error('planstdate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
 
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Plan End Date</label>
-						<div class="col-sm-10">
-							<input type="date" id="planendate" name="planendate" class="form-control form-control-user"
-								value="<?= set_value('planendate'); ?>" id="planendate">
-							<?= form_error('planendate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Plan End Date</label>
+												<div class="col-sm-10">
+													<input type="date" id="planendate" name="planendate"
+														class="form-control form-control-user"
+														value="<?= set_value('planendate'); ?>" id="planendate">
+													<?= form_error('planendate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
 
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Actual Start Date </label>
-						<div class="col-sm-10">
-							<input type="date" id="actualstdate" name="actualstdate"
-								class="form-control form-control-user" value="<?= set_value('actualstdate'); ?>"
-								id="actualstdate">
-							<?= form_error('actualstdate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Actual End Date </label>
-						<div class="col-sm-10">
-							<input type="date" id="actualendate" name="actualendate"
-								class="form-control form-control-user" value="<?= set_value('actualendate'); ?>"
-								id="actualendate">
-							<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Actual Start Date </label>
+												<div class="col-sm-10">
+													<input type="date" id="actualstdate" name="actualstdate"
+														class="form-control form-control-user"
+														value="<?= set_value('actualstdate'); ?>" id="actualstdate">
+													<?= form_error('actualstdate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Actual End Date </label>
+												<div class="col-sm-10">
+													<input type="date" id="actualendate" name="actualendate"
+														class="form-control form-control-user"
+														value="<?= set_value('actualendate'); ?>" id="actualendate">
+													<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
 
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Upload File</label>
-						<div class="col-sm-10">
-							<input type="file" name="file" class="form-control form-control-user"
-								value="<?= set_value('namaproject'); ?>" id="file" placeholder="Masukkan nama aplikasi">
-							<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
+											<div class="form-group row">
+												<label class="col-sm-2 col-form-label">Upload File</label>
+												<div class="col-sm-10">
+													<input type="file" name="file"
+														class="form-control form-control-user"
+														value="<?= set_value('namaproject'); ?>" id="file"
+														placeholder="Masukkan nama aplikasi">
+													<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
+												</div>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary"
+													data-dismiss="modal">Close</button>
+												<button type="submit" class="btn btn-primary">Save</button>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save</button>
-					</div>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-<!-- Modal Ubah Kegiatan -->
+						<!-- Modal Ubah Kegiatan -->
 
-<?php foreach ($dev as $d): ?>
+						<?php foreach ($dev as $d): ?>
 							<form action="<?php echo site_url('Project/ubahdev/') . $d->id ?>" method="POST"
 								enctype="multipart/form-data" onsubmit="return validateForm()">
 								<div class="modal fade" id="editModal_<?php echo $d->id ?>" role="dialog" tabindex="-1"

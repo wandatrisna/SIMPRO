@@ -249,20 +249,20 @@
 																	</td>
 																</tr>
 																<tr>
-																<td>Development</td>
+														<td>Development</td>
 														<td><?php $hasil= $project1['progresdev']*100;
 														if ($hasil==0){
 															echo $total=0  ;
 														}else{
-															echo $total=$hasil/$project1['bobotdev'];
+															echo floor($total=$hasil/$project1['bobotdev']);
 														}
 
 														?>%</td>
-																	<td>
-																		<a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
-																			class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
-																	</td>
-																</tr>
+														<td>
+															<a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
+																class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
+														</td>
+													</tr>
 																<tr>
 																	<td>SIT</td>
 																	<td><?php $hasil= $project1['progressit'];

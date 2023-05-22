@@ -113,7 +113,13 @@ class Project extends CI_Controller
 			'required' => 'Nama aplikasi tidak boleh kosong'
 		]);
 		$this->form_validation->set_rules('jenisproject', 'jenisproject', 'required', [
-			'required' => 'Jenis Project user tidak boleh kosong'
+			'required' => 'Jenis Project tidak boleh kosong'
+		]);
+		$this->form_validation->set_rules('jenisaplikasi', 'jenisaplikasi', 'required', [
+			'required' => 'Jenis Aplikasi tidak boleh kosong'
+		]);
+		$this->form_validation->set_rules('target', 'target', 'required', [
+			'required' => 'Target Selesai tidak boleh kosong'
 		]);
 		if ($this->form_validation->run() == false) {
 			$this->load->view("layout/header", $data);
@@ -358,7 +364,7 @@ class Project extends CI_Controller
 		$filename = uniqid();
 		$config = array(
 			'file_name' => $filename,
-			'upload_path' => './assets/dokumenurf/',
+			'upload_path' => './assets/dokumendev/',
 			'allowed_types' => 'gif|jpg|png|jpeg|pdf',
 			'overwrite' => TRUE,
 			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
@@ -416,7 +422,7 @@ class Project extends CI_Controller
 		$filename = uniqid();
 		$config = array(
 			'file_name' => $filename,
-			'upload_path' => './assets/dokumenurf/',
+			'upload_path' => './assets/dokumendev/',
 			'allowed_types' => 'gif|jpg|png|jpeg|pdf',
 			'overwrite' => TRUE,
 			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
@@ -467,7 +473,7 @@ class Project extends CI_Controller
 		$filename = uniqid();
 		$config = array(
 			'file_name' => $filename,
-			'upload_path' => './assets/dokumenurf/',
+			'upload_path' => './assets/dokumendev/',
 			'allowed_types' => 'gif|jpg|png|jpeg|pdf',
 			'overwrite' => TRUE,
 			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
@@ -496,6 +502,7 @@ class Project extends CI_Controller
 			'filedev' => $filename,
 			'status' => 'Terakhir Diubah Oleh Development'
 		);
+		
 		$this->Project_model->ubah($data1, $idd);
 		$this->Development_model->ubah($data, $id);
 		redirect('Project/detaildev/' . $idd);
