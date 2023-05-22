@@ -54,9 +54,9 @@
                                             <div class="col">
                                                 <div class="progress progress-sm mr-2">
                                                     <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: <?= $progress / $allpro ?>%"
-                                                        aria-valuenow="<?= $progress / $allpro ?>" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
+                                                        style="width: <?= round(($done / $allpro) * 100) ?>%"
+                                                        aria-valuenow="<?= round(($done / $allpro) * 100) ?>"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
 
                                                 </div>
                                             </div>
