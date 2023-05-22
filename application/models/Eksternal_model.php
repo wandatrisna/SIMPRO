@@ -16,6 +16,13 @@ class Eksternal_model extends CI_Model
         return $query->result_array();
     }
 
+    public function getCount()
+    {
+        $query = $this->db->query("SELECT * from eksternal where hapus_eks=1");
+        return $query->num_rows();
+    }
+
+
     public function getBy()
     {
         $this->db->from($this->table);

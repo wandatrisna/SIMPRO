@@ -164,6 +164,16 @@ class Project_model extends CI_Model
 		$query = $this->db->get();
 		return $query->num_rows();
 	}
+
+	// public function progress()
+	// {
+	// 	$this->db->from($this->table);
+	// 	$query = $this->db->get();
+	// 	$query1 = $this->db->query("SELECT count(*) from tb_project  where progresmigrasi <= 4  ");
+	// 	$query2 = $this->db->query("SELECT count(*) from tb_project  where progresmigrasi = 5  ");
+	// 	$query3 = ($query1/$query2);
+	// 	return $query3();
+	// }
 	// public function status()
 	// {
 	//     $this->db->from($this->table);

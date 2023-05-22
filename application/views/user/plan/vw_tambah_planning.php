@@ -23,7 +23,7 @@
                             <label class="col-sm-2 col-form-label">NIK</label>
                             <div class="col-sm-10">
                                 <input type="NIK" name="NIK" class="form-control form-control-user"
-                                    value="<?= set_value('NIK'); ?>" id="NIK" placeholder="Masukkan NIK">
+                                    value="<?= set_value('NIK'); ?>" id="NIK" placeholder="Insert NIK">
                                 <?= form_error('NIK', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                         </div>
@@ -32,7 +32,7 @@
                             <label class="col-sm-2 col-form-label">Full Name</label>
                             <div class="col-sm-10">
                                 <input type="text" name="nama" class="form-control" id="nama"
-                                    placeholder="Your Full Name">
+                                    placeholder="Insert Full Name">
                                 <?= form_error('nama','<small class="text-danger pl-3">','</small>'); ?>
                             </div>
                         </div>
