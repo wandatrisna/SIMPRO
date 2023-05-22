@@ -49,19 +49,19 @@
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
                                                 <div class="h1 mb-0 mr-3 font-weight-bold text-gray-800">
-                                                    <?= $progress / $done ?>%</div>
+                                                    <?= round(($done / $allpro) * 100)?>%</div>
                                             </div>
                                             <div class="col">
                                                 <div class="progress progress-sm mr-2">
                                                     <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: <?= $progress / $done ?>%"
-                                                        aria-valuenow="<?= $progress / $done ?>" aria-valuemin="0"
+                                                        style="width: <?= $progress / $allpro ?>%"
+                                                        aria-valuenow="<?= $progress / $allpro ?>" aria-valuemin="0"
                                                         aria-valuemax="100"></div>
 
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="h6 mb-0  text-gray-800"><?= $progress ?> ONGOING PROJECT
+                                        <div class="h6 mb-0  text-gray-800"><?= $allpro ?> ALL PROJECT
                                         </div>
                                         <div class="h6 mb-0  text-gray-800"><?= $done ?> LIVE PROJECT</div>
                                     </div>
