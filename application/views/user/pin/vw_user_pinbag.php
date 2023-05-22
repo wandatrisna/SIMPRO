@@ -3,12 +3,14 @@
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">PINBAG TABLE</h6>
             <div class="float-right">
+            <?php if ($user1['role'] == 'Superuser') {   ?> 
                 <a href="<?= base_url() ?>User/tambahpin" class="btn btn-primary btn-icon-split btn-sm">
                     <span class="icon text-white-50">
                         <i class="fas fa-flag"></i>
                     </span>
                     <span class="text">Add New User</span> </a>
             </div>
+            <?php } ?>
         </div>
         <div class="card-body">
         <div class="table-responsive">
@@ -37,9 +39,11 @@
                             <td><?= $us['role']; ?></td>
                             <td><?= $us['NIK']; ?></td>
                             <td>
+                            <?php if ($user1['role'] == 'Superuser') {   ?> 
                                 <a href="<?= base_url('User/hapuspin/'). $us['id_user']; ?> " class="badge badge-danger"
                                     onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
                                     class="ik ik-trash-2 text-red">Delete</a>
+                                    <?php } ?>
                                 <a href="<?= base_url('User/edit/'). $us['id_user']; ?>"
                                     class="badge badge-warning">Edit</a>
                             </td>

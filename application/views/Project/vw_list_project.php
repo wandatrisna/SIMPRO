@@ -2,11 +2,12 @@
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<div class="float-right">
+			<?php if ($user1['role'] == 'Planning') {   ?> 
 				<a href="<?= base_url() ?>Project/tambahproject" class="btn btn-primary btn-icon-split btn-sm">
 					<span class="icon text-white-50">
 						<i class="fas fa-flag"></i>
 					</span>
-					<span class="text">Tambah Aplikasi</span> </a>
+					<span class="text">Tambah Project</span> </a><?php } ?>
 			</div>
 			<h6 class="m-0 font-weight-bold text-primary">TABEL PROJECT ONGOING</h6>
 		</div>
@@ -92,10 +93,12 @@
 													<td>
 														<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
 															class="badge badge-warning">Detail</a>
+															<?php if ($user1['role'] == 'Planning') {   ?> 
 														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"
 															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
 															class="ik ik-trash-2 text-red">Hapus</a>
+															<?php } ?>
 													</td>
 												</tr>
 												<?php $i++; ?>

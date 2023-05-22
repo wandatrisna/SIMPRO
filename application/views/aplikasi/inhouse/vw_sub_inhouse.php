@@ -36,11 +36,12 @@
 
                             <a href="<?= base_url('Aplikasi/detailinhouse/'). $us['id_in']; ?>"
                                 class="badge badge-warning">Detail</a>
-                            <a href="<?= base_url('Aplikasi/hapusinhouse/'). $us['id_in']; ?> "
+                                <?php if ($user1['role'] == 'Planning') {   ?>
+                                <a href="<?= base_url('Aplikasi/hapusinhouse/'). $us['id_in']; ?> "
                                 class="badge badge-danger"
                                 onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
                                 class="ik ik-trash-2 text-red">Hapus</a>
-
+                                <?php } ?>
                         </td>
                     </tr>
                     <?php $i++; ?>

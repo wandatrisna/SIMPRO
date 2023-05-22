@@ -20,6 +20,7 @@
 				</button>
 			</div>
 			<?php endif ?>
+			<?php if ($user1['role'] == 'Development') {   ?>
 			<div class="float-right">
 				<br>
 				<a data-toggle="modal" data-target="#modalAdd1" class="btn btn-danger mb-2">Tambah
@@ -27,6 +28,7 @@
 				<a data-toggle="modal" data-target="#modalSub2" class="btn btn-danger mb-2">Tambah
 					Sub Kegiatan</a>
 			</div>
+			<?php } ?>
 
 
 			<h6 class="m-0 font-weight-bold text-primary">TABEL KEGIATAN DEVELOPMENT</h6>
@@ -92,6 +94,7 @@
 																		</div>
 																	</td>
 							<td>
+							<?php if ($user1['role'] == 'Development') {   ?>
 								<a href="javascript:;" data-id="<?php echo $d->id ?>"
 									data-idpro="<?php echo $d->project_id ?>"
 									data-namakeg="<?php echo $d->namakeg ?>"
@@ -105,15 +108,17 @@
 									data-target="#editModal_<?php echo $d->id ?>">
 									<button class="badge badge-warning">Ubah</button>
 								</a>
+								<?php } ?>
 								<a href="javascript:;" data-toggle="modal"
 									data-target="#subdevModal_<?php echo $d->id ?>">
 									<button class="badge badge-primary">Sub Development Detail</button>
 								</a>
 
-
+								<?php if ($user1['role'] == 'Development') {   ?>
 								<a href="<?= base_url('Project/hapuskeg/') . $d->id; ?>" class="badge badge-danger"
 									onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
 									class="ik ik-trash-2 text-red">Hapus</a>
+									<?php } ?>
 							</td>
 						</tr>
 						<?php $i++; ?>

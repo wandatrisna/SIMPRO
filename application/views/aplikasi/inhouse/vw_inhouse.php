@@ -1,6 +1,7 @@
 <div class="col-md-12">
 <div class="card shadow mb-4">
     <div class="card-header py-3">
+    <?php if ($user1['role'] == 'Planning') {   ?> 
         <div class="float-right">
             <a href="<?= base_url() ?>Aplikasi/tambahinhouse" class="btn btn-primary btn-icon-split btn-sm">
                 <span class="icon text-white-50">
@@ -8,6 +9,7 @@
                 </span>
                 <span class="text">Tambah Aplikasi</span> </a>
         </div>
+        <?php } ?>
         <h6 class="m-0 font-weight-bold text-primary">TABEL APLIKASI INHOUSE</h6>
     </div>
 
@@ -40,10 +42,12 @@
 
                             <a href="<?= base_url('Aplikasi/subinhouse/'). $nama ?>"
                                 class="badge badge-warning">Versi</a>
+                                <?php if ($user1['role'] == 'Planning') {   ?> 
                             <a href="<?= base_url('Aplikasi/hapusinhouse/'). $us['id_in']; ?> "
                                 class="badge badge-danger"
                                 onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
                                 class="ik ik-trash-2 text-red">Hapus</a>
+                                <?php } ?>
                         </td>
                     </tr>
                     <?php $i++; ?>

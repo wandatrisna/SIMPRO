@@ -169,6 +169,7 @@
 																</td>
 
 															</tr>
+															<?php if ($user1['role'] == 'Planning') {   ?>
 															<tr>
 																<td>
 																	<a href="javascript:;"
@@ -187,9 +188,11 @@
 																			data-target="#ubah-data"
 																			class="btn btn-warning">Ubah</button>
 																	</a>
+																	
 																</td>
 																<td></td>
 															</tr>
+															<?php } ?>
 
 														</tbody>
 													</table>
