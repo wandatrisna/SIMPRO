@@ -137,4 +137,12 @@ class User_model extends CI_Model
         return $query->result_array();
     }
 
+
+    public function dashboard()
+	{
+		$this->db->from($this->table);
+		$query = $this->db->get();
+		$query1 = $this->db->query("SELECT nama, gambar FROM user ORDER BY RAND() LIMIT 5");
+        return $query->result_array();
+	}
 }

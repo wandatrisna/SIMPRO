@@ -37,17 +37,22 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="p-5">
-                                <div class="col-md-12"><center>
-                                        <img width="300"
-                                            src="<?=base_url('assets/')?>images/brks.png" alt="login.png"> <br><br>
-                                            <center><h4 style="color: black;">PROJECT MANAGEMENT SYSTEM</h4>
-                                            <h5 style="color: black;">TSI - Bank Riau Kepri Syariah</h5>
-                                        </center> 
+                                    <div class="col-md-12">
+                                        <center>
+                                            <img width="300" src="<?=base_url('assets/')?>images/brks.png"
+                                                alt="login.png"> <br><br>
+                                            <center>
+                                                <h4 style="color: black;">PROJECT MANAGEMENT SYSTEM</h4>
+                                                <h5 style="color: black;">TSI - Bank Riau Kepri Syariah</h5>
+                                            </center>
                                     </div>
                                     <div class="text-center">
                                         <br>
-                                        <b><h1 class="h4 text-gray-900 mb-4">LOGIN</h1></b>
+                                        <b>
+                                            <h1 class="h4 text-gray-900 mb-4">LOGIN</h1>
+                                        </b>
                                     </div>
+                                    <?= $this->session->flashdata('message') ?>
                                     <form action="<?= base_url('Auth'); ?>" method="post">
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user" name="NIK"
