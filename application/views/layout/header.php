@@ -257,8 +257,35 @@
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexeksternal' ? ' active' : '' ?>"
                             href="<?= base_url('Aplikasi/indexeksternal') ?>">Eksternal</a>
 
-                    </div>
-            </li>
+					</div>
+			</li>
+
+			<li
+				class="nav-item <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
+                                $this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>">
+				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+					aria-expanded="true" aria-controls="collapsePages">
+					<i class="fas fa-fw fa-users"></i>
+					<span>User</span>
+				</a>
+				<div id="collapsePages"
+					class="collapse <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
+                                $this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' ? ' show' : '' ?>"
+					aria-labelledby="headingPages" data-parent="#accordionSidebar">
+					<div class="bg-white py-2 collapse-inner rounded">
+						<h6 class="collapse-header">User List :</h6>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>"
+							href="<?= base_url('User/indexuserpinbag') ?>">Pinbag</a>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexuserplanning' ? ' active' : '' ?>"
+							href="<?= base_url('User/indexuserplanning') ?>">IT Planning</a>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexuserdevelopment' ? ' active' : '' ?>"
+							href="<?= base_url('User/indexuserdevelopment') ?>">IT Development</a>
+						<a class="collapse-item <?=$this->uri->segment(2) == 'indexusersupport' ? ' active' : '' ?>"
+							href="<?= base_url('User/indexusersupport') ?>">IT Support</a>
+					</div>
+			</li>
+
+			
             <?php } else if ($user1['role'] == 'Development'){ ?>
             <li
                 class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">

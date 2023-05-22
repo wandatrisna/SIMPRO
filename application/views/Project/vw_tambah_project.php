@@ -13,7 +13,7 @@
                             <div class="col-sm-12">
                                 <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                                     <div class="card-header">
-                                        <h4 class="title"><strong>Tambah Aplikasi</strong></h4><br>
+                                        <h4 class="title"><strong>Tambah Project</strong></h4><br>
                                     
 
                                         <div class="card-header-right">
@@ -140,7 +140,8 @@
 											Data</button>
 									</div>
 									</form>
-								</div>
+								</div></div></div>
+                                </div></div></div></div></div></div></div></div></div>
 
 								<script type="text/javascript">
 									function yesnoCheck() {

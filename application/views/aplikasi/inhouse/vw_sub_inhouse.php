@@ -34,20 +34,20 @@
                             <td><?= $us['owner_in']; ?></td>
                             <td>
 
-                                <a href="<?= base_url('Aplikasi/detailinhouse/'). $us['id_in']; ?>"
-                                    class="badge badge-warning">Detail</a>
+                            <a href="<?= base_url('Aplikasi/detailinhouse/'). $us['id_in']; ?>"
+                                class="badge badge-warning">Detail</a>
+                                <?php if ($user1['role'] == 'Planning') {   ?>
                                 <a href="<?= base_url('Aplikasi/hapusinhouse/'). $us['id_in']; ?> "
-                                    class="badge badge-danger"
-                                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
-                                    class="ik ik-trash-2 text-red">Hapus</a>
-
-                            </td>
-                        </tr>
-                        <?php $i++; ?>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
+                                class="badge badge-danger"
+                                onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+                                class="ik ik-trash-2 text-red">Hapus</a>
+                                <?php } ?>
+                        </td>
+                    </tr>
+                    <?php $i++; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
