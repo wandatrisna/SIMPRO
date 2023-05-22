@@ -260,6 +260,14 @@
                     </div>
             </li>
             <?php } else if ($user1['role'] == 'Development'){ ?>
+            <li
+                class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <a class="nav-link collapsed" href="<?= base_url('User') ?>" data-target="#collapse1"
+                    aria-expanded="true" aria-controls="collapse1">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
 
             <li
                 class="nav-item <?=$this->uri->segment(2) == 'index' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
