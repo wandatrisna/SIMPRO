@@ -20,19 +20,6 @@ class User extends CI_Controller
 	public function index()
     { 
         $data['user'] = $this->User_model->get();
-        $data['planning'] = $this->User_model->uplanning();
-        $data['development'] = $this->User_model->udevelopment();
-        $data['pinbag'] = $this->User_model->upinbag();
-        $data['support'] = $this->User_model->usupport();
-        $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-        $this->load->view('layout/header',$data);
-        $this->load->view('user/vw_user',$data);
-        $this->load->view('layout/footer',$data);
-    }
-
-    public function dash1()
-    { 
-        $data['user'] = $this->User_model->get();
         $data['count'] = $this->User_model->count_user();
         $data['planning'] = $this->User_model->uplanning();
         $data['development'] = $this->User_model->udevelopment();
@@ -44,12 +31,26 @@ class User extends CI_Controller
 		$data['done'] = $this->Project_model->doneproject();
 		$data['allpro'] = $this->Project_model->all();
 		$data['stat'] = $this->Project_model->status();
-
+        $data['user1'] = $this->User_model->dashboard();
 
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
         $this->load->view('auth/dashboard',$data);
         $this->load->view('layout/footer',$data);
+    }
+
+    public function dash1()
+    { 
+        $data['user'] = $this->User_model->get();
+        $data['planning'] = $this->User_model->uplanning();
+        $data['development'] = $this->User_model->udevelopment();
+        $data['pinbag'] = $this->User_model->upinbag();
+        $data['support'] = $this->User_model->usupport();
+        $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+        $this->load->view('layout/header',$data);
+        $this->load->view('user/vw_user',$data);
+        $this->load->view('layout/footer',$data);
+        
     }
 
     public function indexuserplanning()

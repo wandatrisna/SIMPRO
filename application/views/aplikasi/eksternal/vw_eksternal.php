@@ -47,14 +47,14 @@
                                 class="ik ik-trash-2 text-red">Hapus</a>
                                 <?php } ?>
 
-                        </td>
-                    </tr>
-                    <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 </div>
 </div>

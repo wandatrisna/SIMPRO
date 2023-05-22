@@ -28,9 +28,7 @@ class Aplikasi extends CI_Controller
     public function subinhouse($nama_in)
     { 
         $data['inhouse'] = $this->Inhouse_model->getByNama($nama_in);
-        //print_r($nama_in);die();
         $data['nomor'] = $this->Inhouse_model->nomor();
-        //$data['inhouse1'] = $this->Inhouse_model->getById($id);
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
         $this->load->view('aplikasi/inhouse/vw_sub_inhouse',$data);
@@ -332,7 +330,7 @@ class Aplikasi extends CI_Controller
 
     public function subeksternal($nama_eks)
     { 
-        $data['eksternal'] = $this->Eksternal_model->getByNama($nama_in);
+        $data['eksternal'] = $this->Eksternal_model->getByNama($nama_eks);
         //$data['nomor'] = $this->Eksternal_model->nomor();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
