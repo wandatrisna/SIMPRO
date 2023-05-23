@@ -17,7 +17,7 @@ class User extends CI_Controller
         $this->load->model('Eksternal_model');
     }
 
-    public function dash1()
+    public function index()
     { 
         $data['user'] = $this->User_model->get();
         $data['planning'] = $this->User_model->uplanning();
