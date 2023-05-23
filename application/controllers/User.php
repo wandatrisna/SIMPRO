@@ -16,28 +16,6 @@ class User extends CI_Controller
         $this->load->model('Inhouse_model');
         $this->load->model('Eksternal_model');
     }
- 
-	public function index()
-    { 
-        $data['user'] = $this->User_model->get();
-        $data['count'] = $this->User_model->count_user();
-        $data['planning'] = $this->User_model->uplanning();
-        $data['development'] = $this->User_model->udevelopment();
-        $data['pinbag'] = $this->User_model->upinbag();
-        $data['support'] = $this->User_model->usupport();
-        $data['count1'] = $this->Inhouse_model->getCount();
-        $data['count2'] = $this->Eksternal_model->getCount();
-        $data['progress'] = $this->Project_model->progresproject();
-		$data['done'] = $this->Project_model->doneproject();
-		$data['allpro'] = $this->Project_model->all();
-		$data['stat'] = $this->Project_model->status();
-        $data['user1'] = $this->User_model->dashboard();
-
-        $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-        $this->load->view('layout/header',$data);
-        $this->load->view('auth/dashboard',$data);
-        $this->load->view('layout/footer',$data);
-    }
 
     public function dash1()
     { 
@@ -104,7 +82,7 @@ class User extends CI_Controller
          redirect('User');
 	}
 	
-    public function tambahdev()
+    public function tambah()
     {
         $data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
@@ -132,13 +110,12 @@ class User extends CI_Controller
         ]);
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
-            $this->load->view("user/dev/vw_tambah_development", $data);
+            $this->load->view("user/vw_tambah_user", $data);
             $this->load->view("layout/footer");
         } else {
             $data = [
 				'NIK' => $this->input->post('NIK'),
 				'nama' => $this->input->post('nama'),
-				'jk' => $this->input->post('jk'),
 				'role' => $this->input->post('role'),
 				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
                 'gambar' => 'default.png',
@@ -147,157 +124,8 @@ class User extends CI_Controller
 
 			$this->User_model->insert($data, $upload_image);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data user Berhasil Ditambah!</div>');
-            redirect('User/indexuserdevelopment');
+            redirect('User/dash1');
             }
-           
-    }
-
-	public function tambahplan()
-    {
-
-        $data['judul'] = "Halaman Tambah User";
-        $data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-            $this->form_validation->set_rules('NIK', 'NIK', 'required|is_unique[user.NIK]',[
-                'required' => 'NIK tidak boleh kosong',
-                'is_unique' => 'NIK ini sudah terdaftar!',      
-            ]);
-            
-            $this->form_validation->set_rules('nama', 'nama', 'required', [
-                'required' => 'Nama user tidak boleh kosong'
-            ]);
-            $this->form_validation->set_rules('jk', 'jk', 'required', [
-                'required' => 'Jenis Kelamin user tidak boleh kosong'
-            ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]',
-        [
-        'matches' => 'Password Tidak Sama',
-        'min_length' => 'Password Terlalu Pendek',
-        'required' => 'Password harus diisi'
-        ]
-        );
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-        'matches' => 'Password Tidak Sama',
-        'required' => 'Password harus diisi'
-        ]);
-        if ($this->form_validation->run() == false) {
-            $this->load->view("layout/header", $data);
-            $this->load->view("user/plan/vw_tambah_planning", $data);
-            $this->load->view("layout/footer");
-        } else {
-            $data = [
-				'NIK' => $this->input->post('NIK'),
-				'nama' => $this->input->post('nama'),
-				'jk' => $this->input->post('jk'),
-				'role' => $this->input->post('role'),
-				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'gambar' => 'default.png',
-
-			   ];
-
-			$this->User_model->insert($data, $upload_image);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data user Berhasil Ditambah!</div>');
-            redirect('User/indexuserplanning');
-            }
-           
-    }
-
-    public function tambahsup()
-    {
-
-        $data['judul'] = "Halaman Tambah User";
-        $data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-            $this->form_validation->set_rules('NIK', 'NIK', 'required|is_unique[user.NIK]',[
-                'required' => 'NIK tidak boleh kosong',
-                'is_unique' => 'NIK ini sudah terdaftar!',      
-            ]);
-            
-            $this->form_validation->set_rules('nama', 'nama', 'required', [
-                'required' => 'Nama user tidak boleh kosong'
-            ]);
-            $this->form_validation->set_rules('jk', 'jk', 'required', [
-                'required' => 'Jenis Kelamin user tidak boleh kosong'
-            ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]',
-        [
-        'matches' => 'Password Tidak Sama',
-        'min_length' => 'Password Terlalu Pendek',
-        'required' => 'Password harus diisi'
-        ]
-        );
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-        'matches' => 'Password Tidak Sama',
-        'required' => 'Password harus diisi'
-        ]);
-        if ($this->form_validation->run() == false) {
-            $this->load->view("layout/header", $data);
-            $this->load->view("user/sup/vw_tambah_support", $data);
-            $this->load->view("layout/footer");
-        } else {
-            $data = [
-				'NIK' => $this->input->post('NIK'),
-				'nama' => $this->input->post('nama'),
-				'jk' => $this->input->post('jk'),
-				'role' => $this->input->post('role'),
-				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'gambar' => 'default.png',
-
-			   ];
-
-			$this->User_model->insert($data, $upload_image);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data user Berhasil Ditambah!</div>');
-            redirect('User/indexusersupport');
-            }
-           
-    }
-
-    public function tambahpin()
-    {
-        $data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-            $this->form_validation->set_rules('NIK', 'NIK', 'required|is_unique[user.NIK]',[
-                'required' => 'NIK tidak boleh kosong',
-                'is_unique' => 'NIK ini sudah terdaftar!',      
-            ]);
-            
-            $this->form_validation->set_rules('nama', 'nama', 'required', [
-                'required' => 'Nama user tidak boleh kosong'
-            ]);
-            $this->form_validation->set_rules('jk', 'jk', 'required', [
-                'required' => 'Jenis Kelamin user tidak boleh kosong'
-            ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]',
-        [
-        'matches' => 'Password Tidak Sama',
-        'min_length' => 'Password Terlalu Pendek',
-        'required' => 'Password harus diisi'
-        ]
-        );
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-        'matches' => 'Password Tidak Sama',
-        'required' => 'Password harus diisi'
-        ]);
-        if ($this->form_validation->run() == false) {
-            $this->load->view("layout/header", $data);
-            $this->load->view("user/pin/vw_tambah_pinbag", $data);
-            $this->load->view("layout/footer");
-        } else {
-            $data = [
-				'NIK' => $this->input->post('NIK'),
-				'nama' => $this->input->post('nama'),
-				'jk' => $this->input->post('jk'),
-				'role' => $this->input->post('role'),
-				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
-                'gambar' => 'default.png',
-
-			   ];
-
-			$this->User_model->insert($data, $upload_image);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data user Berhasil Ditambah!</div>');
-            redirect('User/indexuserpinbag');
-            }
-           
     }
 
     public function edit($id)

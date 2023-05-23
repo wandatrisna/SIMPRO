@@ -80,6 +80,13 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">USER TABLE</h6>
+            <div class="float-right">
+                <a href="<?= base_url() ?>User/tambah" class="btn btn-primary btn-icon-split btn-sm">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-flag"></i>
+                    </span>
+                    <span class="text">Add New User</span> </a>
+            </div>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -89,7 +96,6 @@
                             <th width="5px">Number</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Gender</th>
                             <th>Role</th>
                             <th>NIK</th>
                         </tr>
@@ -103,7 +109,6 @@
                                     style="width : 50px;" class="img-thumbnail">
                             </td>
                             <td><?= $us['nama']; ?></td>
-                            <td><?= $us['jk']; ?></td>
                             <td><?= $us['role']; ?></td>
                             <td><?= $us['NIK']; ?></td>
                         </tr>

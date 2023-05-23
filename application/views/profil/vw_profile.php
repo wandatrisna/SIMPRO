@@ -33,9 +33,6 @@
                                     <h6>&emsp;&emsp;<strong>NIK</strong></h6>
                                     <p>&emsp;&emsp;<?= $user1['NIK'] ?> </p>
 
-                                    <h6>&emsp;&emsp;<strong>Gender</strong></h6>
-                                    <p>&emsp;&emsp;<?= $user1['jk'] ?></p>
-
                                     <h6>&emsp;&emsp;<strong>Role</strong></h6>
                                     <p>&emsp;&emsp;<?= $user1['role'] ?></p>
 

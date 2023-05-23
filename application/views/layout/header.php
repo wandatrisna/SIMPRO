@@ -69,17 +69,17 @@
             <?php
             if ($user1['role'] == 'Superuser') { ?>
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
-                <a class="nav-link collapsed" href="<?= base_url('User') ?>" data-target="#collapse1"
-                    aria-expanded="true" aria-controls="collapse1">
+                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
-            <li class="nav-item <?=$this->uri->segment(2) == 'User/dash1' ? ' active"' : '' ?>">
-                <a class="nav-link collapsed" href="<?= base_url('User/dash1') ?>" data-target="#collapse2"
-                    aria-expanded="true" aria-controls="collapse2">
+
+            <li
+                class="nav-item <?=$this->uri->segment(2) == 'User/dash1' || $this->uri->segment(2) == 'User/tambah' ? ' active' : '' ?>">
+                <a class="nav-link" href="<?= base_url('User/dash1') ?>">
                     <i class="fas fa-fw fa-users"></i>
                     <span>All User</span>
                 </a>
@@ -139,9 +139,8 @@
             <?php } else if ($user1['role'] == 'Planning'){ ?>
 
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
-                <a class="nav-link collapsed" href="<?= base_url('User') ?>" data-target="#collapse1"
-                    aria-expanded="true" aria-controls="collapse1">
+                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
                 </a>
@@ -209,6 +208,14 @@
             </li>
 
             <?php } else if ($user1['role'] == 'Pinbag'){ ?>
+            <li
+                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <a class="nav-link" href="<?= base_url('Dashboard') ?>">
+                    <i class="fas fa-fw fa-home"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
             <li class="nav-item <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail'
 				|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'tambahproject' || $this->uri->segment(2) == 'hapusproject'
 				|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
@@ -257,40 +264,39 @@
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexeksternal' ? ' active' : '' ?>"
                             href="<?= base_url('Aplikasi/indexeksternal') ?>">Eksternal</a>
 
-					</div>
-			</li>
+                    </div>
+            </li>
 
-			<li
-				class="nav-item <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
+            <li
+                class="nav-item <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
                                 $this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>">
-				<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-					aria-expanded="true" aria-controls="collapsePages">
-					<i class="fas fa-fw fa-users"></i>
-					<span>User</span>
-				</a>
-				<div id="collapsePages"
-					class="collapse <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>User</span>
+                </a>
+                <div id="collapsePages"
+                    class="collapse <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
                                 $this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' ? ' show' : '' ?>"
-					aria-labelledby="headingPages" data-parent="#accordionSidebar">
-					<div class="bg-white py-2 collapse-inner rounded">
-						<h6 class="collapse-header">User List :</h6>
-						<a class="collapse-item <?=$this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>"
-							href="<?= base_url('User/indexuserpinbag') ?>">Pinbag</a>
-						<a class="collapse-item <?=$this->uri->segment(2) == 'indexuserplanning' ? ' active' : '' ?>"
-							href="<?= base_url('User/indexuserplanning') ?>">IT Planning</a>
-						<a class="collapse-item <?=$this->uri->segment(2) == 'indexuserdevelopment' ? ' active' : '' ?>"
-							href="<?= base_url('User/indexuserdevelopment') ?>">IT Development</a>
-						<a class="collapse-item <?=$this->uri->segment(2) == 'indexusersupport' ? ' active' : '' ?>"
-							href="<?= base_url('User/indexusersupport') ?>">IT Support</a>
-					</div>
-			</li>
+                    aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">User List :</h6>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>"
+                            href="<?= base_url('User/indexuserpinbag') ?>">Pinbag</a>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserplanning' ? ' active' : '' ?>"
+                            href="<?= base_url('User/indexuserplanning') ?>">IT Planning</a>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserdevelopment' ? ' active' : '' ?>"
+                            href="<?= base_url('User/indexuserdevelopment') ?>">IT Development</a>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexusersupport' ? ' active' : '' ?>"
+                            href="<?= base_url('User/indexusersupport') ?>">IT Support</a>
+                    </div>
+            </li>
 
-			
+
             <?php } else if ($user1['role'] == 'Development'){ ?>
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
-                <a class="nav-link collapsed" href="<?= base_url('User') ?>" data-target="#collapse1"
-                    aria-expanded="true" aria-controls="collapse1">
+                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
                 </a>
@@ -327,15 +333,14 @@
 
             <?php } else if ($user1['role'] == 'IT Support'){
             ?>
-
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
-                <a class="nav-link collapsed" href="<?= base_url('User') ?>" data-target="#collapse1"
-                    aria-expanded="true" aria-controls="collapse1">
+                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
+
             <li
                 class="nav-item <?=$this->uri->segment(2) == 'sup_indexinhouse' || $this->uri->segment(2) == 'sup_indexeksternal' ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"

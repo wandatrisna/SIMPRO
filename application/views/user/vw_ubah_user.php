@@ -41,17 +41,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Gender</label>
-                            <div class="col-sm-10">
-                                <select name="jk" value="<?= $user['jk']; ?>" class="form-control" id="jk">
-                                    <option value="<?= $user['jk']; ?>"><?= $user['jk']; ?></option>
-                                    <option value="Male">PriMalea</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                                <?= form_error('jk','<small class="text-danger pl-3">','</small>'); ?>
-                            </div>
-                        </div>
 
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Role</label>
