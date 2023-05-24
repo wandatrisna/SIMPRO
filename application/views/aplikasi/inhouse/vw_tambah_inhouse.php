@@ -2,106 +2,102 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12 ">
-            <a href="<?= base_url() ?>Aplikasi/indexinhouse" class="btn btn-info">&larr; Kembali</a>
+            <a href="<?= base_url() ?>Inhouse" class="btn btn-info">&larr; Back</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
-                    Form Tambah Data Aplikasi
+                 New Application Form
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
                         <div class="form-group">
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Nomor</label>
+                                <label class="col-sm-2 col-form-label">Number</label>
                                 <div class="col-sm-10">
                                     <input type="nomor_in" name="nomor_in" class="form-control form-control-user"
-                                        value="<?php echo $nomor; ?>" id="nomor_in" placeholder="Masukkan Nomor"
-                                        readonly>
-                                    <?= form_error('nomor_in', '<small class="text-danger pl-3">', '</small>'); ?>
+                                        value="<?php echo $nomor; ?>" id="nomor_in" readonly>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Jenis</label>
+                                <label class="col-sm-2 col-form-label">Document Type</label>
                                 <div class="col-sm-10">
-                                    <select name="jenisaplikasi" class="form-control" id="jenisaplikasi">
-                                        <option value="">Pilih Jenis Aplikasi</option>
-                                        <?php foreach ($jenispmf as $p) : ?>
-                                        <option value="<?= $p['jenispmf']; ?>"><?= $p['jenispmf']; ?></option>
+                                    <select name="jenis_dokumen" class="form-control" id="jenisaplikasi">
+                                        <option value="">Select Document Type..</option>
+                                        <?php foreach ($jenisdok as $p) : ?>
+                                        <option value="<?= $p['jenisdokumen']; ?>"><?= $p['jenisdokumen']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Nama Aplikasi</label>
+                                <label class="col-sm-2 col-form-label">Application Name</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="nama_in" class="form-control" id="nama_in"
-                                        placeholder="Masukkan Nama Aplikasi">
+                                        placeholder="Insert Application Name">
                                     <?= form_error('nama_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Versi</label>
+                                <label class="col-sm-2 col-form-label">Version</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="versi_in" class="form-control" id="versi_in"
-                                        placeholder="Masukkan Versi">
+                                        placeholder="Insert Version">
                                     <?= form_error('versi_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Tanggal Penyerahan PMF</label>
+                                <label class="col-sm-2 col-form-label">PMF Submission Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" name="tgl_penyerahan_pmf" class="form-control"
-                                        id="tgl_penyerahan_pmf" placeholder="Masukkan Tanggal Penyerahan PMF">
+                                    <input type="date" name="tgl_penyerahan_pmf" class="form-control" id="tgl_penyerahan_pmf" >
                                     <?= form_error('tgl_penyerahan_pmf','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Tanggal Migrasi Prod</label>
+                                <label class="col-sm-2 col-form-label">Migration Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" name="tgl_migrasi_prod" class="form-control"
-                                        id="tgl_migrasi_prod" placeholder="Masukkan Tanggal Migrasi Prod" readonly>
+                                    <input type="date" name="tgl_migrasi_prod" class="form-control" id="tgl_migrasi_prod" readonly>
                                     <?= form_error('tgl_migrasi_prod','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Keterangan</label>
+                                <label class="col-sm-2 col-form-label">Comments</label>
                                 <div class="col-sm-10">
-                                    <input type="text" name="keterangan_in" class="form-control" id="keterangan_in"
-                                        placeholder="Masukkan Keterangan">
+                                    <textarea name="keterangan_in" class="form-control" id="keterangan_in"
+                                        placeholder="Insert Comments..."></textarea>
                                     <?= form_error('keterangan_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">PIC Planning</label>
+                                <label class="col-sm-2 col-form-label">PIC (Planning)</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="pic_plan_in" class="form-control" id="pic_plan_in"
-                                        placeholder="Masukkan PIC Planning">
+                                        placeholder="Insert PIC (Planning)">
                                     <?= form_error('pic_plan_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">PIC Development</label>
+                                <label class="col-sm-2 col-form-label">PIC (Development)</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="pic_dev_in" class="form-control" id="pic_dev_in"
-                                        placeholder="Masukkan PIC Development">
+                                        placeholder="Insert PIC (Development)">
                                     <?= form_error('pic_dev_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">PIC Migrasi</label>
+                                <label class="col-sm-2 col-form-label">PIC (Migration)</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="pic_migrasi_in" class="form-control" id="pic_migrasi_in"
-                                        placeholder="Masukkan PIC Migrasi" readonly>
+                                        placeholder="Waiting for IT Support..." readonly>
                                     <?= form_error('pic_migrasi_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
@@ -110,7 +106,7 @@
                                 <label class="col-sm-2 col-form-label">Owner</label>
                                 <div class="col-sm-10">
                                     <select name="owner_in" class="form-control" id="owner_in">
-                                        <option value="">Pilih Owner</option>
+                                        <option value="">Select Owner</option>
                                         <?php foreach ($namadivisi as $p) : ?>
                                         <option value="<?= $p['namadivisi']; ?>"><?= $p['namadivisi']; ?></option>
                                         <?php endforeach; ?>
@@ -123,7 +119,7 @@
 
 
                             <div class="col-md-12">
-                                <button type="submit" name="tambah" class="btn btn-primary float-right">Tambah
+                                <button type="submit" name="tambah" class="btn btn-primary float-right">Save
                                     Data</button>
                             </div>
                     </form>

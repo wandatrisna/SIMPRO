@@ -4,6 +4,7 @@
             <h6 class="m-0 font-weight-bold text-primary">IT SUPPORT TABLE</h6>
         </div>
         <div class="card-body">
+            <?= $this->session->flashdata('message') ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -30,10 +31,10 @@
                             <td>
                                 <?php if ($user1['role'] == 'Superuser') {   ?>
                                 <a href="<?= base_url('User/hapussup/'). $us['id_user']; ?> " class="badge badge-danger"
-                                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+                                    onclick="return confirm('Are you sure you want to delete this data?');"
                                     class="ik ik-trash-2 text-red">Delete</a>
                                 <?php } ?>
-                                <a href="<?= base_url('User/edit/'). $us['id_user']; ?>"
+                                <a href="<?= base_url('User/editsup/'). $us['id_user']; ?>"
                                     class="badge badge-warning">Edit</a>
                             </td>
                         </tr>

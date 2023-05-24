@@ -9,7 +9,7 @@ class Project extends CI_Controller
 		$this->load->model('Project_model');
 		$this->load->model('User_model');
 		$this->load->model('Jenisproject_model');
-		$this->load->model('Jenisaplikasi_model');
+		$this->load->model('Jeniseksternal_model');
 		$this->load->model('Development_model');
 		$this->load->model('Sub_model');
 
@@ -106,7 +106,7 @@ class Project extends CI_Controller
 		$data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['project'] = $this->Project_model->get();
 		$data['jenisproject'] = $this->Jenisproject_model->get();
-		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
 		$this->form_validation->set_rules('namaaplikasi', 'namaaplikasi', 'required', [
@@ -177,7 +177,7 @@ class Project extends CI_Controller
 		$data['project1'] = $this->Project_model->getById($id);
 		$data['dev'] = $this->Development_model->getkeg($id);
 		$data['jenisproject'] = $this->Jenisproject_model->get();
-		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['hitung'] = $this->Project_model->hitung();
 		$this->load->view('layout/header', $data);

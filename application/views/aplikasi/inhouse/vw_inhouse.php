@@ -3,14 +3,14 @@
     <div class="card-header py-3">
     <?php if ($user1['role'] == 'Planning') {   ?> 
         <div class="float-right">
-            <a href="<?= base_url() ?>Aplikasi/tambahinhouse" class="btn btn-primary btn-icon-split btn-sm">
+            <a href="<?= base_url() ?>Inhouse/tambahinhouse" class="btn btn-primary btn-icon-split btn-sm">
                 <span class="icon text-white-50">
                     <i class="fas fa-flag"></i>
                 </span>
-                <span class="text">Tambah Aplikasi</span> </a>
+                <span class="text">Add New Application</span> </a>
         </div>
         <?php } ?>
-        <h6 class="m-0 font-weight-bold text-primary">TABEL APLIKASI INHOUSE</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Inhouse Application</h6>
     </div>
 
         <div class="card-body">
@@ -18,13 +18,12 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="table-warning">
-                            <th>No</th>
-                            <th>Nomor</th>
-                            <th>Jenis</th>
-                            <th>Nama</th>
-                            <!-- <th>Versi</th> -->
+                            <th>Num.</th>
+                            <th>Number</th>
+                            <th>Document Type</th>
+                            <th>Application Name</th>
                             <th>Owner</th>
-                            <th>Aksi</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -34,19 +33,18 @@
                         <tr>
                             <td><?= $i; ?>.</td>
                             <td><?= $us['nomor_in']; ?></td>
-                            <td><?= $us['jenisaplikasi']; ?></td>
+                            <td><?= $us['jenis_dokumen']; ?></td>
                             <td><?= $us['nama_in']; ?></td>
-                            <!-- <td><?= $us['versi_in']; ?></td> -->
                             <td><?= $us['owner_in']; ?></td>
                             <td>
 
-                            <a href="<?= base_url('Aplikasi/subinhouse/'). $nama ?>"
-                                class="badge badge-warning">Versi</a>
+                            <a href="<?= base_url('Inhouse/subinhouse/'). $nama ?>"
+                                class="badge badge-warning">Version</a>
                                 <?php if ($user1['role'] == 'Planning') {   ?> 
-                            <a href="<?= base_url('Aplikasi/hapusinhouse/'). $us['id_in']; ?> "
+                            <a href="<?= base_url('Inhouse/hapusinhouse/'). $us['id_in']; ?> "
                                 class="badge badge-danger"
-                                onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
-                                class="ik ik-trash-2 text-red">Hapus</a>
+                                onclick="return confirm('Are you sure you want to delete this data?');"
+                                class="ik ik-trash-2 text-red">Delete</a>
                                 <?php } ?>
                         </td>
                     </tr>

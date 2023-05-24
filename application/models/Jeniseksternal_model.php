@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
-class Jenisaplikasi_model extends CI_Model
+class Jeniseksternal_model extends CI_Model
 {
-    public $table = 'jenisaplikasi';
-    public $id = 'jenisaplikasi.id_jenisaplikasi';
+    public $table = 'jenis_eks';
+    public $id = 'jenis_eks.id_jeniseks';
     public function __construct()
     {
         parent::__construct();
@@ -19,9 +19,9 @@ class Jenisaplikasi_model extends CI_Model
     public function getById($id) 
     {
         $this->db->from($this->table);
-        $this->db->where('id_jenisaplikasi',$id);
+        $this->db->where('id_jeniseks',$id);
         $query = $this->db->get();
-        $this->db->get_where($this->table, ["id_jenisaplikasi" => $id])->row();
+        $this->db->get_where($this->table, ["id_jeniseks" => $id])->row();
         return $query->row_array();
     }
     

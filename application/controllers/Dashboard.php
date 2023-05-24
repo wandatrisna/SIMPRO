@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller
         $this->load->model('Project_model');
 		$this->load->model('User_model');
 		$this->load->model('Jenisproject_model');
-		$this->load->model('Jenisaplikasi_model');
+		$this->load->model('Jeniseksternal_model');
 		$this->load->model('Development_model');
 		$this->load->model('Sub_model');
         $this->load->model('Inhouse_model');

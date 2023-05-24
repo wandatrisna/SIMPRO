@@ -2,11 +2,11 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12 ">
-            <a href="<?= base_url() ?>User/" class="btn btn-info">&larr; Back to Dashboard</a>
+            <a href="<?= base_url() ?>User/indexuserdevelopment" class="btn btn-info">&larr; Back</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
-                    Form Ubah Data User
+                    Edit User
                 </div>
                 <div class="card-body">
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -18,8 +18,6 @@
                                 <img src="<?= base_url('assets/images/profile/') . $user['gambar']; ?>"
                                     style="width : 250px;" class="img-thumbnail">
                                 <label for="gambar"> </label>
-                                <input type="file" name="gambar" id="gambar"
-                                    accept="image/png, image/jpeg, image/jpg, image/gif">
                             </div>
                         </div>
 
@@ -46,8 +44,6 @@
                             <label class="col-sm-2 col-form-label">Role</label>
                             <div class="col-sm-10">
                                 <select name="role" class="form-control" id="role">
-                                    <!-- <option value="<?= $user['role']; ?>"><?= $user['role']; ?>
-                                                        </option> -->
                                     <?php foreach ($role as $p) : ?>
                                     <option value="<?=$p['role']?>"> <?= $p['role']; ?> </option>
                                     <?php endforeach; ?>

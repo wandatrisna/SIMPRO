@@ -4,6 +4,7 @@
             <h6 class="m-0 font-weight-bold text-primary">IT DEVELOPMENT TABLE</h6>
         </div>
         <div class="card-body">
+        <?= $this->session->flashdata('message') ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -11,7 +12,6 @@
                             <th width="5px">Number</th>
                             <th>Image</th>
                             <th>Name</th>
-
                             <th>Role</th>
                             <th>NIK</th>
                             <th>Action</th>
@@ -31,10 +31,10 @@
                             <td>
                                 <?php if ($user1['role'] == 'Superuser') {   ?>
                                 <a href="<?= base_url('User/hapusdev/'). $us['id_user']; ?> " class="badge badge-danger"
-                                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+                                    onclick="return confirm('Are you sure you want to delete this data?');"
                                     class="ik ik-trash-2 text-red">Delete</a>
                                 <?php } ?>
-                                <a href="<?= base_url('User/edit/'). $us['id_user']; ?>"
+                                <a href="<?= base_url('User/editdev/'). $us['id_user']; ?>"
                                     class="badge badge-warning">Edit</a>
                             </td>
                         </tr>
