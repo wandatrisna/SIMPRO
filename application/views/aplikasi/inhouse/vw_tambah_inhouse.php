@@ -23,7 +23,7 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Document Type</label>
                                 <div class="col-sm-10">
-                                    <select name="jenis_dokumen" class="form-control" id="jenisaplikasi">
+                                    <select name="jenis_dokumen" class="form-control" id="jenis_dokumen">
                                         <option value="">Select Document Type..</option>
                                         <?php foreach ($jenisdok as $p) : ?>
                                         <option value="<?= $p['jenisdokumen']; ?>"><?= $p['jenisdokumen']; ?></option>
@@ -67,10 +67,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-sm-2 col-form-label">Comments</label>
+                                <label class="col-sm-2 col-form-label">Description</label>
                                 <div class="col-sm-10">
                                     <textarea name="keterangan_in" class="form-control" id="keterangan_in"
-                                        placeholder="Insert Comments..."></textarea>
+                                        placeholder="Insert Description..."></textarea>
                                     <?= form_error('keterangan_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@
 
                             <div class="col-md-12">
                                 <button type="submit" name="tambah" class="btn btn-primary float-right">Save
-                                    Data</button>
+                                    </button>
                             </div>
                     </form>
                 </div>

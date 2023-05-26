@@ -167,7 +167,6 @@
                                                     <?php  }?>
                                                     </td>
                                             </label>
-
                                         </div>
 
                                         <div class="form-group row">

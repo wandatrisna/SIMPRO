@@ -11,7 +11,6 @@ class Eksternal extends CI_Controller
         $this->load->model('Jeniseksternal_model');
         $this->load->model('Jenisdokumen_model');
         $this->load->model('Namadivisi_model');
-
     }
 
     public function index()
@@ -26,7 +25,6 @@ class Eksternal extends CI_Controller
     public function subeksternal($nama_eks)
     { 
         $data['eksternal'] = $this->Eksternal_model->getByNama($nama_eks);
-        //$data['nomor'] = $this->Eksternal_model->nomor();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
         $this->load->view('aplikasi/eksternal/vw_sub_eksternal',$data);
@@ -54,49 +52,46 @@ class Eksternal extends CI_Controller
     public function tambaheksternal()
     {
             $data['eksternal'] = $this->Eksternal_model->get();
-            $data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
-            $data['jenispmf'] = $this->Jenisdokumen_model->get();
+            $data['jeniseks'] = $this->Jeniseksternal_model->get();
+            $data['jenisdok'] = $this->Jenisdokumen_model->get();
             $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         
             $this->form_validation->set_rules('nama_eks', 'nama_eks', 'required', [
-                'required' => 'Data tidak boleh kosong'
+                'required' => 'Required!'
             ]);
-            $this->form_validation->set_rules('jenisaplikasi', 'jenisaplikasi', 'required', [
-                'required' => 'Datal tidak boleh kosong'
+            $this->form_validation->set_rules('jenis_eks', 'jenis_eks', 'required', [
+                'required' => 'Required!'
             ]);
-            $this->form_validation->set_rules('pmf_eks', 'pmf_eks', 'required', [
-                'required' => 'Datal tidak boleh kosong'
+            $this->form_validation->set_rules('dokumen_eks', 'dokumen_eks', 'required', [
+                'required' => 'Required!'
             ]);
             $this->form_validation->set_rules('versi_eks', 'versi_eks', 'required', [
-                'required' => 'Data tidak boleh kosong'
+                'required' => 'Required!'
             ]);
             $this->form_validation->set_rules('tgl_penyerahan_pmf', 'tgl_penyerahan_pmf', 'required', [
-                'required' => 'Data tidak boleh kosong'
+                'required' => 'Required!'
             ]);
             $this->form_validation->set_rules('keterangan', 'keterangan', 'required', [
-                'required' => 'Datal tidak boleh kosong'
+                'required' => 'Required!'
             ]);
             $this->form_validation->set_rules('pic_plan_eks', 'pic_plan_eks', 'required', [
-                'required' => 'Data tidak boleh kosong'
+                'required' => 'Required!'
             ]);
             $this->form_validation->set_rules('pmf_by_eks', 'pmf_by_eks', 'required', [
-                'required' => 'Data tidak boleh kosong'
-            ]);
-            $this->form_validation->set_rules('hapus_eks', 'hapus_eks', 'required', [
-                'required' => 'Data tidak boleh kosong'
+                'required' => 'Required!'
             ]);
             if ($this->form_validation->run() == false) {
                 $this->load->view('layout/header',$data);
                 $this->load->view('aplikasi/eksternal/vw_tambah_eksternal',$data);
                 $this->load->view('layout/footer',$data);    
             } else {
-                $pmf = $this->input->post('pmf_eks');
-                $nomor_surat = $this->Eksternal_model->nomorsurat($pmf);
+                $jenis_eks = $this->input->post('jenis_eks');
+                $nomor_surat = $this->Eksternal_model->nomorsurat($jenis_eks);
                     $data = [
-                        'pmf_eks' => $this->input->post('pmf_eks'),
+                        'jenis_eks' => $this->input->post('jenis_eks'),
                         'nomor_eks' => $nomor_surat,
                         'nama_eks' => $this->input->post('nama_eks'),
-                        'jenisaplikasi' => $this->input->post('jenisaplikasi'),
+                        'dokumen_eks' => $this->input->post('dokumen_eks'),
                         'versi_eks' => $this->input->post('versi_eks'),
                         'tgl_penyerahan_pmf' => $this->input->post('tgl_penyerahan_pmf'),	
                         'keterangan' => $this->input->post('keterangan'),
@@ -105,8 +100,8 @@ class Eksternal extends CI_Controller
                         'hapus_eks' => $this->input->post('hapus_eks'),		
                        ];
                 $this->Eksternal_model->insert($data);
-                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
-                redirect('Aplikasi/indexeksternal');
+                $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data successfully added!</div>');
+                redirect('Eksternal');
         }
     }
 
@@ -117,31 +112,31 @@ class Eksternal extends CI_Controller
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
         $this->form_validation->set_rules('nomor_eks', 'nomor_eks', 'required', [
-            'required' => 'Data tidak boleh kosong'
+            'required' => 'Required!'
         ]);
         $this->form_validation->set_rules('nama_eks', 'nama_eks', 'required', [
-            'required' => 'Data tidak boleh kosong'
+            'required' => 'Required!'
         ]);
-        $this->form_validation->set_rules('jenisaplikasi', 'jenisaplikasi', 'required', [
-            'required' => 'Datal tidak boleh kosong'
+        $this->form_validation->set_rules('jenis_eks', 'jenis_eks', 'required', [
+            'required' => 'Required!'
         ]);
-        $this->form_validation->set_rules('pmf_eks', 'pmf_eks', 'required', [
-            'required' => 'Data tidak boleh kosong'
+        $this->form_validation->set_rules('dokumen_eks', 'dokumen_eks', 'required', [
+            'required' => 'Required!'
         ]);
         $this->form_validation->set_rules('versi_eks', 'versi_eks', 'required', [
-            'required' => 'Data tidak boleh kosong'
+            'required' => 'Required!'
         ]);
 		$this->form_validation->set_rules('tgl_penyerahan_pmf', 'tgl_penyerahan_pmf', 'required', [
-            'required' => 'Data tidak boleh kosong'
+            'required' => 'Required!'
         ]);
         $this->form_validation->set_rules('keterangan', 'keterangan', 'required', [
-            'required' => 'Datal tidak boleh kosong'
+            'required' => 'Required!'
         ]);
         $this->form_validation->set_rules('pic_plan_eks', 'pic_plan_eks', 'required', [
-            'required' => 'Data tidak boleh kosong'
+            'required' => 'Required!'
         ]);
         $this->form_validation->set_rules('pmf_by_eks', 'pmf_by_eks', 'required', [
-            'required' => 'Data tidak boleh kosong'
+            'required' => 'Required!'
         ]);
 
         if ($this->form_validation->run() == false) {
@@ -152,8 +147,8 @@ class Eksternal extends CI_Controller
             $data = [
 				'nomor_eks' => $this->input->post('nomor_eks'),
                 'nama_eks' => $this->input->post('nama_eks'),
-				'jenisaplikasi' => $this->input->post('jenisaplikasi'),
-                'pmf_eks' => $this->input->post('pmf_eks'),
+				'jenis_eks' => $this->input->post('jenis_eks'),
+                'dokumen_eks' => $this->input->post('dokumen_eks'),
 				'versi_eks' => $this->input->post('versi_eks'),
 				'tgl_penyerahan_pmf' => $this->input->post('tgl_penyerahan_pmf'),	
                 'keterangan' => $this->input->post('keterangan'),
@@ -204,10 +199,24 @@ class Eksternal extends CI_Controller
                             echo $this->upload->display_errors();
                             }
                         }
+                        $upload_image = $_FILES['doc_lain']['name'];       
+                        if ($upload_image) {
+                        $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
+                        $config['max_size'] = '20000';
+                        $config['upload_path'] = './assets/dokumenlain/';
+                        $this->load->library('upload', $config);
+                        if ($this->upload->do_upload('doc_lain')) {
+                            $old_image = $data['inhouse']['doc_lain'];
+                        $new_image = $this->upload->data('file_name');
+                        $this->db->set('doc_lain', $new_image);
+                        } else {
+                            echo $this->upload->display_errors();
+                            }
+                        }
             $id_eks = $this->input->post('id_eks');
             $this->Eksternal_model->update(['id_eks' => $id_eks], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-            redirect('Aplikasi/detaileksternal/'.$id_eks);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+            redirect('Eksternal/detaileksternal/'.$id_eks);
         }
     
     }
@@ -215,12 +224,11 @@ class Eksternal extends CI_Controller
     public function sup_editeksternal($id)
     {
         $data['eksternal'] = $this->Eksternal_model->getById($id);
-
         $data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
         $this->form_validation->set_rules('tgl_migrasi', 'tgl_migrasi', 'required', [
-            'required' => 'Data tidak boleh kosong'
+            'required' => 'Required!'
         ]);
 
         if ($this->form_validation->run() == false) {
@@ -243,8 +251,8 @@ class Eksternal extends CI_Controller
                             
             $id_eks = $this->input->post('id_eks');
             $this->Eksternal_model->update(['id_eks' => $id_eks], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-            redirect('Aplikasi/detaileksternal/'.$id_eks);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+            redirect('Eksternal/detaileksternal/'.$id_eks);
         }
     
     }
@@ -252,7 +260,8 @@ class Eksternal extends CI_Controller
     public function hapuseksternal($id)
     {
         $this->Eksternal_model->delete($id);
-        redirect('Aplikasi/indexeksternal');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('Eksternal/indexeksternal');
     }
 
     public function downloadpmf1($id){
@@ -270,6 +279,12 @@ class Eksternal extends CI_Controller
         $data = $this->db->get_where('eksternal',['doc_check_list'=>$id])->row();
         force_download('assets/dokumeneksternal/'.$data->doc_library,NULL);
     }
+    public function downloadlain($id){
+        $this->load->helper('download');
+        $data = $this->db->get_where('eksternal',['doc_lain'=>$id])->row();
+        force_download('assets/dokumenlain/'.$data->doc_lain,NULL);
+    }
+
 }
 
     

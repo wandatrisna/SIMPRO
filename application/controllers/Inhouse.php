@@ -230,7 +230,7 @@ class Inhouse extends CI_Controller
                         $upload_image = $_FILES['doc_lain']['name'];       
                         if ($upload_image) {
                         $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
-                        $config['max_size'] = '2048';
+                        $config['max_size'] = '20000';
                         $config['upload_path'] = './assets/dokumenlain/';
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_lain')) {
@@ -300,14 +300,14 @@ class Inhouse extends CI_Controller
             $id_in = $this->input->post('id_in');
             $this->Inhouse_model->update(['id_in' => $id_in], $data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Diubah!</div>');
-            redirect('Aplikasi/detailinhouse/'.$id_in);
+            redirect('Inhouse/detailinhouse/'.$id_in);
         }
     }
 
     public function hapusinhouse($id)
     {
         $this->Inhouse_model->delete($id);
-        redirect('Aplikasi/indexinhouse');
+        redirect('Inhouse');
     }
 
     public function downloadpmf($id){

@@ -128,7 +128,6 @@
                                                 &emsp;<input type="file" name="doc_lain" id="doc_lain"
                                                     accept="image/png, image/jpeg, image/jpg, image/gif">
                                             </label>
-
                                         </div>
 
                                         <div class="form-group row">

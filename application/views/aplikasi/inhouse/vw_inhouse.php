@@ -1,17 +1,17 @@
 <div class="col-md-12">
-<div class="card shadow mb-4">
-    <div class="card-header py-3">
-    <?php if ($user1['role'] == 'Planning') {   ?> 
-        <div class="float-right">
-            <a href="<?= base_url() ?>Inhouse/tambahinhouse" class="btn btn-primary btn-icon-split btn-sm">
-                <span class="icon text-white-50">
-                    <i class="fas fa-flag"></i>
-                </span>
-                <span class="text">Add New Application</span> </a>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <?php if ($user1['role'] == 'Planning') {   ?>
+            <div class="float-right">
+                <a href="<?= base_url() ?>Inhouse/tambahinhouse" class="btn btn-primary btn-icon-split btn-sm">
+                    <span class="icon text-white-50">
+                        <i class="fas fa-flag"></i>
+                    </span>
+                    <span class="text">Add New Application</span> </a>
+            </div>
+            <?php } ?>
+            <h6 class="m-0 font-weight-bold text-primary">Inhouse Application</h6>
         </div>
-        <?php } ?>
-        <h6 class="m-0 font-weight-bold text-primary">Inhouse Application</h6>
-    </div>
 
         <div class="card-body">
             <div class="table-responsive">
@@ -38,21 +38,15 @@
                             <td><?= $us['owner_in']; ?></td>
                             <td>
 
-                            <a href="<?= base_url('Inhouse/subinhouse/'). $nama ?>"
-                                class="badge badge-warning">Version</a>
-                                <?php if ($user1['role'] == 'Planning') {   ?> 
-                            <a href="<?= base_url('Inhouse/hapusinhouse/'). $us['id_in']; ?> "
-                                class="badge badge-danger"
-                                onclick="return confirm('Are you sure you want to delete this data?');"
-                                class="ik ik-trash-2 text-red">Delete</a>
-                                <?php } ?>
-                        </td>
-                    </tr>
-                    <?php $i++; ?>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                                <a href="<?= base_url('Inhouse/subinhouse/'). $nama ?>"
+                                    class="badge badge-warning">Version</a>
+                            </td>
+                        </tr>
+                        <?php $i++; ?>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 </div>
