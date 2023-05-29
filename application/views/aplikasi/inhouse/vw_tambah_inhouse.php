@@ -1,7 +1,7 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-12 ">
+        <div class="col-md-10">
             <a href="<?= base_url() ?>Inhouse" class="btn btn-info">&larr; Back</a>
             <br><br>
             <div class="card">
@@ -127,5 +127,6 @@
             </div>
         </div>
     </div>
-</div>
+</div><br>
+    <br>
 </div>

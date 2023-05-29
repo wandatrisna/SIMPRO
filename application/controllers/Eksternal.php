@@ -224,7 +224,7 @@ class Eksternal extends CI_Controller
     public function sup_editeksternal($id)
     {
         $data['eksternal'] = $this->Eksternal_model->getById($id);
-        $data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
+        $data['jenis_eks'] = $this->Jeniseksternal_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
         $this->form_validation->set_rules('tgl_migrasi', 'tgl_migrasi', 'required', [
@@ -239,8 +239,8 @@ class Eksternal extends CI_Controller
             $data = [
 				'nomor_eks' => $this->input->post('nomor_eks'),
                 'nama_eks' => $this->input->post('nama_eks'),
-				'jenisaplikasi' => $this->input->post('jenisaplikasi'),
-                'pmf_eks' => $this->input->post('pmf_eks'),
+				'jenis_eks' => $this->input->post('jenis_eks'),
+                'dokumen_eks' => $this->input->post('dokumen_eks'),
 				'versi_eks' => $this->input->post('versi_eks'),
 				'tgl_penyerahan_pmf' => $this->input->post('tgl_penyerahan_pmf'),	
                 'tgl_migrasi' => $this->input->post('tgl_migrasi'),
@@ -261,7 +261,7 @@ class Eksternal extends CI_Controller
     {
         $this->Eksternal_model->delete($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
-        redirect('Eksternal/indexeksternal');
+        redirect('Eksternal');
     }
 
     public function downloadpmf1($id){

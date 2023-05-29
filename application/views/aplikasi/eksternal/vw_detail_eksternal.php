@@ -2,18 +2,11 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10 ">
-            <?php
-                            if ($user1['role'] == 'Planning') {?>
             <div class="float">
-                <a href="<?= base_url('Eksternal/subeksternal/'). $eksternal['nama_eks']; ?>" class="btn btn-info">&larr;
+                <a href="<?= base_url('Eksternal/subeksternal/'). $eksternal['nama_eks']; ?>"
+                    class="btn btn-info">&larr;
                     Back</a>
             </div>
-            <?php
-							} elseif ($user1['role'] == 'IT Support') { ?>
-            <div class="float">
-                <a href="<?= base_url() ?>Eksternal/sup_indexeksternal" class="btn btn-info">&larr; Back</a>
-            </div>
-            <?php }?>
             <br>
             <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                 <div class="row">
@@ -191,4 +184,6 @@
             </div>
         </div>
     </div>
+    <br>
+    <br>
 </div>

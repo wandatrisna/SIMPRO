@@ -69,7 +69,7 @@
             <?php
             if ($user1['role'] == 'Superuser') { ?>
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                class="nav-item <?=$this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
@@ -78,8 +78,8 @@
 
 
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'User' || $this->uri->segment(2) == 'User/tambah' ? ' active' : '' ?>">
-                <a class="nav-link" href="<?= base_url('User') ?>">
+                class="nav-item <?=$this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'User/tambah' ? ' active' : '' ?>">
+                <a class="nav-link" href="<?= base_url('User/index') ?>">
                     <i class="fas fa-fw fa-users"></i>
                     <span>All User</span>
                 </a>
@@ -218,8 +218,8 @@
 
 
             <?php } else if ($user1['role'] == 'Pinbag'){ ?>
-            <li
-                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <li
+                class="nav-item <?=$this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
@@ -304,8 +304,8 @@
 
 
             <?php } else if ($user1['role'] == 'Development'){ ?>
-            <li
-                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                <li
+                class="nav-item <?=$this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
@@ -344,7 +344,7 @@
             <?php } else if ($user1['role'] == 'IT Support'){
             ?>
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'Dashboard' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                class="nav-item <?=$this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
                     <span>Dashboard</span>
@@ -364,9 +364,9 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Application List :</h6>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexinhouse' ? ' active' : '' ?>"
-                            href="<?= base_url('Aplikasi/sup_indexinhouse') ?>">Inhouse</a>
+                            href="<?= base_url('inhouse/sup_indexinhouse') ?>">Inhouse</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexeksternal' ? ' active' : '' ?>"
-                            href="<?= base_url('Aplikasi/sup_indexeksternal') ?>">Eksternal</a>
+                            href="<?= base_url('eksternal/sup_indexeksternal') ?>">Eksternal</a>
 
                     </div>
             </li>

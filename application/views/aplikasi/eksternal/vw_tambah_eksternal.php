@@ -1,12 +1,12 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-12 ">
+        <div class="col-md-10">
             <a href="<?= base_url() ?>Eksternal/indexeksternal" class="btn btn-info">&larr; Back</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
-                New Application Form
+                    New Application Form
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
@@ -66,7 +66,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Migration Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" name="tgl_migrasi" class="form-control" id="tgl_migrasi" readonly>
+                                    <input type="date" name="tgl_migrasi" class="form-control" id="tgl_migrasi"
+                                        readonly>
                                     <?= form_error('tgl_migrasi','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
@@ -109,4 +110,6 @@
         </div>
     </div>
 </div>
+<br>
+<br>
 </div>

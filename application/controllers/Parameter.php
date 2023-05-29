@@ -140,5 +140,37 @@ class Parameter extends CI_Controller
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
         redirect('Parameter/indexeks');
     }
+
+    public function indexapp()
+    { 
+        $data['app'] = $this->Jenisaplikasi_model->get();
+        $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+        $this->load->view('layout/header',$data);
+        $this->load->view('parameter/vw_param_eks',$data);
+        $this->load->view('layout/footer',$data);
+
+        $this->form_validation->set_rules('jeniseks', 'jeniseks', 'required', [
+            'required' => 'Required!'
+        ]);
+
+        if ($this->form_validation->run() == false) {
+
+        } else {
+            $data = [
+				'jeniseks' => $this->input->post('jeniseks')
+			   ];
+
+			$this->Jeniseksternal_model->insert($data, $upload_image);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
+            redirect('Parameter/indexeks');
+        } 
+    }
+
+    public function hapusapp($id)
+    {
+        $this->Jeniseksternal_model->delete($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+        redirect('Parameter/indexeks');
+    }
 }
 ?>

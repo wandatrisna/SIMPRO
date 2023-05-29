@@ -90,6 +90,7 @@
                                                 <td>&emsp;: <?= $inhouse['doc_form_pmf']; ?></td>
                                                 &emsp;<input type="file" name="doc_form_pmf" id="doc_form_pmf"
                                                     accept="image/png, image/jpeg, image/jpg, image/gif">
+                                                    <?= form_error('doc_form_pmf','<small class="text-danger pl-3">','</small>'); ?>
                                             </label>
                                         </div>
 
@@ -102,6 +103,7 @@
                                                 <td>&emsp;: <?= $inhouse['doc_library']; ?></td>
                                                 &emsp;<input type="file" name="doc_library" id="doc_form_pmf"
                                                     accept="image/png, image/jpeg, image/jpg, image/gif">
+                                                    <?= form_error('doc_library','<small class="text-danger pl-3">','</small>'); ?>
                                             </label>
                                         </div>
 
@@ -114,6 +116,7 @@
                                                 <td>&emsp;: <?= $inhouse['doc_check_list']; ?></td>
                                                 &emsp;<input type="file" name="doc_check_list" id="doc_form_pmf"
                                                     accept="image/png, image/jpeg, image/jpg, image/gif">
+                                                    <?= form_error('doc_check_list','<small class="text-danger pl-3">','</small>'); ?>
                                             </label>
 
                                         </div>
@@ -127,6 +130,7 @@
                                                 <td>&emsp;: <?= $inhouse['doc_lain']; ?></td>
                                                 &emsp;<input type="file" name="doc_lain" id="doc_lain"
                                                     accept="image/png, image/jpeg, image/jpg, image/gif">
+                                                    <?= form_error('doc_lain','<small class="text-danger pl-3">','</small>'); ?>
                                             </label>
                                         </div>
 
@@ -170,4 +174,6 @@
     </div>
 </div>
 </div>
+<br>
+    <br>
 </div>

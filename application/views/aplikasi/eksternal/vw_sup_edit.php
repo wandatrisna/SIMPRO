@@ -1,28 +1,23 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-10 ">
+        <div class="col-md-10">
             <div class="float">
-                <a href="<?= base_url('Aplikasi/detaileksternal/'). $eksternal['id_eks']; ?>"
-                    class="btn btn-info">&larr; Kembali</a>
+            <a href="<?= base_url('Eksternal/detaileksternal/'). $eksternal['id_eks']; ?>"
+                    class="btn btn-info">&larr; Back</a>
             </div>
             <br>
-            <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
-                <div class="row">
+            <div class="card">
+                <div class="card-header justify-content-center">
+                 Update Data (Support)
+                </div>
                     <div class="card-body">
-                        <center>
-                            <h4 class="title"><strong>Perbarui Data Eksternal</strong></h4><br><br>
-                        </center>
-                        <?= $this->session->flashdata('message') ?>
-
-                        <div class="card-block">
-
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="id_eks" value="<?= $eksternal['id_eks']; ?>">
                                 <div class="form-group">
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Nomor</label>
+                                        <label class="col-sm-2 col-form-label">Number</label>
                                         <div class="col-sm-10">
                                             <input type="nomor_eks" name="nomor_eks"
                                                 class="form-control form-control-user"
@@ -31,62 +26,56 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Nama Aplikasi</label>
+                                        <label class="col-sm-2 col-form-label">Application Name</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="nama_eks" class="form-control" id="nama_eks"
-                                                placeholder="Masukkan Nama Aplikasi"
                                                 value="<?= $eksternal['nama_eks']; ?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Jenis</label>
+                                        <label class="col-sm-2 col-form-label">External Type</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="jenisaplikasi" class="form-control"
-                                                id="jenisaplikasi" value="<?= $eksternal['jenisaplikasi']; ?>"
-                                                placeholder="Masukkan Nama Aplikasi" readonly>
+                                            <input type="text" name="jenis_eks" class="form-control"
+                                                id="jenis_eks" value="<?= $eksternal['jenis_eks']; ?>"readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">PMF</label>
+                                        <label class="col-sm-2 col-form-label">External Document</label>
                                         <div class="col-sm-10">
-                                            <input type="text" name="pmf_eks" class="form-control" id="pmf_eks"
-                                                value="<?= $eksternal['pmf_eks']; ?>"
-                                                placeholder="Masukkan Nama Aplikasi" readonly>
+                                            <input type="text" name="dokumen_eks" class="form-control" id="dokumen_eks"
+                                                value="<?= $eksternal['dokumen_eks']; ?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Versi</label>
+                                        <label class="col-sm-2 col-form-label">Version</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="versi_eks" class="form-control" id="versi_eks"
-                                                value="<?= $eksternal['versi_eks']; ?>" placeholder="Masukkan Versi"
-                                                readonly>
+                                                value="<?= $eksternal['versi_eks']; ?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Tanggal Penyerahan PMF</label>
+                                        <label class="col-sm-2 col-form-label">PMF Submission date</label>
                                         <div class="col-sm-10">
                                             <input type="date" name="tgl_penyerahan_pmf" class="form-control"
-                                                id="tgl_penyerahan_pmf" value="<?= $eksternal['tgl_penyerahan_pmf']; ?>"
-                                                placeholder="Masukkan Tanggal Penyerahan PMF" readonly>
+                                                id="tgl_penyerahan_pmf" value="<?= $eksternal['tgl_penyerahan_pmf']; ?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Tanggal Migrasi</label>
+                                        <label class="col-sm-2 col-form-label">Migration Date</label>
                                         <div class="col-sm-10">
                                             <input type="date" name="tgl_migrasi" class="form-control" id="tgl_migrasi"
-                                                value="<?= $eksternal['tgl_migrasi']; ?>"
-                                                placeholder="Masukkan Tanggal Migrasi">
+                                                value="<?= $eksternal['tgl_migrasi']; ?>" >
                                             <?= form_error('tgl_migrasi','<small class="text-danger pl-3">','</small>'); ?>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">Keterangan</label>
+                                        <label class="col-sm-2 col-form-label">Description</label>
                                         <div class="col-sm-10">
                                             <textarea rows="4" name="keterangan" class="form-control" id="keterangan"
                                                 readonly><?=$eksternal['keterangan']; ?></textarea>
@@ -94,25 +83,23 @@
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">PIC Planning</label>
+                                        <label class="col-sm-2 col-form-label">PIC (Planning)</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="pic_plan_eks" class="form-control"
-                                                id="pic_plan_eks" value="<?= $eksternal['pic_plan_eks']; ?>"
-                                                placeholder="Masukkan PIC Planning" readonly>
+                                                id="pic_plan_eks" value="<?= $eksternal['pic_plan_eks']; ?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-sm-2 col-form-label">PMF Disampaikan Oleh</label>
+                                        <label class="col-sm-2 col-form-label">PMF By</label>
                                         <div class="col-sm-10">
                                             <input type="text" name="pmf_by_eks" class="form-control" id="pmf_by_eks"
-                                                value="<?= $eksternal['pmf_by_eks']; ?>"
-                                                placeholder="Masukkan PIC Planning" readonly>
+                                                value="<?= $eksternal['pmf_by_eks']; ?>" readonly>
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
-                                        <button type="submit" name="tambah" class="btn btn-primary float-right">Ubah
+                                        <button type="submit" name="tambah" class="btn btn-primary float-right">Update
                                             Data</button>
                                     </div>
                             </form>
@@ -122,5 +109,6 @@
             </div>
         </div>
     </div>
-</div>
+<br>
+    <br>
 </div>
