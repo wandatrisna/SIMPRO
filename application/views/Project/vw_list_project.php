@@ -7,21 +7,21 @@
 					<span class="icon text-white-50">
 						<i class="fas fa-flag"></i>
 					</span>
-					<span class="text">Tambah Project</span> </a><?php } ?>
+					<span class="text">Add Project</span> </a><?php } ?>
 			</div>
-			<h6 class="m-0 font-weight-bold text-primary">TABEL PROJECT ONGOING</h6>
+			<h6 class="m-0 font-weight-bold text-primary">ONGOING PROJECT </h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr class="table-warning">
-							<th width="5px">Nomor</th>
-							<th>Nama Aplikasi</th>
-							<th>Progres</th>
+							<th width="5px">Number</th>
+							<th>Application Name</th>
+							<th>Progress</th>
 							<th>Status</th>
-							<th>Keterangan</th>
-							<th>Aksi</th>
+							<th>Note</th>
+							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -97,7 +97,7 @@
 														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"
 															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
-															class="ik ik-trash-2 text-red">Hapus</a>
+															class="ik ik-trash-2 text-red">Delete</a>
 															<?php } ?>
 													</td>
 												</tr>

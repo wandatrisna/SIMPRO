@@ -59,8 +59,7 @@
 															<tr>
 																<td>
 																	<div class="task-contain">
-																		<p class="d-inline-block m-l-20"><strong>Dokumen
-																				URF</strong></p>
+																		<p class="d-inline-block m-l-20"><strong>URF Document</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -79,7 +78,7 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20">
-																			<strong>Target Planing</strong></p>
+																			<strong> Planning Target</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -132,8 +131,8 @@
 															<tr>
 																<td>
 																	<div class="task-contain">
-																		<p class="d-inline-block m-l-20"><strong>Tanggal
-																				Mulai</strong></p>
+																		<p class="d-inline-block m-l-20"><strong>Register Tanggal
+																				</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -152,7 +151,7 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20">
-																			<strong>Keterangan</strong>
+																			<strong>Note</strong>
 																		</p>
 																	</div>
 																</td>
@@ -186,7 +185,7 @@
 																		data-toggle="modal" data-target="#editModal">
 																		<button data-toggle="modal"
 																			data-target="#ubah-data"
-																			class="btn btn-warning">Ubah</button>
+																			class="btn btn-warning">Edit</button>
 																	</a>
 																	
 																</td>
@@ -204,7 +203,7 @@
 												<div class="card-header">
 
 													<div class="d-inline-block">
-														<h5>Kegiatan</h5>
+														<h5>Activity</h5>
 
 													</div>
 												</div>
@@ -214,9 +213,9 @@
 														<table class="table">
 															<thead>
 																<tr class="table-warning">
-																	<th>Nama Kegiatan</th>
+																	<th>Activity Name</th>
 																	<th>Progress</th>
-																	<th>Aksi</th>
+																	<th>Action</th>
 																</tr>
 															</thead>
 															<tbody>

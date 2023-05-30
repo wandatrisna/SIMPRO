@@ -41,6 +41,17 @@ class Development_model extends CI_Model
         $query = 'SELECT sum(bobot) as bobot FROM `tb_dev` WHERE project_id = "'.$id.'"';
         return $this->db->query($query)->row_array();
     }
+    
+    public function getProgres($id)
+    {
+        $query = 'SELECT progres FROM `tb_dev` WHERE project_id = "'.$id.'"';
+        return $this->db->query($query)->row_array();
+    }
+    public function getBobot1($id)
+    {
+        $query = 'SELECT bobot as bobot1 FROM `tb_dev` WHERE project_id = "'.$id.'"';
+        return $this->db->query($query)->row_array();
+    }
 
     public function getBy()
     {

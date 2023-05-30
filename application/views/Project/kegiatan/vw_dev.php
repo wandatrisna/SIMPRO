@@ -160,7 +160,7 @@
 											<div class="form-group row">
 												<label class="col-sm-2 col-form-label">Bobot</label>
 												<div class="col-sm-10">
-													<input type="text" name="bobot"
+													<input type="number" name="bobot"
 														class="form-control form-control-user"
 														value="<?= set_value('bobot'); ?>" id="bobot"
 														placeholder="Masukkan bobot ">
@@ -170,7 +170,7 @@
 											<div class="form-group row">
 												<label class="col-sm-2 col-form-label">Progres</label>
 												<div class="col-sm-10">
-													<input type="text" name="progres"
+													<input type="number" name="progres"
 														class="form-control form-control-user"
 														value="<?= set_value('progres'); ?>" id="progres"
 														placeholder="Masukkan progres">

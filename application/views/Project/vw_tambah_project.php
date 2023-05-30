@@ -7,13 +7,13 @@
 				<div class="page-wrapper">
 					<div class="page-body">
 						<div class="float">
-                            <a href="<?= base_url() ?>Project/indexlistproject" class="btn btn-danger mb-2">Kembali</a>
+                            <a href="<?= base_url() ?>Project/indexlistproject" class="btn btn-danger mb-2">Back</a>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                                     <div class="card-header">
-                                        <h4 class="title"><strong>Tambah Project</strong></h4><br>
+                                        <h4 class="title"><strong>Add Project</strong></h4><br>
                                     
 
                                         <div class="card-header-right">
@@ -23,7 +23,7 @@
                                         <div class="card-block">
                                             <form action="" method="POST">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Nama Aplikasi</label>
+                                                    <label class="col-sm-2 col-form-label">Application Name</label>
                                                     <div class="col-sm-10">
                                                         <input type="namaaplikasi" name="namaaplikasi"
                                                             class="form-control form-control-user"
@@ -34,7 +34,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Jenis Project</label>
+                                                    <label class="col-sm-2 col-form-label">Project Type</label>
                                                     <div class="col-sm-10">
                                                         <select name="jenisproject" class="form-control"
                                                             id="jenisproject">
@@ -47,7 +47,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Jenis Aplikasi</label>
+                                                    <label class="col-sm-2 col-form-label">Application Type</label>
                                                     <div class="col-sm-10">
                                                         <select name="jenisaplikasi" class="form-control"
                                                             id="jenisaplikasi">
@@ -60,7 +60,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Plan</label>
+                                                    <label class="col-sm-2 col-form-label">Target Planning</label>
                                                     <div class="col-sm-10">
                                                         <input type="date" name="plan" value="<?= set_value('plan'); ?>"
                                                             class="form-control form-control-user" id="plan"
@@ -92,7 +92,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Tanggal register</label>
+                                                    <label class="col-sm-2 col-form-label">Register Date</label>
                                                     <div class="col-sm-10">
                                                         <input type="date" name="tanggalregister"
                                                             value="<?= set_value('tanggalregister'); ?>"
@@ -136,7 +136,7 @@
 
 
 									<div class="float-right">
-										<button type="submit" name="tambah" class="btn btn-primary float-right">Tambah
+										<button type="submit" name="tambah" class="btn btn-primary float-right">Add
 											Data</button>
 									</div>
 									</form>

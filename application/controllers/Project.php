@@ -308,7 +308,7 @@ class Project extends CI_Controller
 			'planendatefsd' => $this->input->post('planendatefsd'),
 			'actualstdatefsd' => $this->input->post('actualstdatefsd'),
 			'actualendatefsd' => $this->input->post('actualendatefsd'),
-			'status' => 'Terakhir Diubah Oleh FSD'
+			'status' => 'Terakhir Diubah FSD'
 		);
 		$upload_image = $_FILES['filefsd']['name'];
 		if ($upload_image) {
@@ -375,6 +375,7 @@ class Project extends CI_Controller
 		//var_dump( $this->upload->data('file_name'));die();
 		$filename = $this->upload->data('file_name');
 		if ($bobot['bobot'] + $this->input->post('bobot') <= 60) {
+			if ($this->input->post('progres') <= $this->input->post('bobot') ) {
 			$data['dev1'] = $this->Development_model->getById($id);
 			$id = $this->input->post('project_id');
 			$data = [
@@ -396,13 +397,16 @@ class Project extends CI_Controller
 				'actualstdate' => $this->input->post('actualstdate'),
 				'actualendate' => $this->input->post('actualendate'),
 				'file' => $filename,
-				'status' => 'Terakhir Diubah Oleh Development'
+				'status' => 'Terakhir Diubah Development'
 			);
 			$this->Project_model->ubah($data1, $id);
 			// var_dump($id);
 			// die();
 			$this->Development_model->insert($data);
 			$this->session->set_flashdata('acc', 'Data baru ditambah!');
+		}else{
+			$this->session->set_flashdata('err', 'Progres tidak boleh melebihi bobot!');
+		}
 		} else if ($bobot['bobot'] + $this->input->post('bobot') > 60) {
 			$this->session->set_flashdata('err', 'Data tidak dapat ditambah karena total bobot dapat melebihi 60!');
 		}
@@ -500,7 +504,7 @@ class Project extends CI_Controller
 			'actualstdatedev' => $this->input->post('actualstdatebrd'),
 			'actualendatedev' => $this->input->post('actualendatebrd'),
 			'filedev' => $filename,
-			'status' => 'Terakhir Diubah Oleh Development'
+			'status' => 'Terakhir Diubah Development'
 		);
 		
 		$this->Project_model->ubah($data1, $idd);
@@ -531,7 +535,7 @@ class Project extends CI_Controller
 			'planendatesit' => $this->input->post('planendatesit'),
 			'actualstdatesit' => $this->input->post('actualstdatesit'),
 			'actualendatesit' => $this->input->post('actualendatesit'),
-			'status' => 'Terakhir Diubah Oleh SIT'
+			'status' => 'Terakhir Diubah SIT'
 		);
 		$upload_image = $_FILES['filesit']['name'];
 		if ($upload_image) {
@@ -575,7 +579,7 @@ class Project extends CI_Controller
 			'planendateuat' => $this->input->post('planendateuat'),
 			'actualstdateuat' => $this->input->post('actualstdateuat'),
 			'actualendateuat' => $this->input->post('actualendateuat'),
-			'status' => 'Terakhir Diubah Oleh UAT'
+			'status' => 'Terakhir Diubah UAT'
 		);
 		$upload_image = $_FILES['fileuat']['name'];
 		if ($upload_image) {
@@ -620,7 +624,7 @@ class Project extends CI_Controller
 			'planendatemigrasi' => $this->input->post('planendatemigrasi'),
 			'actualstdatemigrasi' => $this->input->post('actualstdatemigrasi'),
 			'actualendatemigrasi' => $this->input->post('actualendatemigrasi'),
-			'status' => 'Terakhir Diubah Oleh Migrasi'
+			'status' => 'Terakhir Diubah Migrasi'
 		);
 		$upload_image = $_FILES['filemigrasi']['name'];
 		if ($upload_image) {
