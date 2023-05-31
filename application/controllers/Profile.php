@@ -64,12 +64,11 @@ class Profile extends CI_Controller
             $data = [
 				'NIK' => $this->input->post('NIK'),
 				'nama' => $this->input->post('nama'),
-				'jk' => $this->input->post('jk'),
 				'role' => $this->input->post('role')
                     ];
                     $upload_image = $_FILES['gambar']['name'];
                         if ($upload_image) {
-                        $config['allowed_types'] = 'gif|jpg|png';
+                        $config['allowed_types'] = 'gif|jpg|png|jpeg';
                         $config['max_size'] = '2048';
                         $config['upload_path'] = './assets/images/profile/';
                         $this->load->library('upload', $config);

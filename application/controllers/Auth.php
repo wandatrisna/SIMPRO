@@ -47,9 +47,9 @@ class Auth extends CI_Controller
                 ];  
                 $this->session->set_userdata($data);
                 if ($user['role' == 'Superuser']) {
-                    redirect('Profile');
+                    redirect('Dashboard');
                 } else {
-                    redirect('Profile');
+                    redirect('Dashboard');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">

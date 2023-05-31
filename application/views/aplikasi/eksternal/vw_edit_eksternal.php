@@ -3,15 +3,15 @@
     <div class="row justify-content-center">
         <div class="col-md-10 ">
             <div class="float">
-                <a href="<?= base_url('Aplikasi/detaileksternal/'). $eksternal['id_eks']; ?>"
-                    class="btn btn-info">&larr; Kembali</a>
+                <a href="<?= base_url('Eksternal/detaileksternal/'). $eksternal['id_eks']; ?>"
+                    class="btn btn-info">&larr; Back</a>
             </div>
             <br>
             <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                 <div class="row">
                     <div class="card-body">
                         <center>
-                            <h4 class="title"><strong>Perbarui Data Eksternal</strong></h4><br><br>
+                            <h4 class="title"><strong>Update Data</strong></h4><br><br>
                         </center>
                         <?= $this->session->flashdata('message') ?>
                         
@@ -25,7 +25,7 @@
 
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Nama Aplikasi</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Application Name</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -34,8 +34,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal
-                                                    Penyerahan PMF</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Submission Date</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -44,8 +43,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal
-                                                    Migrasi</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Date</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -54,8 +52,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    Planning</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Planning)</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -64,8 +61,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Disampaikan
-                                                    Oleh</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF By</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -74,8 +70,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Form
-                                                    PMF</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Form</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -86,8 +81,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen
-                                                    Library</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Library Document</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -98,8 +92,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen
-                                                    Check List</strong>
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Check List Document</strong>
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
@@ -107,25 +100,37 @@
                                                 &emsp;<input type="file" name="doc_check_list" id="doc_form_pmf"
                                                     accept="image/png, image/jpeg, image/jpg, image/gif">
                                             </label>
-
                                         </div>
 
-                                        <label class="col-sm-12 col-form-label"><strong>Keterangan</strong>
-                                        </label>
-                                        <br>
-                                        <label class="col-sm-12 col-form-label">
-                                            <td><?= $eksternal['keterangan']; ?></td><br>
-                                        </label>
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Other
+                                                    Document</strong>
+                                            </label>
+                                            <br>
+                                            <label class="col-sm-8 col-form-label">
+                                                <td>&emsp;: <?= $eksternal['doc_lain']; ?></td>
+                                                &emsp;<input type="file" name="doc_lain" id="doc_lain"
+                                                    accept="image/png, image/jpeg, image/jpg, image/gif">
+                                            </label>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-12 col-form-label"><strong>&emsp;Description</strong>
+                                            </label>
+                                            <br>
+                                            <label class="col-sm-12 col-form-label">
+                                                <td>&emsp;<?= $eksternal['keterangan']; ?></td><br>
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
 
                                 <div class="form-group row">
                                     <input type="hidden" name="id_eks" value="<?= $eksternal['id_eks']; ?>">
                                     <input type="hidden" name="nomor_eks" value="<?= $eksternal['nomor_eks']; ?>">
                                     <input type="hidden" name="nama_eks" value="<?= $eksternal['nama_eks']; ?>">
-                                    <input type="hidden" name="jenisaplikasi"
-                                        value="<?= $eksternal['jenisaplikasi']; ?>">
-                                    <input type="hidden" name="pmf_eks" value="<?= $eksternal['pmf_eks']; ?>">
+                                    <input type="hidden" name="dokumen_eks"
+                                        value="<?= $eksternal['dokumen_eks']; ?>">
+                                    <input type="hidden" name="jenis_eks" value="<?= $eksternal['jenis_eks']; ?>">
                                     <input type="hidden" name="versi_eks" value="<?= $eksternal['versi_eks']; ?>">
                                     <input type="hidden" name="tgl_penyerahan_pmf"
                                         value="<?= $eksternal['tgl_penyerahan_pmf']; ?>">
@@ -148,4 +153,7 @@
         </div>
     </div>
 </div>
+</div>
+<br>
+    <br>
 </div>

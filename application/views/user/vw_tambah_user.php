@@ -2,13 +2,13 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12 ">
-            <a href="<?= base_url() ?>User/indexuserpinbag" class="btn btn-info">&larr; Back</a>
+            <a href="<?= base_url() ?>User/indexusersupport" class="btn btn-info">&larr; Back</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
-                Add Data Form </div>
+                    Add Data Form </div>
                 <div class="card-body">
-                <form action="" method="POST">
+                    <form action="" method="POST">
                         <div class="form-group">
                             <div class="form-group">
                                 <div class="form-group">
@@ -38,22 +38,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Gender</label>
-                            <div class="col-sm-10">
-                                <select name="jk" class="form-control" id="jk">
-                                    <option value="">Select Gender...</option>
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                </select>
-                                <?= form_error('jk','<small class="text-danger pl-3">','</small>'); ?>
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Role</label>
                             <div class="col-sm-10">
-                                <input type="text" name="role" class="form-control" id="role" value="Pinbag"
-                                    readonly>
+                                <select name="role" class="form-control" id="role">
+                                    <option value="">Select Role...</option>
+                                    <option value="pinbag">Pimpinan Bagian</option>
+                                    <option value="planning">IT Planning</option>
+                                    <option value="development">IT Development</option>
+                                    <option value="support">IT Support</option>
+                                </select>
                             </div>
                         </div>
 
@@ -61,8 +54,7 @@
                             <label class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-5">
                                 <input type="password" name="password1" value="<?= set_value('password1'); ?>"
-                                    class="form-control form-control-user" id="password1"
-                                    placeholder="Insert Password">
+                                    class="form-control form-control-user" id="password1" placeholder="Insert Password">
                                 <?= form_error('password1', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
 

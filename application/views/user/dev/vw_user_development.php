@@ -2,17 +2,9 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">IT DEVELOPMENT TABLE</h6>
-            <?php if ($user1['role'] == 'Superuser') {   ?> 
-            <div class="float-right">
-                <a href="<?= base_url() ?>User/tambahdev" class="btn btn-primary btn-icon-split btn-sm">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
-                    </span>
-                    <span class="text">Add New User</span> </a>
-            </div>
-            <?php } ?>
         </div>
         <div class="card-body">
+        <?= $this->session->flashdata('message') ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -20,7 +12,6 @@
                             <th width="5px">Number</th>
                             <th>Image</th>
                             <th>Name</th>
-                            <th>Gender</th>
                             <th>Role</th>
                             <th>NIK</th>
                             <th>Action</th>
@@ -35,16 +26,15 @@
                                     style="width : 50px;" class="img-thumbnail">
                             </td>
                             <td><?= $us['nama']; ?></td>
-                            <td><?= $us['jk']; ?></td>
                             <td><?= $us['role']; ?></td>
                             <td><?= $us['NIK']; ?></td>
                             <td>
-                            <?php if ($user1['role'] == 'Superuser') {   ?> 
+                                <?php if ($user1['role'] == 'Superuser') {   ?>
                                 <a href="<?= base_url('User/hapusdev/'). $us['id_user']; ?> " class="badge badge-danger"
-                                    onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+                                    onclick="return confirm('Are you sure you want to delete this data?');"
                                     class="ik ik-trash-2 text-red">Delete</a>
-                                    <?php } ?>
-                                <a href="<?= base_url('User/edit/'). $us['id_user']; ?>"
+                                <?php } ?>
+                                <a href="<?= base_url('User/editdev/'). $us['id_user']; ?>"
                                     class="badge badge-warning">Edit</a>
                             </td>
                         </tr>
