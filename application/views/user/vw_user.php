@@ -87,6 +87,7 @@
                     </span>
                     <span class="text">Add New User</span> </a>
             </div>
+
         </div>
         <div class="card-body">
         <?= $this->session->flashdata('message') ?>

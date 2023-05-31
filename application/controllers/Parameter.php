@@ -7,6 +7,7 @@ class Parameter extends CI_Controller
     {
         parent::__construct();
         $this->load->model('Jeniseksternal_model');
+        $this->load->model('Jenisaplikasi_model');
         $this->load->model('Jenisdokumen_model');
         $this->load->model('Jenisproject_model');
         $this->load->model('Namadivisi_model');
@@ -128,7 +129,7 @@ class Parameter extends CI_Controller
 				'jeniseks' => $this->input->post('jeniseks')
 			   ];
 
-			$this->Jeniseksternal_model->insert($data, $upload_image);
+			$this->Jeniseksternal_model->insert($data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
             redirect('Parameter/indexeks');
         } 
@@ -146,10 +147,10 @@ class Parameter extends CI_Controller
         $data['app'] = $this->Jenisaplikasi_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
-        $this->load->view('parameter/vw_param_eks',$data);
+        $this->load->view('parameter/vw_param_app',$data);
         $this->load->view('layout/footer',$data);
 
-        $this->form_validation->set_rules('jeniseks', 'jeniseks', 'required', [
+        $this->form_validation->set_rules('namajenisaplikasi', 'namajenisaplikasi', 'required', [
             'required' => 'Required!'
         ]);
 
@@ -157,20 +158,20 @@ class Parameter extends CI_Controller
 
         } else {
             $data = [
-				'jeniseks' => $this->input->post('jeniseks')
+				'namajenisaplikasi' => $this->input->post('namajenisaplikasi')
 			   ];
 
-			$this->Jeniseksternal_model->insert($data, $upload_image);
+			$this->Jenisaplikasi_model->insert($data);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
-            redirect('Parameter/indexeks');
+            redirect('Parameter/indexapp');
         } 
     }
 
     public function hapusapp($id)
     {
-        $this->Jeniseksternal_model->delete($id);
+        $this->Jenisaplikasi_model->delete($id);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
-        redirect('Parameter/indexeks');
+        redirect('Parameter/indexapp');
     }
 }
 ?>

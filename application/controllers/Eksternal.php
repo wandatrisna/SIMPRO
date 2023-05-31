@@ -105,6 +105,62 @@ class Eksternal extends CI_Controller
         }
     }
 
+    public function sendEmail($file_name_pmf, $file_name_lib, $file_name_check) {
+        //print_r($file_name_pmf); die(); 
+        $this->load->library('email');
+        $nama = $this->input->post('nama_eks');
+        $picdev = $this->input->post('pic_plan_eks');
+
+        $this->load->library('PHPMailer_load'); //Load Library PHPMailer
+        $mail = $this->phpmailer_load->load(); // Mendefinisikan Variabel Mail
+        $mail->isSMTP();  // Mengirim menggunakan protokol SMTP
+        $mail->Host = 'smtp.gmail.com'; // Host dari server SMTP
+        $mail->SMTPAuth = true; // Autentikasi SMTP
+        $mail->Username = 'wanda20ti@mahasiswa.pcr.ac.id';
+        $mail->Password = 'hayutrisna912';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+
+        $mail->setFrom('noreply@testing.com', 'Planning - Wanda Trisnahayu'); // Sumber email
+        $mail->addAddress('wanda.trisnahayu09@gmail.com'); // Masukkan alamat email dari variabel $email
+        $mail->Subject = "MIGRATION EMAIL TESTING"; // Subjek Email
+        $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_pmf);
+        $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_lib);
+        $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_check);
+        $mail->msgHtml("
+        Assalamualaikum Warahmatullahi Wabarokatu
+        <br>
+        Dear Bagian IT Operation & Support,
+        <br><br>
+        Berikut ini kami sampaikan deskripsi kelen​gkapan dokumen migrasi untuk $nama
+        <br>​Objek Migrasi​​ : 
+        <br>Dokumen Migrasi (To Do List)
+        <br>Dokumen PMF Migrasi​
+        <br>Dokumen Ceklis Dokumen 
+        <br>Dokumen Library​ 
+        <br>Dokumen Pendukung Lainnya​ (Dokumen pendukung dapat diakses melalui link berikut [link menyusul saat aplikasi LIVE])
+         
+        <br>Mohon Bantuan Tim Support untuk dapat melakukan migrasi atas aplikasi tersebut.
+        <br>Adapun PIC Development​ untuk Aplikasi ini dapat dikoordikasikan dengan Sdr.$picdev
+         
+        <br>Demikian kami sampaikan dimana selanjutnya Tim IT Operation & Support mohon bantuannya untuk dapat menginformasikan status migrasi/jadwal migrasi dengan me-reply email ini, atas perhatian dan kerjasamanya kami ucapkan terimakasih 
+
+        <br><br>Wassalamualaikum Warahmatullahi Wabarokatuh.
+         ​
+         <br><br><br>Regards,​
+         
+         <br><br>IT Planning & Assurance
+         <br>Divisi Teknologi & Sistem Informasi
+         <br>Bank Riau Kepri​​ Syariah
+            "); // Isi email dengan format HTML
+            
+        if (!$mail->send()) {
+                    echo "Mailer Error: " . $mail->ErrorInfo;
+                } else {
+                    //echo "Message sent!";
+                } // Kirim email dengan cek kondisi
+    }
+
     public function editeksternal($id)
     {
         $data['eksternal'] = $this->Eksternal_model->getById($id);
@@ -163,8 +219,8 @@ class Eksternal extends CI_Controller
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_form_pmf')) {
                             $old_image = $data['eksternal']['doc_form_pmf'];
-                        $new_image = $this->upload->data('file_name');
-                        $this->db->set('doc_form_pmf', $new_image);
+                        $new_image1 = $this->upload->data('file_name');
+                        $this->db->set('doc_form_pmf', $new_image1);
                         } else {
                             echo $this->upload->display_errors();
                             }
@@ -178,8 +234,8 @@ class Eksternal extends CI_Controller
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_library')) {
                             $old_image = $data['eksternal']['doc_library'];
-                        $new_image = $this->upload->data('file_name');
-                        $this->db->set('doc_library', $new_image);
+                        $new_image2 = $this->upload->data('file_name');
+                        $this->db->set('doc_library', $new_image2);
                         } else {
                             echo $this->upload->display_errors();
                             }
@@ -193,8 +249,8 @@ class Eksternal extends CI_Controller
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_check_list')) {
                             $old_image = $data['eksternal']['doc_check_list'];
-                        $new_image = $this->upload->data('file_name');
-                        $this->db->set('doc_check_list', $new_image);
+                        $new_image3 = $this->upload->data('file_name');
+                        $this->db->set('doc_check_list', $new_image3);
                         } else {
                             echo $this->upload->display_errors();
                             }
@@ -215,6 +271,7 @@ class Eksternal extends CI_Controller
                         }
             $id_eks = $this->input->post('id_eks');
             $this->Eksternal_model->update(['id_eks' => $id_eks], $data);
+            $this->sendEmail($new_image1, $new_image2,$new_image3);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
             redirect('Eksternal/detaileksternal/'.$id_eks);
         }

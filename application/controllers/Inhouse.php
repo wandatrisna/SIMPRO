@@ -54,15 +54,12 @@ class Inhouse extends CI_Controller
         $this->load->view('layout/footer',$data);
     }
 
-    public function sendEmail() {
+    public function sendEmail($file_name_pmf, $file_name_lib, $file_name_check) {
+        //print_r($file_name_pmf); die(); 
         $this->load->library('email');
-        $id_in = $this->input->post('id_in');
         $nama = $this->input->post('nama_in');
-        $pmf = $this->input->post('doc_form_pmf');
-        $lib = $this->input->post('doc_library');
-        $lain = $this->input->post('doc_lain');
-        $check = $this->input->post('doc_check_list');
         $picdev = $this->input->post('pic_dev_in');
+
         $this->load->library('PHPMailer_load'); //Load Library PHPMailer
         $mail = $this->phpmailer_load->load(); // Mendefinisikan Variabel Mail
         $mail->isSMTP();  // Mengirim menggunakan protokol SMTP
@@ -72,9 +69,15 @@ class Inhouse extends CI_Controller
         $mail->Password = 'hayutrisna912';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
+
         $mail->setFrom('noreply@testing.com', 'Planning - Wanda Trisnahayu'); // Sumber email
         $mail->addAddress('wanda.trisnahayu09@gmail.com'); // Masukkan alamat email dari variabel $email
-        $mail->Subject = "TESTING EMAIL"; // Subjek Email
+        $mail->Subject = "MIGRATION EMAIL TESTING"; // Subjek Email
+        //$mail->addAttachment('E:\COOLYEAH\smt6\LOGBOOK INSTANSI\Logbook 20maret-5mei _ wanda.pdf');
+        $mail->addAttachment('./assets/dokumeninhouse/'.$file_name_pmf);
+        $mail->addAttachment('./assets/dokumeninhouse/'.$file_name_lib);
+        $mail->addAttachment('./assets/dokumeninhouse/'.$file_name_check);
+        //$mail->addAttachment('./assets/dokumenlain/'.$lain);
         $mail->msgHtml("
         Assalamualaikum Warahmatullahi Wabarokatu
         <br>
@@ -83,18 +86,16 @@ class Inhouse extends CI_Controller
         Berikut ini kami sampaikan deskripsi kelen​gkapan dokumen migrasi untuk $nama
         <br>​Objek Migrasi​​ : 
         <br>Dokumen Migrasi (To Do List)
-        <br>Dokumen PMF Migrasi​ (dokumen menyusul)
-        <br>Dokumen Ceklis Dokumen (dokumen menyusul)
-        <br>Dokumen Library​ (dokumen menyusul)​
-        <br>Dokumen Pendukung Lainnya​
-        <br>(Attachment terlampir)
+        <br>Dokumen PMF Migrasi​
+        <br>Dokumen Ceklis Dokumen 
+        <br>Dokumen Library​ 
+        <br>Dokumen Pendukung Lainnya​ (Dokumen pendukung dapat diakses melalui link berikut [link menyusul saat aplikasi LIVE])
          
         <br>Mohon Bantuan Tim Support untuk dapat melakukan migrasi atas aplikasi tersebut.
         <br>Adapun PIC Development​ untuk Aplikasi ini dapat dikoordikasikan dengan Sdr.$picdev
          
-        <br>Demikian kami sampaikan dimana selanjutnya Tim IT Operation & Support mohon bantuannya untuk dapat menginformasikan status migrasi/ jadwal migrasi dengan me-reply email ini, atas perhatian dan kerjasamanya kami ucapkan terimakasih 
-        <br><br>untuk kekurangan dokumen akan disampaikan segera setelah dokumen ditandatangani dikarenakan dibutuhkan perbaikan segera
-        
+        <br>Demikian kami sampaikan dimana selanjutnya Tim IT Operation & Support mohon bantuannya untuk dapat menginformasikan status migrasi/jadwal migrasi dengan me-reply email ini, atas perhatian dan kerjasamanya kami ucapkan terimakasih 
+
         <br><br>Wassalamualaikum Warahmatullahi Wabarokatuh.
          ​
          <br><br><br>Regards,​
@@ -103,7 +104,7 @@ class Inhouse extends CI_Controller
          <br>Divisi Teknologi & Sistem Informasi
          <br>Bank Riau Kepri​​ Syariah
             "); // Isi email dengan format HTML
-            $this->email->attach('C:\Users\User\Pictures\patrick.jpg');
+            
         if (!$mail->send()) {
                     echo "Mailer Error: " . $mail->ErrorInfo;
                 } else {
@@ -235,14 +236,13 @@ class Inhouse extends CI_Controller
                         $config['upload_path'] = './assets/dokumeninhouse/';
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_form_pmf')) {
-                            $old_image = $data['inhouse']['doc_form_pmf'];
-                        $new_image = $this->upload->data('file_name');
-                        $this->db->set('doc_form_pmf', $new_image);
+                            // $old_image = $data['inhouse']['doc_form_pmf'];
+                        $new_image1 = $this->upload->data('file_name');
+                        $this->db->set('doc_form_pmf', $new_image1);
                         } else {
                             echo $this->upload->display_errors();
                             }
                         } 
-                        
                         $upload_image = $_FILES['doc_library']['name'];       
                         if ($upload_image) {
                         $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
@@ -251,28 +251,12 @@ class Inhouse extends CI_Controller
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_library')) {
                             // $old_image = $data['inhouse']['doc_library'];
-                        $new_image = $this->upload->data('file_name');
-                        $this->db->set('doc_library', $new_image);
+                        $new_image2 = $this->upload->data('file_name');
+                        $this->db->set('doc_library', $new_image2);
                         } else {
                             echo $this->upload->display_errors();
                             }
                         }
-
-                        $upload_image = $_FILES['doc_lain']['name'];       
-                        if ($upload_image) {
-                        $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
-                        $config['max_size'] = '2048';
-                        $config['upload_path'] = './assets/dokumenlain/';
-                        $this->load->library('upload', $config);
-                        if ($this->upload->do_upload('doc_lain')) {
-                            $old_image = $data['inhouse']['doc_lain'];
-                        $new_image = $this->upload->data('file_name');
-                        $this->db->set('doc_lain', $new_image);
-                        } else {
-                            echo $this->upload->display_errors();
-                            }
-                        }
-
                         $upload_image = $_FILES['doc_check_list']['name'];       
                         if ($upload_image) {
                         $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
@@ -281,15 +265,30 @@ class Inhouse extends CI_Controller
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_check_list')) {
                             // $old_image = $data['inhouse']['doc_check_list'];
-                        $new_image = $this->upload->data('file_name');
-                        $this->db->set('doc_check_list', $new_image);
+                        $new_image3 = $this->upload->data('file_name');
+                        $this->db->set('doc_check_list', $new_image3);
                         } else {
                             echo $this->upload->display_errors();
                             }
                         }
+                        $upload_image = $_FILES['doc_lain']['name'];       
+                        if ($upload_image) {
+                        $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
+                        $config['max_size'] = '2048';
+                        $config['upload_path'] = './assets/dokumeninhouse/';
+                        $this->load->library('upload', $config);
+                        if ($this->upload->do_upload('doc_lain')) {
+                            // $old_image = $data['inhouse']['doc_lain'];
+                        $new_image4 = $this->upload->data('file_name');
+                        $this->db->set('doc_lain', $new_image4);
+                        } else {
+                            echo $this->upload->display_errors();
+                            }
+                        }
+
             $id_in = $this->input->post('id_in');
             $this->Inhouse_model->update(['id_in' => $id_in], $data);
-            $this->sendEmail();
+            $this->sendEmail($new_image1, $new_image2,$new_image3);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
             redirect('Inhouse/detailinhouse/'.$id_in);
         }

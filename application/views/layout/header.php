@@ -119,11 +119,13 @@
                     <span>Parameter</span>
                 </a>
                 <div id="collapsePages1"
-                    class="collapse <?=$this->uri->segment(2) == 'indexdok' || $this->uri->segment(2) == 'indexeks' ||
+                    class="collapse <?=$this->uri->segment(2) == 'indexdok' || $this->uri->segment(2) == 'indexeks' || $this->uri->segment(2) == 'indexapp' ||
                                 $this->uri->segment(2) == 'indexproj' || $this->uri->segment(2) == 'indexdiv' ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Parameter List :</h6>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexapp' ? ' active' : '' ?>"
+                            href="<?= base_url('Parameter/indexapp') ?>">Application</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexdiv' ? ' active' : '' ?>"
                             href="<?= base_url('Parameter/indexdiv') ?>">Division</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexdok' ? ' active' : '' ?>"

@@ -62,11 +62,15 @@ class Login extends CI_Controller
 
     public function logout()
     {
-        session_destroy();
-        $this->session->unset_userdata('NIK');
+        $this->session->unset_userdata('nik');
         $this->session->unset_userdata('role');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Berhasil Logout!!</div>');
-        redirect('auth');
+        $this->session->set_flashdata('message', '
+        <script>
+            swal("Success!", "Berhasil Masuk!", {
+                icon : "success",
+            });
+        </script>
+        ');
+        redirect('Auth');
     }
 }
