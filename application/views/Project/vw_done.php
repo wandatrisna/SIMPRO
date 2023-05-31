@@ -68,12 +68,12 @@
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr class="table-warning">
-							<th width="5px">Nomor</th>
-								<th>Nama Aplikasi</th>
-								<th>Progres</th>
-								<th>Status</th>
-								<th>Keterangan</th>
-								<th>Aksi</th>
+							<th width="5px">Number</th>
+							<th>Application Name</th>
+							<th>Progress</th>
+							<th>Status</th>
+							<th>Note</th>
+							<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>

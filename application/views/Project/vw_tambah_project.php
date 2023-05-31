@@ -7,13 +7,13 @@
 				<div class="page-wrapper">
 					<div class="page-body">
 						<div class="float">
-                            <a href="<?= base_url() ?>Project/indexlistproject" class="btn btn-danger mb-2">Kembali</a>
+                            <a href="<?= base_url() ?>Project/indexlistproject" class="btn btn-danger mb-2">Back</a>
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                                     <div class="card-header">
-                                        <h4 class="title"><strong>Tambah Project</strong></h4><br>
+                                        <h4 class="title"><strong>Add Project</strong></h4><br>
                                     
 
                                         <div class="card-header-right">
@@ -23,18 +23,18 @@
                                         <div class="card-block">
                                             <form action="" method="POST">
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Nama Aplikasi</label>
+                                                    <label class="col-sm-2 col-form-label">Application Name</label>
                                                     <div class="col-sm-10">
                                                         <input type="namaaplikasi" name="namaaplikasi"
                                                             class="form-control form-control-user"
                                                             value="<?= set_value('namaaplikasi'); ?>" id="namaaplikasi"
-                                                            placeholder="Masukkan nama aplikasi">
+                                                            placeholder="Insert Application Name">
                                                         <?= form_error('namaaplikasi', '<small class="text-danger pl-3">', '</small>'); ?>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Jenis Project</label>
+                                                    <label class="col-sm-2 col-form-label">Project Type</label>
                                                     <div class="col-sm-10">
                                                         <select name="jenisproject" class="form-control"
                                                             id="jenisproject">
@@ -47,7 +47,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Jenis Aplikasi</label>
+                                                    <label class="col-sm-2 col-form-label">Application Type</label>
                                                     <div class="col-sm-10">
                                                         <select name="jenisaplikasi" class="form-control"
                                                             id="jenisaplikasi">
@@ -59,24 +59,15 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Plan</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="date" name="plan" value="<?= set_value('plan'); ?>"
-                                                            class="form-control form-control-user" id="plan"
-                                                            placeholder="Masukkan Plan Date">
-                                                        <?= form_error('plan', '<small class="text-danger pl-3">', '</small>'); ?>
-                                                    </div>
-                                                </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Actual</label>
+                                                    <label class="col-sm-2 col-form-label">Year</label>
                                                     <div class="col-sm-10">
-                                                        <input type="date" name="actual"
-                                                            value="<?= set_value('actual'); ?>"
-                                                            class="form-control form-control-user" id="actual"
-                                                            placeholder="Masukkan Actual Date">
-                                                        <?= form_error('actual', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                        <input type="text" name="tahun"
+                                                            value="<?= set_value('tahun'); ?>"
+                                                            class="form-control form-control-user" id="tahun"
+                                                            placeholder="Year (ex : 2020)">
+                                                        <?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
                                                     </div>
                                                 </div>
 
@@ -86,13 +77,13 @@
                                                         <input type="text" name="target"
                                                             value="<?= set_value('target'); ?>"
                                                             class="form-control form-control-user" id="target"
-                                                            placeholder="Masukkan Target">
+                                                            placeholder="Target (ex : June 2020)">
                                                         <?= form_error('target', '<small class="text-danger pl-3">', '</small>'); ?>
                                                     </div>
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Tanggal register</label>
+                                                    <label class="col-sm-2 col-form-label">Date Register</label>
                                                     <div class="col-sm-10">
                                                         <input type="date" name="tanggalregister"
                                                             value="<?= set_value('tanggalregister'); ?>"
@@ -105,39 +96,30 @@
 												<div class="form-group row">
 													<label class="col-sm-2 col-form-label">URF</label>
 													<div class="col-sm-10">
-														<input type="file"  name="urf" value="<?= set_value('urf'); ?>"
-														class="form-control form-control-user" id="urf" placeholder="Masukkan File">
+                                                    <input type="file" name="urf" value="<?= set_value('urf'); ?>"
+														class="form-control form-control-user" id="urf" placeholder="Insert File">
 								
 														<?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
 													</div>
-													<!-- <input type="radio" onclick="javascript:yesnoCheck();"
-															name="urf" id="yesCheck" />Ada<br>
-
-														<div id="ifAda" style="visibility:hidden"> -->
-
-
-													<!-- <input type="file" name="urf" id="urf" value="<?= set_value('urf'); ?>">
-																<label for="urf" class="custom-file-label"></label>
-																<?= form_error('urf', '<small class="text-danger p1-3">', '</small>'); ?>
-															
-														</div> -->
-													<!-- <input type="radio" onclick="javascript:yesnoCheck();"
-															name="urf" id="noCheck" />Tidak Ada
-														<div id="ifTidakada" style="visibility:hidden">
-															<input type="text" name="urf"
-																value="<?= set_value('urf'); ?>"
-																class="form-control form-control-user" id="urf"
-																placeholder="Masukkan Keterangan Tidak Ada">
-															<?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
-														</div> -->
+													
 												</div>
+
+                                                <div class="form-group row">
+                                                    <label class="col-sm-2 col-form-label">Keterangan</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" name="keterangan"
+                                                            value="<?= set_value('keterangan'); ?>"
+                                                            class="form-control form-control-user" id="keterangan"
+                                                            placeholder="Target (ex : June 2020)">
+                                                        <?= form_error('target', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                    </div>
+                                                </div>
 										</div>
 									</div>
 
 
 									<div class="float-right">
-										<button type="submit" name="tambah" class="btn btn-primary float-right">Tambah
-											Data</button>
+										<button type="submit" name="tambah" class="btn btn-primary float-right">ADD DATA</button>
 									</div>
 									</form>
 								</div></div></div>

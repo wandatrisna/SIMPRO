@@ -9,7 +9,7 @@
 								<div class="page-body">
 									<div class="float">
 										<a href="<?= base_url('Project/indexlistproject/'). $project1['id_project']; ?>"
-											class="btn btn-danger mb-2">Kembali</a>
+											class="btn btn-danger mb-2">Back</a>
 									</div>
 									<div class="row">
 
@@ -23,8 +23,7 @@
 
 																<td>
 																	<div class="task-contain">
-																		<p class="d-inline-block m-l-20"><strong>Jenis
-																				Project</strong></p>
+																		<p class="d-inline-block m-l-20"><strong>Project Type</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -41,8 +40,7 @@
 															<tr>
 																<td>
 																	<div class="task-contain">
-																		<p class="d-inline-block m-l-20"><strong>Jenis
-																				Aplikasi</strong></p>
+																		<p class="d-inline-block m-l-20"><strong>Application Type</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -59,8 +57,7 @@
 															<tr>
 																<td>
 																	<div class="task-contain">
-																		<p class="d-inline-block m-l-20"><strong>Dokumen
-																				URF</strong></p>
+																		<p class="d-inline-block m-l-20"><strong>URF Document</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -79,12 +76,12 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20">
-																			<strong>Target Planing</strong></p>
+																			<strong>Year</strong></p>
 																	</div>
 																</td>
 																<td>
 																	<p class="d-inline-block m-r-20">
-																		<?= $project1['plan'] ?></p>
+																		<?= $project1['tahun'] ?></p>
 																	<div class="progress d-inline-block">
 																		<div class="progress-bar bg-c-yellow"
 																			role="progressbar" aria-valuemin="0"
@@ -93,29 +90,12 @@
 																	</div>
 																</td>
 															</tr>
+														
 															<tr>
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20">
-																			<strong>Actual</strong></p>
-																	</div>
-																</td>
-																<td>
-																	<p class="d-inline-block m-r-20">
-																		<?= $project1['actual'] ?></p>
-																	<div class="progress d-inline-block">
-																		<div class="progress-bar bg-c-green"
-																			role="progressbar" aria-valuemin="0"
-																			aria-valuemax="100" style="width:50%">
-																		</div>
-																	</div>
-																</td>
-															</tr>
-															<tr>
-																<td>
-																	<div class="task-contain">
-																		<p class="d-inline-block m-l-20">
-																			<strong>Target Selesai</strong></p>
+																			<strong>Targets Completed</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -132,8 +112,7 @@
 															<tr>
 																<td>
 																	<div class="task-contain">
-																		<p class="d-inline-block m-l-20"><strong>Tanggal
-																				Mulai</strong></p>
+																		<p class="d-inline-block m-l-20"><strong>Start Date</strong></p>
 																	</div>
 																</td>
 																<td>
@@ -152,7 +131,7 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20">
-																			<strong>Keterangan</strong>
+																			<strong>Note</strong>
 																		</p>
 																	</div>
 																</td>
@@ -177,8 +156,7 @@
 																		data-namaaplikasi="<?php echo $project1['namaaplikasi'] ?>"
 																		data-jenisproject="<?php echo $project1['jenisproject'] ?>"
 																		data-jenisaplikasi="<?php echo $project1['jenisaplikasi'] ?>"
-																		data-plan="<?php echo $project1['plan'] ?>"
-																		data-actual="<?php echo $project1['actual'] ?>"
+																		data-tahun="<?php echo $project1['tahun'] ?>"
 																		data-keterangan="<?php echo $project1['keterangan'] ?>"
 																		data-targetp="<?php echo $project1['target'] ?>"
 																		data-tanggalregister="<?php echo $project1['tanggalregister'] ?>"
@@ -186,7 +164,7 @@
 																		data-toggle="modal" data-target="#editModal">
 																		<button data-toggle="modal"
 																			data-target="#ubah-data"
-																			class="btn btn-warning">Ubah</button>
+																			class="btn btn-warning">Edit</button>
 																	</a>
 																	
 																</td>
@@ -204,7 +182,7 @@
 												<div class="card-header">
 
 													<div class="d-inline-block">
-														<h5>Kegiatan</h5>
+														<h5>Activity</h5>
 
 													</div>
 												</div>
@@ -214,9 +192,9 @@
 														<table class="table">
 															<thead>
 																<tr class="table-warning">
-																	<th>Nama Kegiatan</th>
+																	<th>Activity Name</th>
 																	<th>Progress</th>
-																	<th>Aksi</th>
+																	<th>Action</th>
 																</tr>
 															</thead>
 															<tbody>
@@ -233,7 +211,7 @@
 														?>%</td>
 																	<td>
 																		<a href="<?= base_url('Project/detailbrd/'). $project1['id_project']; ?>"
-																			class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
+																			class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
 																	</td>
 																</tr>
 																<tr>
@@ -248,7 +226,7 @@
 														?>%</td>
 																	<td>
 																		<a href="<?= base_url('Project/detailfsd/'). $project1['id_project']; ?>"
-																			class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
+																			class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
 																	</td>
 																</tr>
 																<tr>
@@ -263,7 +241,7 @@
 														?>%</td>
 														<td>
 															<a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
-																class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
+																class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
 														</td>
 													</tr>
 																<tr>
@@ -278,7 +256,7 @@
 														?>%</td>
 																	<td>
 																		<a href="<?= base_url('Project/detailsit/'). $project1['id_project']; ?>"
-																			class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
+																			class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
 																	</td>
 																</tr>
 																<tr>
@@ -293,7 +271,7 @@
 														?>%</td>
 																	<td>
 																		<a href="<?= base_url('Project/detailuat/'). $project1['id_project']; ?>"
-																			class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
+																			class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
 																	</td>
 																</tr>
 																<tr>
@@ -307,7 +285,7 @@
 														?>%</td>
 																	<td>
 																		<a href="<?= base_url('Project/detailmigrasi/'). $project1['id_project']; ?>"
-																			class="badge btn-danger icofont icofont-eye-alt"></i>Lihat</a>
+																			class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
 																	</td>
 																</tr>
 
@@ -315,6 +293,8 @@
 														</table>
 													</div>
 												</div>
+
+												<!-- form edit -->
 												<form
 													action="<?php echo base_url('Project/editproject/'). $project1['id_project'];?>"
 													method="POST" enctype="multipart/form-data">
@@ -335,8 +315,7 @@
 																	<input type="hidden" name="id_project"
 																		value="<?= $project1['id_project']; ?>">
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Nama
-																			Aplikasi</label>
+																		<label class="col-sm-3 col-form-label">Application Name</label>
 																		<div class="col-sm-9">
 																			<input type="namaaplikasi"
 																				name="namaaplikasi"
@@ -349,8 +328,7 @@
 																	</div>
 
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Jenis
-																			Project</label>
+																		<label class="col-sm-3 col-form-label">Project Type</label>
 																		<div class="col-sm-9">
 
 																			<select name="jenisproject"
@@ -366,8 +344,7 @@
 																	</div>
 
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Jenis
-																			Aplikasi</label>
+																		<label class="col-sm-3 col-form-label">Application Type</label>
 																		<div class="col-sm-9">
 																			<select name="jenisaplikasi"
 																				class="form-control" id="jenisaplikasi">
@@ -383,33 +360,21 @@
 
 																	<div class="form-group row">
 																		<label
-																			class="col-sm-3 col-form-label">Plan</label>
+																			class="col-sm-3 col-form-label">Year</label>
 																		<div class="col-sm-9">
-																			<input type="date" name="plan"
-																				value="<?= $project1['plan']; ?>"
+																			<input type="text" name="tahun"
+																				value="<?= $project1['tahun']; ?>"
 																				class="form-control form-control-user"
-																				id="plan"
-																				placeholder="Masukkan Plan Date">
-																			<?= form_error('plan', '<small class="text-danger pl-3">', '</small>'); ?>
+																				id="tahun"
+																				placeholder="Masukkan Tahun">
+																			<?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
 																		</div>
 																	</div>
 
-																	<div class="form-group row">
-																		<label
-																			class="col-sm-3 col-form-label">Actual</label>
-																		<div class="col-sm-9">
-																			<input type="date" name="actual"
-																				value="<?= $project1['actual']; ?>"
-																				class="form-control form-control-user"
-																				id="actual"
-																				placeholder="Masukkan Actual Date">
-																			<?= form_error('actual', '<small class="text-danger pl-3">', '</small>'); ?>
-																		</div>
-																	</div>
 
 																	<div class="form-group row">
 																		<label
-																			class="col-sm-3 col-form-label">Target</label>
+																			class="col-sm-3 col-form-label">Targets Completed</label>
 																		<div class="col-sm-9">
 																			<input type="text" name="target"
 																				value="<?= $project1['target']; ?>"
@@ -421,8 +386,7 @@
 																	</div>
 
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Tanggal
-																			register</label>
+																		<label class="col-sm-3 col-form-label">Start Date</label>
 																		<div class="col-sm-9">
 																			<input type="date" name="tanggalregister"
 																				value="<?= $project1['tanggalregister']; ?>"
@@ -446,7 +410,7 @@
 																	</div>
 																	<div class="form-group row">
 																		<label
-																			class="col-sm-3 col-form-label">Keterangan</label>
+																			class="col-sm-3 col-form-label">Note</label>
 																		<div class="col-sm-9">
 																			<input type="text" name="keterangan"
 																				value="<?= $project1['keterangan']; ?>"
@@ -481,8 +445,7 @@
 															modal.find('#namaaplikasi').attr("value", div.data('namaaplikasi'));
 															modal.find('#jenisproject').html(div.data('jenisproject'));
 															modal.find('#jenisaplikasi').html(div.data('jenisaplikasi'));
-															modal.find('#plan').html(div.data('plan'));
-															modal.find('#actual').html(div.data('actual'));
+															modal.find('#tahun').html(div.data('tahun'));
 															modal.find('#keterangan').html(div.data('keterangan'));
 															modal.find('#target').html(div.data('target'));
 															modal.find('#tanggalregister').html(div.data('tanggalregister'));
