@@ -1,6 +1,6 @@
 <div class="col-md-12">
 	<div class="float">
-		<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>" class="btn btn-danger mb-2">Kembali</a>
+		<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>" class="btn btn-danger mb-2">Back</a>
 	</div>
 
 	<div class="card shadow mb-4">
@@ -23,15 +23,14 @@
 			<?php if ($user1['role'] == 'Development') {   ?>
 			<div class="float-right">
 				<br>
-				<a data-toggle="modal" data-target="#modalAdd1" class="btn btn-danger mb-2">Tambah
-					Kegiatan</a>
-				<a data-toggle="modal" data-target="#modalSub2" class="btn btn-danger mb-2">Tambah
-					Sub Kegiatan</a>
+				<a data-toggle="modal" data-target="#modalAdd1" class="btn btn-danger mb-2">Add Activity</a>
+				<a data-toggle="modal" data-target="#modalSub2" class="btn btn-danger mb-2">Add
+					Sub-Activity</a>
 			</div>
 			<?php } ?>
 
 
-			<h6 class="m-0 font-weight-bold text-primary">TABEL KEGIATAN DEVELOPMENT</h6>
+			<h6 class="m-0 font-weight-bold text-primary">DEVELOPMENT ACTIVITIES</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -40,9 +39,9 @@
 						<tr class="table-warning">
 							<th width="5px">Number</th>
 							<th>Activity Name</th>
-							<th>Bobot</th>
-							<th>Progres</th>
-							<th>Persentase</th>
+							<th>Value</th>
+							<th>Progress</th>
+							<th>Percentage</th>
 							<th>Plan Start Date</th>
 							<th>Plan End Date</th>
 							<th>Actual Start Date</th>
@@ -103,12 +102,12 @@
 									data-actualendate="<?php echo $d->actualendate ?>"
 									data-file="<?php echo $d->file ?>" data-toggle="modal"
 									data-target="#editModal_<?php echo $d->id ?>">
-									<button class="badge badge-warning">Ubah</button>
+									<button class="badge badge-warning">Edit</button>
 								</a>
 								<?php } ?>
 								<a href="javascript:;" data-toggle="modal"
 									data-target="#subdevModal_<?php echo $d->id ?>">
-									<button class="badge badge-primary">Sub Development Detail</button>
+									<button class="badge badge-primary">Sub-Activity Detail</button>
 								</a>
 
 								<?php if ($user1['role'] == 'Development') {   ?>
@@ -152,7 +151,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Bobot</label>
+						<label class="col-sm-2 col-form-label">Value</label>
 						<div class="col-sm-10">
 							<input type="number" name="bobot" class="form-control form-control-user"
 								value="" id="bobot">
@@ -160,7 +159,7 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Progres</label>
+						<label class="col-sm-2 col-form-label">Progress</label>
 						<div class="col-sm-10">
 							<input type="number" name="progres" class="form-control form-control-user"
 								value="" id="progres">
@@ -232,7 +231,7 @@
 			<form action="<?php echo base_url('Project/subdev/' . $project1['id_project']); ?>" method="post"
 				enctype="multipart/form-data">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Add New Sub Activity
+					<h5 class="modal-title" id="exampleModalLabel">Add New Sub-Activity
 					</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -266,14 +265,6 @@
 							<input type="number" name="bobot" class="form-control form-control-user"
 								value="<?= set_value('bobot'); ?>" id="bobot" placeholder="Masukkan bobot ">
 							<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Progress</label>
-						<div class="col-sm-10">
-							<input type="number" name="progres" class="form-control form-control-user"
-								value="<?= set_value('progres'); ?>" id="progres" placeholder="Masukkan progres">
-							<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
 					<div class="form-group row">
@@ -352,7 +343,7 @@
 				<div class="modal-body">
 					<input type="hidden" name="id_project">
 					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Bobot</label>
+						<label class="col-sm-3 col-form-label">Value</label>
 						<div class="col-sm-9">
 							<input type="number" name="bobotbrd" class="form-control" id="bobotbrd"
 								value="<?php echo $d->bobot; ?>">
@@ -450,8 +441,7 @@
 					<thead>
 						<tr class="table-warning">
 							<th>Nama Sub</th>
-							<th>Bobot</th>
-							<th>Progress</th>
+							<th>Value</th>
 							<th>Plan Start Date</th>
 							<th>Plan End Date</th>
 							<th>Actual Start Date</th>
@@ -467,9 +457,6 @@
 							</td>
 							<td>
 								<?php echo $d['bobot']; ?>
-							</td>
-							<td>
-								<?php echo $d['progres']; ?>
 							</td>
 							<td>
 								<?php echo $d['planstdate']; ?>
@@ -504,10 +491,10 @@
 <script src="<?= base_url('assets') ?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 <!-- <script>
 	function validateForm1() {
-		let x = document.forms["frm"]["progres"].value;
-		bobot=$('#bobot').val();
-		if (x >= bobot) {
-			alert("Progres tidak boleh lebih dari bobot");
+		let x = document.forms["frm"]["progresbrd"].value;
+		bobot=$('#bobotbrd').val();
+		if (x >> bobot) {
+			alert("Progress is not more than Value");
 			
 			$('#modalAdd1').show();
 		}return false;

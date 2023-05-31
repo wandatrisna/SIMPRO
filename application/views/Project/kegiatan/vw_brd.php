@@ -9,7 +9,7 @@
 								<div class="page-body">
 									<div class="float">
 										<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-											class="btn btn-danger mb-2">Kembali</a>
+											class="btn btn-danger mb-2">Back</a>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
@@ -35,7 +35,7 @@
 																	data-actualendate="<?php echo $project1['actualendatebrd'] ?>"
 																	data-toggle="modal" data-target="#editModal">
 																	<button data-toggle="modal" data-target="#ubah-data"
-																		class="btn btn-warning">Ubah</button>
+																		class="btn btn-warning">Edit</button>
 																</a>
 																<?php
 												}
@@ -52,7 +52,7 @@
 																	<td>
 																		<div class="task-contain">
 																			<p class="d-inline-block m-l-20">
-																				<strong>Bobot</strong>
+																				<strong>Value</strong>
 																			</p>
 																		</div>
 																	</td>
@@ -330,7 +330,7 @@
 	function validateForm() {
 		let x = document.forms["frm"]["progresbrd"].value;
 		if (x > 10) {
-			alert("Progres tidak boleh lebih dari 10%");
+			alert("Progress is not more than 10%");
 			return false;
 		}
 	}
