@@ -100,7 +100,13 @@ class Project extends CI_Controller
 	}
 
 	public function tambahproject()
-	{
+{
+    $data['judul'] = "Halaman Tambah Project";
+    $data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+    $data['project'] = $this->Project_model->get();
+    $data['jenisproject'] = $this->Jenisproject_model->get();
+    $data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+    $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
 		$data['judul'] = "Halaman Tambah Project";
 		$data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
@@ -109,42 +115,17 @@ class Project extends CI_Controller
 		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
-		$this->form_validation->set_rules('namaaplikasi', 'namaaplikasi', 'required', [
-			'required' => 'Nama aplikasi tidak boleh kosong'
-		]);
-		$this->form_validation->set_rules('jenisproject', 'jenisproject', 'required', [
-			'required' => 'Jenis Project tidak boleh kosong'
-		]);
-		$this->form_validation->set_rules('jenisaplikasi', 'jenisaplikasi', 'required', [
-			'required' => 'Jenis Aplikasi tidak boleh kosong'
-		]);
-		$this->form_validation->set_rules('target', 'target', 'required', [
-			'required' => 'Target Selesai tidak boleh kosong'
-		]);
-		if ($this->form_validation->run() == false) {
-			$this->load->view("layout/header", $data);
-			$this->load->view("Project/vw_tambah_project", $data);
-			$this->load->view("layout/footer");
-		} else {
-			// $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
-			// $config['max_size'] = '2048';
-			// $config['upload_path'] = './assets/dokumenurf/';
-			// $this->load->library('upload', $config);
-			// if ($this->upload->do_upload('urf')) {
-			// 	$new_image = $this->upload->data('file_name');
-			// 	$this->db->set('urf', $new_image);
-			// } else {
-			// 	echo $this->upload->display_errors();
-			// }
+    if ($this->form_validation->run() == false) {
+        $this->load->view("layout/header", $data);
+        $this->load->view("Project/vw_tambah_project", $data);
+        $this->load->view("layout/footer");
+    } else {
+        $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
+        $config['max_size'] = '2048';
+        $config['upload_path'] = './assets/dokumenurf/';
+        $config['file_name'] = 'cobaduluges.pdf'; 
 
-			$filename = uniqid();
-			$config = array(
-				'file_name' => $filename,
-				'upload_path' => './assets/dokumenurf/',
-				'allowed_types' => 'gif|jpg|png|jpeg|pdf',
-				'overwrite' => TRUE,
-				'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-			);
+        $this->load->library('upload', $config);
 
 			$this->load->library('upload', $config);
 			$this->upload->do_upload('urf');
@@ -160,15 +141,27 @@ class Project extends CI_Controller
 				'urf' => $filename,
 			);
 
+            $data = array(
+                'namaaplikasi' => $this->input->post('namaaplikasi'),
+                'jenisproject' => $this->input->post('jenisproject'),
+                'jenisaplikasi' => $this->input->post('jenisaplikasi'),
+                'plan' => $this->input->post('plan'),
+                'actual' => $this->input->post('actual'),
+                'target' => $this->input->post('target'),
+                'tanggalregister' => $this->input->post('tanggalregister'),
+                'urf' => $filename,
+            );
 
-			// var_dump($data);
-			// die();
-			$this->Project_model->insert($data, $upload_image);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
-			redirect('Project/indexlistproject');
-		}
+			var_dump($data);
+			die;
 
-	}
+            $this->Project_model->insert($data, $filename);
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
+            redirect('Project/indexlistproject');
+        } 
+    }
+}
+
 	public function detail($id)
 	{
 		$data['user'] = $this->User_model->get();

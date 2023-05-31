@@ -61,7 +61,7 @@
 	<div class="col-md-12">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">TABLE PROJECT SELESAI</h6>
+				<h6 class="m-0 font-weight-bold text-primary">DONE PROJECT</h6>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
@@ -148,7 +148,7 @@
 														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"
 															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
-															class="ik ik-trash-2 text-red">Hapus</a>
+															class="ik ik-trash-2 text-red">Delete</a>
 													</td>
 												</tr>
 												<?php $i++; ?>
