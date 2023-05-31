@@ -54,7 +54,6 @@ class Profile extends CI_Controller
             'matches' => 'Password Tidak Sama',
             'required' => 'Password harus diisi'
             ]);
-    
 
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
@@ -79,7 +78,7 @@ class Profile extends CI_Controller
                             }
                         $new_image = $this->upload->data('file_name');
                         $this->db->set('gambar', $new_image);
-                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil perbarui foto!</div>');
+                        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated photos!</div>');
                         } else {
                             echo $this->upload->display_errors();
                             }

@@ -18,6 +18,7 @@
             <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                 <div class="row">
                     <div class="card-body">
+                    <?= $this->session->flashdata('message') ?>
                         <center>
                             <h4 class="title"><strong>Inhouse Detail</strong></h4><br><br>
                         </center>

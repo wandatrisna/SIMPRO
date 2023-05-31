@@ -34,7 +34,7 @@ class Eksternal_model extends CI_Model
     public function getByNama($nama_eks) 
     {
         $nama = str_replace("%20", " ", $nama_eks);
-        $query = $this->db->query("SELECT * from eksternal where nama_eks = '$nama' ");
+        $query = $this->db->query("SELECT * from eksternal where nama_eks = '$nama' and hapus_eks=1");
         return $query->result_array();
     }
 
