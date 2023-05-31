@@ -54,7 +54,7 @@
 													<tr>
 														<td>
 															<div class="task-contain">
-																<p class="d-inline-block m-l-20"><strong>Bobot</strong>
+																<p class="d-inline-block m-l-20"><strong>Value</strong>
 																</p>
 															</div>
 														</td>
@@ -300,7 +300,7 @@
 										function validateForm() {
 											let x = document.forms["frm"]["progresuat"].value;
 											if (x > 10) {
-												alert("Progres tidak boleh lebih dari 10%");
+												alert("Progress is not more than 10%");
 												return false;
 											}
 										}

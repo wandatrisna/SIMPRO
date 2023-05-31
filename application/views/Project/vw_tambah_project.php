@@ -21,7 +21,7 @@
                                         </div>
 
                                         <div class="card-block">
-                                            <form action="" method="POST">
+                                            <form action="" method="POST" enctype="multipart/form-data">
                                                 <div class="form-group row">
                                                     <label class="col-sm-2 col-form-label">Application Name</label>
                                                     <div class="col-sm-10">
@@ -72,7 +72,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Target</label>
+                                                    <label class="col-sm-2 col-form-label">Targets Completed</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="target"
                                                             value="<?= set_value('target'); ?>"
@@ -83,7 +83,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Date Register</label>
+                                                    <label class="col-sm-2 col-form-label">Start Date</label>
                                                     <div class="col-sm-10">
                                                         <input type="date" name="tanggalregister"
                                                             value="<?= set_value('tanggalregister'); ?>"
@@ -105,12 +105,12 @@
 												</div>
 
                                                 <div class="form-group row">
-                                                    <label class="col-sm-2 col-form-label">Keterangan</label>
+                                                    <label class="col-sm-2 col-form-label">Note</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" name="keterangan"
                                                             value="<?= set_value('keterangan'); ?>"
                                                             class="form-control form-control-user" id="keterangan"
-                                                            placeholder="Target (ex : June 2020)">
+                                                            placeholder="Note">
                                                         <?= form_error('target', '<small class="text-danger pl-3">', '</small>'); ?>
                                                     </div>
                                                 </div>

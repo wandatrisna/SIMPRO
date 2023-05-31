@@ -55,7 +55,7 @@
 																	<td>
 																		<div class="task-contain">
 																			<p class="d-inline-block m-l-20">
-																				<strong>Bobot</strong>
+																				<strong>Value</strong>
 																			</p>
 																		</div>
 																	</td>
@@ -184,7 +184,7 @@
 																		value="<?= $project1['id_project']; ?>">
 																	<div class="form-group row">
 																		<label
-																			class="col-sm-3 col-form-label">Bobot</label>
+																			class="col-sm-3 col-form-label">Value</label>
 																		<div class="col-sm-9">
 																			<input type="number" name="bobotsit"
 																				class="form-control" id="bobotsit"
@@ -320,7 +320,7 @@
 	function validateForm() {
 		let x = document.forms["frm"]["progressit"].value;
 		if (x > 10) {
-			alert("Progres tidak boleh lebih dari 10%");
+			alert("Progress is not more than 10%");
 			return false;
 		}
 	}

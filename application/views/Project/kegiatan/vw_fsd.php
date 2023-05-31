@@ -56,7 +56,7 @@
 																	<td>
 																		<div class="task-contain">
 																			<p class="d-inline-block m-l-20">
-																				<strong>Bobot</strong>
+																				<strong>Value</strong>
 																			</p>
 																		</div>
 																	</td>
@@ -185,7 +185,7 @@
 																		value="<?= $project1['id_project']; ?>">
 																	<div class="form-group row">
 																		<label
-																			class="col-sm-3 col-form-label">Bobot</label>
+																			class="col-sm-3 col-form-label">Value</label>
 																		<div class="col-sm-9">
 																			<input type="number" name="bobotfsd"
 																				class="form-control" id="bobotfsd"
@@ -249,7 +249,7 @@
 
 																	<div class="form-group row">
 																		<label class="col-sm-3 col-form-label">Actual
-																			EndDate
+																			End Date
 																		</label>
 																		<div class="col-sm-9">
 																			<input type="date" id="actualendatefsd"
@@ -320,7 +320,7 @@
 	function validateForm() {
 		let x = document.forms["frm"]["progresfsd"].value;
 		if (x > 5) {
-			alert("Progres tidak boleh lebih dari 5%");
+			alert("Progress is not more than 5%");
 			return false;
 		}
 	}

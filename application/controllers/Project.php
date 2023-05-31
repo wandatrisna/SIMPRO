@@ -9,9 +9,11 @@ class Project extends CI_Controller
 		$this->load->model('Project_model');
 		$this->load->model('User_model');
 		$this->load->model('Jenisproject_model');
+		$this->load->model('Jenisaplikasi_model');
 		$this->load->model('Jeniseksternal_model');
 		$this->load->model('Development_model');
 		$this->load->model('Sub_model');
+		$this->load->helper('url');
 
 	}
 
@@ -99,38 +101,75 @@ class Project extends CI_Controller
 		$this->load->view('layout/footer', $data);
 	}
 
+	public function upload_docURF()
+	{
+
+		$config['upload_path'] = './assets/dokumenurf/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
+		$config['max_size'] = 2048; 
+
+		$this->load->library('upload', $config);
+
+		$data['file_name'] =  $this->input->post('urf');
+
+		if (!$this->upload->do_upload('urf')) {
+            // Jika upload gagal, tampilkan pesan error
+            $error = $this->upload->display_errors();
+            echo $error;
+        } else {
+            // Jika upload berhasil, lakukan sesuatu di sini (misalnya, simpan ke database)
+            $data = $this->upload->data();
+            $filename = $data['file_name'];
+            // echo 'File berhasil diunggah dengan nama: ' . $file_name;
+        }
+    }
+
+	
 	public function tambahproject()
 {
-    $data['judul'] = "Halaman Tambah Project";
-    $data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-    $data['project'] = $this->Project_model->get();
-    $data['jenisproject'] = $this->Jenisproject_model->get();
-    $data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
-    $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+	$data['judul'] = "Halaman Tambah Project";
+	$data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+	$data['project'] = $this->Project_model->get();
+	$data['jenisproject'] = $this->Jenisproject_model->get();
+	$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+	$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
-		$data['judul'] = "Halaman Tambah Project";
-		$data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$data['project'] = $this->Project_model->get();
-		$data['jenisproject'] = $this->Jenisproject_model->get();
-		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+	$this->form_validation->set_rules('namaaplikasi', 'namaaplikasi', 'required', [
+		'required' => 'Nama aplikasi tidak boleh kosong'
+	]);
+	$this->form_validation->set_rules('jenisproject', 'jenisproject', 'required', [
+		'required' => 'Jenis Project tidak boleh kosong'
+	]);
+	$this->form_validation->set_rules('jenisaplikasi', 'jenisaplikasi', 'required', [
+		'required' => 'Jenis Aplikasi tidak boleh kosong'
+	]);
+	$this->form_validation->set_rules('target', 'target', 'required', [
+		'required' => 'Target Selesai tidak boleh kosong'
+	]);
+	// $this->form_validation->set_rules('urf', 'urf', 'required', [
+	// 	'required' => 'Target Selesai tidak boleh kosong'
+	// ]);
+	if ($this->form_validation->run() == false) {
+		$this->load->view("layout/header", $data);
+		$this->load->view("Project/vw_tambah_project", $data);
+		$this->load->view("layout/footer");
+	} else {
 
-    if ($this->form_validation->run() == false) {
-        $this->load->view("layout/header", $data);
-        $this->load->view("Project/vw_tambah_project", $data);
-        $this->load->view("layout/footer");
-    } else {
-        $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
-        $config['max_size'] = '2048';
-        $config['upload_path'] = './assets/dokumenurf/';
-        $config['file_name'] = 'cobaduluges.pdf'; 
+		$config['upload_path'] = './assets/dokumenurf/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
+		$config['max_size'] = 2048;
+		$config['file_name'] = $_FILES['urf']['name'];
 
-        $this->load->library('upload', $config);
+		$this->load->library('upload', $config);
 
-			$this->load->library('upload', $config);
-			$this->upload->do_upload('urf');
-			//var_dump( $this->upload->data('file_name'));die();
-			$filename = $this->upload->data('file_name');
+		if (!$this->upload->do_upload('urf')) {
+			$error = $this->upload->display_errors();
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">' . $error . '</div>');
+			redirect('Project/tambahproject');
+		} else {
+			$fileData = $this->upload->data();
+			$filename = $fileData['file_name'];
+
 			$data = array(
 				'namaaplikasi' => $this->input->post('namaaplikasi'),
 				'jenisproject' => $this->input->post('jenisproject'),
@@ -141,26 +180,14 @@ class Project extends CI_Controller
 				'urf' => $filename,
 			);
 
-            $data = array(
-                'namaaplikasi' => $this->input->post('namaaplikasi'),
-                'jenisproject' => $this->input->post('jenisproject'),
-                'jenisaplikasi' => $this->input->post('jenisaplikasi'),
-                'plan' => $this->input->post('plan'),
-                'actual' => $this->input->post('actual'),
-                'target' => $this->input->post('target'),
-                'tanggalregister' => $this->input->post('tanggalregister'),
-                'urf' => $filename,
-            );
-
-			var_dump($data);
-			die;
-
-            $this->Project_model->insert($data, $filename);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
-            redirect('Project/indexlistproject');
-        } 
-    }
+			$this->Project_model->insert($data);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Ditambah!</div>');
+			redirect('Project/indexlistproject');
+		}
+	}
 }
+
+
 
 	public function detail($id)
 	{
@@ -169,7 +196,7 @@ class Project extends CI_Controller
 		$data['project1'] = $this->Project_model->getById($id);
 		$data['dev'] = $this->Development_model->getkeg($id);
 		$data['jenisproject'] = $this->Jenisproject_model->get();
-		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
+		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['hitung'] = $this->Project_model->hitung();
 		$this->load->view('layout/header', $data);
@@ -180,11 +207,11 @@ class Project extends CI_Controller
 	public function editproject()
 	{
 		$this->form_validation->set_rules('bobotbrd', 'bobotbrd', 'required|less_than_equal_to[10]', [
-			'required' => 'NIK tidak boleh kosong',
+			'required' => 'required',
 		]);
 		$this->form_validation->set_rules('progresbrd', 'progresbrd', 'required|less_than_equal_to[10]', [
-			'required' => 'Nama User tidak boleh kosong',
-			'less_than_equal_to[10]' => 'Progres tidak boleh lebih dari 10'
+			'required' => 'required',
+			'less_than_equal_to[10]' => 'Progress tidak boleh lebih dari 10'
 		]);
 
 		$id = $this->input->post('id_project');
@@ -238,7 +265,7 @@ class Project extends CI_Controller
 	public function editbrd()
 	{
 		$this->form_validation->set_rules('bobotbrd', 'bobotbrd', 'required|less_than_equal_to[10]', [
-			'required' => 'NIK tidak boleh kosong',
+			'required' => 'required',
 		]);
 		$this->form_validation->set_rules('progresbrd', 'progresbrd', 'required|less_than_equal_to[10]', [
 			'required' => 'Nama User tidak boleh kosong',
@@ -440,7 +467,6 @@ class Project extends CI_Controller
 			'id_dev' => $this->input->post('id_dev'),
 			'namakeg' => $this->input->post('namakeg'),
 			'bobot' => $this->input->post('bobot'),
-			'progres' => $this->input->post('progres'),
 			'planstdate' => $this->input->post('planstdate'),
 			'planendate' => $this->input->post('planendate'),
 			'actualstdate' => $this->input->post('actualstdate'),
@@ -490,6 +516,7 @@ class Project extends CI_Controller
 		$this->upload->do_upload('file');
 		//var_dump( $this->upload->data('file_name'));die();
 		$filename = $this->upload->data('file_name');
+		if ($this->input->post('progres') <= $this->input->post('bobot') ) {
 		$data = [
 			'bobot' => $this->input->post('bobotbrd'),
 			'progres' => $this->input->post('progresbrd'),
@@ -512,10 +539,11 @@ class Project extends CI_Controller
 		
 		$this->Project_model->ubah($data1, $idd);
 		$this->Development_model->ubah($data, $id);
-		redirect('Project/detaildev/' . $idd);
-	// }else{
-	// 	$this->session->set_flashdata('err', 'Progres tidak boleh melebihi bobot!');
-	// }
+		
+	}else{
+		$this->session->set_flashdata('err', 'Progres tidak boleh melebihi bobot!');
+	}
+	redirect('Project/detaildev/' . $idd);
 	}
 
 	public function detailsit($id)
@@ -575,7 +603,6 @@ class Project extends CI_Controller
 	}
 	public function edituat()
 	{
-
 		$id = $this->input->post('id_project');
 		$data = array(
 			'bobotuat' => $this->input->post('bobotuat'),
