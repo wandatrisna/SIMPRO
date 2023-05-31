@@ -9,7 +9,7 @@
 								<div class="page-body">
 									<div class="float">
 										<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-											class="btn btn-danger mb-2">Kembali</a>
+											class="btn btn-danger mb-2">Back</a>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">
@@ -35,7 +35,7 @@
 																	data-actualendate="<?php echo $project1['actualendatefsd'] ?>"
 																	data-toggle="modal" data-target="#editModal">
 																	<button data-toggle="modal" data-target="#ubah-data"
-																		class="btn btn-warning">Ubah</button>
+																		class="btn btn-warning">Edit</button>
 																</a>
 																<?php
 												}
@@ -69,7 +69,7 @@
 																	<td>
 																		<div class="task-contain">
 																			<p class="d-inline-block m-l-20">
-																				<strong>Progres</strong></p>
+																				<strong>Progress</strong></p>
 																		</div>
 																	</td>
 																	<td>
@@ -196,7 +196,7 @@
 
 																	<div class="form-group row">
 																		<label
-																			class="col-sm-3 col-form-label">Progres</label>
+																			class="col-sm-3 col-form-label">Progress</label>
 																		<div class="col-sm-9">
 																			<input type="number" name="progresfsd"
 																				class="form-control form-control-user"

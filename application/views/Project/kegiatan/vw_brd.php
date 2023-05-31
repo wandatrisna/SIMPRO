@@ -198,8 +198,7 @@
 																			<input type="number" name="progresbrd"
 																				class="form-control form-control-user"
 																				value="<?php echo $project1['progresbrd']; ?>"
-																				id="progresbrd"
-																				placeholder="Masukkan progres">
+																				id="progresbrd">
 																			<?= form_error('progresbrd', '<small class="text-danger pl-3">', '</small>'); ?>
 																		</div>
 																	</div>

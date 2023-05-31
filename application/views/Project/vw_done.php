@@ -61,19 +61,19 @@
 	<div class="col-md-12">
 		<div class="card shadow mb-4">
 			<div class="card-header py-3">
-				<h6 class="m-0 font-weight-bold text-primary">TABLE PROJECT SELESAI</h6>
+				<h6 class="m-0 font-weight-bold text-primary">DONE PROJECT</h6>
 			</div>
 			<div class="card-body">
 				<div class="table-responsive">
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr class="table-warning">
-							<th width="5px">Nomor</th>
-								<th>Nama Aplikasi</th>
-								<th>Progres</th>
-								<th>Status</th>
-								<th>Keterangan</th>
-								<th>Aksi</th>
+							<th width="5px">Number</th>
+							<th>Application Name</th>
+							<th>Progress</th>
+							<th>Status</th>
+							<th>Note</th>
+							<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -148,7 +148,7 @@
 														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"
 															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
-															class="ik ik-trash-2 text-red">Hapus</a>
+															class="ik ik-trash-2 text-red">Delete</a>
 													</td>
 												</tr>
 												<?php $i++; ?>
