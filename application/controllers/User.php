@@ -73,13 +73,13 @@ class User extends CI_Controller
             ]);
         $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]',
         [
-        'matches' => 'Unmatched Passwords!',
-        'min_length' => 'Passwords Too Short!',
+        'matches' => 'Unmatched Password!',
+        'min_length' => 'Password Too Short!',
         'required' => 'Required!'
         ]
         );
         $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-        'matches' => 'Unmatched Passwords!',
+        'matches' => 'Unmatched Password!',
         'required' => 'Required'
         ]);
         if ($this->form_validation->run() == false) {

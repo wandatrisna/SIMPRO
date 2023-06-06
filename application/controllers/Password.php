@@ -26,7 +26,7 @@ class Password extends CI_Controller
             $password1 = $this->input->post('password1');
             $password2 = $this->input->post('password2');
             if (!$password1 == $password2) {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Tidak Sama</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Unmatched Password!</div>');
                 redirect('auth/password');
             } else {
                 $data = [
@@ -35,7 +35,7 @@ class Password extends CI_Controller
             }
             $NIK = $this->input->post('NIK');
             $this->userrole->update(['NIK' => $NIK], $data);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Password Berhasil Diubah!</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully Changed Password!</div>');
             redirect('Auth');
         }
     }

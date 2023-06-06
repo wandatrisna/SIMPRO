@@ -22,7 +22,6 @@ class Eksternal_model extends CI_Model
         return $query->num_rows();
     }
 
-
     public function getBy()
     {
         $this->db->from($this->table);

@@ -138,7 +138,7 @@ class Eksternal extends CI_Controller
         <br>Dokumen PMF Migrasi​
         <br>Dokumen Ceklis Dokumen 
         <br>Dokumen Library​ 
-        <br>Dokumen Pendukung Lainnya​ (Dokumen pendukung dapat diakses melalui link berikut [link menyusul saat aplikasi LIVE])
+        <br>Dokumen Pendukung Lainnya​ (Dokumen pendukung dapat diakses melalui link berikut [link menyusul])
          
         <br>Mohon Bantuan Tim Support untuk dapat melakukan migrasi atas aplikasi tersebut.
         <br>Adapun PIC Development​ untuk Aplikasi ini dapat dikoordikasikan dengan Sdr.$picdev

@@ -18,21 +18,14 @@
             <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
                 <div class="row">
                     <div class="card-body">
-                    <?= $this->session->flashdata('message') ?>
                         <center>
                             <h4 class="title"><strong>Inhouse Detail</strong></h4><br><br>
                         </center>
                         <?= $this->session->flashdata('message') ?>
-
                         <div class="card-block">
-
                             <form action="" method="POST" enctype="multipart/form-data">
                                 <input type="hidden" name="id_in" value="<?= $inhouse['id_in']; ?>">
-
                                 <div class="form-group">
-                                    <div class="form-group">
-
-
                                         <div class="form-group row">
                                             <label class="col-sm-4 col-form-label"><strong>&emsp;Application
                                                     Name</strong>
