@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PROJECT MAGANG TSI</title>
+    <title>SIMPRO - TSI BRKS</title>
     <link rel="icon" href="<?=base_url('assets/')?>images/brkslogo.png" type="image/x-icon">
     <!-- Custom fonts for this template-->
     <link href="<?=base_url('assets/')?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

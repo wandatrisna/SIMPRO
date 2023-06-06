@@ -80,6 +80,8 @@
     <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">USER TABLE</h6>
+            <?php
+				if ($user1['role'] == 'Superuser') { ?>
             <div class="float-right">
                 <a href="<?= base_url() ?>User/tambah" class="btn btn-primary btn-icon-split btn-sm">
                     <span class="icon text-white-50">
@@ -87,10 +89,10 @@
                     </span>
                     <span class="text">Add New User</span> </a>
             </div>
-
+            <?php }?>
         </div>
         <div class="card-body">
-        <?= $this->session->flashdata('message') ?>
+            <?= $this->session->flashdata('message') ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>

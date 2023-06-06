@@ -16,10 +16,10 @@ class Login extends CI_Controller
             redirect('User');
         }
             $this->form_validation->set_rules('NIK', 'NIK', 'required',[
-            'required' => 'NIK Wajib di isi'
+            'required' => 'Required!'
         ]);
             $this->form_validation->set_rules('password', 'Password', 'required', [
-            'required' => 'Password Wajib di isi'
+            'required' => 'Required!'
         ]);
             if ($this->form_validation->run() == false) {
             $this->load->view("layout/auth_header");
@@ -44,18 +44,18 @@ class Login extends CI_Controller
                 ];
                 $this->session->set_userdata($data);
                 if ($user['role' == 'Superuser']) {
-                    redirect('User');
+                    redirect('Dashboard');
                 } else if ($user['role' == 'Superuser']) {
-                    redirect('User');
+                    redirect('Dashboard');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Password Salah!!</div>');
+               Wrong Password!</div>');
                 redirect('Auth');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                NIK Belum Terdaftar!!</div>');
+                Unregistered!</div>');
             redirect('Auth');
         }
     }
@@ -64,13 +64,6 @@ class Login extends CI_Controller
     {
         $this->session->unset_userdata('nik');
         $this->session->unset_userdata('role');
-        $this->session->set_flashdata('message', '
-        <script>
-            swal("Success!", "Berhasil Masuk!", {
-                icon : "success",
-            });
-        </script>
-        ');
         redirect('Auth');
     }
 }

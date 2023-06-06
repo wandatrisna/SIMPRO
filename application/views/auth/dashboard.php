@@ -118,7 +118,7 @@
                                 <?php endforeach; ?>
                                 <br>
                                 <br>
-                                <a href="<?= base_url('User/dash1') ?>">View All Member &rarr;</a>
+                                <a href="<?= base_url('User') ?>">View All Member &rarr;</a>
                             </div>
                         </div>
 

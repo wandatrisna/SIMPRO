@@ -43,12 +43,14 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Role</label>
                             <div class="col-sm-10">
-                                <select name="role" class="form-control form-control-user" id="role"
-                                    value="<?= $user['role']; ?>">
-                                    <option value="<?= $user['role']; ?>"><?= $user['role']; ?></option>
+                                <select name="role" class="form-control form-control-user" id="role">
                                     <?php foreach ($role as $p) : ?>
-                                    <option value="<?=$p['role']?>"> <?= $p['role']; ?> </option>
-                                    <?php endforeach; ?>
+                                    <?php if($p['role'] == 'Support'){ ?>
+                                    <option value="<?= $p['role']; ?>" selected> <?=  $p['role']; ?>
+                                        <?php }else{ ?>
+                                    <option value="<?= $p['role']; ?>"> <?=  $p['role']; ?>
+                                        <?php } ?>
+                                        <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>

@@ -42,10 +42,10 @@
                             <div class="col-sm-10">
                                 <select name="role" class="form-control" id="role">
                                     <option value="">Select Role...</option>
-                                    <option value="pinbag">Pimpinan Bagian</option>
-                                    <option value="planning">IT Planning</option>
-                                    <option value="development">IT Development</option>
-                                    <option value="support">IT Support</option>
+                                    <option value="Pinbag">Pimpinan Bagian</option>
+                                    <option value="Planning">IT Planning</option>
+                                    <option value="Development">IT Development</option>
+                                    <option value="Support">IT Support</option>
                                 </select>
                             </div>
                         </div>

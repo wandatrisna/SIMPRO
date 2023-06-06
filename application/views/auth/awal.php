@@ -49,7 +49,8 @@
                                             <img width="350" src="<?=base_url('assets/')?>images/brks.png"
                                                 alt="login.png"> <br><br>
                                             <center>
-                                                <br><h4 style="color: black;">PROJECT MANAGEMENT SYSTEM</h4>
+                                            <br><h1 style="color: black;">SIMPRO</h1>
+                                                <br><h4 style="color: black;">Sistem Informasi & Manajemen Proyek</h4>
                                                 <h5 style="color: black;">TSI - Bank Riau Kepri Syariah</h5>
                                             </center>
                                     </div>

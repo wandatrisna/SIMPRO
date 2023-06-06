@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>PROJECT MANAGEMENT SYSTEM BRKS</title>
+    <title>SIMPRO - TSI BRKS</title>
     <link rel="icon" href="<?=base_url('assets/')?>images/brkslogo.png" type="image/x-icon">
     <!-- Custom fonts for this template-->
     <link href="<?= base_url('assets/') ?>vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -354,20 +354,30 @@
             </li>
 
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'sup_indexinhouse' || $this->uri->segment(2) == 'sup_indexeksternal' ? ' active' : '' ?>">
+                class="nav-item <?=$this->uri->segment(2) == 'sup_indexinhouse' || $this->uri->segment(2) == 'sup_indexeksternal' 
+                 || $this->uri->segment(2) == 'subinhouse'|| $this->uri->segment(2) == 'subeksternal' 
+                 || $this->uri->segment(2) == 'detailinhouse'|| $this->uri->segment(2) == 'detaileksternal' 
+                 || $this->uri->segment(2) == 'sup_editinhouse'|| $this->uri->segment(2) == 'sup_editeksternal' ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-list"></i>
                     <span>Application</span>
                 </a>
                 <div id="collapsePages1"
-                    class="collapse <?=$this->uri->segment(2) == 'sup_indexinhouse' || $this->uri->segment(2) == 'sup_indexeksternal' ? ' show' : '' ?>"
+                    class="collapse <?=$this->uri->segment(2) == 'sup_indexinhouse' || $this->uri->segment(2) == 'sup_indexeksternal' 
+                    || $this->uri->segment(2) == 'subinhouse'|| $this->uri->segment(2) == 'subeksternal'
+                    || $this->uri->segment(2) == 'detailinhouse'|| $this->uri->segment(2) == 'detaileksternal'
+                    || $this->uri->segment(2) == 'sup_editinhouse'|| $this->uri->segment(2) == 'sup_editeksternal' ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Application List :</h6>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexinhouse' ? ' active' : '' ?>"
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexinhouse' 
+                         || $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'detailinhouse'
+                         || $this->uri->segment(2) == 'sup_editinhouse'  ? ' active' : '' ?>"
                             href="<?= base_url('inhouse/sup_indexinhouse') ?>">Inhouse</a>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexeksternal' ? ' active' : '' ?>"
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexeksternal' 
+                        || $this->uri->segment(2) == 'subeksternal' || $this->uri->segment(2) == 'detaileksternal' 
+                        || $this->uri->segment(2) == 'sup_editeksternal' ? ' active' : '' ?>"
                             href="<?= base_url('eksternal/sup_indexeksternal') ?>">Eksternal</a>
 
                     </div>

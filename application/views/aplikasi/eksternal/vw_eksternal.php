@@ -10,6 +10,7 @@
                     <span class="text">Add New Application</span> </a>
             </div>
             <?php } ?>
+
             <h6 class="m-0 font-weight-bold text-primary">External Application</h6>
         </div>
         <div class="card-body">
