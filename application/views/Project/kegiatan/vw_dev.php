@@ -46,7 +46,7 @@
 							<th>Plan End Date</th>
 							<th>Actual Start Date</th>
 							<th>Actual End Date</th>
-							<th>File</th>
+							
 							<th>Action</th>
 						</tr>
 					</thead>
@@ -81,16 +81,7 @@
 							<td>
 								<?php echo $d->actualendate; ?>
 							</td>
-							<td>
-								<a class="d-inline-block m-r-20"
-									href="<?php echo base_url('assets/dokumendev/' . $project1['filedev']); ?>"><?= $project1['filedev'] ?></a>
-								<!-- <img src="<?php echo base_url('assets/dokumendev/' . $project1['filedev']); ?>"> -->
-								<div class="progress d-inline-block">
-									<div class="progress-bar bg-c-blue" role="progressbar" aria-valuemin="0"
-										aria-valuemax="100" style="width:50%">
-									</div>
-								</div>
-							</td>
+							
 							<td>
 								<?php if ($user1['role'] == 'Development') {   ?>
 								<a href="javascript:;" data-id="<?php echo $d->id ?>"
@@ -112,7 +103,7 @@
 
 								<?php if ($user1['role'] == 'Development') {   ?>
 								<a href="<?= base_url('Project/hapuskeg/') . $d->id; ?>" class="badge badge-danger"
-									onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+									onclick="return confirm('Are you sure want to delete this?');"
 									class="ik ik-trash-2 text-red">Delete</a>
 								<?php } ?>
 							</td>
@@ -204,14 +195,14 @@
 						</div>
 					</div>
 
-					<div class="form-group row">
+					<!-- <div class="form-group row">
 						<label class="col-sm-2 col-form-label">Upload File</label>
 						<div class="col-sm-10">
 							<input type="file" name="file" class="form-control form-control-user"
 								value="<?= set_value('namaproject'); ?>" id="file" placeholder="Masukkan nama aplikasi">
 							<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
-					</div>
+					</div> -->
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary" >Save</button>
@@ -304,15 +295,6 @@
 							<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
-
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Upload File</label>
-						<div class="col-sm-10">
-							<input type="file" name="file" class="form-control form-control-user"
-								value="<?= set_value('namaproject'); ?>" id="file" placeholder="Masukkan nama aplikasi">
-							<?= form_error('file', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary">Save</button>
@@ -403,7 +385,7 @@
 							<?= form_error('actualendatebrd', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
-					<div class="form-group row">
+					<!-- <div class="form-group row">
 						<label class="col-sm-3 col-form-label">Upload
 							File</label>
 						<div class="col-sm-9">
@@ -412,7 +394,7 @@
 								value="<?php echo $d->file; ?>" id="file" placeholder="Masukkan file">
 							<?= form_error('filebrd', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
-					</div>
+					</div> -->
 
 
 					<div class="modal-footer">

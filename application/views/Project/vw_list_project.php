@@ -9,7 +9,7 @@
 					</span>
 					<span class="text">ADD PROJECT</span> </a><?php } ?>
 			</div>
-			<h6 class="m-0 font-weight-bold text-primary">PROJECT TABLE ONGOING</h6>
+			<h6 class="m-0 font-weight-bold text-primary">PROJECT ONGOING</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -96,7 +96,7 @@
 															<?php if ($user1['role'] == 'Planning') {   ?> 
 														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"
-															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
+															onclick="return confirm('Are you sure want to delete this?');"
 															class="ik ik-trash-2 text-red">Delete</a>
 															<?php } ?>
 													</td>

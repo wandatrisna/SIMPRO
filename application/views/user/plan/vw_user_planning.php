@@ -14,7 +14,9 @@
                             <th>Name</th>
                             <th>Role</th>
                             <th>NIK</th>
+                            <?php if ($user1['role'] == 'Superuser') {   ?>
                             <th>Action</th>
+                            <?php } ?>
                         </tr>
                     </thead>
                     <tbody>
@@ -28,16 +30,16 @@
                             <td><?= $us['nama']; ?></td>
                             <td><?= $us['role']; ?></td>
                             <td><?= $us['NIK']; ?></td>
+                            <?php if ($user1['role'] == 'Superuser') {   ?>
                             <td>
-                                <?php if ($user1['role'] == 'Superuser') {   ?>
                                 <a href="<?= base_url('User/hapusplan/'). $us['id_user']; ?> "
                                     class="badge badge-danger"
                                     onclick="return confirm('Are you sure you want to delete this data?');"
                                     class="ik ik-trash-2 text-red">Delete</a>
-                                <?php } ?>
                                 <a href="<?= base_url('User/editplan/'). $us['id_user']; ?>"
                                     class="badge badge-warning">Edit</a>
                             </td>
+                            <?php } ?>
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>

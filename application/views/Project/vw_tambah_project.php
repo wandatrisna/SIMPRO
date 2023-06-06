@@ -111,7 +111,7 @@
                                                             value="<?= set_value('keterangan'); ?>"
                                                             class="form-control form-control-user" id="keterangan"
                                                             placeholder="Note">
-                                                        <?= form_error('target', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                        <?= form_error('keterangan', '<small class="text-danger pl-3">', '</small>'); ?>
                                                     </div>
                                                 </div>
 										</div>
