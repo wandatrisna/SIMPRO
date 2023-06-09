@@ -9,7 +9,7 @@
 					</span>
 					<span class="text">ADD PROJECT</span> </a><?php } ?>
 			</div>
-			<h6 class="m-0 font-weight-bold text-primary">PROJECT ONGOING</h6>
+			<h6 class="m-0 font-weight-bold text-primary">ONGOING PROJECT</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
@@ -18,7 +18,7 @@
 						<tr class="table-warning">
 							<th width="5px">Number</th>
 							<th>Application Name</th>
-							<th>Progress</th>
+							<th>Percentage</th>
 							<th>Status</th>
 							<th>Note</th>
 							<th>Action</th>

@@ -152,7 +152,7 @@
                 class="nav-item <?=$this->uri->segment(2) == 'index'  ? ' active"' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('Project/index') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-home"></i>
+                    <i class="fas fa-fw fa-clipboard"></i>
                     <span>All Projects</span>
                 </a>
             </li>
@@ -252,6 +252,8 @@
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Project List :</h6>
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexhistory' ? ' active' : '' ?>"
+                            href="<?= base_url('Project/index') ?>">All Project</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexlistproject' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexlistproject') ?>">Project List</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexhistory' ? ' active' : '' ?>"
@@ -259,23 +261,32 @@
 
                     </div>
             </li>
-            <li
-                class="nav-item <?=$this->uri->segment(2) == 'indexinhouse' || $this->uri->segment(2) == 'indexeksternal' ? ' active' : '' ?>">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
+            <li class="nav-item <?=$this->uri->segment(1) == 'Inhouse' || $this->uri->segment(1) == 'Eksternal'
+                || $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'subeksternal'
+                || $this->uri->segment(2) == 'detailinhouse' || $this->uri->segment(2) == 'detaileksternal' 
+                || $this->uri->segment(2) == 'editinhouse' || $this->uri->segment(2) == 'editeksternal' ? ' active' : '' ?>">
+                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-list"></i>
                     <span>Application</span>
                 </a>
-                <div id="collapsePages2"
-                    class="collapse <?=$this->uri->segment(2) == 'indexinhouse' || $this->uri->segment(2) == 'indexeksternal' ? ' show' : '' ?>"
+
+                <div id="collapsePages2" class="collapse <?=$this->uri->segment(1) == 'Inhouse' || $this->uri->segment(1) == 'Eksternal'
+                     || $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'subeksternal'
+                     || $this->uri->segment(2) == 'detailinhouse' || $this->uri->segment(2) == 'detaileksternal' 
+                     || $this->uri->segment(2) == 'editinhouse' || $this->uri->segment(2) == 'editeksternal'  ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                   
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Application List :</h6>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexinhouse' ? ' active' : '' ?>"
-                            href="<?= base_url('Aplikasi/indexinhouse') ?>">Inhouse</a>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexeksternal' ? ' active' : '' ?>"
-                            href="<?= base_url('Aplikasi/indexeksternal') ?>">Eksternal</a>
-
+                        <a class="collapse-item <?=$this->uri->segment(1) == 'Inhouse' 
+                        || $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'detailinhouse' 
+                        || $this->uri->segment(2) == 'editinhouse' ? ' active' : '' ?>"
+                            href="<?= base_url('Inhouse') ?>">Inhouse</a>
+                        <a class="collapse-item <?=$this->uri->segment(1) == 'Eksternal' 
+                        || $this->uri->segment(2) == 'subeksternal' || $this->uri->segment(2) == 'detaileksternal'  
+                        || $this->uri->segment(2) == 'editeksternal' ? ' active' : '' ?>"
+                            href="<?= base_url('Eksternal') ?>">Eksternal</a>
                     </div>
             </li>
 
@@ -318,8 +329,8 @@
                 class="nav-item <?=$this->uri->segment(2) == 'index' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('Project/index') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-home"></i>
-                    <span>Dashboard</span>
+                    <i class="fas fa-fw fa-clipboard"></i>
+                    <span>All Project</span>
                 </a>
             </li>
 

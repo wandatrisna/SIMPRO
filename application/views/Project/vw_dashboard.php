@@ -68,22 +68,22 @@
 					<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 						<thead>
 							<tr class="table-warning">
-							<th width="5px">Number</th>
-							<th>Application Name</th>
-							<th>Percentage</th>
-							<th>Status</th>
-							<th>Note</th>
-							<th>Action</th>
+								<th width="5px">Number</th>
+								<th>Application Name</th>
+								<th>Percentage</th>
+								<th>Status</th>
+								<th>Note</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody>
-												<?php $i =1; ?>
-												<?php foreach ($project as $pro) : ?>
-												<tr>
-													<td><?= $i; ?>.</td>
-													<td><?= $pro['namaaplikasi']; ?></td>
-													<td>
-														<?php if($pro['progresbrd'] != null || $pro['bobotbrd'] != null ||
+							<?php $i =1; ?>
+							<?php foreach ($project as $pro) : ?>
+							<tr>
+								<td><?= $i; ?>.</td>
+								<td><?= $pro['namaaplikasi']; ?></td>
+								<td>
+									<?php if($pro['progresbrd'] != null || $pro['bobotbrd'] != null ||
 														 $pro['bobotfsd']  != null || $pro['bobotsit']  != null ||
 														 $pro['bobotuat']  != null || $pro['bobotmigrasi']  != null){
 															$hasil= $pro['progresbrd'];
@@ -134,21 +134,23 @@
 													
 														 
 														?>
-													%</td>
-													<td><?= $pro['status']; ?></td>
-													<td><?= $pro['keterangan']; ?></td>
-													<td>
-														<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
-															class="badge badge-warning">Detail</a>
-														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
-															class="badge badge-danger"
-															onclick="return confirm('Are you sure want to delete this?');"
-															class="ik ik-trash-2 text-red">Delete</a>
-													</td>
-												</tr>
-												<?php $i++; ?>
-												<?php endforeach; ?>
-											</tbody>
+									%</td>
+								<td><?= $pro['status']; ?></td>
+								<td><?= $pro['keterangan']; ?></td>
+								<td>
+									<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
+										class="badge badge-warning">Detail</a>
+									<?php if ($user1['role'] == 'Planning') {   ?>
+									<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
+										class="badge badge-danger"
+										onclick="return confirm('Are you sure want to delete this?');"
+										class="ik ik-trash-2 text-red">Delete</a>
+									<?php } ?>
+								</td>
+							</tr>
+							<?php $i++; ?>
+							<?php endforeach; ?>
+						</tbody>
 					</table>
 				</div>
 
