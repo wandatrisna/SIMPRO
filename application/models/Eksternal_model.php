@@ -12,6 +12,9 @@ class Eksternal_model extends CI_Model
 
     public function get()
     {
+        // print_r($nomor_surat);die();
+        // $nomor = (int)"$nomor_surat";
+       
         $query = $this->db->query("SELECT * from eksternal where hapus_eks = 1 group by nama_eks");
         return $query->result_array();
     }
@@ -65,19 +68,19 @@ class Eksternal_model extends CI_Model
         return $this->db->affected_rows();
     }
 
-    public function nomorsurat($pmf){    
+    public function nomorsurat($jenis_eks){    
         $query = $this->db->get('eksternal'); 
         $total_row = $query->num_rows();
         $kode = $total_row + 1;
-        if($pmf=='CR') {
+        if($jenis_eks=='CR') {
             $tahun = date ('Y');
             $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
             $kodetampil = $batas."/CR-EKSTERNAL/".$tahun;  //format kode
-        } else if ($pmf=='PRL') {
+        } else if ($jenis_eks=='PRL') {
             $tahun = date ('Y');
             $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
             $kodetampil = $batas."/PRL-EKSTERNAL/".$tahun;  //format kode
-        } else if ($pmf=='PRF') {
+        } else if ($jenis_eks=='PRF') {
             $tahun = date ('Y');
             $batas = str_pad($kode, 3, "0", STR_PAD_LEFT);
             $kodetampil = $batas."/PRF-EKSTERNAL/".$tahun;  //format kode

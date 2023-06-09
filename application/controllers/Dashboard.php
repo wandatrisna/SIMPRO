@@ -33,7 +33,6 @@ class Dashboard extends CI_Controller
         $data['allpro'] = $this->Project_model->all();
         $data['stat'] = $this->Project_model->status();
         $data['user1'] = $this->User_model->dashboard();
-
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
         $this->load->view('auth/dashboard',$data);
