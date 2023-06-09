@@ -112,10 +112,7 @@
 						<?php endforeach; ?>
 					</tbody>
 				</table>
-			</div>
-		</div>
-	</div>
-</div>
+
 <!-- Modal Tambah Kegiatan -->
 
 <div class="modal fade" id="modalAdd1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"

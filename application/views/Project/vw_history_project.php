@@ -11,7 +11,7 @@
 						<tr class="table-warning">
 							<th width="5px">Number</th>
 							<th>Application Name</th>
-							<th>Progress</th>
+							<th>Percentage</th>
 							<th>Status</th>
 							<th>Note</th>
 							<th>Action</th>
