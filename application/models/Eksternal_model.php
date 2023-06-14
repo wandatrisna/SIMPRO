@@ -12,10 +12,20 @@ class Eksternal_model extends CI_Model
 
     public function get()
     {
-        // print_r($nomor_surat);die();
-        // $nomor = (int)"$nomor_surat";
-       
         $query = $this->db->query("SELECT * from eksternal where hapus_eks = 1 group by nama_eks");
+        return $query->result_array();
+    }
+
+    public function getdiv()
+    {
+        $this->db->select('e.*, d.jeniseks as jenis_eks, j.jenisdokumen as dokumen_eks,');
+        $this->db->from('eksternal e');
+        $this->db->join('jenis_eks d', 'e.jenis_eks = d.id_jeniseks');
+        $this->db->join('jenisdokumen j', 'e.dokumen_eks = j.id_jenisdokumen');
+        $this->db->where('hapus_eks = 1');
+        $this->db->group_by('nama_eks');
+        $this->db->order_by('update_date', 'asc');
+        $query = $this->db->get();
         return $query->result_array();
     }
 
@@ -35,8 +45,16 @@ class Eksternal_model extends CI_Model
 
     public function getByNama($nama_eks) 
     {
+        $this->db->select('e.*, d.jeniseks as jenis_eks, j.jenisdokumen as dokumen_eks,');
+        $this->db->from('eksternal e');
+        $this->db->join('jenis_eks d', 'e.jenis_eks = d.id_jeniseks');
+        $this->db->join('jenisdokumen j', 'e.dokumen_eks = j.id_jenisdokumen');
         $nama = str_replace("%20", " ", $nama_eks);
+        $this->db->where('nama_eks', "$nama");
+        $this->db->where('hapus_eks = 1');
+        $this->db->order_by('update_date', 'desc');
         $query = $this->db->query("SELECT * from eksternal where nama_eks = '$nama' and hapus_eks=1");
+        $query = $this->db->get();
         return $query->result_array();
     }
 
