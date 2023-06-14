@@ -112,7 +112,10 @@
 						<?php endforeach; ?>
 					</tbody>
 				</table>
-
+			</div>
+		</div>
+	</div>
+</div>
 <!-- Modal Tambah Kegiatan -->
 
 <div class="modal fade" id="modalAdd1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -146,14 +149,7 @@
 							<?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label class="col-sm-2 col-form-label">Progress</label>
-						<div class="col-sm-10">
-							<input type="number" name="progres" class="form-control form-control-user"
-								value="" id="progres">
-							<?= form_error('progres', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
+					
 					<div class="form-group row">
 						<label class="col-sm-2 col-form-label">Plan Start Date</label>
 						<div class="col-sm-10">
@@ -292,6 +288,14 @@
 							<?= form_error('actualendate', '<small class="text-danger pl-3">', '</small>'); ?>
 						</div>
 					</div>
+					<div class="form-group row">
+						<label class="col-sm-2 col-form-label">Keterangan </label>
+						<div class="col-sm-10">
+							<input type="text" name="keterangan" class="form-control form-control-user"
+								value="<?= set_value('keterangan'); ?>" id="keterangan" placeholder="Masukkan keterangan ">
+							<?= form_error('keterangan', '<small class="text-danger pl-3">', '</small>'); ?>
+						</div>
+					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary">Save</button>
@@ -330,14 +334,6 @@
 						</div>
 					</div>
 
-					<div class="form-group row">
-						<label class="col-sm-3 col-form-label">Progress</label>
-						<div class="col-sm-9">
-							<input type="number" name="progresbrd" class="form-control form-control-user"
-								id="progresbrd" value="<?php echo $d->progres; ?>" placeholder="Masukkan progres">
-							<?= form_error('progresbrd', '<small class="text-danger pl-3">', '</small>'); ?>
-						</div>
-					</div>
 
 					<div class="form-group row">
 						<label class="col-sm-3 col-form-label">Plan
@@ -425,6 +421,7 @@
 							<th>Plan End Date</th>
 							<th>Actual Start Date</th>
 							<th>Actual End Date</th>
+							<th>Keterangan</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -449,6 +446,10 @@
 							<td>
 								<?php echo $d['actualendate']; ?>
 							</td>
+							<td>
+								<?php echo $d['keterangan']; ?>
+							</td>
+							
 						</tr>
 						<?php $i++; ?>
 						<?php endforeach; ?>
@@ -461,10 +462,7 @@
 <?php endforeach; ?>
 
 </div>
-</div>
-</div>
-</div>
-</div>
+
 <script src="<?= base_url('assets/js/demo/datatables-demo.js') ?>"></script>
 <script src="<?= base_url('assets') ?>/vendor/datatables/jquery.dataTables.min.js"></script>
 <script src="<?= base_url('assets') ?>/vendor/datatables/dataTables.bootstrap4.min.js"></script>

@@ -15,6 +15,7 @@ class Project_model extends CI_Model
 		if (!empty($keyword)) {
 			$this->db->like('namaaplikasi', $keyword);
 		}
+		$this->db->order_by('last_updated_time', 'desc');
 		return $this->db->get()->result_array();
 	}
 	public function getDone($keyword = null)
@@ -25,6 +26,7 @@ class Project_model extends CI_Model
 		if (!empty($keyword)) {
 			$this->db->like('namaaplikasi', $keyword);
 		}
+		$this->db->order_by('last_updated_time', 'desc');
 		return $this->db->get()->result_array();
 	}
 	public function getUndone($keyword = null)
@@ -35,6 +37,7 @@ class Project_model extends CI_Model
 		if (!empty($keyword)) {
 			$this->db->like('namaaplikasi', $keyword);
 		}
+		$this->db->order_by('last_updated_time', 'desc');
 		return $this->db->get()->result_array();
 	}
 	public function gethistory($keyword = null)
@@ -50,7 +53,7 @@ class Project_model extends CI_Model
 	public function getBy()
 	{
 		$this->db->from($this->table);
-		$this->db->where('NIK', $this->session->userdata('NIK'));
+		$this->db->where('id_project', $this->session->userdata('id_project'));
 		$query = $this->db->get();
 		return $query->row_array();
 	}
@@ -185,5 +188,24 @@ class Project_model extends CI_Model
 		$query = $this->db->query("SELECT * from tb_project  where progresbrd = 5  ");
 		$s = "BRD";
 		return $s;
+	}
+
+	public function getjenispro($id)
+	{
+		$this->db->select('p.*,j.namajenisproject as jenisproject,');
+		$this->db->from('tb_project p');
+		$this->db->join('jenisproject j', 'p.jenisproject = j.id_jenisproject');
+		$this->db->where('p.id_project', $id);
+		$query = $this->db->get();
+		return $query->row_array();
+	}
+	public function getjenisapp($id)
+	{
+		$this->db->select('p.*,j.namajenisaplikasi as jenisaplikasi,');
+		$this->db->from('tb_project p');
+		$this->db->join('jenisaplikasi j', 'p.jenisaplikasi = j.id_jenisaplikasi');
+		$this->db->where('p.id_project', $id);
+		$query = $this->db->get();
+		return $query->row_array();
 	}
 }

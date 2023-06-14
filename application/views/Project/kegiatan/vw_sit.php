@@ -33,6 +33,7 @@
 																	data-planendate="<?php echo $project1['planendatesit'] ?>"
 																	data-actualstdate="<?php echo $project1['actualstdatesit'] ?>"
 																	data-actualendate="<?php echo $project1['actualendatesit'] ?>"
+																	data-filesit="<?php echo $project1['filesit'] ?>"
 																	data-toggle="modal" data-target="#editModal">
 																	<button data-toggle="modal" data-target="#ubah-data"
 																		class="btn btn-warning">Edit</button>
@@ -266,7 +267,7 @@
 																		<div class="col-sm-9">
 																			<?php echo $project1['filesit']; ?>
 																			<input type="file" name="filesit"
-																				class="form-control form-control-user"
+																			class="form-control form-control-user"
 																				value="<?php echo $project1['filesit']; ?>"
 																				id="file" placeholder="Masukkan file">
 																			<?= form_error('filesit', '<small class="text-danger pl-3">', '</small>'); ?>
@@ -314,15 +315,22 @@
 			modal.find('#planendatesit').html(div.data('planendatesit'));
 			modal.find('#actualstdatesit').html(div.data('actualstdatesit'));
 			modal.find('#actualendatesit').html(div.data('actualendatesit'));
+			modal.find('#filesit').html(div.data('filesit'));
 		});
 	});
 
 	function validateForm() {
 		let x = document.forms["frm"]["progressit"].value;
-		if (x > 10) {
+		if (x > 10)  {
 			alert("Progress is not more than 10%");
 			return false;
 		}
+
+	   let y = document.forms["frm"]["filesit"].value;
+	   if (y == ""){
+		alert("Please insert SIT file!");
+			return false;
+	   }
 	}
 
 </script>

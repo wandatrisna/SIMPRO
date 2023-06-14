@@ -145,7 +145,7 @@
 													<td>
 														<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
 															class="badge badge-warning">Detail</a>
-														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
+														<a href="<?= base_url('Project/hapusproject2/'). $pro['id_project']; ?> "
 															class="badge badge-danger"
 															onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
 															class="ik ik-trash-2 text-red">Delete</a>
