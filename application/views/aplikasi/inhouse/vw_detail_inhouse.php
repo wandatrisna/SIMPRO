@@ -32,7 +32,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['nama_in']; ?></td>
+                                                <td> : <?= $inhouse['nama_in']; ?></td>
                                             </label>
                                         </div>
 
@@ -41,7 +41,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['tgl_penyerahan_pmf']; ?></td>
+                                                <td> : <?= $inhouse['tgl_penyerahan_pmf']; ?></td>
                                             </label>
                                         </div>
 
@@ -50,7 +50,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['tgl_migrasi_prod']; ?></td>
+                                                <td> : <?= $inhouse['tgl_migrasi_prod']; ?></td>
                                             </label>
                                         </div>
 
@@ -59,7 +59,7 @@
                                                     (Planning)</strong></label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['pic_plan_in']; ?></td>
+                                                <td> : <?= $inhouse['pic_plan_in']; ?></td>
                                             </label>
                                         </div>
 
@@ -68,7 +68,7 @@
                                                     (Development)</strong></label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['pic_dev_in']; ?></td>
+                                                <td> : <?= $inhouse['pic_dev_in']; ?></td>
                                             </label>
                                         </div>
 
@@ -78,7 +78,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['pic_migrasi_in'];  ?></td>
+                                                <td> : <?= $inhouse['pic_migrasi_in'];  ?></td>
                                             </label>
                                         </div>
 
@@ -87,7 +87,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['doc_form_pmf']; ?>
+                                                <td> : <?= $inhouse['doc_form_pmf']; ?>
                                                     <?php 
                                                 if ($inhouse['doc_form_pmf'] != null) { ?>
                                                     <a href="<?= base_url('Inhouse/downloadpmf/'). $inhouse['doc_form_pmf']; ?>"
@@ -108,7 +108,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['doc_library']; ?>
+                                                <td> : <?= $inhouse['doc_library']; ?>
                                                     <?php 
                                             if ($inhouse['doc_library'] != null) { ?>
                                                     <a href="<?= base_url('Inhouse/downloadlib/'). $inhouse['doc_library']; ?>"
@@ -128,7 +128,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['doc_check_list']; ?>
+                                                <td> : <?= $inhouse['doc_check_list']; ?>
                                                     <?php 
                                             if ($inhouse['doc_check_list'] != null) { ?>
                                                     <a href="<?= base_url('Inhouse/downloadcheck/'). $inhouse['doc_check_list']; ?>"
@@ -149,7 +149,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $inhouse['doc_lain']; ?></td>
+                                                <td> : <?= $inhouse['doc_lain']; ?></td>
                                                 <?php 
                                             if ($inhouse['doc_lain'] != null) { ?>
                                                     <a href="<?= base_url('Inhouse/downloadlain/'). $inhouse['doc_lain']; ?>"
@@ -164,11 +164,43 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-sm-12 col-form-label"><strong>&emsp;Description</strong>
+                                        <label class="col-sm-4 col-form-label"><strong>&emsp;Planning Description</strong></label>
+                                            <br>
+                                            <label class="col-sm-8 col-form-label">
+                                                <td> : <?= $inhouse['keterangan_in']; ?></td>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Status</strong>
                                             </label>
                                             <br>
-                                            <label class="col-sm-12 col-form-label">
-                                                <td>&emsp;<?= $inhouse['keterangan_in']; ?></td><br>
+                                            <label class="col-sm-8 col-form-label">
+                                                <td> : 
+                                                <?php if ($inhouse['note_in'] == 'Pending') { ?>
+                                                    <a class="badge badge-danger" style="pointer-events: none">Pending</a>
+
+                                                        <?php } else if ($inhouse['note_in'] == 'On Progress') { ?>
+                                                    <a href="$inhouse1['note_in'];"
+                                                        class="badge badge-warning" style="pointer-events: none">On Progress</a>
+
+                                                        <?php } else  if ($inhouse['note_in'] == 'Done')  { ?>
+                                                    <a href="$inhouse1['note_in'];"
+                                                        class="badge badge-success" style="pointer-events: none">Done</a>
+
+                                                        <?php } else  if ($inhouse['note_in'] == null)  { ?>
+                                                    <a href="$inhouse1['note_in'];"
+                                                        class="badge badge-secondary" style="pointer-events: none">Null</a>
+                                                    <?php  }?></td>
+                                            </label>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Note</strong></label>
+                                            <br>
+                                            <label class="col-sm-8 col-form-label">
+                                                <td> : <?= $inhouse['comment_in']; ?></td>
                                             </label>
                                         </div>
                                     </div>

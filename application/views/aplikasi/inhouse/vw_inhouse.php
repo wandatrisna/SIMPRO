@@ -14,7 +14,7 @@
         </div>
 
         <div class="card-body">
-        <?= $this->session->flashdata('message') ?>
+            <?= $this->session->flashdata('message') ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -23,6 +23,7 @@
                             <th>Number</th>
                             <th>Document Type</th>
                             <th>Application Name</th>
+                            <th>Version</th>
                             <th>Owner</th>
                             <th>Action</th>
                         </tr>
@@ -36,6 +37,7 @@
                             <td><?= $us['nomor_in']; ?></td>
                             <td><?= $us['jenis_dokumen']; ?></td>
                             <td><?= $us['nama_in']; ?></td>
+                            <td><?= $us['versi_in']; ?></td>
                             <td><?= $us['owner_in']; ?></td>
                             <td>
 
@@ -53,4 +55,4 @@
     <br>
     <br>
 </div>
-                        </div>
+</div>

@@ -6,7 +6,7 @@
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
-                 New Application Form
+                    New Application Form
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
@@ -23,10 +23,10 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Document Type</label>
                                 <div class="col-sm-10">
-                                    <select name="jenis_dokumen" class="form-control" id="jenis_dokumen">
+                                <select name="jenis_dokumen" class="form-control" id="jenis_dokumen">
                                         <option value="">Select Document Type..</option>
                                         <?php foreach ($jenisdok as $p) : ?>
-                                        <option value="<?= $p['jenisdokumen']; ?>"><?= $p['jenisdokumen']; ?></option>
+                                        <option value="<?= $p['id_jenisdokumen']; ?>"><?= $p['jenisdokumen']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -53,7 +53,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">PMF Submission Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" name="tgl_penyerahan_pmf" class="form-control" id="tgl_penyerahan_pmf" >
+                                    <input type="date" name="tgl_penyerahan_pmf" class="form-control"
+                                        id="tgl_penyerahan_pmf">
                                     <?= form_error('tgl_penyerahan_pmf','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
@@ -61,7 +62,8 @@
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Migration Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" name="tgl_migrasi_prod" class="form-control" id="tgl_migrasi_prod" readonly>
+                                    <input type="date" name="tgl_migrasi_prod" class="form-control"
+                                        id="tgl_migrasi_prod" readonly>
                                     <?= form_error('tgl_migrasi_prod','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>
@@ -108,10 +110,26 @@
                                     <select name="owner_in" class="form-control" id="owner_in">
                                         <option value="">Select Owner</option>
                                         <?php foreach ($namadivisi as $p) : ?>
-                                        <option value="<?= $p['namadivisi']; ?>"><?= $p['namadivisi']; ?></option>
+                                        <option value="<?= $p['id_divisi']; ?>"><?= $p['namadivisi']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                     <?= form_error('owner_in','<small class="text-danger pl-3">','</small>'); ?>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Migration Status</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" 
+                                        placeholder="Waiting for IT Support..." readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Migration Note</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" 
+                                        placeholder="Waiting for IT Support..." readonly>
                                 </div>
                             </div>
 
@@ -120,7 +138,7 @@
 
                             <div class="col-md-12">
                                 <button type="submit" name="tambah" class="btn btn-primary float-right">Save
-                                    </button>
+                                </button>
                             </div>
                     </form>
                 </div>
@@ -128,5 +146,5 @@
         </div>
     </div>
 </div><br>
-    <br>
+<br>
 </div>

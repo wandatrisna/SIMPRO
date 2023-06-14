@@ -16,7 +16,7 @@ class Inhouse extends CI_Controller
  
 	public function index()
     { 
-        $data['inhouse'] = $this->Inhouse_model->get();
+        $data['inhouse'] = $this->Inhouse_model->getdiv();
         $data['nomor'] = $this->Inhouse_model->nomor();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -46,7 +46,7 @@ class Inhouse extends CI_Controller
 
     public function sup_indexinhouse()
     { 
-        $data['inhouse'] = $this->Inhouse_model->get();
+        $data['inhouse'] = $this->Inhouse_model->getdiv();
         $data['kode'] = $this->Inhouse_model->nomor();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -65,15 +65,14 @@ class Inhouse extends CI_Controller
         $mail->isSMTP();  // Mengirim menggunakan protokol SMTP
         $mail->Host = 'smtp.gmail.com'; // Host dari server SMTP
         $mail->SMTPAuth = true; // Autentikasi SMTP
-        $mail->Username = 'wanda20ti@mahasiswa.pcr.ac.id';
-        $mail->Password = 'hayutrisna912';
+        $mail->Username = 'muhammad.luthfy@brksyariah.co.id';
+        $mail->Password = 'mei123!@#';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         $mail->setFrom('noreply@testing.com', 'Planning - Wanda Trisnahayu'); // Sumber email
         $mail->addAddress('wanda.trisnahayu09@gmail.com'); // Masukkan alamat email dari variabel $email
-        $mail->Subject = "MIGRATION EMAIL TESTING"; // Subjek Email
-        //$mail->addAttachment('E:\COOLYEAH\smt6\LOGBOOK INSTANSI\Logbook 20maret-5mei _ wanda.pdf');
+        $mail->Subject = "MIGRATION EMAIL"; // Subjek Email
         $mail->addAttachment('./assets/dokumeninhouse/'.$file_name_pmf);
         $mail->addAttachment('./assets/dokumeninhouse/'.$file_name_lib);
         $mail->addAttachment('./assets/dokumeninhouse/'.$file_name_check);
@@ -89,7 +88,7 @@ class Inhouse extends CI_Controller
         <br>Dokumen PMF Migrasi​
         <br>Dokumen Ceklis Dokumen 
         <br>Dokumen Library​ 
-        <br>Dokumen Pendukung Lainnya​ (Dokumen pendukung dapat diakses melalui link berikut [link menyusul])
+        <br>Dokumen Pendukung Lainnya​ (silahkan cek aplikasi SIMPRO)
          
         <br>Mohon Bantuan Tim Support untuk dapat melakukan migrasi atas aplikasi tersebut.
         <br>Adapun PIC Development​ untuk Aplikasi ini dapat dikoordikasikan dengan Sdr.$picdev
@@ -174,12 +173,14 @@ class Inhouse extends CI_Controller
         }  
     }
 
+
     public function editinhouse($id)
     {
         $data['inhouse'] = $this->Inhouse_model->getById($id);
         $data['kode'] = $this->Inhouse_model->nomor();
         $data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+        $this->load->helper('date');
 
         $this->form_validation->set_rules('nomor_in', 'nomor_in', 'required', [
             'required' => 'Required!'
@@ -227,7 +228,8 @@ class Inhouse extends CI_Controller
 				'pic_plan_in' => $this->input->post('pic_plan_in'),
 				'pic_dev_in' => $this->input->post('pic_dev_in'),
 				'owner_in' => $this->input->post('owner_in'),	
-                'hapus_in' => $this->input->post('hapus_in'),				
+                'hapus_in' => $this->input->post('hapus_in'),
+                'update_date' => mdate('%Y-%m-%d %H:%i:%s', now()),				
 			   ];
                     $upload_image = $_FILES['doc_form_pmf']['name'];       
                         if ($upload_image) {
@@ -246,7 +248,7 @@ class Inhouse extends CI_Controller
                         $upload_image = $_FILES['doc_library']['name'];       
                         if ($upload_image) {
                         $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
-                        $config['max_size'] = '2048';
+                       // $config['max_size'] = '2048';
                         $config['upload_path'] = './assets/dokumeninhouse/';
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_library')) {
@@ -260,7 +262,7 @@ class Inhouse extends CI_Controller
                         $upload_image = $_FILES['doc_check_list']['name'];       
                         if ($upload_image) {
                         $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
-                        $config['max_size'] = '2048';
+                        //$config['max_size'] = '2048';
                         $config['upload_path'] = './assets/dokumeninhouse/';
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_check_list')) {
@@ -274,7 +276,7 @@ class Inhouse extends CI_Controller
                         $upload_image = $_FILES['doc_lain']['name'];       
                         if ($upload_image) {
                         $config['allowed_types'] = 'gif|jpg|png|jpeg|pdf|zip|rar';
-                        $config['max_size'] = '2048';
+                        //$config['max_size'] = '2048';
                         $config['upload_path'] = './assets/dokumeninhouse/';
                         $this->load->library('upload', $config);
                         if ($this->upload->do_upload('doc_lain')) {
@@ -305,8 +307,13 @@ class Inhouse extends CI_Controller
         $this->form_validation->set_rules('tgl_migrasi_prod', 'tgl_migrasi_prod', 'required', [
             'required' => 'Required!'
         ]);
-
         $this->form_validation->set_rules('pic_migrasi_in', 'pic_migrasi_in', 'required', [
+            'required' => 'Required!'
+        ]);
+        $this->form_validation->set_rules('note_in', 'note_in', 'required', [
+            'required' => 'Required!'
+        ]);
+        $this->form_validation->set_rules('comment_in', 'comment_in', 'required', [
             'required' => 'Required!'
         ]);
 
@@ -326,7 +333,9 @@ class Inhouse extends CI_Controller
 				'pic_plan_in' => $this->input->post('pic_plan_in'),
 				'pic_dev_in' => $this->input->post('pic_dev_in'),
                 'pic_migrasi_in' => $this->input->post('pic_migrasi_in'),
-				'owner_in' => $this->input->post('owner_in'),				
+				'owner_in' => $this->input->post('owner_in'),
+                'note_in' => $this->input->post('note_in'),
+				'comment_in' => $this->input->post('comment_in'),					
 			   ];
             $id_in = $this->input->post('id_in');
             $this->Inhouse_model->update(['id_in' => $id_in], $data);
