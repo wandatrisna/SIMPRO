@@ -22,6 +22,7 @@
                             <th>Num.</th>
                             <th>Number</th>
                             <th>Application Name</th>
+                            <th>Version</th>
                             <th>External Type</th>
                             <th>Document Type</th>
                             <th>Action</th>
@@ -34,6 +35,7 @@
                             <td><?= $i; ?>.</td>
                             <td><?= $us['nomor_eks']; ?></td>
                             <td><?= $us['nama_eks']; ?></td>
+                            <td><?= $us['versi_eks']; ?></td>
                             <td><?= $us['jenis_eks']; ?></td>
                             <td><?= $us['dokumen_eks']; ?></td>
                             <td>

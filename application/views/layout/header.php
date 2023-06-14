@@ -78,7 +78,7 @@
 
 
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'User/tambah' ? ' active' : '' ?>">
+                class="nav-item <?=$this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'tambah' ? ' active' : '' ?>">
                 <a class="nav-link" href="<?= base_url('User/index') ?>">
                     <i class="fas fa-fw fa-users"></i>
                     <span>All User</span>
@@ -228,7 +228,7 @@
                 </a>
             </li>
 
-            <li class="nav-item <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail'
+            <li class="nav-item <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory'||  $this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'detail'
 				|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'tambahproject' || $this->uri->segment(2) == 'hapusproject'
 				|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
 				|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
@@ -242,7 +242,7 @@
                     <span>Project</span>
                 </a>
                 <div id="collapsePages1"
-                    class="collapse <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail'
+                    class="collapse <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' ||  $this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'detail'
 				|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'tambahproject' || $this->uri->segment(2) == 'hapusproject'
 				|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
 				|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
@@ -252,7 +252,7 @@
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Project List :</h6>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexhistory' ? ' active' : '' ?>"
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'index' ? ' active' : '' ?>"
                             href="<?= base_url('Project/index') ?>">All Project</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexlistproject' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexlistproject') ?>">Project List</a>
@@ -326,7 +326,7 @@
             </li>
 
             <li
-                class="nav-item <?=$this->uri->segment(2) == 'index' || $this->uri->segment(2) == '' ? ' active"' : '' ?>">
+                class="nav-item <?=$this->uri->segment(2) == 'index' ? ' active"' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('Project/index') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-clipboard"></i>

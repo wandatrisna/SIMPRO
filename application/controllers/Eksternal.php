@@ -15,7 +15,7 @@ class Eksternal extends CI_Controller
 
     public function index()
     { 
-        $data['eksternal'] = $this->Eksternal_model->get();
+        $data['eksternal'] = $this->Eksternal_model->getdiv();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
         $this->load->view('aplikasi/eksternal/vw_eksternal',$data);
@@ -42,7 +42,7 @@ class Eksternal extends CI_Controller
 
     public function sup_indexeksternal()
     { 
-        $data['eksternal'] = $this->Eksternal_model->get();
+        $data['eksternal'] = $this->Eksternal_model->getdiv();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
         $this->load->view('aplikasi/eksternal/vw_support',$data);
@@ -123,7 +123,7 @@ class Eksternal extends CI_Controller
 
         $mail->setFrom('noreply@testing.com', 'Planning - Wanda Trisnahayu'); // Sumber email
         $mail->addAddress('wanda.trisnahayu09@gmail.com'); // Masukkan alamat email dari variabel $email
-        $mail->Subject = "MIGRATION EMAIL TESTING"; // Subjek Email
+        $mail->Subject = "MIGRATION EMAIL"; // Subjek Email
         $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_pmf);
         $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_lib);
         $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_check);
@@ -138,7 +138,7 @@ class Eksternal extends CI_Controller
         <br>Dokumen PMF Migrasi​
         <br>Dokumen Ceklis Dokumen 
         <br>Dokumen Library​ 
-        <br>Dokumen Pendukung Lainnya​ (Dokumen pendukung dapat diakses melalui link berikut [link menyusul])
+        <br>Dokumen Pendukung Lainnya​ (Silahkan cek aplikasi SIMPRO)
          
         <br>Mohon Bantuan Tim Support untuk dapat melakukan migrasi atas aplikasi tersebut.
         <br>Adapun PIC Development​ untuk Aplikasi ini dapat dikoordikasikan dengan Sdr.$picdev
@@ -166,6 +166,8 @@ class Eksternal extends CI_Controller
         $data['eksternal'] = $this->Eksternal_model->getById($id);
         $data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+
+        $this->load->helper('date');
 
         $this->form_validation->set_rules('nomor_eks', 'nomor_eks', 'required', [
             'required' => 'Required!'
@@ -210,6 +212,8 @@ class Eksternal extends CI_Controller
                 'keterangan' => $this->input->post('keterangan'),
 				'pic_plan_eks' => $this->input->post('pic_plan_eks'),
 				'pmf_by_eks' => $this->input->post('pmf_by_eks'),
+                'update_date' => mdate('%Y-%m-%d %H:%i:%s', now()),				
+
 			   ];
                     $upload_image = $_FILES['doc_form_pmf']['name'];       
                         if ($upload_image) {
@@ -287,6 +291,12 @@ class Eksternal extends CI_Controller
         $this->form_validation->set_rules('tgl_migrasi', 'tgl_migrasi', 'required', [
             'required' => 'Required!'
         ]);
+        $this->form_validation->set_rules('note_eks', 'note_eks', 'required', [
+            'required' => 'Required!'
+        ]);
+        $this->form_validation->set_rules('comment_eks', 'comment_eks', 'required', [
+            'required' => 'Required!'
+        ]);
 
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
@@ -304,6 +314,8 @@ class Eksternal extends CI_Controller
                 'keterangan' => $this->input->post('keterangan'),
 				'pic_plan_eks' => $this->input->post('pic_plan_eks'),
 				'pmf_by_eks' => $this->input->post('pmf_by_eks'),
+                'note_eks' => $this->input->post('note_eks'),
+				'comment_eks' => $this->input->post('comment_eks'),
 			   ];
                             
             $id_eks = $this->input->post('id_eks');
@@ -311,7 +323,6 @@ class Eksternal extends CI_Controller
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
             redirect('Eksternal/detaileksternal/'.$id_eks);
         }
-    
     }
 
     public function hapuseksternal($id)

@@ -53,12 +53,12 @@ class Auth extends CI_Controller
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Kata Sandi Salah!</div>');
+                Wrong Password!</div>');
                 redirect('Auth');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                NIK tidak ditemukan!</div>');
+                Unregistered NIK!</div>');
             redirect('Auth');
         }
     }

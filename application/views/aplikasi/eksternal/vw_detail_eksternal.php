@@ -28,7 +28,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['nama_eks']; ?></td>
+                                                <td> : <?= $eksternal['nama_eks']; ?></td>
                                             </label>
                                         </div>
 
@@ -38,7 +38,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['tgl_penyerahan_pmf']; ?></td>
+                                                <td> : <?= $eksternal['tgl_penyerahan_pmf']; ?></td>
                                             </label>
                                         </div>
 
@@ -47,7 +47,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['tgl_migrasi']; ?></td>
+                                                <td> : <?= $eksternal['tgl_migrasi']; ?></td>
                                             </label>
                                         </div>
 
@@ -57,7 +57,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['pic_plan_eks']; ?></td>
+                                                <td> : <?= $eksternal['pic_plan_eks']; ?></td>
                                             </label>
                                         </div>
 
@@ -66,7 +66,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['pmf_by_eks']; ?></td>
+                                                <td> : <?= $eksternal['pmf_by_eks']; ?></td>
                                             </label>
                                         </div>
 
@@ -75,7 +75,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['doc_form_pmf']; ?>
+                                                <td> : <?= $eksternal['doc_form_pmf']; ?>
                                                     <?php 
                                                                 if ($eksternal['doc_form_pmf'] != null) { ?>
                                                     <a href="<?= base_url('Eksternal/downloadpmf1/'). $eksternal['doc_form_pmf']; ?>"
@@ -96,7 +96,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['doc_library']; ?>
+                                                <td> : <?= $eksternal['doc_library']; ?>
                                                     <?php 
                                                                 if ($eksternal['doc_library'] != null) { ?>
                                                     <a href="<?= base_url('Eksternal/downloadlib1/'). $eksternal['doc_library']; ?>"
@@ -116,7 +116,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['doc_check_list']; ?>
+                                                <td> : <?= $eksternal['doc_check_list']; ?>
                                                     <?php 
                                                                 if ($eksternal['doc_check_list'] != null) { ?>
                                                     <a href="<?= base_url('Eksternal/downloadcheck1/'). $eksternal['doc_check_list']; ?>"
@@ -136,7 +136,7 @@
                                             </label>
                                             <br>
                                             <label class="col-sm-8 col-form-label">
-                                                <td>&emsp;: <?= $eksternal['doc_lain']; ?></td>
+                                                <td> : <?= $eksternal['doc_lain']; ?></td>
                                                 <?php 
                                             if ($eksternal['doc_lain'] != null) { ?>
                                                 <a href="<?= base_url('Eksternal/downloadlain/'). $eksternal['doc_lain']; ?>"
@@ -150,12 +150,46 @@
                                             </label>
                                         </div>
 
-                                        <label class="col-sm-12 col-form-label"><strong>Description</strong>
-                                        </label>
-                                        <br>
-                                        <label class="col-sm-12 col-form-label">
-                                            <td><?= $eksternal['keterangan']; ?></td><br>
-                                        </label>
+                                        <div class="form-group row">
+                                        <label class="col-sm-4 col-form-label"><strong>&emsp;Planning Description</strong></label>
+                                            <br>
+                                            <label class="col-sm-8 col-form-label">
+                                                <td> : <?= $eksternal['keterangan']; ?></td>
+                                            </label>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Status</strong>
+                                            </label>
+                                            <br>
+                                            <label class="col-sm-8 col-form-label">
+                                                <td> : 
+                                                <?php if ($eksternal['note_eks'] == 'Pending') { ?>
+                                                    <a class="badge badge-danger" style="pointer-events: none">Pending</a>
+
+                                                        <?php } else if ($eksternal['note_eks'] == 'On Progress') { ?>
+                                                    <a href="$eksternal['note_eks'];"
+                                                        class="badge badge-warning" style="pointer-events: none">On Progress</a>
+
+                                                        <?php } else  if ($eksternal['note_eks'] == 'Done')  { ?>
+                                                    <a href="$eksternal['note_eks'];"
+                                                        class="badge badge-success" style="pointer-events: none">Done</a>
+                                                        <?php } else  if ($eksternal['note_eks'] == Null)  { ?>
+                                                    <a href="$eksternal['note_eks'];"
+                                                        class="badge badge-secondary" style="pointer-events: none">Null</a>
+                                                    <?php  }?></td>
+                                            </label>
+                                        </div>
+
+
+                                        <div class="form-group row">
+                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Note</strong></label>
+                                            <br>
+                                            <label class="col-sm-8 col-form-label">
+                                                <td> : <?= $eksternal['comment_eks']; ?></td>
+                                            </label>
+                                        </div>
+
                                     </div>
                                 </div>
 

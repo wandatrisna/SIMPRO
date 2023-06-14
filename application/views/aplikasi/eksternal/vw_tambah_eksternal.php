@@ -27,7 +27,7 @@
                                     <select name="jenis_eks" class="form-control" id="jenis_eks">
                                         <option value="">Select External Type...</option>
                                         <?php foreach ($jeniseks as $p) : ?>
-                                        <option value="<?= $p['jeniseks']; ?>"><?= $p['jeniseks']; ?></option>
+                                        <option value="<?= $p['id_jeniseks']; ?>"><?= $p['jeniseks']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -39,7 +39,7 @@
                                     <select name="dokumen_eks" class="form-control" id="dokumen_eks">
                                         <option value="">Select Document Type...</option>
                                         <?php foreach ($jenisdok as $p) : ?>
-                                        <option value="<?= $p['jenisdokumen']; ?>"><?= $p['jenisdokumen']; ?></option>
+                                        <option value="<?= $p['id_jenisdokumen']; ?>"><?= $p['jenisdokumen']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -96,6 +96,22 @@
                                     <input type="text" name="pmf_by_eks" class="form-control" id="pmf_by_eks"
                                         placeholder="Insert Name...">
                                     <?= form_error('pmf_by_eks','<small class="text-danger pl-3">','</small>'); ?>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Migration Status</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" 
+                                        placeholder="Waiting for IT Support..." readonly>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label class="col-sm-2 col-form-label">Migration Note</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" 
+                                        placeholder="Waiting for IT Support..." readonly>
                                 </div>
                             </div>
 
