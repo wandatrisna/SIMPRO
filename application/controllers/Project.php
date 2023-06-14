@@ -127,7 +127,6 @@ class Project extends CI_Controller
 	
 	public function tambahproject()
 {
-	$this->load->helper('date');
 	$data['judul'] = "Halaman Tambah Project";
 	$data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 	$data['project'] = $this->Project_model->get();
@@ -148,9 +147,8 @@ class Project extends CI_Controller
 		'required' => 'Required'
 	]);
 	// $this->form_validation->set_rules('urf', 'urf', 'required', [
-	// 	'required' => 'Required'
+	// 	'required' => 'Target Selesai tidak boleh kosong'
 	// ]);
-
 	if ($this->form_validation->run() == false) {
 		$this->load->view("layout/header", $data);
 		$this->load->view("Project/vw_tambah_project", $data);
@@ -180,8 +178,6 @@ class Project extends CI_Controller
 				'target' => $this->input->post('target'),
 				'tanggalregister' => $this->input->post('tanggalregister'),
 				'urf' => $filename,
-				'date_created' => time(),
-				'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
 			);
 			$this->Project_model->insert($data);
 			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully Added!</div>');
@@ -196,10 +192,7 @@ class Project extends CI_Controller
 	{
 		$data['user'] = $this->User_model->get();
 		$data['project'] = $this->Project_model->get();
-		$data['projectby'] = $this->Project_model->getBy();
 		$data['project1'] = $this->Project_model->getById($id);
-		$data['jenisp'] = $this->Project_model->getjenispro($id);
-		$data['jenisa'] = $this->Project_model->getjenisapp($id);
 		$data['dev'] = $this->Development_model->getkeg($id);
 		$data['jenisproject'] = $this->Jenisproject_model->get();
 		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
@@ -212,7 +205,6 @@ class Project extends CI_Controller
 
 	public function editproject()
 	{
-		$this->load->helper('date');
 		$this->form_validation->set_rules('bobotbrd', 'bobotbrd', 'required|less_than_equal_to[10]', [
 			'required' => 'required',
 		]);
@@ -229,9 +221,7 @@ class Project extends CI_Controller
 			'tahun' => $this->input->post('tahun'),
 			'keterangan' => $this->input->post('keterangan'),
 			'target' => $this->input->post('target'),
-			'tanggalregister' => $this->input->post('tanggalregister'),
-			// 'last_update_date' =>time(),
-			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'tanggalregister' => $this->input->post('tanggalregister')
 		);
 		$upload_image = $_FILES['urf']['name'];
 		if ($upload_image) {
@@ -258,19 +248,7 @@ class Project extends CI_Controller
 	public function hapusproject($id)
 	{
 		$this->Project_model->delete($id);
-		redirect('Project/index');
-	}
-
-	public function hapusproject2($id)
-	{
-		$this->Project_model->delete($id);
 		redirect('Project/indexlistproject');
-	}
-
-	public function hapusproject3($id)
-	{
-		$this->Project_model->delete($id);
-		redirect('Project/indexlisthistory');
 	}
 
 	public function detailbrd($id)
@@ -285,7 +263,6 @@ class Project extends CI_Controller
 	}
 	public function editbrd()
 	{
-		$this->load->helper('date');
 		$this->form_validation->set_rules('bobotbrd', 'bobotbrd', 'required|less_than_equal_to[10]', [
 			'required' => 'required',
 		]);
@@ -302,8 +279,7 @@ class Project extends CI_Controller
 			'planendatebrd' => $this->input->post('planendatebrd'),
 			'actualstdatebrd' => $this->input->post('actualstdatebrd'),
 			'actualendatebrd' => $this->input->post('actualendatebrd'),
-			'status' => 'Last Changed BRD',
-			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'status' => 'Last Changed BRD'
 		);
 		$upload_image = $_FILES['filebrd']['name'];
 		if ($upload_image) {
@@ -340,7 +316,7 @@ class Project extends CI_Controller
 	}
 	public function editfsd()
 	{
-		$this->load->helper('date');
+
 		$id = $this->input->post('id_project');
 		$data = array(
 			'bobotfsd' => $this->input->post('bobotfsd'),
@@ -349,8 +325,7 @@ class Project extends CI_Controller
 			'planendatefsd' => $this->input->post('planendatefsd'),
 			'actualstdatefsd' => $this->input->post('actualstdatefsd'),
 			'actualendatefsd' => $this->input->post('actualendatefsd'),
-			'status' => 'Last Changed FSD',
-			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'status' => 'Last Changed FSD'
 		);
 		$upload_image = $_FILES['filefsd']['name'];
 		if ($upload_image) {
@@ -396,7 +371,7 @@ class Project extends CI_Controller
 	}
 	public function editdev($id)
 	{
-		$this->load->helper('date');
+
 		$data['judul'] = "";
 		$data['user'] = $this->User_model->get();
 		$data['project'] = $this->Project_model->getById($id);
@@ -443,8 +418,7 @@ class Project extends CI_Controller
 					'actualstdate' => $this->input->post('actualstdate'),
 					'actualendate' => $this->input->post('actualendate'),
 					
-					'status' => 'Last Changed Development',
-					'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+					'status' => 'Last Changed Development'
 				);
 				
 				$this->Project_model->ubah($data1, $id);
@@ -488,8 +462,6 @@ class Project extends CI_Controller
 		$this->upload->do_upload('file');
 		//var_dump( $this->upload->data('file_name'));die();
 		$filename = $this->upload->data('file_name');
-		$data['dev1'] = $this->Development_model->getById($id);
-				$id = $this->input->post('project_id');
 		$data = [
 			'id_dev' => $this->input->post('id_dev'),
 			'namakeg' => $this->input->post('namakeg'),
@@ -498,25 +470,9 @@ class Project extends CI_Controller
 			'planendate' => $this->input->post('planendate'),
 			'actualstdate' => $this->input->post('actualstdate'),
 			'actualendate' => $this->input->post('actualendate'),
-			'keterangan' => $this->input->post('keterangan'),
 		];
-		$data1 = [
-			'bobotdev' => $this->input->post('bobot'),
-			'progresdev' => $this->input->post('bobot'),
-		];
-		$this->Project_model->ubah($data1, $id);
 		if($sub[0]->bobot+$this->input->post('bobot') <= $dev[0]->bobot){
-			// print_r
 			$this->Sub_model->insert($data);
-
-			//get sum value sub kegiatan where id_dev = $this->input->post('id_dev'),
-			$querySum = $this->Sub_model->getSumSubDev($this->input->post('id_dev')); 
-			$totalProgress = $querySum[0]['Bobot'];
-			// print_r($totalProgress); die();
-
-			//update kolom progress di tabel activity where id_dev = $this->input->post('id_dev'),
-			$this->Sub_model->updateProgress($this->input->post('id_dev'), $totalProgress);
-			
 			$this->session->set_flashdata('acc', 'Activity Successfully Added!');
 		}else{
 			$this->session->set_flashdata('err', 'Cannot insert activity!');
@@ -561,7 +517,7 @@ class Project extends CI_Controller
 		if ($this->input->post('progres') <= $this->input->post('bobot') ) {
 		$data = [
 			'bobot' => $this->input->post('bobotbrd'),
-			// 'progres' => $this->input->post('progresbrd'),
+			'progres' => $this->input->post('progresbrd'),
 			'planstdate' => $this->input->post('planstdatebrd'),
 			'planendate' => $this->input->post('planendatebrd'),
 			'actualstdate' => $this->input->post('actualstdatebrd'),
@@ -570,7 +526,7 @@ class Project extends CI_Controller
 		];
 		$data1 = array(
 			'bobotdev' => $this->input->post('bobotbrd'),
-			// 'progresdev' => $this->input->post('progresbrd'),
+			'progresdev' => $this->input->post('progresbrd'),
 			'planstdatedev' => $this->input->post('planstdatebrd'),
 			'planendatedev' => $this->input->post('planendatebrd'),
 			'actualstdatedev' => $this->input->post('actualstdatebrd'),
@@ -601,7 +557,7 @@ class Project extends CI_Controller
 	}
 	public function editsit()
 	{
-		$this->load->helper('date');
+
 		$id = $this->input->post('id_project');
 		$data = array(
 			'bobotsit' => $this->input->post('bobotsit'),
@@ -610,8 +566,7 @@ class Project extends CI_Controller
 			'planendatesit' => $this->input->post('planendatesit'),
 			'actualstdatesit' => $this->input->post('actualstdatesit'),
 			'actualendatesit' => $this->input->post('actualendatesit'),
-			'status' => 'Last Changed SIT',
-			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'status' => 'Last Changed SIT'
 		);
 		$upload_image = $_FILES['filesit']['name'];
 		if ($upload_image) {
@@ -646,10 +601,6 @@ class Project extends CI_Controller
 	}
 	public function edituat()
 	{
-		$this->load->helper('date');
-		$this->form_validation->set_rules('fileuat', 'fileuat', 'required', [
-			'required' => 'Required'
-		]);
 		$id = $this->input->post('id_project');
 		$data = array(
 			'bobotuat' => $this->input->post('bobotuat'),
@@ -658,8 +609,7 @@ class Project extends CI_Controller
 			'planendateuat' => $this->input->post('planendateuat'),
 			'actualstdateuat' => $this->input->post('actualstdateuat'),
 			'actualendateuat' => $this->input->post('actualendateuat'),
-			'status' => 'Last Changed UAT',
-			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'status' => 'Last Changed UAT'
 		);
 		$upload_image = $_FILES['fileuat']['name'];
 		if ($upload_image) {
@@ -695,7 +645,7 @@ class Project extends CI_Controller
 	}
 	public function editmigrasi()
 	{
-		$this->load->helper('date');
+
 		$id = $this->input->post('id_project');
 		$data = array(
 			'bobotmigrasi' => $this->input->post('bobotmigrasi'),
@@ -704,8 +654,7 @@ class Project extends CI_Controller
 			'planendatemigrasi' => $this->input->post('planendatemigrasi'),
 			'actualstdatemigrasi' => $this->input->post('actualstdatemigrasi'),
 			'actualendatemigrasi' => $this->input->post('actualendatemigrasi'),
-			'status' => 'Last Changed Migrasi',
-			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'status' => 'Last Changed Migrasi'
 		);
 		$upload_image = $_FILES['filemigrasi']['name'];
 		if ($upload_image) {
