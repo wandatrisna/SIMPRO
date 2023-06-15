@@ -169,6 +169,7 @@ class Development_model extends CI_Model
         $this->db->select('*');
         $this->db->from('tb_dev');
         $this->db->where('project_id',$id2);
+        $this->db->order_by('last_updated', 'desc');
         return $this->db->get()->result();
     }
 }

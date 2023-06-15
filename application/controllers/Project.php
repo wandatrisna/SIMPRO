@@ -434,6 +434,7 @@ class Project extends CI_Controller
 					'planendate' => $this->input->post('planendate'),
 					'actualstdate' => $this->input->post('actualstdate'),
 					'actualendate' => $this->input->post('actualendate'),
+					'last_updated' => mdate('%Y-%m-%d %H:%i:%s', now()),
 					
 
 					
