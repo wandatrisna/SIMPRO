@@ -115,7 +115,7 @@
 																		value="<?= set_value('urf'); ?>"
 																		class="form-control form-control-user" id="urf"
 																		placeholder="Insert File">
-
+                                                                        <h6><font color="red">File URF must be insert</font><br></h6>
 																	<?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
 																</div>
 

@@ -71,7 +71,7 @@ class User extends CI_Controller
             $this->form_validation->set_rules('nama', 'nama', 'required', [
                 'required' => 'Required'
             ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]',
+        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|matches[password2]',
         [
         'matches' => 'Unmatched Password!',
         'min_length' => 'Password Too Short!',

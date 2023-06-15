@@ -205,7 +205,7 @@
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                    
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Application List :</h6>
+                        <h6 class="collapse-header">Application Version :</h6>
                         <a class="collapse-item <?=$this->uri->segment(1) == 'Inhouse' 
                         || $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'detailinhouse' 
                         || $this->uri->segment(2) == 'editinhouse' ? ' active' : '' ?>"
@@ -278,7 +278,7 @@
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                    
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Application List :</h6>
+                        <h6 class="collapse-header">Application Version :</h6>
                         <a class="collapse-item <?=$this->uri->segment(1) == 'Inhouse' 
                         || $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'detailinhouse' 
                         || $this->uri->segment(2) == 'editinhouse' ? ' active' : '' ?>"
@@ -381,7 +381,7 @@
                     || $this->uri->segment(2) == 'sup_editinhouse'|| $this->uri->segment(2) == 'sup_editeksternal' ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Application List :</h6>
+                        <h6 class="collapse-header">Application Version :</h6>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'sup_indexinhouse' 
                          || $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'detailinhouse'
                          || $this->uri->segment(2) == 'sup_editinhouse'  ? ' active' : '' ?>"

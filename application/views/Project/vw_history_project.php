@@ -89,10 +89,10 @@
 							<td><?= $pro['status']; ?></td>
 							<td><?= $pro['keterangan']; ?></td>
 							<td>
-								<a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
+								<a href="<?= base_url('Project/detailhistory/'). $pro['id_project']; ?>"
 									class="badge badge-warning">Detail</a>
 								<?php if ($user1['role'] == 'Planning') {   ?>
-								<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
+								<a href="<?= base_url('Project/hapusproject3/'). $pro['id_project']; ?> "
 									class="badge badge-danger"
 									onclick="return confirm('Are you sure want to delete this?');"
 									class="ik ik-trash-2 text-red">Delete</a>

@@ -209,6 +209,60 @@ class Project extends CI_Controller
 		$this->load->view('layout/footer', $data);
 	}
 
+	public function detailhistory($id)
+	{
+		$data['user'] = $this->User_model->get();
+		$data['project'] = $this->Project_model->get();
+		$data['projectby'] = $this->Project_model->getBy();
+		$data['project1'] = $this->Project_model->getById($id);
+		$data['jenisp'] = $this->Project_model->getjenispro($id);
+		$data['jenisa'] = $this->Project_model->getjenisapp($id);
+		$data['dev'] = $this->Development_model->getkeg($id);
+		$data['jenisproject'] = $this->Jenisproject_model->get();
+		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+		$data['hitung'] = $this->Project_model->hitung();
+		$this->load->view('layout/header', $data);
+		$this->load->view('project/vw_detail_project_history', $data);
+		$this->load->view('layout/footer', $data);
+	}
+
+	public function detailall($id)
+	{
+		$data['user'] = $this->User_model->get();
+		$data['project'] = $this->Project_model->get();
+		$data['projectby'] = $this->Project_model->getBy();
+		$data['project1'] = $this->Project_model->getById($id);
+		$data['jenisp'] = $this->Project_model->getjenispro($id);
+		$data['jenisa'] = $this->Project_model->getjenisapp($id);
+		$data['dev'] = $this->Development_model->getkeg($id);
+		$data['jenisproject'] = $this->Jenisproject_model->get();
+		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+		$data['hitung'] = $this->Project_model->hitung();
+		$this->load->view('layout/header', $data);
+		$this->load->view('project/vw_detail_project_all', $data);
+		$this->load->view('layout/footer', $data);
+	}
+
+	public function detaildash($id)
+	{
+		$data['user'] = $this->User_model->get();
+		$data['project'] = $this->Project_model->get();
+		$data['projectby'] = $this->Project_model->getBy();
+		$data['project1'] = $this->Project_model->getById($id);
+		$data['jenisp'] = $this->Project_model->getjenispro($id);
+		$data['jenisa'] = $this->Project_model->getjenisapp($id);
+		$data['dev'] = $this->Development_model->getkeg($id);
+		$data['jenisproject'] = $this->Jenisproject_model->get();
+		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+		$data['hitung'] = $this->Project_model->hitung();
+		$this->load->view('layout/header', $data);
+		$this->load->view('project/vw_detail_dashboard', $data);
+		$this->load->view('layout/footer', $data);
+	}
+
 	public function editproject()
 	{
 		$this->load->helper('date');
