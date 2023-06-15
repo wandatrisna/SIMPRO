@@ -65,8 +65,10 @@ class Inhouse extends CI_Controller
         $mail->isSMTP();  // Mengirim menggunakan protokol SMTP
         $mail->Host = 'smtp.gmail.com'; // Host dari server SMTP
         $mail->SMTPAuth = true; // Autentikasi SMTP
-        $mail->Username = 'muhammad.luthfy@brksyariah.co.id';
-        $mail->Password = 'mei123!@#';
+        $mail->Username = 'wanda20ti@mahasiswa.pcr.ac.id';
+        $mail->Password = 'hayutrisna912';
+        // $mail->Username = 'muhammad.luthfy@brksyariah.co.id';
+        // $mail->Password = 'mei123!@#';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 

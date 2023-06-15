@@ -118,7 +118,7 @@ class Parameter extends CI_Controller
         $this->load->view('parameter/vw_param_eks',$data);
         $this->load->view('layout/footer',$data);
 
-        $this->form_validation->set_rules('jeniseks', 'jeniseks', 'required', [
+        $this->form_validation->set_rules('jenis_eks', 'jenis_eks', 'required', [
             'required' => 'Required!'
         ]);
 
@@ -126,7 +126,7 @@ class Parameter extends CI_Controller
 
         } else {
             $data = [
-				'jeniseks' => $this->input->post('jeniseks')
+				'jenis_eks' => $this->input->post('jenis_eks')
 			   ];
 
 			$this->Jeniseksternal_model->insert($data);

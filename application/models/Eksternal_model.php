@@ -18,7 +18,8 @@ class Eksternal_model extends CI_Model
 
     public function getdiv()
     {
-        $this->db->select('e.*, d.jeniseks as jenis_eks, j.jenisdokumen as dokumen_eks,');
+        $this->db->select('e.nomor_eks, e.nama_eks, max(e.versi_eks) as versi_eks
+        , d.jenis_eks as jenis_eks, j.jenisdokumen as dokumen_eks,');
         $this->db->from('eksternal e');
         $this->db->join('jenis_eks d', 'e.jenis_eks = d.id_jeniseks');
         $this->db->join('jenisdokumen j', 'e.dokumen_eks = j.id_jenisdokumen');
@@ -45,7 +46,7 @@ class Eksternal_model extends CI_Model
 
     public function getByNama($nama_eks) 
     {
-        $this->db->select('e.*, d.jeniseks as jenis_eks, j.jenisdokumen as dokumen_eks,');
+        $this->db->select('e.*, d.jenis_eks as jenis_eks, j.jenisdokumen as dokumen_eks,');
         $this->db->from('eksternal e');
         $this->db->join('jenis_eks d', 'e.jenis_eks = d.id_jeniseks');
         $this->db->join('jenisdokumen j', 'e.dokumen_eks = j.id_jenisdokumen');

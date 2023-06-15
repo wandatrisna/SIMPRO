@@ -45,7 +45,7 @@
                                 <label class="col-sm-2 col-form-label">Version</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="versi_in" class="form-control" id="versi_in"
-                                        placeholder="Insert Version">
+                                        placeholder="Insert Version Without Point (Ex : 1.0.4 -> 104)">
                                     <?= form_error('versi_in','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>

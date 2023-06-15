@@ -26,8 +26,8 @@
                                 <div class="col-sm-10">
                                     <select name="jenis_eks" class="form-control" id="jenis_eks">
                                         <option value="">Select External Type...</option>
-                                        <?php foreach ($jeniseks as $p) : ?>
-                                        <option value="<?= $p['id_jeniseks']; ?>"><?= $p['jeniseks']; ?></option>
+                                        <?php foreach ($jenis_eks as $p) : ?>
+                                        <option value="<?= $p['id_jeniseks']; ?>"><?= $p['jenis_eks']; ?></option>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
@@ -49,7 +49,7 @@
                                 <label class="col-sm-2 col-form-label">Version</label>
                                 <div class="col-sm-10">
                                     <input type="text" name="versi_eks" class="form-control" id="versi_eks"
-                                        placeholder="Insert Version">
+                                        placeholder="Insert Version Without Point (Ex : 1.0.4 -> 104)">
                                     <?= form_error('versi_eks','<small class="text-danger pl-3">','</small>'); ?>
                                 </div>
                             </div>

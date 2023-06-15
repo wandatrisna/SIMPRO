@@ -20,7 +20,7 @@
 														<i class="icofont icofont-spinner-alt-5"></i>
 														<div class="float-right">
 														<?php
-                                                if ($user1['role'] == 'Development') {
+                                                if ($user1['role'] == 'Planning') {
                                                 ?>
 															<a href="<?= base_url() ?>Project/editmigrasi"
 																class="btn btn-warning btn-icon-split btn-sm">
@@ -322,5 +322,10 @@
 												alert("Progress is not more than 5%");
 												return false;
 											}
+											let y = document.forms["frm"]["filemigrasi"].value;
+	   if (y == ""){
+		alert("Please insert Migrasi file!");
+			return false;
+	   }
 										}
 										</script>

@@ -19,14 +19,6 @@ class Inhouse_model extends CI_Model
 
     public function getdiv()
     {
-<<<<<<< Updated upstream
-=======
-        //$max_id = $this->db->query("SELECT max(id_in) as id FROM inhouse  GROUP by nama_in ")->result_array();
-        //var_dump($max_id);die();
-
-        // $array_data = array();
-        // foreach ($max_id as $id) {
->>>>>>> Stashed changes
             $this->db->select('i.nomor_in, i.nama_in, max(i.versi_in) as versi_in,
              d.namadivisi as owner_in, j.jenisdokumen as jenis_dokumen,');
             $this->db->from('inhouse i');
@@ -36,15 +28,6 @@ class Inhouse_model extends CI_Model
             $this->db->group_by('nama_in');
             $this->db->order_by('update_date', 'desc');
             $query = $this->db->get();
-<<<<<<< Updated upstream
-=======
-
-        //     $array_data[] = $query;
-        // }
-
-        // return $array_data;
-        
->>>>>>> Stashed changes
         return $query->result_array();
     }
 
@@ -56,7 +39,6 @@ class Inhouse_model extends CI_Model
         $this->db->from('inhouse i');
         $this->db->join('divisi d', 'i.owner_in = d.id_divisi');
         $this->db->join('jenisdokumen j', 'i.jenis_dokumen = j.id_jenisdokumen');
-
         $this->db->where('nama_in', "$nama");
         $this->db->where('hapus_in = 1');
         $this->db->order_by('update_date', 'desc');

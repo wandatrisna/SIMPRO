@@ -52,7 +52,7 @@ class Eksternal extends CI_Controller
     public function tambaheksternal()
     {
             $data['eksternal'] = $this->Eksternal_model->get();
-            $data['jeniseks'] = $this->Jeniseksternal_model->get();
+            $data['jenis_eks'] = $this->Jeniseksternal_model->get();
             $data['jenisdok'] = $this->Jenisdokumen_model->get();
             $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         

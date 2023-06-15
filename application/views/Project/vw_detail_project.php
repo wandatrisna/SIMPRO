@@ -17,6 +17,7 @@
 											<div class="card">
 												<div class="card-header">
 													<h3><strong><?= $project1['namaaplikasi']; ?></strong></h3>
+													Last Updated <?= $project1['last_updated_time'];?>
 													<table class="table table-hover">
 														<tbody>
 															<tr>
@@ -24,11 +25,12 @@
 																<td>
 																	<div class="task-contain">
 																		<p class="d-inline-block m-l-20"><strong>Project Type</strong></p>
+																		
 																	</div>
 																</td>
 																<td>
 																	<p class="d-inline-block m-r-20">
-																		<?= $project1['jenisproject'] ?></p>
+																	<?= $jenisp['jenisproject'] ?></p>
 																	<div class="progress d-inline-block">
 																		<div class="progress-bar bg-c-blue"
 																			role="progressbar" aria-valuemin="0"
@@ -45,7 +47,7 @@
 																</td>
 																<td>
 																	<p class="d-inline-block m-r-20">
-																		<?= $project1['jenisaplikasi'] ?></p>
+																	<?= $jenisa['jenisaplikasi'] ?></p>
 																	<div class="progress d-inline-block">
 																		<div class="progress-bar bg-c-pink"
 																			role="progressbar" aria-valuemin="0"
@@ -148,6 +150,26 @@
 																</td>
 
 															</tr>
+															<tr>
+																<td>
+																	<div class="task-contain">
+																		<p class="d-inline-block m-l-20">
+																			<strong>Created Date</strong>
+																		</p>
+																	</div>
+																</td>
+																<td>
+																	<p class="d-inline-block m-r-20">
+																		<?= date('Y-m-d', $project1['date_created']); ?>
+																	</p>
+																	<div class="progress d-inline-block">
+																		<div class="progress-bar bg-c-blue"
+																			role="progressbar" aria-valuemin="0"
+																			aria-valuemax="100" style="width:50%">
+																		</div>
+																	</div>
+																</td>
+															</tr>
 															<?php if ($user1['role'] == 'Planning') {   ?>
 															<tr>
 																<td>
@@ -200,7 +222,11 @@
 															<tbody>
 																<tr>
 
+																<?php if ($project1['jenisaplikasi'] == 4){   ?>
+																	<td>CR</td>
+																<?php } else { ?>
 																	<td>BRD</td>
+																<?php }?>
 																	<td><?php $hasil= $project1['progresbrd'];
 														if ($hasil==0){
 															echo $total=0  ;
@@ -299,66 +325,68 @@
 
 
 												<!-- form edit -->
-												<form
-													action="<?php echo base_url('Project/editproject/'). $project1['id_project'];?>"
-													method="POST" enctype="multipart/form-data">
-													<div id="editModal" class="modal fade" tabindex="-1" role="dialog"
-														aria-labelledby="exampleModalLabel" aria-hidden="true">
-														<div class="modal-dialog modal-lg" role="document">
-															<div class="modal-content">
-																<div class="modal-header">
-																	<h5 class="modal-title" id="exampleModalLabel">Edit
-																	</h5>
-																	<button type="button" class="close"
-																		data-dismiss="modal" aria-label="Close">
-																		<span aria-hidden="true">&times;</span>
-																	</button>
-																</div>
+											<form
+												action="<?php echo base_url('Project/editproject/'). $project1['id_project'];?>"
+												method="POST" enctype="multipart/form-data">
+												<div id="editModal" class="modal fade" tabindex="-1" role="dialog"
+													aria-labelledby="exampleModalLabel" aria-hidden="true">
+													<div class="modal-dialog modal-lg" role="document">
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="exampleModalLabel">Edit
+																</h5>
+																<button type="button" class="close" data-dismiss="modal"
+																	aria-label="Close">
+																	<span aria-hidden="true">&times;</span>
+																</button>
+															</div>
 
-																<div class="modal-body">
-																	<input type="hidden" name="id_project"
-																		value="<?= $project1['id_project']; ?>">
+															<div class="modal-body">
+																<input type="hidden" name="id_project"
+																	value="<?= $project1['id_project']; ?>">
+																<div class="form-group row">
+																	<label class="col-sm-3 col-form-label">Application
+																		Name</label>
+																	<div class="col-sm-9">
+																		<input type="namaaplikasi" name="namaaplikasi"
+																			class="form-control form-control-user"
+																			value="<?= $project1['namaaplikasi']; ?>"
+																			id="namaaplikasi"
+																			placeholder="Masukkan nama aplikasi">
+																		<?= form_error('namaaplikasi', '<small class="text-danger pl-3">', '</small>'); ?>
+																	</div>
+													</div>
+
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Application Name</label>
-																		<div class="col-sm-9">
-																			<input type="namaaplikasi"
-																				name="namaaplikasi"
-																				class="form-control form-control-user"
-																				value="<?= $project1['namaaplikasi']; ?>"
-																				id="namaaplikasi"
-																				placeholder="Masukkan nama aplikasi">
-																			<?= form_error('namaaplikasi', '<small class="text-danger pl-3">', '</small>'); ?>
+																	<label class="col-sm-3 col-form-label">Project
+																		Type</label>
+																	<div class="col-sm-9">
+
+																		<select name="jenisproject" class="form-control"
+																			id="jenisproject">
+																			<?php foreach ($jenisproject as $p) { ?>
+																			<option
+																				value="<?php echo $p['id_jenisproject']?>">
+																				<?php echo $p['namajenisproject']?>
+																			</option>
+																			<?php } ?>
+																		</select>
 																		</div>
 																	</div>
 
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Project Type</label>
-																		<div class="col-sm-9">
-
-																			<select name="jenisproject"
-																				class="form-control" id="jenisproject">
-																				<?php foreach ($jenisproject as $p) { ?>
-																				<option
-																					value="<?php echo $p['namajenisproject']?>">
-																					<?php echo $p['namajenisproject']?>
-																				</option>
-																				<?php } ?>
-																			</select>
-																		</div>
-																	</div>
-
-																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Application Type</label>
-																		<div class="col-sm-9">
-																			<select name="jenisaplikasi"
-																				class="form-control" id="jenisaplikasi">
-																				<?php foreach ($jenisaplikasi as $p) { ?>
-																				<option
-																					value="<?php echo $p['namajenisaplikasi']?>">
-																					<?php echo $p['namajenisaplikasi']?>
-																				</option>
-																				<?php } ?>
-																			</select>
+																	<label class="col-sm-3 col-form-label">Application
+																		Type</label>
+																	<div class="col-sm-9">
+																		<select name="jenisaplikasi"
+																			class="form-control" id="jenisaplikasi">
+																			<?php foreach ($jenisaplikasi as $p) { ?>
+																			<option
+																				value="<?php echo $p['id_jenisaplikasi']?>">
+																				<?php echo $p['namajenisaplikasi']?>
+																			</option>
+																			<?php } ?>
+																		</select>
 																		</div>
 																	</div>
 
@@ -366,71 +394,68 @@
 																		<label
 																			class="col-sm-3 col-form-label">Year</label>
 																		<div class="col-sm-9">
-																			<input type="text" name="tahun"
-																				value="<?= $project1['tahun']; ?>"
-																				class="form-control form-control-user"
-																				id="tahun"
-																				placeholder="Masukkan Tahun">
+																		<select class="form-control" name="tahun" id="tahun">
+																		<?php
+                                                                        for ($year = (int)date('Y'); 2000 <= $year; $year--): ?>
+																		<option value="<?=$year;?>"><?=$year;?></option>
+																		<?php endfor; ?>
+																	</select>
 																			<?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
 																		</div>
 																	</div>
 
 
 																	<div class="form-group row">
-																		<label
-																			class="col-sm-3 col-form-label">Targets Completed</label>
-																		<div class="col-sm-9">
-																			<input type="text" name="target"
-																				value="<?= $project1['target']; ?>"
-																				class="form-control form-control-user"
-																				id="target"
-																				placeholder="Masukkan Target">
-																			<?= form_error('target', '<small class="text-danger pl-3">', '</small>'); ?>
-																		</div>
+																	<label class="col-sm-3 col-form-label">Targets
+																		Completed</label>
+																	<div class="col-sm-9">
+																		<input type="month" name="target"
+																			value="<?= $project1['target']; ?>"
+																			class="form-control form-control-user"
+																			id="target" placeholder="Masukkan Target">
+																		<?= form_error('target', '<small class="text-danger pl-3">', '</small>'); ?></div>
 																	</div>
 
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Start Date</label>
-																		<div class="col-sm-9">
-																			<input type="date" name="tanggalregister"
-																				value="<?= $project1['tanggalregister']; ?>"
-																				class="form-control form-control-user"
-																				id="tanggalregister"
-																				placeholder="Masukkan Tanggal register">
-																			<?= form_error('tanggalregister', '<small class="text-danger pl-3">', '</small>'); ?>
+																	<label class="col-sm-3 col-form-label">Start
+																		Date</label>
+																	<div class="col-sm-9">
+																		<input type="date" name="tanggalregister"
+																			value="<?= $project1['tanggalregister']; ?>"
+																			class="form-control form-control-user"
+																			id="tanggalregister"
+																			placeholder="Masukkan Tanggal register">
+																		<?= form_error('tanggalregister', '<small class="text-danger pl-3">', '</small>'); ?></div>
+																	</div>
+																	<div class="form-group row">
+																	<label class="col-sm-3 col-form-label">Upload
+																		File</label>
+																	<div class="col-sm-9">
+																		<?php echo $project1['urf']; ?>
+																		<input type="file" name="urf"
+																			class="form-control form-control-user"
+																			value="<?php echo $project1['urf']; ?>"
+																			id="file" placeholder="Masukkan file">
+																		<?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?><?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
 																		</div>
 																	</div>
 																	<div class="form-group row">
-																		<label class="col-sm-3 col-form-label">Upload
-																			File</label>
-																		<div class="col-sm-9">
-																			<?php echo $project1['urf']; ?>
-																			<input type="file" name="urf"
-																				class="form-control form-control-user"
-																				value="<?php echo $project1['urf']; ?>"
-																				id="file" placeholder="Masukkan file">
-																			<?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
-																		</div>
-																	</div>
-																	<div class="form-group row">
-																		<label
-																			class="col-sm-3 col-form-label">Note</label>
-																		<div class="col-sm-9">
-																			<input type="text" name="keterangan"
-																				value="<?= $project1['keterangan']; ?>"
-																				class="form-control form-control-user"
-																				id="keterangan"
-																				placeholder="Masukkan keterangan">
-																			<?= form_error('keterangan', '<small class="text-danger pl-3">', '</small>'); ?>
-																		</div>
+																	<label class="col-sm-3 col-form-label">Note</label>
+																	<div class="col-sm-9">
+																		<input type="text" name="keterangan"
+																			value="<?= $project1['keterangan']; ?>"
+																			class="form-control form-control-user"
+																			id="keterangan"
+																			placeholder="Masukkan keterangan">
+																		<?= form_error('keterangan', '<small class="text-danger pl-3">', '</small>'); ?></div>
 																	</div>
 
 
 																	<div class="modal-footer">
-																		<button type="button" class="btn btn-secondary"
-																			data-dismiss="modal">Close</button>
-																		<button type="submit"
-																			class="btn btn-primary">Update</button>
+																	<button type="button" class="btn btn-secondary"
+																		data-dismiss="modal">Close</button>
+																	<button type="submit"
+																		class="btn btn-primary">Update</button>
 																	</div>
 																</div>
 															</div>

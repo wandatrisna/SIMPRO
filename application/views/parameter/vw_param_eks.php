@@ -10,9 +10,9 @@
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">Add New Parameter</label>
                     <div class="col-sm-10">
-                        <input type="text" name="jeniseks" style="padding: 5px 330px;"
-                            value="<?= set_value('jeniseks'); ?>" id="jeniseks" placeholder="Insert New Parameter">
-                        <?= form_error('jeniseks', '<small class="text-danger pl-3">', '</small>'); ?>
+                        <input type="text" name="jenis_eks" style="padding: 5px 330px;"
+                            value="<?= set_value('jenis_eks'); ?>" id="jenis_eks" placeholder="Insert New Parameter">
+                        <?= form_error('jenis_eks', '<small class="text-danger pl-3">', '</small>'); ?>
                         <button type="submit" name="tambah" style="padding: 5px 20px;" class="btn btn-primary">Add New
                             Data</button>
                     </div>
@@ -33,7 +33,7 @@
                         <?php foreach ($eks as $us) : ?>
                         <tr>
                             <td><?= $i; ?>.</td>
-                            <td><?= $us['jeniseks']; ?></td>
+                            <td><?= $us['jenis_eks']; ?></td>
                             <td>
                                 <a href="<?= base_url('Parameter/hapuseksternal/'). $us['id_jeniseks']; ?> "
                                     class="badge badge-danger"

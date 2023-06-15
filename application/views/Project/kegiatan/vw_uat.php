@@ -33,6 +33,7 @@
 																	data-planendate="<?php echo $project1['planendateuat'] ?>"
 																	data-actualstdate="<?php echo $project1['actualstdateuat'] ?>"
 																	data-actualendate="<?php echo $project1['actualendateuat'] ?>"
+																	data-fileuat="<?php echo $project1['fileuat'] ?>"
 																	data-toggle="modal" data-target="#editModal">
 																	<button data-toggle="modal" data-target="#ubah-data"
 																		class="btn btn-warning">Edit</button>
@@ -294,6 +295,7 @@
 												modal.find('#planendateuat').html(div.data('planendateuat'));
 												modal.find('#actualstdateuat').html(div.data('actualstdateuat'));
 												modal.find('#actualendateuat').html(div.data('actualendateuat'));
+												modal.find('#fileuat').html(div.data('fileuat'));
 											});
 										});
 
@@ -303,5 +305,11 @@
 												alert("Progress is not more than 10%");
 												return false;
 											}
+											
+		let y = document.forms["frm"]["fileuat"].value;
+	   if (y == ""){
+		alert("Please insert UAT file!");
+			return false;
+	   }
 										}
 									</script>

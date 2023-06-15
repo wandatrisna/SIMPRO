@@ -314,6 +314,7 @@
 			modal.find('#planendatesit').html(div.data('planendatesit'));
 			modal.find('#actualstdatesit').html(div.data('actualstdatesit'));
 			modal.find('#actualendatesit').html(div.data('actualendatesit'));
+			modal.find('#filesit').html(div.data('filesit'));
 		});
 	});
 
@@ -323,6 +324,12 @@
 			alert("Progress is not more than 10%");
 			return false;
 		}
+
+		let y = document.forms["frm"]["filesit"].value;
+	   if (y == ""){
+		alert("Please insert SIT file!");
+			return false;
+	   }
 	}
 
 </script>
