@@ -11,7 +11,6 @@ class Inhouse extends CI_Controller
         $this->load->model('Jeniseksternal_model');
         $this->load->model('Jenisdokumen_model');
         $this->load->model('Namadivisi_model');
-
     }
  
 	public function index()
@@ -54,6 +53,18 @@ class Inhouse extends CI_Controller
         $this->load->view('layout/footer',$data);
     }
 
+    public function get_user() {
+        // Ambil nilai role yang dipilih dari permintaan AJAX
+        $selectedRole = $this->input->post('role'); // sesuaikan dengan nama input yang digunakan di view
+    
+        // Lakukan query untuk mengambil data user dari database berdasarkan role
+        // Anda harus mengganti ini dengan logika sesuai dengan struktur tabel dan basis data Anda
+        $user = $this->db->select('id_user, nama')->where('role', $selectedRole)->get('user')->result_array();
+    
+        // Kembalikan data user sebagai respon dalam format JSON
+        echo json_encode($user);
+    }
+
     public function sendEmail($file_name_pmf, $file_name_lib, $file_name_check) {
         //print_r($file_name_pmf); die(); 
         $this->load->library('email');
@@ -66,13 +77,11 @@ class Inhouse extends CI_Controller
         $mail->Host = 'smtp.gmail.com'; // Host dari server SMTP
         $mail->SMTPAuth = true; // Autentikasi SMTP
         $mail->Username = 'wanda20ti@mahasiswa.pcr.ac.id';
-        $mail->Password = 'hayutrisna912';
-        // $mail->Username = 'muhammad.luthfy@brksyariah.co.id';
-        // $mail->Password = 'mei123!@#';
+        $mail->Password = '912hayutrisna__';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
-        $mail->setFrom('noreply@testing.com', 'Planning - Wanda Trisnahayu'); // Sumber email
+        $mail->setFrom('noreply@testing.com', 'IT Planning - TSI BRKS'); // Sumber email
         $mail->addAddress('wanda.trisnahayu09@gmail.com'); // Masukkan alamat email dari variabel $email
         $mail->Subject = "MIGRATION EMAIL"; // Subjek Email
         $mail->addAttachment('./assets/dokumeninhouse/'.$file_name_pmf);
@@ -292,7 +301,7 @@ class Inhouse extends CI_Controller
 
             $id_in = $this->input->post('id_in');
             $this->Inhouse_model->update(['id_in' => $id_in], $data);
-            $this->sendEmail($new_image1, $new_image2,$new_image3);
+            $this->sendEmail($new_image1, $new_image2, $new_image3);
             $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
             redirect('Inhouse/detailinhouse/'.$id_in);
         }

@@ -72,6 +72,7 @@
 							<th>Application Name</th>
 							<th>Percentage</th>
 							<th>Status</th>
+							<th>Year</th>
 							<th>Note</th>
 							<th>Action</th>
 							</tr>
@@ -147,6 +148,7 @@
 														?>
 														</td>
 													<td><?= $pro['status']; ?></td>
+													<td><?= $pro['tahun']; ?></td>
 													<td><?= $pro['keterangan']; ?></td>
 													<td>
 														<a href="<?= base_url('Project/detaildash/'). $pro['id_project']; ?>"

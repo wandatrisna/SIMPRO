@@ -17,9 +17,9 @@ class Dashboard extends CI_Controller
         $this->load->model('Eksternal_model');
     }
     
-    
     public function index()
     {
+        
         $data['user'] = $this->User_model->get();
         $data['count'] = $this->User_model->count_user();
         $data['planning'] = $this->User_model->uplanning();

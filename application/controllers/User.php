@@ -11,6 +11,7 @@ class User extends CI_Controller
 
     public function index()
     { 
+       // //$this->check_session();
         $data['user'] = $this->User_model->get();
         $data['planning'] = $this->User_model->uplanning();
         $data['development'] = $this->User_model->udevelopment();
@@ -25,6 +26,7 @@ class User extends CI_Controller
 
     public function indexuserplanning()
     { 
+       // //$this->check_session();
         $data['planning'] = $this->User_model->planning();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -34,6 +36,7 @@ class User extends CI_Controller
 
     public function indexuserdevelopment()
     { 
+       // //$this->check_session();
         $data['development'] = $this->User_model->development();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -43,6 +46,7 @@ class User extends CI_Controller
 
     public function indexuserpinbag()
     { 
+       // //$this->check_session();
         $data['pinbag'] = $this->User_model->pinbag();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -52,6 +56,7 @@ class User extends CI_Controller
 
     public function indexusersupport()
     { 
+       // //$this->check_session();
         $data['support'] = $this->User_model->support();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -59,10 +64,39 @@ class User extends CI_Controller
         $this->load->view('layout/footer',$data);
     }
 
+    public function sendEmail($email, $password) {
+        $this->load->library('PHPMailer_load'); // Load Library PHPMailer
+        $mail = $this->phpmailer_load->load(); // Mendefinisikan Variabel Mail
+        $mail->isSMTP();  // Mengirim menggunakan protokol SMTP
+        $mail->Host = 'smtp.gmail.com'; // Host dari server SMTP
+        $mail->SMTPAuth = true; // Autentikasi SMTP
+        $mail->Username = 'wanda20ti@mahasiswa.pcr.ac.id';
+        $mail->Password = '912hayutrisna__';
+        $mail->SMTPSecure = 'tls';
+        $mail->Port = 587;
+    
+        $mail->setFrom('noreply@testing.com', 'IT Planning - TSI BRKS'); // Sumber email
+        $mail->addAddress($email); // Masukkan alamat email dari variabel $email
+        $mail->Subject = "PASSWORD"; // Subjek Email
+        $mail->msgHtml("Your password is: $password"); // Isi email dengan format HTML
+    
+        if (!$mail->send()) {
+            return false; // Return false jika pengiriman email gagal
+        } else {
+            return true; // Return true jika pengiriman email berhasil
+        }
+    }
+    
     public function tambah()
     {
+        ////$this->check_session();
+        $this->load->helper('my_helper');
         $data['user'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+       
+        $this->load->library('email');
+        $password = generateRandomPassword(8);
+
             $this->form_validation->set_rules('NIK', 'NIK', 'required|is_unique[user.NIK]',[
                 'required' => 'Required!',
                 'is_unique' => 'This data is already registered!',      
@@ -71,39 +105,44 @@ class User extends CI_Controller
             $this->form_validation->set_rules('nama', 'nama', 'required', [
                 'required' => 'Required'
             ]);
-        $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[6]|matches[password2]',
-        [
-        'matches' => 'Unmatched Password!',
-        'min_length' => 'Password Too Short!',
-        'required' => 'Required!'
-        ]
-        );
-        $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-        'matches' => 'Unmatched Password!',
-        'required' => 'Required'
-        ]);
+
         if ($this->form_validation->run() == false) {
             $this->load->view("layout/header", $data);
             $this->load->view("user/vw_tambah_user", $data);
             $this->load->view("layout/footer");
         } else {
+            $email = $this->input->post('email');
+
             $data = [
 				'NIK' => $this->input->post('NIK'),
 				'nama' => $this->input->post('nama'),
+                'email' => $email,
 				'role' => $this->input->post('role'),
-				'password' => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+				'password' => $password,
                 'gambar' => 'default.png',
 
 			   ];
 
-			$this->User_model->insert($data, $upload_image);
-            $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
-            redirect('User');
-            }
+               $this->User_model->insert($data);
+
+               // Send email
+                if ($this->sendEmail($email, $password)) {
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully! Email sent to user.</div>');
+                } else {
+                    // Jika pengiriman email gagal, tambahkan pesan kesalahan ke dalam flashdata
+                    //$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Failed to send email. Please check your email configuration.</div>');
+                    // Jika ingin menampilkan pesan kesalahan spesifik, Anda bisa menggabungkan ErrorInfo ke dalam pesan
+                     $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Failed to send email. Please check your email configuration. Error: ' . $mail->ErrorInfo . '</div>');
+                }
+
+              
+               redirect('User');
+           }
     }
 
     public function editpin($id)
     {
+       // //$this->check_session();
         $data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array(); 
         $data['role'] = $this->User_model->role();
@@ -138,6 +177,7 @@ class User extends CI_Controller
 
     public function editplan($id)
     {
+       //// //$this->check_session();
         $data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array(); 
         $data['role'] = $this->User_model->role();
@@ -172,6 +212,7 @@ class User extends CI_Controller
 
     public function editdev($id)
     {
+       //// //$this->check_session();
         $data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array(); 
         $data['role'] = $this->User_model->role();
@@ -206,6 +247,7 @@ class User extends CI_Controller
 
     public function editsup($id)
     {
+       //// //$this->check_session();
         $data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array(); 
         $data['role'] = $this->User_model->role();

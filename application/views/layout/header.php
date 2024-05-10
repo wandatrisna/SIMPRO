@@ -20,7 +20,7 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url('assets/') ?>css/sb-admin-2.min.css" rel="stylesheet">
     <!-- Custom styles for this page -->
-    <link href="<?= base_url('assets/') ?>  vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link href="<?= base_url('assets/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
 
@@ -72,7 +72,7 @@
                 class="nav-item <?=$this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
-                    <span>Dashboard</span>
+                    <span>Beranda</span>
                 </a>
             </li>
 
@@ -81,7 +81,7 @@
                 class="nav-item <?=$this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'tambah' ? ' active' : '' ?>">
                 <a class="nav-link" href="<?= base_url('User/index') ?>">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>All User</span>
+                    <span>Daftar Pengguna</span>
                 </a>
             </li>
 
@@ -91,7 +91,7 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-users"></i>
-                    <span>User</span>
+                    <span>Sub Divisi TSI</span>
                 </a>
                 <div id="collapsePages" class="collapse <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
                                 $this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' 
@@ -99,7 +99,7 @@
                                 || $this->uri->segment(2) == 'editplan' || $this->uri->segment(2) == 'editsup' 
                                 ? ' show' : '' ?>" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">User List :</h6>
+                        <h6 class="collapse-header">Daftar Pengguna :</h6>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserpinbag' || $this->uri->segment(2) == 'editpin' ? ' active' : '' ?>"
                             href="<?= base_url('User/indexuserpinbag') ?>">Pinbag</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'editplan' ? ' active' : '' ?>"
@@ -123,17 +123,17 @@
                                 $this->uri->segment(2) == 'indexproj' || $this->uri->segment(2) == 'indexdiv' ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Parameter List :</h6>
+                        <h6 class="collapse-header">Daftar Parameter :</h6>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexapp' ? ' active' : '' ?>"
-                            href="<?= base_url('Parameter/indexapp') ?>">Application</a>
+                            href="<?= base_url('Parameter/indexapp') ?>">Parameter Aplikasi</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexdiv' ? ' active' : '' ?>"
-                            href="<?= base_url('Parameter/indexdiv') ?>">Division</a>
+                            href="<?= base_url('Parameter/indexdiv') ?>">Parameter Divisi</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexdok' ? ' active' : '' ?>"
-                            href="<?= base_url('Parameter/indexdok') ?>">Document</a>
+                            href="<?= base_url('Parameter/indexdok') ?>">Parameter Dokumen</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexeks' ? ' active' : '' ?>"
-                            href="<?= base_url('Parameter/indexeks') ?>">External</a>
+                            href="<?= base_url('Parameter/indexeks') ?>">Parameter Eksternal</a>
                         <a class="collapse-item <?=$this->uri->segment(2) == 'indexproj' ? ' active' : '' ?>"
-                            href="<?= base_url('Parameter/indexproj') ?>">Project</a>
+                            href="<?= base_url('Parameter/indexproj') ?>">Parameter Proyek</a>
                     </div>
             </li>
 
@@ -171,7 +171,7 @@
                     <span>Project</span>
                 </a>
                 <div id="collapsePages1"
-                    class="collapse <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail'
+                    class="collapse <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail'|| $this->uri->segment(2) == 'detailhistory'
 				|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'tambahproject' || $this->uri->segment(2) == 'hapusproject'
 				|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
 				|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
@@ -181,9 +181,9 @@
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Project List :</h6>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexlistproject' ? ' active' : '' ?>"
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'detail' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexlistproject') ?>">Project List</a>
-                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexhistory' ? ' active' : '' ?>"
+                        <a class="collapse-item <?=$this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detailhistory'? ' active' : '' ?>"
                             href="<?= base_url('Project/indexhistory') ?>">Project History</a>
                     </div>
             </li>
@@ -451,13 +451,13 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="<?= base_url('Profile/') ?>">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Profile
+                                    Profil
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="<?=base_url('Auth/')?>" data-toggle="modal"
                                     data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Logout
+                                    Keluar
                                 </a>
                             </div>
                         </li>

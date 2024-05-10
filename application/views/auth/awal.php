@@ -40,7 +40,7 @@
                                     <div class="text-center">
                                         <br>
                                         <b>
-                                            <h1>WELCOME</h1>
+                                            <h1>SELAMAT DATANG</h1>
                                         </b>
                                     </div>
                                     <div class="col-md-12">
@@ -56,7 +56,7 @@
                                     </div>
                                     <br>
                                     <a href="<?= base_url() ?>Auth/" class="btn btn-primary btn-user btn-block">
-                                        Next
+                                        Selanjutnya
                                     </a>
 
                                 </div>

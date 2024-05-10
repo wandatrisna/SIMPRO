@@ -79,7 +79,7 @@
 <div class="col-md-12">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">USER TABLE</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tabel Pengguna SIMPRO</h6>
             <?php
 				if ($user1['role'] == 'Superuser') { ?>
             <div class="float-right">
@@ -87,7 +87,7 @@
                     <span class="icon text-white-50">
                         <i class="fas fa-flag"></i>
                     </span>
-                    <span class="text">Add New User</span> </a>
+                    <span class="text">Tambah Pengguna Baru</span> </a>
             </div>
             <?php }?>
         </div>
@@ -97,10 +97,10 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="table-warning">
-                            <th width="5px">Number</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Role</th>
+                            <th width="5px">No</th>
+                            <th>Gambar</th>
+                            <th>Nama</th>
+                            <th>Sub Divisi</th>
                             <th>NIK</th>
                         </tr>
                     </thead>

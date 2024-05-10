@@ -4,7 +4,7 @@
 	<div class="card mb-12">
 		<div class="card shadow mb-12">
 			<div class="card-header">
-				<h6 class="m-0 font-weight-bold text-primary">Welcome Back, <?= $user1['nama']; ?>!</h6>
+				<h6 class="m-0 font-weight-bold text-primary">Selamat datang kembali, <?= $user1['nama']; ?>!</h6>
 			</div>
 			<div class="card-body">
 

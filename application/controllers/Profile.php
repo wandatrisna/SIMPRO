@@ -7,11 +7,11 @@ class Profile extends CI_Controller
     {
         parent::__construct();
         $this->load->model('User_model');
-        
     }
  
 	public function index()
     { 
+       //
         $data['user'] = $this->User_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -21,6 +21,7 @@ class Profile extends CI_Controller
 
     function upload()
     {
+        //$this->check_session();
          $data = [
              'NIK' => $this->input->post('NIK'),
              'nama' => $this->input->post('nama'),
@@ -36,6 +37,7 @@ class Profile extends CI_Controller
 
     public function edit($id)
     {
+        ////$this->check_session();
         $data['user'] = $this->User_model->getById($id);
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 

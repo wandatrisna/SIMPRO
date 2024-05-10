@@ -12,9 +12,11 @@ class Eksternal extends CI_Controller
         $this->load->model('Jenisdokumen_model');
         $this->load->model('Namadivisi_model');
     }
+    
 
     public function index()
     { 
+        //$this->check_session();
         $data['eksternal'] = $this->Eksternal_model->getdiv();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -24,6 +26,7 @@ class Eksternal extends CI_Controller
 
     public function subeksternal($nama_eks)
     { 
+        //$this->check_session();
         $data['eksternal'] = $this->Eksternal_model->getByNama($nama_eks);
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -33,6 +36,7 @@ class Eksternal extends CI_Controller
 
     public function detaileksternal($id)
     { 
+        //$this->check_session();
         $data['eksternal'] = $this->Eksternal_model->getById($id);
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -42,6 +46,7 @@ class Eksternal extends CI_Controller
 
     public function sup_indexeksternal()
     { 
+        //$this->check_session();
         $data['eksternal'] = $this->Eksternal_model->getdiv();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
         $this->load->view('layout/header',$data);
@@ -51,6 +56,7 @@ class Eksternal extends CI_Controller
 
     public function tambaheksternal()
     {
+        //$this->check_session();
             $data['eksternal'] = $this->Eksternal_model->get();
             $data['jenis_eks'] = $this->Jeniseksternal_model->get();
             $data['jenisdok'] = $this->Jenisdokumen_model->get();
@@ -117,12 +123,12 @@ class Eksternal extends CI_Controller
         $mail->Host = 'smtp.gmail.com'; // Host dari server SMTP
         $mail->SMTPAuth = true; // Autentikasi SMTP
         $mail->Username = 'wanda20ti@mahasiswa.pcr.ac.id';
-        $mail->Password = 'hayutrisna912';
+        $mail->Password = '912hayutrisna__';
         $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         $mail->setFrom('noreply@testing.com', 'Planning - Wanda Trisnahayu'); // Sumber email
-        $mail->addAddress('wanda.trisnahayu09@gmail.com'); // Masukkan alamat email dari variabel $email
+        $mail->addAddress('itosbrks@gmail.com'); // Masukkan alamat email dari variabel $email
         $mail->Subject = "MIGRATION EMAIL"; // Subjek Email
         $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_pmf);
         $mail->addAttachment('./assets/dokumeneksternal/'.$file_name_lib);
@@ -163,6 +169,7 @@ class Eksternal extends CI_Controller
 
     public function editeksternal($id)
     {
+        //$this->check_session();
         $data['eksternal'] = $this->Eksternal_model->getById($id);
         $data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
@@ -284,6 +291,7 @@ class Eksternal extends CI_Controller
 
     public function sup_editeksternal($id)
     {
+        //$this->check_session();
         $data['eksternal'] = $this->Eksternal_model->getById($id);
         $data['jenis_eks'] = $this->Jeniseksternal_model->get();
         $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();

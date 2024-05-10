@@ -50,7 +50,7 @@
                                     <div class="text-center">
                                         <br>
                                         <b>
-                                            <h1 class="h4 text-gray-900 mb-4">LOGIN</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">MASUK</h1>
                                         </b>
                                     </div>
                                     <?= $this->session->flashdata('message') ?>
@@ -63,24 +63,18 @@
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
                                                 value="<?= set_value('password'); ?>" name="password" id="password"
-                                                placeholder="Password">
+                                                placeholder="Kata Sandi">
                                             <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control -label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
+
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Login
+                                            Masuk
                                         </button>
                                         <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('Password') ?>">Forgot Password?</a>
+                                        <a class="small" href="<?= base_url('Password') ?>">Klik disini untuk mengatur ulang kata sandi</a>
                                     </div>
                                 </div>
                             </div>

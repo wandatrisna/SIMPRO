@@ -14,11 +14,11 @@ class Project extends CI_Controller
 		$this->load->model('Development_model');
 		$this->load->model('Sub_model');
 		$this->load->helper('url');
-
 	}
 
 	public function index()
 	{
+		////$this->check_session();
 		$data['user'] = $this->User_model->get();
 		$data['project'] = $this->Project_model->get();
 		$data['progrespro'] = $this->Project_model->progresproject();
@@ -81,23 +81,6 @@ class Project extends CI_Controller
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$this->load->view('layout/header', $data);
 		$this->load->view('project/vw_history_project', $data);
-		$this->load->view('layout/footer', $data);
-	}
-
-	public function indexsearch()
-	{
-
-		$keyword = $this->input->get('keyword');
-		$data = $this->Project_model->get($keyword);
-		$data = array(
-			'keyword' => $keyword,
-			'data' => $data
-		);
-		$data['project'] = $this->Project_model->get($keyword);
-		$data['dev'] = $this->Development_model->get();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$this->load->view('layout/header', $data);
-		$this->load->view('project/vw_list_project', $data);
 		$this->load->view('layout/footer', $data);
 	}
 
@@ -188,7 +171,6 @@ class Project extends CI_Controller
 		}
 	}
 }
-
 
 
 	public function detail($id)

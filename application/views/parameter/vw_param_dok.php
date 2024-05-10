@@ -1,7 +1,7 @@
 <div class="col-md-12">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Document</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Parameter Jenis Dokumen</h6>
 
         </div>
         <div class="card-body">
@@ -9,14 +9,13 @@
             <form action="" method="POST">
 
                 <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">Add New Parameter</label>
+                    <label class="col-sm-2 col-form-label">Parameter Baru</label>
                     <div class="col-sm-10">
                         <input type="text" name="jenisdokumen" style="padding: 5px 330px;"
                             value="<?= set_value('jenisdokumen'); ?>" id="jenisdokumen"
-                            placeholder="Insert New Parameter">
+                            placeholder="Masukkan Data">
                         <?= form_error('jenisdokumen', '<small class="text-danger pl-3">', '</small>'); ?>
-                        <button type="submit" name="tambah" style="padding: 5px 20px;" class="btn btn-primary">Add New
-                            Data</button>
+                        <button type="submit" name="tambah" style="padding: 5px 20px;" class="btn btn-primary">Tambah Data</button>
                     </div>
                 </div>
 

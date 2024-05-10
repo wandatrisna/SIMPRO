@@ -50,7 +50,7 @@
                                     <div class="text-center">
                                         <br>
                                         <b>
-                                            <h1 class="h4 text-gray-900 mb-4">RESET PASSWORD</h1>
+                                            <h1 class="h4 text-gray-900 mb-4">KATA SANDI BARU</h1>
                                         </b>
                                     </div>
                                     <form method="post" action="<?= base_url('Password'); ?>">
@@ -58,32 +58,32 @@
                                         <div class="form-group">
                                             <input type="text" name="NIK" class="form-control"
                                                 value="<?= set_value('NIK'); ?>" id="password1"
-                                                placeholder="NIK">
+                                                placeholder="Masukkan NIK">
                                             <?= form_error('NIK', '<small class="text-danger p1-3">', '</small>'); ?>
 
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password1" class="form-control"
                                                 value="<?= set_value('password'); ?>" id="password1"
-                                                placeholder="New Password">
+                                                placeholder="Masukkan Kata Sandi Baru">
                                             <?= form_error('password1', '<small class="text-danger p1-3">', '</small>'); ?>
 
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="password2" class="form-control"
                                                 value="<?= set_value('password'); ?>" id="password2"
-                                                placeholder="Repeat New Password">
+                                                placeholder="Ulangi Kata Sandi Baru">
                                             <?= form_error('password2', '<small class="text-danger p1-3">', '</small>'); ?>
 
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
-                                            Reset My Password
+                                            Ubah Kata Sandi
                                         </button>
                                         <hr>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?= base_url('Auth') ?>">Back</a>
+                                        <a class="small" href="<?= base_url('Auth') ?>">Kembali</a>
                                     </div>
                                 </div>
                             </div>

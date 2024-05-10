@@ -1,22 +1,23 @@
 <div class="col-md-12">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">IT SUPPORT TABLE</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tabel Pengguna Sub Divisi IT Support</h6>
         </div>
         <div class="card-body">
             <?= $this->session->flashdata('message') ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                        <tr class="table-warning">
-                            <th width="5px">Number</th>
-                            <th>Image</th>
-                            <th>Name</th>
-                            <th>Role</th>
+                    <tr class="table-warning">
+                            <th width="5px">No</th>
+                            <th>Gambar</th>
+                            <th>Nama</th>
+                            <th>Sub Divisi</th>
                             <th>NIK</th>
                             <?php if ($user1['role'] == 'Superuser') {   ?>
-                            <th>Action</th>
+                            <th>Aksi</th>
                             <?php } ?>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -34,9 +35,8 @@
                             <td>
                                 
                                 <a href="<?= base_url('User/hapussup/'). $us['id_user']; ?> " class="badge badge-danger"
-                                    onclick="return confirm('Are you sure you want to delete this data?');"
-                                    class="ik ik-trash-2 text-red">Delete</a>
-                                
+                                onclick="return confirm('Apakah kamu yakin untuk menghapus data ini?');"
+                                    class="ik ik-trash-2 text-red">Hapus</a>
                                 <a href="<?= base_url('User/editsup/'). $us['id_user']; ?>"
                                     class="badge badge-warning">Edit</a>
                             </td>

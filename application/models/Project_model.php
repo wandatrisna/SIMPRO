@@ -131,7 +131,6 @@ class Project_model extends CI_Model
 		//print_r($query->result_array());die();
 		return $query->result();
 
-
 	}
 
 	function ubah($data, $id)
@@ -141,12 +140,6 @@ class Project_model extends CI_Model
 		return TRUE;
 	}
 
-	function hitung()
-	{
-		// $this->db->query("SELECT (SUM(progresbrd)/SUM(bobot) *100)/100 from table_project)");
-
-		// return $this->db->get()->result();
-	}
 
 	public function progresproject()
 	{
@@ -169,19 +162,6 @@ class Project_model extends CI_Model
 		return $query->num_rows();
 	}
 
-
-	
-	// public function status()
-	// {
-	//     $this->db->from($this->table);
-	//     $query = $this->db->get();
-	//     $st="tb_project.progresmigrasi";
-	//     if ($st==5){
-	//         $stat="Selesai";
-	//     }
-	//     return $stat;
-
-	// }
 	public function status()
 	{
 		$this->db->from($this->table);

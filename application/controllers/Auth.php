@@ -53,12 +53,12 @@ class Auth extends CI_Controller
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Wrong Password!</div>');
+                Kata Sandi Salah!</div>');
                 redirect('Auth');
             }
         } else {
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-                Unregistered NIK!</div>');
+                NIK Belum Terdaftar!</div>');
             redirect('Auth');
         }
     }
@@ -68,7 +68,7 @@ class Auth extends CI_Controller
         $this->session->unset_userdata('NIK');
         $this->session->unset_userdata('role');
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-        Successfully Logout!</div>');
+        Berhasil Keluar!</div>');
         redirect('auth');
     }
 
