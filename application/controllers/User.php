@@ -143,8 +143,8 @@ class User extends CI_Controller
 			'protocol' => 'smtp',
 			'smtp_host' => 'smtp.googlemail.com',
 			'smtp_port' => 587,
-			'smtp_user' => 'bpmiriau@gmail.com',
-			'smtp_pass' => 'uawe xdyi geuv ucjh',
+			'smtp_user' => 'itosbrks@gmail.com',
+			'smtp_pass' => 'mbzv azxy dwtg qxtg',
 			'mailtype' => 'html',
 			'charset' => 'utf-8',
 			'wordwrap' => TRUE,
@@ -157,7 +157,7 @@ class User extends CI_Controller
 		$this->email->initialize($config);
 		$this->email->SMTPDebug = 2; // Aktifkan output debug
 		$this->email->SMTPAuth = true;
-		$this->email->from('bpmiriau@gmail.com', 'bp3mi riau');
+		$this->email->from('itosbrks@gmail.com', 'BRKS riau');
 		$this->email->to($this->input->post('email'));
 		// var_dump($password);
 		// die;
