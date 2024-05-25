@@ -1,12 +1,22 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class User extends CI_Controller
+class User extends SDA_Controller
 {
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('User_model');
+		$this->requiredLogin();
+		preventAccessPengguna(
+			array(
+				SU,
+				DP,
+				PL,
+				PB,
+				IS
+			)
+		);
 	}
 
 	public function index()

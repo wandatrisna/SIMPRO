@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------
@@ -119,6 +119,7 @@ $autoload['config'] = array();
 */
 $autoload['language'] = array();
 
+$autoload['core'] = array('SDA_Controller');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Models
