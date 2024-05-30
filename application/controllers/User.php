@@ -129,7 +129,7 @@ class User extends SDA_Controller
 				'nama' => $this->input->post('nama'),
 				'email' => $email,
 				'role' => $this->input->post('role'),
-				'password' => $password,
+				'password' => password_hash($password, PASSWORD_DEFAULT),
 				'gambar' => 'default.png',
 
 			];

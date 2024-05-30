@@ -22,7 +22,7 @@ class Dashboard extends SDA_Controller
 				DP,
 				PL,
 				PB,
-				IS
+				IS,
 			)
 		);
 	}
@@ -43,6 +43,22 @@ class Dashboard extends SDA_Controller
 		$data['allpro'] = $this->Project_model->all();
 		$data['stat'] = $this->Project_model->status();
 		$data['user1'] = $this->User_model->dashboard();
+		$data['Paplikasi'] = $this->User_model->Paplikasi();
+		$data['Pdokumen'] = $this->User_model->Pdokumen();
+		$data['Pproject'] = $this->User_model->Pproject();
+		$data['Peks'] = $this->User_model->Peks();
+		$data['inhouse'] = $this->User_model->inhouse();
+		$data['eksternal'] = $this->User_model->eksternal();
+		$data['Pdivisi'] = $this->User_model->Pdivisi();
+		$data['project'] = $this->Project_model->get();
+		$data['progrespro'] = $this->Project_model->progresproject();
+		$data['donepro'] = $this->Project_model->doneproject();
+		$data['allpro'] = $this->Project_model->all();
+		$data['stat'] = $this->Project_model->status();
+		$data['dev'] = $this->Development_model->get();
+
+		// var_dump($data['inhouse']);
+		// die;
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$this->load->view('layout/header', $data);
 		$this->load->view('auth/dashboard', $data);
