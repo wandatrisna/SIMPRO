@@ -11,10 +11,7 @@ class User extends SDA_Controller
 		preventAccessPengguna(
 			array(
 				SU,
-				DP,
-				PL,
-				PB,
-				IS
+				PB
 			)
 		);
 	}
