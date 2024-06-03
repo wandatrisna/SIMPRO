@@ -19,13 +19,13 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="table-warning">
-                            <th>Num.</th>
-                            <th>Number</th>
-                            <th>Document Type</th>
-                            <th>Application Name</th>
-                            <th>Version</th>
+                            <th>No</th>
+                            <th>Nomor Dokumen</th>
+                            <th>Jenis Dokumen</th>
+                            <th>Nama Aplikasi</th>
+                            <th>Versi</th>
                             <th>Owner</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

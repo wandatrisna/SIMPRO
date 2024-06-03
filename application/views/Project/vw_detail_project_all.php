@@ -9,7 +9,7 @@
 								<div class="page-body">
 									<div class="float">
 										<a href="<?= base_url('Project/index/'). $project1['id_project']; ?>"
-											class="btn btn-danger mb-2">Back</a>
+											class="btn btn-danger mb-2">Kembali</a>
 									</div>
 									<div class="row">
 
