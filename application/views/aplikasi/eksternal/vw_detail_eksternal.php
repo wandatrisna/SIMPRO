@@ -5,12 +5,11 @@
             <div class="float">
                 <a href="<?= base_url('Eksternal/subeksternal/'). $eksternal['nama_eks']; ?>"
                     class="btn btn-info">&larr;
-                    Back</a>
+                    Kembali</a>
             </div>
             <br>
-            <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
-                <div class="row">
-                    <div class="card-body">
+            <div class="card shadow mb-4">
+        <div class="card-header py-3">
                         <center>
                             <h4 class="title"><strong>Eksternal Detail</strong></h4><br><br>
                         </center>
@@ -198,13 +197,13 @@
                                                 ?>
                                 <div class="col-md-12">
                                     <a href="<?= base_url('Eksternal/editeksternal/'). $eksternal['id_eks']; ?>"
-                                        class="btn btn-warning btn-round btn-block">Update Data (Document)</a>
+                                        class="btn btn-warning btn-round btn-block">Perbarui Data (Document)</a>
                                 </div>
                                 <?php
 												} elseif ($user1['role'] == 'IT Support') { ?>
                                 <div class="col-md-12">
                                     <a href="<?= base_url('Eksternal/sup_editeksternal/'). $eksternal['id_eks']; ?>"
-                                        class="btn btn-warning btn-round btn-block">Edit Data</a>
+                                        class="btn btn-warning btn-round btn-block">Perbarui Data</a>
                                 </div>
                                 <?php
                                                 }
@@ -217,6 +216,5 @@
             </div>
         </div>
     </div>
-    <br>
-    <br>
+    
 </div>

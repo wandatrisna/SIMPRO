@@ -1,6 +1,6 @@
 <div class="col-md-12">
 	<div class="float">
-		<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>" class="btn btn-danger mb-2">Back</a>
+		<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>" class="btn btn-danger mb-2">Kembali</a>
 	</div>
 
 	<div class="card shadow mb-4">
@@ -93,7 +93,7 @@
 									data-actualendate="<?php echo $d->actualendate ?>"
 									data-file="<?php echo $d->file ?>" data-toggle="modal"
 									data-target="#editModal_<?php echo $d->id ?>">
-									<button class="badge badge-warning">Edit</button>
+									<button class="badge badge-warning">Perbarui</button>
 								</a>
 								<?php } ?>
 								<a href="javascript:;" data-toggle="modal"
@@ -314,7 +314,7 @@
 			<div class="modal-content">
 				<input type="hidden" name="project_id" value="<?= $project1['id_project']; ?>" id="project_id">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Edit
+					<h5 class="modal-title" id="exampleModalLabel">Perbarui
 					</h5>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -392,7 +392,7 @@
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary"
-							id="btn-ok">Update</button>
+							id="btn-ok">Perbarui</button>
 					</div>
 				</div>
 			</div>

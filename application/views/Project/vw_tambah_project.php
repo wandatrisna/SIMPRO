@@ -9,7 +9,7 @@
 								<div class="page-body">
 									<div class="float">
 										<a href="<?= base_url() ?>Project/indexlistproject"
-											class="btn btn-danger mb-2">Back</a>
+											class="btn btn-danger mb-2">Kembali</a>
 									</div>
 									<div class="row">
 										<div class="col-sm-12">

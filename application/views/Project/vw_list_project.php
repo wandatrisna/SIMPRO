@@ -9,7 +9,7 @@
                     </span>
                     <span class="text">ADD PROJECT</span> </a><?php } ?>
             </div>
-            <h6 class="m-0 font-weight-bold text-primary">ONGOING PROJECT</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Tabel Proyek - Sedang Berlangsung</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

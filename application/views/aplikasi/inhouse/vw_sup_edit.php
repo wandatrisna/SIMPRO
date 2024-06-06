@@ -4,12 +4,12 @@
         <div class="col-md-10">
             <div class="float">
                 <a href="<?= base_url('Inhouse/detailinhouse/'). $inhouse1['id_in']; ?>" class="btn btn-info">&larr;
-                    Back</a>
+                    Kembali</a>
             </div>
             <br>
             <div class="card">
                 <div class="card-header justify-content-center">
-                    Update Data (Support)
+                    Perbarui Data (Support)
                 </div>
                 <div class="card-body">
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -144,7 +144,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <button type="submit" name="tambah" class="btn btn-primary float-right">Update</button>
+                                <button type="submit" name="tambah" class="btn btn-primary float-right">Perbarui</button>
                             </div>
                     </form>
                 </div>

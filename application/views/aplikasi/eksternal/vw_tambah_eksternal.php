@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <a href="<?= base_url() ?>Eksternal/indexeksternal" class="btn btn-info">&larr; Back</a>
+            <a href="<?= base_url() ?>Eksternal/indexeksternal" class="btn btn-info">&larr; Kembali</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">

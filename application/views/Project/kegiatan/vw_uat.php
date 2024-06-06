@@ -9,7 +9,7 @@
                                 <div class="page-body">
                                     <div class="float">
                                         <a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-                                            class="btn btn-danger mb-2">Back</a>
+                                            class="btn btn-danger mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -36,7 +36,7 @@
                                                                     data-fileuat="<?php echo $project1['fileuat'] ?>"
                                                                     data-toggle="modal" data-target="#editModal">
                                                                     <button data-toggle="modal" data-target="#ubah-data"
-                                                                        class="btn btn-warning">Edit</button>
+                                                                        class="btn btn-warning">Perbarui</button>
                                                                 </a>
                                                                 <?php
 															}?>
@@ -173,7 +173,7 @@
                                                         <div class="modal-dialog modal-lg" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Edit
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Perbarui
                                                                     </h5>
                                                                     <button type="button" class="close"
                                                                         data-dismiss="modal" aria-label="Close">
@@ -280,7 +280,7 @@
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-dismiss="modal">Close</button>
                                                                         <button type="submit" onclick="validateForm()"
-                                                                            class="btn btn-primary">Update</button>
+                                                                            class="btn btn-primary">Perbarui</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

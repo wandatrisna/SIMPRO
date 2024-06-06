@@ -4,14 +4,13 @@
         <div class="col-md-10 ">
             <div class="float">
                 <a href="<?= base_url('Inhouse/detailinhouse/'). $inhouse['id_in']; ?>" class="btn btn-info">&larr;
-                    Back</a>
+                    Kembali</a>
             </div>
             <br>
-            <div class="card" style="background-color: rgba(245, 245, 245, 0.9);">
-                <div class="row">
-                    <div class="card-body">
+            <div class="card shadow mb-4">
+        <div class="card-header py-3">
                         <center>
-                            <h4 class="title"><strong>Edit Data</strong></h4><br><br>
+                            <h4 class="title"><strong>Perbarui Data</strong></h4><br><br>
                         </center>
                         <?= $this->session->flashdata('message') ?>
 
@@ -194,7 +193,7 @@
 
                                         <div class="col-md-12">
                                             <button type="submit" name="tambah"
-                                                class="btn btn-warning btn-round btn-block">Update</button>
+                                                class="btn btn-warning btn-round btn-block">Perbarui</button>
                                         </div>
                             </form>
                         </div>
@@ -205,7 +204,4 @@
         </div>
     </div>
 </div>
-</div>
-<br>
-    <br>
 </div>

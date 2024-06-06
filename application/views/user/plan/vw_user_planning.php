@@ -38,7 +38,7 @@
                                     onclick="return confirm('Apakah kamu yakin untuk menghapus data ini?');"
                                     class="ik ik-trash-2 text-red">Hapus</a>
                                 <a href="<?= base_url('User/editplan/'). $us['id_user']; ?>"
-                                    class="badge badge-warning">Edit</a>
+                                    class="badge badge-warning">Perbarui</a>
                             </td>
                             <?php } ?>
                         </tr>

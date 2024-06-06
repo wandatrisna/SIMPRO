@@ -1,5 +1,5 @@
 <div class="float">
-    &emsp; <a href="<?= base_url('Eksternal')?>" class="btn btn-info">&larr; Back</a>
+    &emsp; <a href="<?= base_url('Eksternal')?>" class="btn btn-info">&larr; Kembali</a>
 </div>
 <br>
 

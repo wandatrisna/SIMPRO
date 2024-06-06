@@ -2,20 +2,20 @@
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 
-			<h6 class="m-0 font-weight-bold text-primary">DONE PROJECT</h6>
+			<h6 class="m-0 font-weight-bold text-primary">Tabel Proyek - Selesai</h6>
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr class="table-warning">
-							<th width="5px">Number</th>
-							<th>Application Name</th>
-							<th>Percentage</th>
-							<th>Status</th>
-							<th>Year</th>
-							<th>Note</th>
-							<th>Action</th>
+							<th width="5px">No</th>
+							<th>Nama Aplikasi</th>
+                            <th>Persentase</th>
+                            <th>Status</th>
+                            <th>Tahun</th>
+                            <th>Catatan</th>
+                            <th>Aksi</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -94,10 +94,10 @@
 								<a href="<?= base_url('Project/detailhistory/'). $pro['id_project']; ?>"
 									class="badge badge-warning">Detail</a>
 								<?php if ($user1['role'] == 'Planning') {   ?>
-								<a href="<?= base_url('Project/hapusproject3/'). $pro['id_project']; ?> "
+								<!-- <a href="<?= base_url('Project/hapusproject3/'). $pro['id_project']; ?> "
 									class="badge badge-danger"
 									onclick="return confirm('Are you sure want to delete this?');"
-									class="ik ik-trash-2 text-red">Delete</a>
+									class="ik ik-trash-2 text-red">Delete</a> -->
 								<?php } ?>
 							</td>
 						</tr>

@@ -4,12 +4,12 @@
         <div class="col-md-10">
             <div class="float">
                 <a href="<?= base_url('Eksternal/detaileksternal/'). $eksternal['id_eks']; ?>"
-                    class="btn btn-info">&larr; Back</a>
+                    class="btn btn-info">&larr; Kembali</a>
             </div>
             <br>
             <div class="card">
                 <div class="card-header justify-content-center">
-                    Update Data (Support)
+                    Perbarui Data (Support)
                 </div>
                 <div class="card-body">
                     <form action="" method="POST" enctype="multipart/form-data">
@@ -133,7 +133,7 @@
 
 
                             <div class="col-md-12">
-                                <button type="submit" name="tambah" class="btn btn-primary float-right">Update
+                                <button type="submit" name="tambah" class="btn btn-primary float-right">Perbarui
                                     Data</button>
                             </div>
                     </form>
