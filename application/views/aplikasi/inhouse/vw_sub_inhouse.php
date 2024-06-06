@@ -1,11 +1,11 @@
 <div class="float">
-    &emsp; <a href="<?= base_url('Inhouse')?>" class="btn btn-info">&larr; Back</a>
+    &emsp; <a href="<?= base_url('Inhouse')?>" class="btn btn-info">&larr; Kembali</a>
 </div>
 <br>
 <div class="col-md-12">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Inhouse Application</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Aplikasi Inhouse</h6>
         </div>
 
         <div class="card-body">
@@ -14,13 +14,13 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                         <tr class="table-warning">
-                            <th>Num.</th>
-                            <th>Number</th>
-                            <th>Document Type</th>
-                            <th>Application Name</th>
-                            <th>Version</th>
+                        <th>No</th>
+                            <th>Nomor Dokumen</th>
+                            <th>Jenis Dokumen</th>
+                            <th>Nama Aplikasi</th>
+                            <th>Versi</th>
                             <th>Owner</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>

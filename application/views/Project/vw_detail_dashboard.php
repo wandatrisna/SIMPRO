@@ -14,8 +14,8 @@
                                     <div class="row">
 
                                         <div class="col-md-12 col-xl-8">
-                                            <div class="card">
-                                                <div class="card-header">
+                                            <div class="card shadow mb-4">
+                                                <div class="card-header py-3">
                                                     <h3><strong><?= $project1['namaaplikasi']; ?></strong></h3>
                                                     Terakhir diperbarui <?= $project1['last_updated_time'];?>
                                                     <table class="table table-hover">
@@ -24,7 +24,8 @@
 
                                                                 <td>
                                                                     <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20"><strong>Jenis Proyek</strong></p>
+                                                                        <p class="d-inline-block m-l-20"><strong>Jenis
+                                                                                Proyek</strong></p>
 
                                                                     </div>
                                                                 </td>
@@ -43,7 +44,8 @@
                                                                 <td>
                                                                     <div class="task-contain">
                                                                         <p class="d-inline-block m-l-20">
-                                                                            <strong>Jenis Aplikasi</strong></p>
+                                                                            <strong>Jenis Aplikasi</strong>
+                                                                        </p>
                                                                     </div>
                                                                 </td>
                                                                 <td>
@@ -60,7 +62,8 @@
                                                             <tr>
                                                                 <td>
                                                                     <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20"><strong>Dokumen URF</strong></p>
+                                                                        <p class="d-inline-block m-l-20"><strong>Dokumen
+                                                                                URF</strong></p>
                                                                     </div>
                                                                 </td>
                                                                 <td>
@@ -117,7 +120,8 @@
                                                             <tr>
                                                                 <td>
                                                                     <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20"><strong>Tanggal Mulai</strong></p>
+                                                                        <p class="d-inline-block m-l-20"><strong>Tanggal
+                                                                                Mulai</strong></p>
                                                                     </div>
                                                                 </td>
                                                                 <td>
@@ -203,11 +207,10 @@
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-xl-4">
-                                            <div class="card ">
-                                                <div class="card-header">
-
+                                            <div class="card shadow mb-4">
+                                                <div class="card-header py-3">
                                                     <div class="d-inline-block">
-                                                        <h5>Kegiatan</h5>
+                                                        <h5>KEGIATAN</h5>
 
                                                     </div>
                                                 </div>
@@ -349,7 +352,8 @@
                                                                 <input type="hidden" name="id_project"
                                                                     value="<?= $project1['id_project']; ?>">
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Nama Aplikasi</label>
+                                                                    <label class="col-sm-3 col-form-label">Nama
+                                                                        Aplikasi</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="namaaplikasi" name="namaaplikasi"
                                                                             class="form-control form-control-user"
@@ -361,7 +365,8 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Jenis Proyek</label>
+                                                                    <label class="col-sm-3 col-form-label">Jenis
+                                                                        Proyek</label>
                                                                     <div class="col-sm-9">
 
                                                                         <select name="jenisproject" class="form-control"
@@ -377,7 +382,8 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Jenis Aplikasi</label>
+                                                                    <label class="col-sm-3 col-form-label">Jenis
+                                                                        Aplikasi</label>
                                                                     <div class="col-sm-9">
                                                                         <select name="jenisaplikasi"
                                                                             class="form-control" id="jenisaplikasi">
@@ -408,7 +414,8 @@
 
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Target Selesai</label>
+                                                                    <label class="col-sm-3 col-form-label">Target
+                                                                        Selesai</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="month" name="target"
                                                                             value="<?= $project1['target']; ?>"
@@ -419,7 +426,8 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Tanggal Mulai</label>
+                                                                    <label class="col-sm-3 col-form-label">Tanggal
+                                                                        Mulai</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="date" name="tanggalregister"
                                                                             value="<?= $project1['tanggalregister']; ?>"
@@ -430,7 +438,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Unggah Dokumen</label>
+                                                                    <label class="col-sm-3 col-form-label">Unggah
+                                                                        Dokumen</label>
                                                                     <div class="col-sm-9">
                                                                         <?php echo $project1['urf']; ?>
                                                                         <input type="file" name="urf"
@@ -441,7 +450,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Catatan</label>
+                                                                    <label
+                                                                        class="col-sm-3 col-form-label">Catatan</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="text" name="keterangan"
                                                                             value="<?= $project1['keterangan']; ?>"
@@ -469,7 +479,8 @@
                                                 // Untuk sunting
                                                 $('#edit-data').on('show.bs.modal', function(event) {
                                                     var div = $(event
-                                                        .relatedTarget) // Tombol dimana modal di tampilkan
+                                                        .relatedTarget
+                                                    ) // Tombol dimana modal di tampilkan
                                                     var modal = $(this)
 
                                                     // Isi nilai pada field

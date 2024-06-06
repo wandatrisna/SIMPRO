@@ -6,7 +6,7 @@
                             if ($user1['role'] == 'Planning') {?>
             <div class="float">
                 <a href="<?= base_url('Inhouse/subinhouse/'). $inhouse['nama_in']; ?>" class="btn btn-info">&larr;
-                    Back</a>
+                    Kembali</a>
             </div>
             <?php
 							} elseif ($user1['role'] == 'IT Support') { ?>

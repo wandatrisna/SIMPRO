@@ -7,10 +7,10 @@
                     <span class="icon text-white-50">
                         <i class="fas fa-flag"></i>
                     </span>
-                    <span class="text">Add New Application</span> </a>
+                    <span class="text">Tambah Data Baru</span> </a>
             </div>
             <?php } ?>
-            <h6 class="m-0 font-weight-bold text-primary">Inhouse Application</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Aplikasi Inhouse</h6>
         </div>
 
         <div class="card-body">
@@ -42,7 +42,7 @@
                             <td>
 
                                 <a href="<?= base_url('Inhouse/subinhouse/'). $nama ?>"
-                                    class="badge badge-warning">Version</a>
+                                    class="badge badge-warning">Versi</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

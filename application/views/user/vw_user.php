@@ -101,6 +101,7 @@
                             <th>Gambar</th>
                             <th>Nama</th>
                             <th>Sub Divisi</th>
+                            <th>Email</th>
                             <th>NIK</th>
                         </tr>
                     </thead>
@@ -114,6 +115,7 @@
                             </td>
                             <td><?= $us['nama']; ?></td>
                             <td><?= $us['role']; ?></td>
+                            <td><?= $us['email']; ?></td>
                             <td><?= $us['NIK']; ?></td>
                         </tr>
                         <?php $i++; ?>

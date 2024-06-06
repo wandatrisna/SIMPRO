@@ -164,7 +164,7 @@ class User extends SDA_Controller
 		$this->email->initialize($config);
 		$this->email->SMTPDebug = 2; // Aktifkan output debug
 		$this->email->SMTPAuth = true;
-		$this->email->from('itosbrks@gmail.com', 'BRKS riau');
+		$this->email->from('itosbrks@gmail.com', 'BRKS');
 		$this->email->to($this->input->post('email'));
 		// var_dump($password);
 		// die;
@@ -304,7 +304,7 @@ class User extends SDA_Controller
 
 		if ($this->form_validation->run() == false) {
 			$this->load->view("layout/header", $data);
-			$this->load->view("user/sup/vw_ubah_sup", $data);
+			$this->load->view("user/sup/vw_ubah_user", $data);
 			$this->load->view("layout/footer");
 		} else {
 			$data = [
