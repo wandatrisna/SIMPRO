@@ -8,7 +8,6 @@ class Dashboard extends SDA_Controller
 		parent::__construct();
 		$this->load->model('User_model');
 		$this->load->model('Project_model');
-		$this->load->model('User_model');
 		$this->load->model('Jenisproject_model');
 		$this->load->model('Jeniseksternal_model');
 		$this->load->model('Development_model');

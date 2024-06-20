@@ -47,7 +47,7 @@ class SDA_Controller extends CI_Controller
 		define('DP', 'Development');
 		define('PL', 'Planning');
 		define('PB', 'Pinbag');
-		define('IS', 'IT Support');
+		define('IS', 'Support');
 
 
 

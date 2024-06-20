@@ -3,28 +3,29 @@
         <div class="card-header py-3">
             <?php if ($user1['role'] == 'Planning') {   ?>
             <div class="float-right">
-                <a href="<?= base_url() ?>Inhouse/tambahinhouse" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="<?= base_url() ?>Inhouse/tambahinhouse" class="btn btn-success btn-icon-split btn-sm">
                     <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-plus-square"></i>
                     </span>
-                    <span class="text">Add New Application</span> </a>
+                    <span class="text">Tambah Data</span> </a>
             </div>
             <?php } ?>
-            <h6 class="m-0 font-weight-bold text-primary">Inhouse Application</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Aplikasi Inhouse</h6>
         </div>
 
         <div class="card-body">
+            <?= $this->session->flashdata('message') ?>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="table-warning">
-                            <th>Num.</th>
-                            <th>Number</th>
-                            <th>Document Type</th>
-                            <th>Application Name</th>
-                            <th>Version</th>
+                            <th>No</th>
+                            <th>Nomor Dokumen</th>
+                            <th>Jenis Dokumen</th>
+                            <th>Nama Aplikasi</th>
+                            <th>Versi</th>
                             <th>Owner</th>
-                            <th>Action</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +42,7 @@
                             <td>
 
                                 <a href="<?= base_url('Inhouse/subinhouse/'). $nama ?>"
-                                    class="">Version</a>
+                                    class="badge badge-secondary">Versi</a>
                             </td>
                         </tr>
                         <?php $i++; ?>
@@ -51,5 +52,7 @@
             </div>
         </div>
     </div>
-                        </div>
+    <br>
+    <br>
+</div>
 </div>
