@@ -1,207 +1,132 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-10 ">
+        <div class="col-md-10">
             <div class="float">
-                <a href="<?= base_url('Inhouse/detailinhouse/'). $inhouse['id_in']; ?>" class="btn btn-info">&larr;
-                    Kembali</a>
+                <a href="<?= base_url('Inhouse/detailinhouse/'). $inhouse['id_in']; ?>" class="btn btn-secondary">Kembali</a>
             </div>
             <br>
             <div class="card shadow mb-4">
-        <div class="card-header py-3">
-                        <center>
-                            <h4 class="title"><strong>Perbarui Data</strong></h4><br><br>
-                        </center>
-                        <?= $this->session->flashdata('message') ?>
-
-                        <div class="card-block">
-
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" name="id_in" value="<?= $inhouse['id_in']; ?>">
-
-                                <div class="form-group">
-                                    <div class="form-group">
-
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Application
-                                                    Name</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['nama_in']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Submission
-                                                    Date</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['tgl_penyerahan_pmf']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Date</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['tgl_migrasi_prod']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Planning)</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['pic_plan_in']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    (Development)</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['pic_dev_in']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    (Migration)</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['pic_migrasi_in'];  ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Form</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_form_pmf']; ?></td>
-                                                &emsp;<input type="file" name="doc_form_pmf" id="doc_form_pmf"
-                                                    accept="image/png, image/jpeg, image/jpg, image/gif">
-                                                    <?= form_error('doc_form_pmf','<small class="text-danger pl-3">','</small>'); ?>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Library
-                                                    Document</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_library']; ?></td>
-                                                &emsp;<input type="file" name="doc_library" id="doc_form_pmf"
-                                                    accept="image/png, image/jpeg, image/jpg, image/gif">
-                                                    <?= form_error('doc_library','<small class="text-danger pl-3">','</small>'); ?>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Check List
-                                                    Document</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_check_list']; ?></td>
-                                                &emsp;<input type="file" name="doc_check_list" id="doc_form_pmf"
-                                                    accept="image/png, image/jpeg, image/jpg, image/gif">
-                                                    <?= form_error('doc_check_list','<small class="text-danger pl-3">','</small>'); ?>
-                                            </label>
-
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Other
-                                                    Document</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_lain']; ?></td>
-                                                &emsp;<input type="file" name="doc_lain" id="doc_lain"
-                                                    accept="image/png, image/jpeg, image/jpg, image/gif">
-                                                    <?= form_error('doc_lain','<small class="text-danger pl-3">','</small>'); ?>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label"><strong>&emsp;Planning Description</strong></label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['keterangan_in']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Status</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : 
-                                                <?php if ($inhouse['note_in'] == 'Pending') { ?>
-                                                    <a class="badge badge-danger" style="pointer-events: none">Pending</a>
-
-                                                        <?php } else if ($inhouse['note_in'] == 'On Progress') { ?>
-                                                    <a href="$inhouse1['note_in'];"
-                                                        class="badge badge-warning" style="pointer-events: none">On Progress</a>
-
-                                                        <?php } else  if ($inhouse['note_in'] == 'Done')  { ?>
-                                                    <a href="$inhouse1['note_in'];"
-                                                        class="badge badge-success" style="pointer-events: none">Done</a>
-
-                                                        <?php } else  if ($inhouse['note_in'] == null)  { ?>
-                                                    <a href="$inhouse1['note_in'];"
-                                                        class="badge badge-secondary" style="pointer-events: none">Null</a>
-                                                    <?php  }?></td>
-                                            </label>
-                                        </div>
-
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Note</strong></label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['comment_in']; ?></td>
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <input type="hidden" name="id_in" value="<?= $inhouse['id_in']; ?>">
-                                        <input type="hidden" name="nomor_in" value="<?= $inhouse['nomor_in']; ?>">
-                                        <input type="hidden" name="jenis_dokumen" value="<?= $inhouse['jenis_dokumen']; ?>">
-                                        <input type="hidden" name="nama_in" value="<?= $inhouse['nama_in']; ?>">
-                                        <input type="hidden" name="versi_in" value="<?= $inhouse['versi_in']; ?>">
-                                        <input type="hidden" name="tgl_penyerahan_pmf" value="<?= $inhouse['tgl_penyerahan_pmf']; ?>">
-                                        <input type="hidden" name="tgl_migrasi_prod" value="<?= $inhouse['tgl_migrasi_prod']; ?>">
-                                        <input type="hidden" name="keterangan_in" value="<?= $inhouse['keterangan_in']; ?>">
-                                        <input type="hidden" name="pic_plan_in" value="<?= $inhouse['pic_plan_in']; ?>">
-                                        <input type="hidden" name="pic_dev_in" value="<?= $inhouse['pic_dev_in']; ?>">
-                                        <input type="hidden" name="pic_migrasi_in" value="<?= $inhouse['pic_migrasi_in']; ?>">
-                                        <input type="hidden" name="owner_in" value="<?= $inhouse['owner_in']; ?>">
-                                        <input type="hidden" name="hapus_in" value="<?= $inhouse['hapus_in']; ?>">
-
-
-                                        <div class="col-md-12">
-                                            <button type="submit" name="tambah"
-                                                class="btn btn-success btn-round btn-block">Perbarui</button>
-                                        </div>
-                            </form>
-                        </div>
-                    </div>
+            <div class="card-header justify-content-center text-primary">
+            <h6 class="m-0 font-weight-bold text-primary">Perbarui Data Inhouse</h6>
                 </div>
-                </form>
+                <?= $this->session->flashdata('message') ?>
+                <div class="card-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="id_in" value="<?= $inhouse['id_in']; ?>">
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Nama Aplikasi</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['nama_in']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal Penyerahan PMF</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['tgl_penyerahan_pmf']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal Migrasi</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['tgl_migrasi_prod']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Perencanaan)</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['pic_plan_in']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Pengembangan)</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['pic_dev_in']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Migrasi)</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['pic_migrasi_in']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Form PMF</strong></label>
+                            <div class="col-sm-8">
+                                <div class="col-form-label">: <?= $inhouse['doc_form_pmf']; ?></div>
+                                <input type="file" name="doc_form_pmf" id="doc_form_pmf" accept="image/png, image/jpeg, image/jpg, image/gif">
+                                <?= form_error('doc_form_pmf','<small class="text-danger pl-3">','</small>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen Library</strong></label>
+                            <div class="col-sm-8">
+                                <div class="col-form-label">: <?= $inhouse['doc_library']; ?></div>
+                                <input type="file" name="doc_library" id="doc_library" accept="image/png, image/jpeg, image/jpg, image/gif">
+                                <?= form_error('doc_library','<small class="text-danger pl-3">','</small>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen Checklist</strong></label>
+                            <div class="col-sm-8">
+                                <div class="col-form-label">: <?= $inhouse['doc_check_list']; ?></div>
+                                <input type="file" name="doc_check_list" id="doc_check_list" accept="image/png, image/jpeg, image/jpg, image/gif">
+                                <?= form_error('doc_check_list','<small class="text-danger pl-3">','</small>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen Lain</strong></label>
+                            <div class="col-sm-8">
+                                <div class="col-form-label">: <?= $inhouse['doc_lain']; ?></div>
+                                <input type="file" name="doc_lain" id="doc_lain" accept="image/png, image/jpeg, image/jpg, image/gif">
+                                <?= form_error('doc_lain','<small class="text-danger pl-3">','</small>'); ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Deskripsi Perencanaan</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['keterangan_in']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Status Migrasi (diisi oleh PIC Migrasi)</strong></label>
+                            <div class="col-sm-8 col-form-label">: 
+                                <?php if ($inhouse['note_in'] == 'Pending') { ?>
+                                    <span class="badge badge-danger">Pending</span>
+                                <?php } elseif ($inhouse['note_in'] == 'On Progress') { ?>
+                                    <span class="badge badge-warning">On Progress</span>
+                                <?php } elseif ($inhouse['note_in'] == 'Done') { ?>
+                                    <span class="badge badge-success">Done</span>
+                                <?php } else { ?>
+                                    <span class="badge badge-secondary">Null</span>
+                                <?php } ?>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-4 col-form-label"><strong>&emsp;Catatan Migrasi</strong></label>
+                            <div class="col-sm-8 col-form-label">: <?= $inhouse['comment_in']; ?></div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <button type="submit" name="tambah" class="btn btn-success btn-round btn-block">Perbarui</button>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="nomor_in" value="<?= $inhouse['nomor_in']; ?>">
+                        <input type="hidden" name="jenis_dokumen" value="<?= $inhouse['jenis_dokumen']; ?>">
+                        <input type="hidden" name="nama_in" value="<?= $inhouse['nama_in']; ?>">
+                        <input type="hidden" name="versi_in" value="<?= $inhouse['versi_in']; ?>">
+                        <input type="hidden" name="tgl_penyerahan_pmf" value="<?= $inhouse['tgl_penyerahan_pmf']; ?>">
+                        <input type="hidden" name="tgl_migrasi_prod" value="<?= $inhouse['tgl_migrasi_prod']; ?>">
+                        <input type="hidden" name="keterangan_in" value="<?= $inhouse['keterangan_in']; ?>">
+                        <input type="hidden" name="pic_plan_in" value="<?= $inhouse['pic_plan_in']; ?>">
+                        <input type="hidden" name="pic_dev_in" value="<?= $inhouse['pic_dev_in']; ?>">
+                        <input type="hidden" name="pic_migrasi_in" value="<?= $inhouse['pic_migrasi_in']; ?>">
+                        <input type="hidden" name="owner_in" value="<?= $inhouse['owner_in']; ?>">
+                        <input type="hidden" name="hapus_in" value="<?= $inhouse['hapus_in']; ?>">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

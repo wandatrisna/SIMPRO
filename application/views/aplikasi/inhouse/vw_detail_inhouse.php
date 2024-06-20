@@ -1,231 +1,138 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-10 ">
-            <?php
-                            if ($user1['role'] == 'Planning') {?>
+        <div class="col-md-10">
+            <?php if ($user1['role'] == 'Planning') { ?>
             <div class="float">
-                <a href="<?= base_url('Inhouse/subinhouse/'). $inhouse['nama_in']; ?>" class="btn btn-info">&larr;
-                    Kembali</a>
+                <a href="<?= base_url('Inhouse/subinhouse/'). $inhouse['nama_in']; ?>" class="btn btn-secondary">Kembali</a>
             </div>
-            <?php
-							} elseif ($user1['role'] == 'Support') { ?>
+            <?php } elseif ($user1['role'] == 'Support') { ?>
             <div class="float">
                 <a href="<?= base_url() ?>Inhouse/sup_indexinhouse" class="btn btn-secondary">Kembali</a>
             </div>
-            <?php }?>
+            <?php } ?>
             <br>
-            <div class="card shadow mb-4">
-        <div class="card-header py-3">
-                        <center>
-                            <h4 class="title"><strong>Inhouse Detail</strong></h4><br><br>
-                        </center>
-                        <?= $this->session->flashdata('message') ?>
-                        <div class="card-block">
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                <input type="hidden" name="id_in" value="<?= $inhouse['id_in']; ?>">
-                                <div class="form-group">
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Application
-                                                    Name</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['nama_in']; ?></td>
-                                            </label>
-                                        </div>
 
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Date</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['tgl_penyerahan_pmf']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Date</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['tgl_migrasi_prod']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    (Planning)</strong></label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['pic_plan_in']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    (Development)</strong></label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['pic_dev_in']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PIC
-                                                    (Migrasi)</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['pic_migrasi_in'];  ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Form</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_form_pmf']; ?>
-                                                    <?php 
-                                                if ($inhouse['doc_form_pmf'] != null) { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadpmf/'). $inhouse['doc_form_pmf']; ?>"
-                                                        class="badge badge-success">Download</a>
-                                                    <?php  } else { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadpmf/'). $inhouse['doc_form_pmf']; ?>"
-                                                        class="badge badge-secondary"
-                                                        style="pointer-events: none">Download</a>
-                                                    <?php  }?>
-
-                                                </td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Library
-                                                    Document</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_library']; ?>
-                                                    <?php 
-                                            if ($inhouse['doc_library'] != null) { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadlib/'). $inhouse['doc_library']; ?>"
-                                                        class="badge badge-success">Download</a>
-                                                    <?php  } else { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadlib/'). $inhouse['doc_library']; ?>"
-                                                        class="badge badge-secondary"
-                                                        style="pointer-events: none">Download</a>
-                                                    <?php  }?>
-                                                </td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Check List
-                                                    Document</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_check_list']; ?>
-                                                    <?php 
-                                            if ($inhouse['doc_check_list'] != null) { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadcheck/'). $inhouse['doc_check_list']; ?>"
-                                                        class="badge badge-success">Download</a>
-                                                    <?php  } else { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadcheck/'). $inhouse['doc_check_list']; ?>"
-                                                        class="badge badge-secondary"
-                                                        style="pointer-events: none">Download</a>
-                                                    <?php  }?>
-                                                </td>
-                                            </label>
-
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Other
-                                                    Document</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['doc_lain']; ?></td>
-                                                <?php 
-                                            if ($inhouse['doc_lain'] != null) { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadlain/'). $inhouse['doc_lain']; ?>"
-                                                        class="badge badge-success">Download</a>
-                                                    <?php  } else { ?>
-                                                    <a href="<?= base_url('Inhouse/downloadlain/'). $inhouse['doc_lain']; ?>"
-                                                        class="badge badge-secondary"
-                                                        style="pointer-events: none">Download</a>
-                                                    <?php  }?>
-                                                    </td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                        <label class="col-sm-4 col-form-label"><strong>&emsp;Planning Description</strong></label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['keterangan_in']; ?></td>
-                                            </label>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Status</strong>
-                                            </label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : 
-                                                <?php if ($inhouse['note_in'] == 'Pending') { ?>
-                                                    <a class="badge badge-danger" style="pointer-events: none">Pending</a>
-
-                                                        <?php } else if ($inhouse['note_in'] == 'On Progress') { ?>
-                                                    <a href="$inhouse1['note_in'];"
-                                                        class="badge badge-warning" style="pointer-events: none">On Progress</a>
-
-                                                        <?php } else  if ($inhouse['note_in'] == 'Done')  { ?>
-                                                    <a href="$inhouse1['note_in'];"
-                                                        class="badge badge-success" style="pointer-events: none">Done</a>
-
-                                                        <?php } else  if ($inhouse['note_in'] == null)  { ?>
-                                                    <a href="$inhouse1['note_in'];"
-                                                        class="badge badge-secondary" style="pointer-events: none">Null</a>
-                                                    <?php  }?></td>
-                                            </label>
-                                        </div>
-
-
-                                        <div class="form-group row">
-                                            <label class="col-sm-4 col-form-label"><strong>&emsp;Migration Note</strong></label>
-                                            <br>
-                                            <label class="col-sm-8 col-form-label">
-                                                <td> : <?= $inhouse['comment_in']; ?></td>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <?php
-                                    if ($user1['role'] == 'Planning') {
-                                    ?>
-                                    <div class="col-md-12">
-                                        <a href="<?= base_url('Inhouse/editinhouse/'). $inhouse['id_in']; ?>"
-                                            class="btn btn-success btn-round btn-block">Perbarui (Document)</a>
-                                    </div>
-                                    <?php
-                                        } elseif ($user1['role'] == 'Support') { ?>
-                                    <div class="col-md-12">
-                                        <a href="<?= base_url('Inhouse/sup_editinhouse/'). $inhouse['id_in']; ?>"
-                                            class="btn btn-success btn-round btn-block">Perbarui Data</a>
-                                    </div>
-                                    <?php
-                                    }
-                                    ?>
-                            </form>
+            <div class="card" style="background-color: white;">
+                <div class="card-header justify-content-center text-primary">
+                    <h6 class="m-0 font-weight-bold text-primary">Detail Inhouse</h6>
+                </div>
+                <?= $this->session->flashdata('message') ?>
+                <div class="card-body">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="id_in" value="<?= $inhouse['id_in']; ?>">
+                        <div class="form-group">
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Nama Aplikasi</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['nama_in']; ?></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal PMF</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['tgl_penyerahan_pmf']; ?></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Tanggal Migrasi</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['tgl_migrasi_prod']; ?></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Perencanaan)</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['pic_plan_in']; ?></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Pengembangan)</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['pic_dev_in']; ?></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Migrasi)</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['pic_migrasi_in']; ?></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Form PMF</strong></label>
+                                <div class="col-sm-8 col-form-label">
+                                    : <?= $inhouse['doc_form_pmf']; ?>
+                                    <?php if ($inhouse['doc_form_pmf'] != null) { ?>
+                                    <a href="<?= base_url('/assets/dokumeninhouse/'). $inhouse['doc_form_pmf']; ?>" class="badge badge-info" target="_blank">Lihat</a>
+                                    <a href="<?= base_url('Inhouse/downloadpmf/'). $inhouse['doc_form_pmf']; ?>" class="badge badge-success">Unduh</a>
+                                    <?php } else { ?>
+                                    <span class="badge badge-secondary">Tidak tersedia</span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen Library</strong></label>
+                                <div class="col-sm-8 col-form-label">
+                                    : <?= $inhouse['doc_library']; ?>
+                                    <?php if ($inhouse['doc_library'] != null) { ?>
+                                    <a href="<?= base_url('/assets/dokumeninhouse/'). $inhouse['doc_library']; ?>" class="badge badge-info" target="_blank">Lihat</a>
+                                    <a href="<?= base_url('Inhouse/downloadlib/'). $inhouse['doc_library']; ?>" class="badge badge-success">Unduh</a>
+                                    <?php } else { ?>
+                                    <span class="badge badge-secondary">Tidak tersedia</span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen Checklist</strong></label>
+                                <div class="col-sm-8 col-form-label">
+                                    : <?= $inhouse['doc_check_list']; ?>
+                                    <?php if ($inhouse['doc_check_list'] != null) { ?>
+                                    <a href="<?= base_url('/assets/dokumeninhouse/'). $inhouse['doc_check_list']; ?>" class="badge badge-info" target="_blank">Lihat</a>
+                                    <a href="<?= base_url('Inhouse/downloadcheck/'). $inhouse['doc_check_list']; ?>" class="badge badge-success">Unduh</a>
+                                    <?php } else { ?>
+                                    <span class="badge badge-secondary">Tidak tersedia</span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Dokumen Lain</strong></label>
+                                <div class="col-sm-8 col-form-label">
+                                    : <?= $inhouse['doc_lain']; ?>
+                                    <?php if ($inhouse['doc_lain'] != null) { ?>
+                                    <a href="<?= base_url('/assets/dokumeninhouse/'). $inhouse['doc_lain']; ?>" class="badge badge-info" target="_blank">Lihat</a>
+                                    <a href="<?= base_url('Inhouse/downloadlain/'). $inhouse['doc_lain']; ?>" class="badge badge-success">Unduh</a>
+                                    <?php } else { ?>
+                                    <span class="badge badge-secondary">Tidak tersedia</span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Deskripsi Perencanaan</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['keterangan_in']; ?></div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Status Migrasi</strong></label>
+                                <div class="col-sm-8 col-form-label">
+                                    :
+                                    <?php if ($inhouse['note_in'] == 'Pending') { ?>
+                                    <span class="badge badge-danger">Pending</span>
+                                    <?php } else if ($inhouse['note_in'] == 'On Progress') { ?>
+                                    <span class="badge badge-warning">On Progress</span>
+                                    <?php } else if ($inhouse['note_in'] == 'Done') { ?>
+                                    <span class="badge badge-success">Done</span>
+                                    <?php } else if ($inhouse['note_in'] == null) { ?>
+                                    <span class="badge badge-secondary">Null</span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;Catatan Migrasi</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $inhouse['comment_in']; ?></div>
+                            </div>
                         </div>
-                    </div>
+                        <?php if ($user1['role'] == 'Planning') { ?>
+                        <div class="col-md-12">
+                            <a href="<?= base_url('Inhouse/editinhouse/'). $inhouse['id_in']; ?>" class="btn btn-success btn-round btn-block">Perbarui (Dokumen)</a>
+                           
+                        </div>
+                        <?php } elseif ($user1['role'] == 'Support') { ?>
+                        <div class="col-md-12">
+                            <a href="<?= base_url('Inhouse/sup_editinhouse/'). $inhouse['id_in']; ?>" class="btn btn-success btn-round btn-block">Perbarui Data</a>
+                        </div>
+                        <?php } ?>
                     </form>
+                    
                 </div>
             </div>
+            <br>
         </div>
     </div>
 </div>
-

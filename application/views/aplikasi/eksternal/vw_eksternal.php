@@ -3,15 +3,16 @@
         <div class="card-header py-3">
             <?php if ($user1['role'] == 'Planning') {   ?>
             <div class="float-right">
-                <a href="<?= base_url() ?>Eksternal/tambaheksternal" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="<?= base_url() ?>Eksternal/tambaheksternal" class="btn btn-success btn-icon-split btn-sm">
                     <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-plus-square"></i>
                     </span>
-                    <span class="text">Add New Application</span> </a>
+                    <span class="text">Tambah Data</span> </a>
+                    </span>
             </div>
             <?php } ?>
 
-            <h6 class="m-0 font-weight-bold text-primary">External Application</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Aplikasi Eksternal</h6>
         </div>
         <div class="card-body">
             <?= $this->session->flashdata('message') ?>
@@ -19,13 +20,13 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="table-warning">
-                            <th>Num.</th>
-                            <th>Number</th>
-                            <th>Application Name</th>
-                            <th>Version</th>
-                            <th>External Type</th>
-                            <th>Document Type</th>
-                            <th>Action</th>
+                            <th>No</th>
+                            <th>Nomor Dokumen</th>
+                            <th>Nama Aplikasi</th>
+                            <th>Versi</th>
+                            <th>Jenis Aplikasi Eksternal</th>
+                            <th>Jenis Dokumen</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -41,7 +42,7 @@
                             <td>
 
                                 <a href="<?= base_url('Eksternal/subeksternal/'). $us['nama_eks'];?>"
-                                    class="badge badge-info">Version</a>
+                                    class="badge badge-secondary">Versi</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

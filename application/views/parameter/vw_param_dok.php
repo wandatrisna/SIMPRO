@@ -35,7 +35,7 @@
                                     <td><?= $i; ?>.</td>
                                     <td><?= $us['jenisdokumen']; ?></td>
                                     <td>
-                                        <a href="<?= base_url('Parameter/hapusdok/') . $us['id_jenisdokumen']; ?>" class="badge badge-danger" onclick="return confirm('Are you sure you want to delete this data?');">Delete</a>
+                                        <a href="<?= base_url('Parameter/hapusdok/') . $us['id_jenisdokumen']; ?>" class="badge badge-danger" onclick="return confirm('Apakah yakin ingin menghapus data?');">Delete</a>
                                     </td>
                                 </tr>
                                 <?php $i++; ?>

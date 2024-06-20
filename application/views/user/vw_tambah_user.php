@@ -6,7 +6,7 @@
 			<br><br>
 			<div class="card">
 				<div class="card-header justify-content-center">
-					Tambah Data Pengguna SIMPRO </div>
+				<strong>Tambah Data Baru</strong></div>
 				<div class="card-body">
 					<form action="" method="POST">
 						<div class="form-group">
@@ -76,7 +76,7 @@
 						</div> -->
 
 						<div class="col-md-12">
-							<button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
+							<button type="submit" name="tambah" class="btn btn-success float-right">Simpan</button>
 						</div>
 					</form>
 				</div>

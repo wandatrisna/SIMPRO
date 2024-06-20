@@ -7,7 +7,7 @@
                     <span class="icon text-white-50">
                         <i class="fas fa-plus-square"></i>
                     </span>
-                    <span class="text">TAMBAH DATA PROYEK</span> </a><?php } ?>
+                    <span class="text">Tambah Data</span> </a><?php } ?>
             </div>
             <h6 class="m-0 font-weight-bold text-primary">Tabel Proyek - Sedang Berlangsung</h6>
         </div>
@@ -100,7 +100,7 @@
                             <td><?= $pro['keterangan']; ?></td>
                             <td>
                                 <a href="<?= base_url('Project/detail/'). $pro['id_project']; ?>"
-                                    class="badge badge-info">Detail</a>
+                                    class="badge badge-secondary">Detail</a>
                                 <?php if ($user1['role'] == 'Planning') {   ?>
                                 <!-- <a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"

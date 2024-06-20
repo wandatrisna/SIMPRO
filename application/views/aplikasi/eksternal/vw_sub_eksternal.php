@@ -6,7 +6,7 @@
 <div class="col-md-12">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">TABEL APLIKASI EKSTERNAL</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Detail Eksternal: Aplikasi <?= $eksternal[0]['nama_eks']; ?></h6>
         </div>
         <div class="card-body">
             <?= $this->session->flashdata('message') ?>
@@ -14,13 +14,13 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr class="table-warning">
-                            <th>Num.</th>
-                            <th>Number</th>
-                            <th>Application Name</th>
-                            <th>Version</th>
-                            <th>External Type</th>
-                            <th>Document Type</th>
-                            <th>Action</th>
+                            <th>No</th>
+                            <th>Nomor Dokumen</th>
+                            <th>Nama Aplikasi</th>
+                            <th>Versi</th>
+                            <th>Jenis Aplikasi Eksternal</th>
+                            <th>Jenis Dokumen</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -36,12 +36,12 @@
                             <td>
 
                                 <a href="<?= base_url('Eksternal/detaileksternal/'). $us['id_eks']; ?>"
-                                    class="badge badge-primary">Detail</a>
+                                    class="badge badge-secondary">Detail</a>
                                 <?php if ($user1['role'] == 'Planning') {   ?>
                                 <a href="<?= base_url('Eksternal/hapuseksternal/'). $us['id_eks']; ?> "
                                     class="badge badge-danger"
                                     onclick="return confirm('Apakah anda yakin ingin menghapus data ini?');"
-                                    class="ik ik-trash-2 text-red">Delete</a>
+                                    class="ik ik-trash-2 text-red">Hapus</a>
                                 <?php } ?>
 
                             </td>

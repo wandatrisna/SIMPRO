@@ -3,11 +3,11 @@
         <div class="card-header py-3">
             <?php if ($user1['role'] == 'Planning') {   ?>
             <div class="float-right">
-                <a href="<?= base_url() ?>Inhouse/tambahinhouse" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="<?= base_url() ?>Inhouse/tambahinhouse" class="btn btn-success btn-icon-split btn-sm">
                     <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-plus-square"></i>
                     </span>
-                    <span class="text">Tambah Data Baru</span> </a>
+                    <span class="text">Tambah Data</span> </a>
             </div>
             <?php } ?>
             <h6 class="m-0 font-weight-bold text-primary">Aplikasi Inhouse</h6>
@@ -42,7 +42,7 @@
                             <td>
 
                                 <a href="<?= base_url('Inhouse/subinhouse/'). $nama ?>"
-                                    class="badge badge-info">Versi</a>
+                                    class="badge badge-secondary">Versi</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

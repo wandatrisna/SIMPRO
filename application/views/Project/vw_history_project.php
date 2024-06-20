@@ -92,7 +92,7 @@
 							<td><?= $pro['keterangan']; ?></td>
 							<td>
 								<a href="<?= base_url('Project/detailhistory/'). $pro['id_project']; ?>"
-									class="badge badge-primary">Detail</a>
+									class="badge badge-secondary">Detail</a>
 								<?php if ($user1['role'] == 'Planning') {   ?>
 								<!-- <a href="<?= base_url('Project/hapusproject3/'). $pro['id_project']; ?> "
 									class="badge badge-danger"

@@ -69,6 +69,7 @@ class Project extends SDA_Controller
 		$this->load->view('project/vw_undone', $data);
 		$this->load->view('layout/footer', $data);
 	}
+
 	public function indexlistproject()
 	{
 		$data['user'] = $this->User_model->get();
@@ -80,6 +81,7 @@ class Project extends SDA_Controller
 		$this->load->view('project/vw_list_project', $data);
 		$this->load->view('layout/footer', $data);
 	}
+
 	public function indexhistory()
 	{
 		$data['user'] = $this->User_model->get();
@@ -94,7 +96,6 @@ class Project extends SDA_Controller
 
 	public function upload_docURF()
 	{
-
 		$config['upload_path'] = './assets/dokumenurf/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
 		$config['max_size'] = 2048;
@@ -114,7 +115,6 @@ class Project extends SDA_Controller
 			// echo 'File berhasil diunggah dengan nama: ' . $file_name;
 		}
 	}
-
 
 	public function tambahproject()
 	{
@@ -180,7 +180,6 @@ class Project extends SDA_Controller
 		}
 	}
 
-
 	public function detail($id)
 	{
 		$data['user'] = $this->User_model->get();
@@ -236,7 +235,7 @@ class Project extends SDA_Controller
 	}
 
 	public function detaildash($id)
-{
+	{
     $data['user'] = $this->User_model->get();
     $data['project'] = $this->Project_model->get();
     $data['projectby'] = $this->Project_model->getBy();
@@ -259,12 +258,10 @@ class Project extends SDA_Controller
     $this->load->view('layout/header', $data);
     $this->load->view('project/vw_detail_dashboard', $data);
     $this->load->view('layout/footer', $data);
-}
+	}
 
-	
-	
-
-	public function editproject() {
+	public function editproject() 
+	{
 		$updated_by = $this->session->userdata('NIK');
 		
 		$this->load->helper('date');
@@ -315,8 +312,6 @@ class Project extends SDA_Controller
 		redirect('project/detaildash/' . $id);
 	}
 	
-	
-	
 
 	public function hapusproject($id)
 	{
@@ -336,11 +331,8 @@ class Project extends SDA_Controller
 		redirect('Project/indexlisthistory');
 	}
 
-
-
 	public function detailbrd($id)
 	{
-
 		$data['user'] = $this->User_model->get();
 		$data['project'] = $this->Project_model->get();
 		$data['project1'] = $this->Project_model->getById($id);
@@ -349,6 +341,7 @@ class Project extends SDA_Controller
 		$this->load->view("Project/kegiatan/vw_brd", $data);
 		$this->load->view("layout/footer");
 	}
+
 	public function editbrd()
 	{
 		$this->load->helper('date');
@@ -451,13 +444,7 @@ class Project extends SDA_Controller
 		$data['dev'] = $this->Development_model->getkeg($id);
 		$data['dev1'] = $this->Development_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		// $data = [
-		// 	'idDetailDev'=> $id,
-		// ];  
-		// $this->session->set_userdata($data);
 
-		// var_dump($data['dev']);
-		// die();
 		$this->load->view("layout/header", $data);
 		$this->load->view("Project/kegiatan/vw_dev", $data);
 		$this->load->view("layout/footer");
@@ -473,8 +460,6 @@ class Project extends SDA_Controller
 		$bobotawal = $this->Development_model->getBobot1($id);
 		$progres = $this->Development_model->getProgres($id);
 
-		// var_dump();
-		// die();
 		$filename = uniqid();
 		$config = array(
 			'file_name' => $filename,
@@ -503,8 +488,6 @@ class Project extends SDA_Controller
 					'actualstdate' => $this->input->post('actualstdate'),
 					'actualendate' => $this->input->post('actualendate'),
 					'last_updated' => mdate('%Y-%m-%d %H:%i:%s', now()),
-
-
 
 				];
 				$data1 = array(
@@ -673,6 +656,7 @@ class Project extends SDA_Controller
 		$this->load->view("Project/kegiatan/vw_sit", $data);
 		$this->load->view("layout/footer");
 	}
+
 	public function editsit()
 	{
 		$this->load->helper('date');
@@ -709,6 +693,7 @@ class Project extends SDA_Controller
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detailsit/' . $id);
 	}
+
 	public function detailuat($id)
 	{
 		$data['user'] = $this->User_model->get();
@@ -719,6 +704,7 @@ class Project extends SDA_Controller
 		$this->load->view("Project/kegiatan/vw_uat", $data);
 		$this->load->view("layout/footer");
 	}
+
 	public function edituat()
 	{
 		$this->load->helper('date');
@@ -755,6 +741,7 @@ class Project extends SDA_Controller
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detailuat/' . $id);
 	}
+	
 	public function detailmigrasi($id)
 	{
 		$data['user'] = $this->User_model->get();
@@ -766,6 +753,7 @@ class Project extends SDA_Controller
 		$this->load->view("Project/kegiatan/vw_migrasi", $data);
 		$this->load->view("layout/footer");
 	}
+	
 	public function editmigrasi()
 	{
 		$this->load->helper('date');

@@ -51,13 +51,10 @@ class Profile extends SDA_Controller
     $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
     $this->form_validation->set_rules('password1', 'Password', 'required|trim|min_length[5]|matches[password2]', [
-        'matches' => 'Password Tidak Sama',
-        'min_length' => 'Password Terlalu Pendek',
-        'required' => 'Password harus diisi'
+        'matches' => 'Password Tidak Sama','min_length' => 'Password Terlalu Pendek','required' => 'Password harus diisi'
     ]);
     $this->form_validation->set_rules('password2', 'Password', 'required|trim|matches[password1]', [
-        'matches' => 'Password Tidak Sama',
-        'required' => 'Password harus diisi'
+        'matches' => 'Password Tidak Sama','required' => 'Password harus diisi'
     ]);
 
     if ($this->form_validation->run() == false) {

@@ -63,6 +63,19 @@ class Eksternal extends SDA_Controller
 		$this->load->view('layout/footer', $data);
 	}
 
+	public function get_user()
+	{
+		// Ambil nilai role yang dipilih dari permintaan AJAX
+		$selectedRole = $this->input->post('role'); // sesuaikan dengan nama input yang digunakan di view
+
+		// Lakukan query untuk mengambil data user dari database berdasarkan role
+		// Anda harus mengganti ini dengan logika sesuai dengan struktur tabel dan basis data Anda
+		$user = $this->db->select('id_user, nama')->where('role', $selectedRole)->get('user')->result_array();
+
+		// Kembalikan data user sebagai respon dalam format JSON
+		echo json_encode($user);
+	}
+
 	public function tambaheksternal()
 	{
 		//$this->check_session();
@@ -111,6 +124,7 @@ class Eksternal extends SDA_Controller
 				'tgl_penyerahan_pmf' => $this->input->post('tgl_penyerahan_pmf'),
 				'keterangan' => $this->input->post('keterangan'),
 				'pic_plan_eks' => $this->input->post('pic_plan_eks'),
+				'pic_migrasi_eks' => $this->input->post('pic_migrasi_eks'),
 				'pmf_by_eks' => $this->input->post('pmf_by_eks'),
 				'hapus_eks' => $this->input->post('hapus_eks'),
 			];
@@ -210,6 +224,9 @@ class Eksternal extends SDA_Controller
 		$this->form_validation->set_rules('pic_plan_eks', 'pic_plan_eks', 'required', [
 			'required' => 'Required!'
 		]);
+		$this->form_validation->set_rules('pic_migrasi_eks', 'pic_migrasi_eks', 'required', [
+			'required' => 'Required!'
+		]);
 		$this->form_validation->set_rules('pmf_by_eks', 'pmf_by_eks', 'required', [
 			'required' => 'Required!'
 		]);
@@ -226,11 +243,15 @@ class Eksternal extends SDA_Controller
 				'dokumen_eks' => $this->input->post('dokumen_eks'),
 				'versi_eks' => $this->input->post('versi_eks'),
 				'tgl_penyerahan_pmf' => $this->input->post('tgl_penyerahan_pmf'),
+				'tgl_migrasi' => $this->input->post('tgl_migrasi'),
 				'keterangan' => $this->input->post('keterangan'),
 				'pic_plan_eks' => $this->input->post('pic_plan_eks'),
+				'pic_migrasi_eks' => $this->input->post('pic_migrasi_eks'),
 				'pmf_by_eks' => $this->input->post('pmf_by_eks'),
 				'update_date' => mdate('%Y-%m-%d %H:%i:%s', now()),
-
+				'hapus_eks' => $this->input->post('hapus_eks'),
+				'note_eks' => $this->input->post('note_eks'),
+				'comment_eks' => $this->input->post('comment_eks'),
 			];
 			$upload_image = $_FILES['doc_form_pmf']['name'];
 			if ($upload_image) {
@@ -290,12 +311,100 @@ class Eksternal extends SDA_Controller
 					echo $this->upload->display_errors();
 				}
 			}
+			$id_picmigrasi = $this->Eksternal_model->getById($id)['pic_migrasi_eks'];
+			$user_ = $this->db->get_where('user', ['id_user' => $id_picmigrasi])->row_array();
+			$user_email = $user_['email'];
+
 			$id_eks = $this->input->post('id_eks');
-			$this->Eksternal_model->update(['id_eks' => $id_eks], $data);
-			$this->sendEmail($new_image1, $new_image2, $new_image3);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
-			redirect('Eksternal/detaileksternal/' . $id_eks);
+			if ($this->Eksternal_model->update(['id_eks' => $id_eks], $data)) {
+				$this->_sendEmail($user_email,  $new_image, $new_image1, $new_image2, $new_image3);
+				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
+				redirect('Eksternal/detaileksternal/' . $id_eks);
+
+			} else {
+				// Jika pengiriman email gagal, tambahkan pesan kesalahan ke dalam flashdata
+				//$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Failed to send email. Please check your email configuration.</div>');
+				// Jika ingin menampilkan pesan kesalahan spesifik, Anda bisa menggabungkan ErrorInfo ke dalam pesan
+				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Failed to send email. Please check your email configuration. Error: </div>');
+				redirect('Eksternal/detaileksternal/' . $id_eks);
+			}
+			;
+
 		}
+	}
+
+	private function _sendEmail($email, $file1, $file2, $file3, $file4)
+	{
+		$config = [
+			'protocol' => 'smtp',
+			'smtp_host' => 'smtp.googlemail.com',
+			'smtp_port' => 587,
+			'smtp_user' => 'itosbrks@gmail.com',
+			'smtp_pass' => 'mbzv azxy dwtg qxtg',
+			'mailtype' => 'html',
+			'charset' => 'utf-8',
+			'wordwrap' => TRUE,
+			'smtp_crypto' => 'tls',
+			'newline' => "\r\n"
+
+		];
+		$picplan = $this->input->post('pic_plan_eks');
+		$nama = $this->input->post('nama_eks');
+		$picmig = $this->input->post('pic_migrasi_eks');
+		$data['email'] = $this->input->post('email', true);
+		$this->load->library('email', $config);
+		$this->email->initialize($config);
+		$this->email->SMTPDebug = 2; // Aktifkan output debug
+		$this->email->SMTPAuth = true;
+		$this->email->from('itosbrks@gmail.com', 'BRKS riau');
+		$this->email->to($email);
+		// var_dump($password);
+		// die;
+		$this->email->subject('MIGRATION EMAIL');
+		$this->email->message("Assalamualaikum Warahmatullahi Wabarokatuh
+        <br>
+        Dear PIC Migrasi, Sdr.$picmig
+        <br><br>
+        Berikut ini kami sampaikan deskripsi kelen​gkapan dokumen migrasi untuk $nama
+        <br>​Objek Migrasi​​ : 
+        <br>Dokumen Migrasi (To Do List)
+        <br>Dokumen PMF Migrasi​
+        <br>Dokumen Ceklis Dokumen 
+        <br>Dokumen Library​ 
+        <br>Dokumen Pendukung Lainnya​ (silahkan cek aplikasi SIMPRO)
+         
+        <br>Mohon Bantuan Anda untuk dapat melakukan migrasi atas aplikasi tersebut.
+        <br>Adapun PIC Planning untuk Aplikasi ini dapat dikoordikasikan dengan Sdr.$picplan
+         
+        <br>Demikian kami sampaikan dimana selanjutnya mohon bantuannya untuk dapat menginformasikan status migrasi/jadwal migrasi dengan me-reply email ini, atas perhatian dan kerjasamanya kami ucapkan terimakasih 
+
+        <br><br>Wassalamualaikum Warahmatullahi Wabarokatuh.
+         ​
+         <br><br><br>Regards,​
+         
+         <br><br>IT Planning & Assurance
+         <br>Divisi Teknologi & Sistem Informasi
+         <br>Bank Riau Kepri​​ Syariah
+            ");
+			if ($file1) {
+				$this->email->attach('./assets/dokumeninhouse/' . $file1);
+			}
+			if ($file2) {
+				$this->email->attach('./assets/dokumeninhouse/' . $file2);
+			}
+			if ($file3) {
+				$this->email->attach('./assets/dokumeninhouse/' . $file3);
+			}
+			if ($file4) {
+				$this->email->attach('./assets/dokumeninhouse/' . $file4);
+			}
+	
+			if ($this->email->send()) {
+				return true;
+			} else {
+				echo $this->email->print_debugger();
+				die;
+			}
 
 	}
 
@@ -376,4 +485,3 @@ class Eksternal extends SDA_Controller
 	}
 
 }
-

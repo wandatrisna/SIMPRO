@@ -8,202 +8,199 @@
                             <div class="page-wrapper">
                                 <div class="page-body">
                                     <div class="float">
-                                        <a href="<?= base_url('Project/indexhistory/'). $project1['id_project']; ?>"
+                                        <a href="<?= base_url('Project/indexlistproject/'). $project1['id_project']; ?>"
                                             class="btn btn-secondary mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
 
                                         <div class="col-md-12 col-xl-8">
                                             <div class="card shadow mb-4">
-                                                <div class="card-header py-3">
-                                                    <h3><strong><?= $project1['namaaplikasi']; ?></strong></h3>
-                                                    Last Updated <?= $project1['last_updated_time'];?>
-                                                    
-                                                    <table class="table table-hover">
-                                                        <tbody>
-                                                            <tr>
-
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20"><strong>Project
-                                                                                Type</strong></p>
-
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="d-inline-block m-r-20">
-                                                                        <?= $jenisp['jenisproject'] ?></p>
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-blue"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:80%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20">
-                                                                            <strong>Application Type</strong></p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="d-inline-block m-r-20">
-                                                                        <?= $jenisa['jenisaplikasi'] ?></p>
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-pink"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:60%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20"><strong>URF
-                                                                                Document</strong></p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <a class="d-inline-block m-r-20"
-                                                                        href="<?php echo base_url('assets/dokumenurf/' . $project1['urf']); ?>"><?= $project1['urf'] ?></a>
-                                                                    <!-- <img src="<?php echo base_url('assets/dokumenurf/' . $project1['urf']); ?>"> -->
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-blue"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:50%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20">
-                                                                            <strong>Year</strong>
-                                                                        </p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="d-inline-block m-r-20">
-                                                                        <?= $project1['tahun'] ?></p>
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-yellow"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:50%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20">
-                                                                            <strong>Targets Completed</strong>
-                                                                        </p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="d-inline-block m-r-20">
-                                                                        <?= $project1['target'] ?></p>
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-blue"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:50%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20"><strong>Start
-                                                                                Date</strong></p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="d-inline-block m-r-20">
-                                                                        <?= $project1['tanggalregister'] ?></p>
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-blue"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:50%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20">
-                                                                            <strong>Note</strong>
-                                                                        </p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="d-inline-block m-r-20">
-                                                                        <?= $project1['keterangan'] ?>
-                                                                    </p>
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-blue"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:50%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <div class="task-contain">
-                                                                        <p class="d-inline-block m-l-20">
-                                                                            <strong>Created Date</strong>
-                                                                        </p>
-                                                                    </div>
-                                                                </td>
-                                                                <td>
-                                                                    <p class="d-inline-block m-r-20">
-                                                                        <?= date('Y-m-d', $project1['date_created']); ?>
-                                                                    </p>
-                                                                    <div class="progress d-inline-block">
-                                                                        <div class="progress-bar bg-c-blue"
-                                                                            role="progressbar" aria-valuemin="0"
-                                                                            aria-valuemax="100" style="width:50%">
-                                                                        </div>
-                                                                    </div>
-                                                                </td>
-                                                            </tr>
-                                                            <?php if ($user1['role'] == 'Planning') {   ?>
-                                                            <tr>
-                                                                <td>
-                                                                    <a href="javascript:;"
-                                                                        data-id="<?php echo $project1['id_project'] ?>"
-                                                                        data-namaaplikasi="<?php echo $project1['namaaplikasi'] ?>"
-                                                                        data-jenisproject="<?php echo $project1['jenisproject'] ?>"
-                                                                        data-jenisaplikasi="<?php echo $project1['jenisaplikasi'] ?>"
-                                                                        data-tahun="<?php echo $project1['tahun'] ?>"
-                                                                        data-keterangan="<?php echo $project1['keterangan'] ?>"
-                                                                        data-targetp="<?php echo $project1['target'] ?>"
-                                                                        data-tanggalregister="<?php echo $project1['tanggalregister'] ?>"
-                                                                        data-urf="<?php echo $project1['urf'] ?>"
-                                                                        data-toggle="modal" data-target="#editModal">
-                                                                        <button data-toggle="modal"
-                                                                            data-target="#ubah-data"
-                                                                            class="btn btn-success">Perbarui</button>
-                                                                    </a>
-
-                                                                </td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <?php } ?>
-
-                                                        </tbody>
-                                                    </table>
+                                                <div
+                                                    class="card-header py-3 d-flex justify-content-between align-items-center">
+                                                    <div>
+                                                        <h3 class="mb-0">
+                                                            <strong><?= $project1['namaaplikasi']; ?></strong>
+                                                        </h3>
+                                                        <p class="text-muted mb-0">Terakhir diubah pada
+                                                            <?= $project1['last_updated_time'];?></p>
+                                                    </div>
+                                                    <?php if ($user1['role'] == 'Planning') { ?>
+                                                    <a href="javascript:;"
+                                                        data-id="<?php echo $project1['id_project'] ?>"
+                                                        data-namaaplikasi="<?php echo $project1['namaaplikasi'] ?>"
+                                                        data-jenisproject="<?php echo $project1['jenisproject'] ?>"
+                                                        data-jenisaplikasi="<?php echo $project1['jenisaplikasi'] ?>"
+                                                        data-tahun="<?php echo $project1['tahun'] ?>"
+                                                        data-keterangan="<?php echo $project1['keterangan'] ?>"
+                                                        data-targetp="<?php echo $project1['target'] ?>"
+                                                        data-tanggalregister="<?php echo $project1['tanggalregister'] ?>"
+                                                        data-urf="<?php echo $project1['urf'] ?>" data-toggle="modal"
+                                                        data-target="#editModal">
+                                                        <button data-toggle="modal" data-target="#ubah-data"
+                                                            class="btn btn-success">Perbarui</button>
+                                                    </a>
+                                                    <?php } ?>
                                                 </div>
+
+                                                <table class="table table-hover">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20"><strong>Jenis
+                                                                            Proyek</strong></p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="d-inline-block m-r-20">
+                                                                    <?= $jenisp['jenisproject'] ?></p>
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-blue"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:80%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20">
+                                                                        <strong>Jenis Aplikasi</strong>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="d-inline-block m-r-20">
+                                                                    <?= $jenisa['jenisaplikasi'] ?></p>
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-pink"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:60%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20"><strong>Dokumen
+                                                                            URF</strong></p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <a class="d-inline-block m-r-20"
+                                                                    href="<?php echo base_url('assets/dokumenurf/' . $project1['urf']); ?>"><?= $project1['urf'] ?></a>
+                                                                <!-- <img src="<?php echo base_url('assets/dokumenurf/' . $project1['urf']); ?>"> -->
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-blue"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:50%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20">
+                                                                        <strong>Tahun</strong>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="d-inline-block m-r-20">
+                                                                    <?= $project1['tahun'] ?></p>
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-yellow"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:50%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20">
+                                                                        <strong>Target Selesai</strong>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="d-inline-block m-r-20">
+                                                                    <?= $project1['target'] ?></p>
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-blue"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:50%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20"><strong>Tanggal
+                                                                            Mulai</strong></p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="d-inline-block m-r-20">
+                                                                    <?= $project1['tanggalregister'] ?></p>
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-blue"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:50%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20">
+                                                                        <strong>Keterangan</strong>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="d-inline-block m-r-20">
+                                                                    <?= $project1['keterangan'] ?>
+                                                                </p>
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-blue"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:50%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <div class="task-contain">
+                                                                    <p class="d-inline-block m-l-20">
+                                                                        <strong>Tanggal Dibuat</strong>
+                                                                    </p>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <p class="d-inline-block m-r-20">
+                                                                    <?= date('Y-m-d', $project1['date_created']); ?>
+                                                                </p>
+                                                                <div class="progress d-inline-block">
+                                                                    <div class="progress-bar bg-c-blue"
+                                                                        role="progressbar" aria-valuemin="0"
+                                                                        aria-valuemax="100" style="width:50%">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-xl-4">
@@ -221,9 +218,9 @@
                                                         <table class="table">
                                                             <thead>
                                                                 <tr class="table-warning">
-                                                                    <th>Activity Name</th>
-                                                                    <th>Progress</th>
-                                                                    <th>Action</th>
+                                                                    <th>Activity</th>
+                                                                    <th>Progres</th>
+                                                                    <th>Aksi</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -244,7 +241,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailbrd/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge badge-secondary">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -259,7 +256,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailfsd/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge badge-secondary">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -274,7 +271,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge badge-secondary">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -289,7 +286,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailsit/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge badge-secondary">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -304,7 +301,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailuat/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge badge-secondary">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -318,7 +315,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailmigrasi/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge badge-secondary">Detail</a>
                                                                     </td>
                                                                 </tr>
 
@@ -352,9 +349,12 @@
                                                             <div class="modal-body">
                                                                 <input type="hidden" name="id_project"
                                                                     value="<?= $project1['id_project']; ?>">
+                                                                <input type="hidden" name="updated_by"
+                                                                    value="<?= $user1['NIK']; ?>">
+
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Application
-                                                                        Name</label>
+                                                                    <label class="col-sm-3 col-form-label">Nama
+                                                                        Aplikasi</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="namaaplikasi" name="namaaplikasi"
                                                                             class="form-control form-control-user"
@@ -366,8 +366,8 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Project
-                                                                        Type</label>
+                                                                    <label class="col-sm-3 col-form-label">Jenis
+                                                                        Proyek</label>
                                                                     <div class="col-sm-9">
 
                                                                         <select name="jenisproject" class="form-control"
@@ -383,8 +383,8 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Application
-                                                                        Type</label>
+                                                                    <label class="col-sm-3 col-form-label">Jenis
+                                                                        Aplikasi</label>
                                                                     <div class="col-sm-9">
                                                                         <select name="jenisaplikasi"
                                                                             class="form-control" id="jenisaplikasi">
@@ -399,7 +399,7 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Year</label>
+                                                                    <label class="col-sm-3 col-form-label">Tahun</label>
                                                                     <div class="col-sm-9">
                                                                         <select class="form-control" name="tahun"
                                                                             id="tahun">
@@ -415,8 +415,8 @@
 
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Targets
-                                                                        Completed</label>
+                                                                    <label class="col-sm-3 col-form-label">Target
+                                                                        Selesai</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="month" name="target"
                                                                             value="<?= $project1['target']; ?>"
@@ -427,8 +427,8 @@
                                                                 </div>
 
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Start
-                                                                        Date</label>
+                                                                    <label class="col-sm-3 col-form-label">Tanggal
+                                                                        Mulai</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="date" name="tanggalregister"
                                                                             value="<?= $project1['tanggalregister']; ?>"
@@ -439,8 +439,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Upload
-                                                                        File</label>
+                                                                    <label class="col-sm-3 col-form-label">Unggah
+                                                                        Dokumen</label>
                                                                     <div class="col-sm-9">
                                                                         <?php echo $project1['urf']; ?>
                                                                         <input type="file" name="urf"
@@ -451,7 +451,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div class="form-group row">
-                                                                    <label class="col-sm-3 col-form-label">Note</label>
+                                                                    <label
+                                                                        class="col-sm-3 col-form-label">Catatan</label>
                                                                     <div class="col-sm-9">
                                                                         <input type="text" name="keterangan"
                                                                             value="<?= $project1['keterangan']; ?>"
@@ -465,9 +466,9 @@
 
                                                                 <div class="modal-footer">
                                                                     <button type="button" class="btn btn-secondary"
-                                                                        data-dismiss="modal">Close</button>
+                                                                        data-dismiss="modal">Tutup</button>
                                                                     <button type="submit"
-                                                                        class="btn btn-primary">Perbarui</button>
+                                                                        class="btn btn-success">Perbarui</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -479,7 +480,8 @@
                                                 // Untuk sunting
                                                 $('#edit-data').on('show.bs.modal', function(event) {
                                                     var div = $(event
-                                                        .relatedTarget) // Tombol dimana modal di tampilkan
+                                                            .relatedTarget
+                                                            ) // Tombol dimana modal di tampilkan
                                                     var modal = $(this)
 
                                                     // Isi nilai pada field
@@ -512,6 +514,5 @@
             </div>
         </div>
     </div>
-</div>
 </div>
 </div>

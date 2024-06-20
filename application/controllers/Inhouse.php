@@ -199,7 +199,8 @@ class Inhouse extends SDA_Controller
 			//echo "Message sent!";
 		} // Kirim email dengan cek kondisi
 	}
-	private function _sendEmail($email, $file1, $file2, $file3)
+
+	private function _sendEmail($email, $file1, $file2, $file3, $file4)
 	{
 		$config = [
 			'protocol' => 'smtp',
@@ -216,6 +217,7 @@ class Inhouse extends SDA_Controller
 		];
 		$picdev = $this->input->post('pic_dev_in');
 		$nama = $this->input->post('nama_in');
+		$picmig = $this->input->post('pic_migrasi_in');
 		$data['email'] = $this->input->post('email', true);
 		$this->load->library('email', $config);
 		$this->email->initialize($config);
@@ -228,7 +230,7 @@ class Inhouse extends SDA_Controller
 		$this->email->subject('MIGRATION EMAIL');
 		$this->email->message("Assalamualaikum Warahmatullahi Wabarokatuh
         <br>
-        Dear Bagian IT Operation & Support,
+        Dear PIC Migrasi, Sdr.$picmig
         <br><br>
         Berikut ini kami sampaikan deskripsi kelen​gkapan dokumen migrasi untuk $nama
         <br>​Objek Migrasi​​ : 
@@ -238,10 +240,10 @@ class Inhouse extends SDA_Controller
         <br>Dokumen Library​ 
         <br>Dokumen Pendukung Lainnya​ (silahkan cek aplikasi SIMPRO)
          
-        <br>Mohon Bantuan Tim Support untuk dapat melakukan migrasi atas aplikasi tersebut.
+        <br>Mohon Bantuan anda untuk dapat melakukan migrasi atas aplikasi tersebut.
         <br>Adapun PIC Development​ untuk Aplikasi ini dapat dikoordikasikan dengan Sdr.$picdev
          
-        <br>Demikian kami sampaikan dimana selanjutnya Tim IT Operation & Support mohon bantuannya untuk dapat menginformasikan status migrasi/jadwal migrasi dengan me-reply email ini, atas perhatian dan kerjasamanya kami ucapkan terimakasih 
+        <br>Demikian kami sampaikan dimana selanjutnya mohon bantuannya untuk dapat menginformasikan status migrasi/jadwal migrasi dengan me-reply email ini, atas perhatian dan kerjasamanya kami ucapkan terimakasih 
 
         <br><br>Wassalamualaikum Warahmatullahi Wabarokatuh.
          ​
@@ -259,6 +261,9 @@ class Inhouse extends SDA_Controller
 		}
 		if ($file3) {
 			$this->email->attach('./assets/dokumeninhouse/' . $file3);
+		}
+		if ($file4) {
+			$this->email->attach('./assets/dokumeninhouse/' . $file4);
 		}
 
 		if ($this->email->send()) {
@@ -389,7 +394,7 @@ class Inhouse extends SDA_Controller
 
 			$id_in = $this->input->post('id_in');
 			if ($this->Inhouse_model->update(['id_in' => $id_in], $data)) {
-				$this->_sendEmail($user_email, $new_image1, $new_image2, $new_image3);
+				$this->_sendEmail($user_email, $new_image1, $new_image2, $new_image3, $new_image4);
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 				redirect('Inhouse/detailinhouse/' . $id_in);
 
@@ -399,7 +404,6 @@ class Inhouse extends SDA_Controller
 				// Jika ingin menampilkan pesan kesalahan spesifik, Anda bisa menggabungkan ErrorInfo ke dalam pesan
 				$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Failed to send email. Please check your email configuration. Error: </div>');
 				redirect('Inhouse/detailinhouse/' . $id_in);
-
 			}
 			;
 
@@ -457,7 +461,7 @@ class Inhouse extends SDA_Controller
 	public function hapusinhouse($id)
 	{
 		$this->Inhouse_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
 		redirect('Inhouse');
 	}
 

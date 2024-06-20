@@ -5,7 +5,7 @@
 <div class="col-md-12">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Aplikasi Inhouse</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Detail Inhouse: <?= $inhouse[0]['nama_in']; ?></h6></h6>
         </div>
 
         <div class="card-body">
@@ -37,12 +37,12 @@
                             <td>
 
                             <a href="<?= base_url('Inhouse/detailinhouse/'). $us['id_in']; ?>"
-                                class="badge badge-primary">Detail</a>
+                                class="badge badge-secondary">Detail</a>
                                 <?php if ($user1['role'] == 'Planning') {   ?>
                                 <a href="<?= base_url('Inhouse/hapusinhouse/'). $us['id_in']; ?> "
                                 class="badge badge-danger"
-                                onclick="return confirm('Are you sure you want to delete this data?');"
-                                class="ik ik-trash-2 text-red">Delete</a>
+                                onclick="return confirm('Apakah yakin ingin menghapus data?');"
+                                class="ik ik-trash-2 text-red">Hapus</a>
                                 <?php } ?>
                         </td>
                     </tr>
