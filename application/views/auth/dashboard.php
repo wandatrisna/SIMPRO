@@ -121,7 +121,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xl font-weight-bold text-success text-uppercase mb-1">
-                                            PROJECT PROGRESS</div>
+                                            PROGRES PROYEK</div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
                                                 <div class="h1 mb-0 mr-3 font-weight-bold text-gray-800">
@@ -234,7 +234,7 @@
                     </div>
                 </div>
             </div>
-            <?php } else if ($this->session->userdata('role') == 'Development' || $this->session->userdata('role') == 'Planning' || $this->session->userdata('role') == 'IT Support') { ?>
+            <?php } else if ($this->session->userdata('role') == 'Development' || $this->session->userdata('role') == 'Planning' || $this->session->userdata('role') == 'Support') { ?>
             <div class="row">
                 <div class="col-xl-4 col-md-6 mb-4" onclick="location.href='<?= base_url('Project/undone/') ?>';">
                     <div class="card border-left-warning shadow h-100 py-2">
@@ -261,7 +261,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        DONE</div>
+                                        Selesai</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $donepro ?>
                                     </div>
                                 </div>
@@ -279,7 +279,7 @@
                             <div class="row no-gutters align-items-center">
                                 <div class="col mr-2">
                                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                        ALL PROJECT</div>
+                                        SELURUH PROYEK</div>
                                     <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $allpro ?>
                                     </div>
                                 </div>
@@ -417,7 +417,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    DONE</div>
+                                    Selesai</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $donepro ?>
                                 </div>
                             </div>
@@ -435,7 +435,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    ALL PROJECT</div>
+                                    SELURUH PROYEK </div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $allpro ?>
                                 </div>
                             </div>
@@ -527,7 +527,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col mr-2">
                                         <div class="text-xl font-weight-bold text-success text-uppercase mb-1">
-                                            PROJECT PROGRESS</div>
+                                            PROGRES PROYEK</div>
                                         <div class="row no-gutters align-items-center">
                                             <div class="col-auto">
                                                 <div class="h1 mb-0 mr-3 font-weight-bold text-gray-800">

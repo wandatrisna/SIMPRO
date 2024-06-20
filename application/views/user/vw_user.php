@@ -83,11 +83,11 @@
             <?php
 				if ($user1['role'] == 'Superuser') { ?>
             <div class="float-right">
-                <a href="<?= base_url() ?>User/tambah" class="btn btn-primary btn-icon-split btn-sm">
+                <a href="<?= base_url() ?>User/tambah" class="btn btn-success btn-icon-split btn-sm">
                     <span class="icon text-white-50">
-                        <i class="fas fa-flag"></i>
+                        <i class="fas fa-plus"></i>
                     </span>
-                    <span class="text">Tambah Pengguna Baru</span> </a>
+                    <span class="text">Tambah Data Pengguna</span> </a>
             </div>
             <?php }?>
         </div>

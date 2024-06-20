@@ -27,6 +27,12 @@
         width: 200px;
         height: 50px;
     }
+    .img-profile {
+      width: 280px;
+      border: 3px solid #fff; /* warna outline putih */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* efek bayangan */
+    }
+ 
     </style>
 
 </head>
@@ -179,7 +185,7 @@
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Proyek :</h6>
-                        <a class="collapse-item <?= $this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'detail' ? ' active' : '' ?>"
+                        <a class="collapse-item <?= $this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'detail' || $this->uri->segment(2) == 'tambahproject' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexlistproject') ?>">Sedang Berlangsung</a>
                         <a class="collapse-item <?= $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detailhistory' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexhistory') ?>">Riwayat</a>

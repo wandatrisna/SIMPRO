@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <a href="<?= base_url() ?>Eksternal/indexeksternal" class="btn btn-info">&larr; Kembali</a>
+            <a href="<?= base_url() ?>Eksternal/indexeksternal" class="btn btn-secondary">Kembali</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
@@ -118,7 +118,7 @@
                             <input type="hidden" name="hapus_eks" class="form-control" id="hapus_in" value="1">
 
                             <div class="col-md-12">
-                                <button type="submit" name="tambah" class="btn btn-primary float-right">Save</button>
+                                <button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
                             </div>
                     </form>
                 </div>

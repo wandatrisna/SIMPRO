@@ -13,7 +13,7 @@
 				var role = $(this).val();
 				// alert(role);
 				var selectedRole = $(this).val(); // Ubah 'department' menjadi 'role'
-				if (selectedRole === "Development" || selectedRole === "IT Support") {
+				if (selectedRole === "Development" || selectedRole === "Support") {
 					$.ajax({
 						url: '<?php echo base_url("Inhouse/get_user"); ?>', // Sesuaikan dengan nama controller Anda
 						type: 'post',
@@ -70,7 +70,7 @@
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-md-10">
-				<a href="<?= base_url() ?>Inhouse" class="btn btn-info">&larr; Kembali</a>
+				<a href="<?= base_url() ?>Inhouse" class="btn btn-secondary">Kembali</a>
 				<br><br>
 				<div class="card">
 					<div class="card-header justify-content-center">
@@ -171,7 +171,7 @@
 										<select name="role" class="form-control" id="role">
 											<option value="">Select Tujuan Migrasi..</option>
 											<option value="Development">IT Development</option>
-											<option value="IT Support">IT Support</option>
+											<option value="Support">IT Support</option>
 											<!-- Add other options if needed -->
 										</select>
 									</div>
@@ -221,7 +221,7 @@
 
 
 								<div class="col-md-12">
-									<button type="submit" name="tambah" class="btn btn-primary float-right">Save
+									<button type="submit" name="tambah" class="btn btn-primary float-right">Simpan
 									</button>
 								</div>
 						</form>

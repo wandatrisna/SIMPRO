@@ -210,7 +210,7 @@ class User extends SDA_Controller
 
 			$id_user = $this->input->post('id_user');
 			$this->User_model->update(['id_user' => $id_user], $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 			redirect('User/indexuserpinbag');
 		}
 	}
@@ -245,7 +245,7 @@ class User extends SDA_Controller
 
 			$id_user = $this->input->post('id_user');
 			$this->User_model->update(['id_user' => $id_user], $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 			redirect('User/indexuserplanning');
 		}
 	}
@@ -280,7 +280,7 @@ class User extends SDA_Controller
 
 			$id_user = $this->input->post('id_user');
 			$this->User_model->update(['id_user' => $id_user], $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 			redirect('User/indexuserdevelopment');
 		}
 	}
@@ -315,7 +315,7 @@ class User extends SDA_Controller
 
 			$id_user = $this->input->post('id_user');
 			$this->User_model->update(['id_user' => $id_user], $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 			redirect('User/indexusersupport');
 		}
 	}
@@ -324,28 +324,28 @@ class User extends SDA_Controller
 	public function hapusplan($id)
 	{
 		$this->User_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('User/indexuserplanning');
 	}
 
 	public function hapusdev($id)
 	{
 		$this->User_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('User/indexuserdevelopment');
 	}
 
 	public function hapuspin($id)
 	{
 		$this->User_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('User/indexuserpinbag');
 	}
 
 	public function hapussup($id)
 	{
 		$this->User_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('User/indexusersupport');
 	}
 }

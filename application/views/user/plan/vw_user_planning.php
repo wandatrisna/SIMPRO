@@ -8,7 +8,7 @@
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
-                    <tr class="table-warning">
+                        <tr class="table-warning">
                             <th width="5px">No</th>
                             <th>Gambar</th>
                             <th>Nama</th>
@@ -33,12 +33,12 @@
                             <td><?= $us['NIK']; ?></td>
                             <?php if ($user1['role'] == 'Superuser') {   ?>
                             <td>
+                                <a href="<?= base_url('User/editplan/'). $us['id_user']; ?>"
+                                    class="badge badge-primary">Perbarui</a>
                                 <a href="<?= base_url('User/hapusplan/'). $us['id_user']; ?> "
                                     class="badge badge-danger"
                                     onclick="return confirm('Apakah kamu yakin untuk menghapus data ini?');"
                                     class="ik ik-trash-2 text-red">Hapus</a>
-                                <a href="<?= base_url('User/editplan/'). $us['id_user']; ?>"
-                                    class="badge badge-warning">Perbarui</a>
                             </td>
                             <?php } ?>
                         </tr>

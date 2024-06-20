@@ -4,7 +4,7 @@
         <div class="col-md-10 ">
             <div class="float">
                 <a href="<?= base_url('Eksternal/detaileksternal/'). $eksternal['id_eks']; ?>"
-                    class="btn btn-info">&larr; Kembali</a>
+                    class="btn btn-secondary">Kembali</a>
             </div>
             <br>
             <div class="card shadow mb-4">
@@ -176,7 +176,7 @@
 
                                     <div class="col-md-12">
                                         <button type="submit" name="tambah"
-                                            class="btn btn-warning btn-round btn-block">Perbarui</button>
+                                            class="btn btn-success btn-round btn-block">Perbarui</button>
                                     </div>
                         </form>
 

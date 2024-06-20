@@ -40,7 +40,7 @@
                         <td>
 
                         <a href="<?= base_url('Eksternal/subeksternal/'). $us['nama_eks'];?>"
-                                    class="badge badge-warning">Version</a>
+                                    class="badge badge-info">Version</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

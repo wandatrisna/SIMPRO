@@ -77,15 +77,16 @@ class Project_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-	public function getById($id)
-	{
+	public function getById($id) {
 		$this->db->from($this->table);
 		$this->db->where('id_project', $id);
 		$query = $this->db->get();
-		$this->db->get_where($this->table, ["id_project" => $id])->row();
-		return $query->row_array();
-
+		$result = $query->row_array();
+		log_message('debug', 'Project Data: ' . print_r($result, TRUE)); // Debug log
+		return $result;
 	}
+	
+
 
 	function hitung()
 	{
@@ -140,12 +141,13 @@ class Project_model extends CI_Model
 
 	}
 
-	function ubah($data, $id)
-	{
+	public function ubah($data, $id) {
 		$this->db->where('id_project', $id);
 		$this->db->update('tb_project', $data);
-		return TRUE;
+		return $this->db->affected_rows();
 	}
+	
+	
 
 
 	public function progresproject()
@@ -202,4 +204,6 @@ class Project_model extends CI_Model
         $query = 'SELECT sum(bobotdev) as bobotdev FROM `tb_project` WHERE id_project = "'.$id.'"';
         return $this->db->query($query)->row_array();
     }
+
+	
 }

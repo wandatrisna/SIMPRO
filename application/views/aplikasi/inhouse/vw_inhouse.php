@@ -42,7 +42,7 @@
                             <td>
 
                                 <a href="<?= base_url('Inhouse/subinhouse/'). $nama ?>"
-                                    class="badge badge-warning">Versi</a>
+                                    class="badge badge-info">Versi</a>
                             </td>
                         </tr>
                         <?php $i++; ?>

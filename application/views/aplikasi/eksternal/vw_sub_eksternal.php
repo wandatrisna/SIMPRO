@@ -1,5 +1,5 @@
 <div class="float">
-    &emsp; <a href="<?= base_url('Eksternal')?>" class="btn btn-info">&larr; Kembali</a>
+    &emsp; <a href="<?= base_url('Eksternal')?>" class="btn btn-secondary">Kembali</a>
 </div>
 <br>
 
@@ -36,7 +36,7 @@
                             <td>
 
                                 <a href="<?= base_url('Eksternal/detaileksternal/'). $us['id_eks']; ?>"
-                                    class="badge badge-warning">Detail</a>
+                                    class="badge badge-primary">Detail</a>
                                 <?php if ($user1['role'] == 'Planning') {   ?>
                                 <a href="<?= base_url('Eksternal/hapuseksternal/'). $us['id_eks']; ?> "
                                     class="badge badge-danger"

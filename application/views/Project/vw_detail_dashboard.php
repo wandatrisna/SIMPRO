@@ -9,15 +9,23 @@
                                 <div class="page-body">
                                     <div class="float">
                                         <a href="<?= base_url('Project/index/'). $project1['id_project']; ?>"
-                                            class="btn btn-danger mb-2">Kembali</a>
+                                            class="btn btn-secondary mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
 
                                         <div class="col-md-12 col-xl-8">
                                             <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h3><strong><?= $project1['namaaplikasi']; ?></strong></h3>
-                                                    Terakhir diperbarui <?= $project1['last_updated_time'];?>
+                                                    <h3><strong><?= htmlspecialchars($project1['namaaplikasi']); ?></strong>
+                                                    </h3>
+                                                    <p>Terakhir diperbarui
+                                                        <?= isset($project1['last_updated_time']) ? htmlspecialchars($project1['last_updated_time']) : 'N/A'; ?>
+                                                        oleh
+                                                        <?= isset($project1['updated_by_name']) ? htmlspecialchars($project1['updated_by_name']) : 'N/A'; ?>
+                                                    </p>
+
+
+
                                                     <table class="table table-hover">
                                                         <tbody>
                                                             <tr>
@@ -193,7 +201,7 @@
                                                                         data-toggle="modal" data-target="#editModal">
                                                                         <button data-toggle="modal"
                                                                             data-target="#ubah-data"
-                                                                            class="btn btn-warning">Ubah</button>
+                                                                            class="btn btn-success">Perbarui</button>
                                                                     </a>
 
                                                                 </td>
@@ -243,7 +251,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailbrd/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -258,7 +266,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailfsd/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -273,7 +281,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -288,7 +296,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailsit/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -303,7 +311,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailuat/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -317,7 +325,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailmigrasi/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>Detail</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
 
@@ -351,6 +359,9 @@
                                                             <div class="modal-body">
                                                                 <input type="hidden" name="id_project"
                                                                     value="<?= $project1['id_project']; ?>">
+                                                                <input type="hidden" name="updated_by"
+                                                                    value="<?= $user1['NIK']; ?>">
+
                                                                 <div class="form-group row">
                                                                     <label class="col-sm-3 col-form-label">Nama
                                                                         Aplikasi</label>
@@ -467,7 +478,7 @@
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Tutup</button>
                                                                     <button type="submit"
-                                                                        class="btn btn-primary">Perbarui</button>
+                                                                        class="btn btn-success">Perbarui</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -499,6 +510,9 @@
                                                     modal.find('#tanggalregister').html(div.data(
                                                         'tanggalregister'));
                                                     modal.find('#urf').html(div.data('urf'));
+                                                    modal.find('input[name="updated_by"]').val(button
+                                                        .data('updated_by'));
+
                                                 });
                                             });
                                             </script>

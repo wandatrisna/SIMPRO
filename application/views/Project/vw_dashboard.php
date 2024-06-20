@@ -27,7 +27,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                DONE</div>
+                                Selesai</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $donepro ?>
                             </div>
                         </div>
@@ -45,7 +45,7 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                ALL PROJECT</div>
+                                SELURUH PROYEK</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $allpro ?>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             <th>Status</th>
                             <th>Tahun</th>
                             <th>Catatan</th>
-                            <th>Aksi</th>
+                            <!-- <th>Aksi</th> -->
                         </tr>
                     </thead>
                     <tbody>
@@ -148,16 +148,16 @@
                             <td><?= $pro['status']; ?></td>
                             <td><?= $pro['tahun']; ?></td>
                             <td><?= $pro['keterangan']; ?></td>
-                            <td>
+                            <!-- <td>
                                 <a href="<?= base_url('Project/detaildash/'). $pro['id_project']; ?>"
-                                    class="badge badge-warning">Detail</a>
+                                    class="badge badge-primary">Detail</a>
                                 <?php if ($user1['role'] == 'Planning') {   ?>
-                                <!-- <a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
+                                <a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
                                 class="badge badge-danger"
                                 onclick="return confirm('Are you sure want to delete this?');"
                                 class="ik ik-trash-2 text-red">Delete</a>
-                            <?php } ?> -->
-                            </td>
+                            <?php } ?> 
+                            </td> -->
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>

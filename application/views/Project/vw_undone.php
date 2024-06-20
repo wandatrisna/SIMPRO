@@ -45,7 +45,7 @@
 					<div class="row no-gutters align-items-center">
 						<div class="col mr-2">
 							<div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-								ALL PROJECT</div>
+								SELURUH PROYEK</div>
 							<div class="h5 mb-0 font-weight-bold text-gray-800"><?= $allpro ?>
 							</div>
 						</div>
@@ -152,7 +152,7 @@
 													<td><?= $pro['keterangan']; ?></td>
 													<td>
 														<a href="<?= base_url('Project/detaildash/'). $pro['id_project']; ?>"
-															class="badge badge-warning">Detail</a>
+															class="badge badge-primary">Detail</a>
 															<?php if ($user1['role'] == 'Planning') {   ?> 
 														<a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
 															class="badge badge-danger"

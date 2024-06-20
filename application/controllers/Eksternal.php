@@ -293,7 +293,7 @@ class Eksternal extends SDA_Controller
 			$id_eks = $this->input->post('id_eks');
 			$this->Eksternal_model->update(['id_eks' => $id_eks], $data);
 			$this->sendEmail($new_image1, $new_image2, $new_image3);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 			redirect('Eksternal/detaileksternal/' . $id_eks);
 		}
 
@@ -338,7 +338,7 @@ class Eksternal extends SDA_Controller
 
 			$id_eks = $this->input->post('id_eks');
 			$this->Eksternal_model->update(['id_eks' => $id_eks], $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 			redirect('Eksternal/detaileksternal/' . $id_eks);
 		}
 	}
@@ -346,7 +346,7 @@ class Eksternal extends SDA_Controller
 	public function hapuseksternal($id)
 	{
 		$this->Eksternal_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Eksternal');
 	}
 

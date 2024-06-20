@@ -197,13 +197,13 @@
                                                 ?>
                                 <div class="col-md-12">
                                     <a href="<?= base_url('Eksternal/editeksternal/'). $eksternal['id_eks']; ?>"
-                                        class="btn btn-warning btn-round btn-block">Perbarui Data (Document)</a>
+                                        class="btn btn-success btn-round btn-block">Perbarui Data (Document)</a>
                                 </div>
                                 <?php
-												} elseif ($user1['role'] == 'IT Support') { ?>
+												} elseif ($user1['role'] == 'Support') { ?>
                                 <div class="col-md-12">
                                     <a href="<?= base_url('Eksternal/sup_editeksternal/'). $eksternal['id_eks']; ?>"
-                                        class="btn btn-warning btn-round btn-block">Perbarui Data</a>
+                                        class="btn btn-success btn-round btn-block">Perbarui Data</a>
                                 </div>
                                 <?php
                                                 }

@@ -9,7 +9,7 @@
                                 <div class="page-body">
                                     <div class="float">
                                         <a href="<?= base_url('Project/index/'). $project1['id_project']; ?>"
-                                            class="btn btn-danger mb-2">Kembali</a>
+                                            class="btn btn-secondary mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
 
@@ -193,7 +193,7 @@
                                                                         data-toggle="modal" data-target="#editModal">
                                                                         <button data-toggle="modal"
                                                                             data-target="#ubah-data"
-                                                                            class="btn btn-warning">Perbarui</button>
+                                                                            class="btn btn-success">Perbarui</button>
                                                                     </a>
 
                                                                 </td>
@@ -244,7 +244,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailbrd/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -259,7 +259,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailfsd/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -274,7 +274,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -289,7 +289,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailsit/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -304,7 +304,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailuat/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -318,7 +318,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailmigrasi/'). $project1['id_project']; ?>"
-                                                                            class="badge btn-danger icofont icofont-eye-alt"></i>More</a>
+                                                                            class="badge btn-primary icofont icofont-eye-alt"></i>Detail</a>
                                                                     </td>
                                                                 </tr>
 
@@ -467,7 +467,7 @@
                                                                     <button type="button" class="btn btn-secondary"
                                                                         data-dismiss="modal">Close</button>
                                                                     <button type="submit"
-                                                                        class="btn btn-primary">Perbarui</button>
+                                                                        class="btn btn-success">Perbarui</button>
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -38,6 +38,18 @@ class User_model extends CI_Model
 		return $query->row_array();
 	}
 
+	public function getUserNameByNIK($nik) {
+        $this->db->select('nama'); // Ganti 'name' dengan nama kolom yang sesuai
+        $this->db->from('user');
+        $this->db->where('NIK', $nik);
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->row()->nama; // Ganti 'name' dengan nama kolom yang sesuai
+        } else {
+            return null;
+        }
+    }
+
 	public function update($where, $data)
 	{
 		$this->db->update($this->table, $data, $where);
@@ -89,7 +101,7 @@ class User_model extends CI_Model
 	{
 		$this->db->from($this->table);
 		$query = $this->db->get();
-		$query = $this->db->query("SELECT * from user  where role = 'IT Support' ");
+		$query = $this->db->query("SELECT * from user  where role = 'Support' ");
 		return $query->num_rows();
 	}
 
@@ -118,7 +130,7 @@ class User_model extends CI_Model
 	{
 		$this->db->from($this->table);
 		$query = $this->db->get();
-		$query = $this->db->query("SELECT * from user  where role = 'IT Support' ");
+		$query = $this->db->query("SELECT * from user  where role = 'Support' ");
 		return $query->result_array();
 	}
 

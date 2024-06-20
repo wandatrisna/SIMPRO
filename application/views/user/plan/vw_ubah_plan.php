@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-12 ">
-            <a href="<?= base_url() ?>User/indexuserplanning" class="btn btn-info">&larr; Kembali</a>
+            <a href="<?= base_url() ?>User/indexuserplanning" class="btn btn-secondary">Kembali</a>
             <br><br>
             <div class="card">
                 <div class="card-header justify-content-center">
@@ -52,6 +52,14 @@
                                         <?php } ?>
                                         <?php endforeach; ?>
                                 </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">E-mail</label>
+                            <div class="col-sm-10">
+                                <input type="text" name="email" value="<?= $user['email']; ?>" class="form-control"
+                                    id="email" readonly>
                             </div>
                         </div>
 

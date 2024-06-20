@@ -6,7 +6,7 @@
 					<div class="page-body">
 						<div class="float">
 							<!-- <a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-								class="btn btn-danger mb-2">Kembali</a> -->
+								class="btn btn-secondary mb-2">Kembali</a> -->
 						</div>
                         <form action="" method="post">
 											<h5 class="modal-title" id="exampleModalLabel">Tambah Kegiatan Baru</h5>
@@ -100,7 +100,7 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-dismiss="modal">Close</button>
-												<button type="submit" class="btn btn-primary">Save</button>
+												<button type="submit" class="btn btn-primary">Simpan</button>
 											</div>
 										</div>
 									</div>

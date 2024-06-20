@@ -174,7 +174,7 @@ class Project extends SDA_Controller
 					'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
 				);
 				$this->Project_model->insert($data);
-				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully Added!</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data baru berhasil ditambahkan!</div>');
 				redirect('Project/indexlistproject');
 			}
 		}
@@ -236,25 +236,37 @@ class Project extends SDA_Controller
 	}
 
 	public function detaildash($id)
-	{
-		$data['user'] = $this->User_model->get();
-		$data['project'] = $this->Project_model->get();
-		$data['projectby'] = $this->Project_model->getBy();
-		$data['project1'] = $this->Project_model->getById($id);
-		$data['jenisp'] = $this->Project_model->getjenispro($id);
-		$data['jenisa'] = $this->Project_model->getjenisapp($id);
-		$data['dev'] = $this->Development_model->getkeg($id);
-		$data['jenisproject'] = $this->Jenisproject_model->get();
-		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$data['hitung'] = $this->Project_model->hitung();
-		$this->load->view('layout/header', $data);
-		$this->load->view('project/vw_detail_dashboard', $data);
-		$this->load->view('layout/footer', $data);
-	}
+{
+    $data['user'] = $this->User_model->get();
+    $data['project'] = $this->Project_model->get();
+    $data['projectby'] = $this->Project_model->getBy();
+    $data['project1'] = $this->Project_model->getById($id);
+    $data['jenisp'] = $this->Project_model->getjenispro($id);
+    $data['jenisa'] = $this->Project_model->getjenisapp($id);
+    $data['dev'] = $this->Development_model->getkeg($id);
+    $data['jenisproject'] = $this->Jenisproject_model->get();
+    $data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+    $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+    $data['hitung'] = $this->Project_model->hitung();
 
-	public function editproject()
-	{
+    // Ambil nama user berdasarkan updated_by
+    if (!empty($data['project1']['updated_by'])) {
+        $data['project1']['updated_by_name'] = $this->User_model->getUserNameByNIK($data['project1']['updated_by']);
+    } else {
+        $data['project1']['updated_by_name'] = 'N/A';
+    }
+
+    $this->load->view('layout/header', $data);
+    $this->load->view('project/vw_detail_dashboard', $data);
+    $this->load->view('layout/footer', $data);
+}
+
+	
+	
+
+	public function editproject() {
+		$updated_by = $this->session->userdata('NIK');
+		
 		$this->load->helper('date');
 		$this->form_validation->set_rules('bobotbrd', 'bobotbrd', 'required|less_than_equal_to[10]', [
 			'required' => 'required',
@@ -263,7 +275,7 @@ class Project extends SDA_Controller
 			'required' => 'required',
 			'less_than_equal_to[10]' => 'Progress tidak boleh lebih dari 10'
 		]);
-
+	
 		$id = $this->input->post('id_project');
 		$data = array(
 			'namaaplikasi' => $this->input->post('namaaplikasi'),
@@ -274,7 +286,9 @@ class Project extends SDA_Controller
 			'target' => $this->input->post('target'),
 			'tanggalregister' => $this->input->post('tanggalregister'),
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'updated_by' => $updated_by // Simpan informasi pengguna yang melakukan perubahan
 		);
+	
 		$upload_image = $_FILES['urf']['name'];
 		if ($upload_image) {
 			$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
@@ -282,20 +296,27 @@ class Project extends SDA_Controller
 			$config['upload_path'] = './assets/dokumenurf/';
 			$this->load->library('upload', $config);
 			if ($this->upload->do_upload('urf')) {
-				$old_image = $data['tb_project']['urf'];
+				$old_image = $this->Project_model->getById($id)['urf']; // Ambil old_image dari database
 				if ($old_image != 'default.png') {
 					unlink(FCPATH . 'assets/dokumenurf/' . $old_image);
 				}
 				$new_image = $this->upload->data('file_name');
-				$this->db->set('urf', $new_image);
+				$data['urf'] = $new_image; // Update nama file gambar yang diunggah
 			} else {
 				echo $this->upload->display_errors();
 			}
 		}
-		$this->Project_model->ubah($data, $id, $upload_image);
+	
+		// Tambahkan logging untuk melihat data yang akan diupdate
+		log_message('debug', 'Data yang akan diupdate: ' . print_r($data, TRUE));
+	
+		$this->Project_model->ubah($data, $id);
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-		redirect('project/detail/' . $id);
+		redirect('project/detaildash/' . $id);
 	}
+	
+	
+	
 
 	public function hapusproject($id)
 	{
@@ -349,6 +370,7 @@ class Project extends SDA_Controller
 			'actualendatebrd' => $this->input->post('actualendatebrd'),
 			'status' => 'Last Changed BRD',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'updated_by' => $updated_by
 		);
 		$upload_image = $_FILES['filebrd']['name'];
 		if ($upload_image) {
@@ -396,6 +418,7 @@ class Project extends SDA_Controller
 			'actualendatefsd' => $this->input->post('actualendatefsd'),
 			'status' => 'Last Changed FSD',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'updated_by' => $updated_by
 		);
 		$upload_image = $_FILES['filefsd']['name'];
 		if ($upload_image) {
@@ -459,6 +482,7 @@ class Project extends SDA_Controller
 			'allowed_types' => 'gif|jpg|png|jpeg|pdf',
 			'overwrite' => TRUE,
 			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+			'updated_by' => $updated_by
 		);
 
 		$this->load->library('upload', $config);
@@ -529,6 +553,7 @@ class Project extends SDA_Controller
 			'allowed_types' => 'gif|jpg|png|jpeg|pdf',
 			'overwrite' => TRUE,
 			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+			'updated_by' => $updated_by
 		);
 
 		$this->load->library('upload', $config);
@@ -563,7 +588,7 @@ class Project extends SDA_Controller
 			//update kolom progress di tabel activity where id_dev = $this->input->post('id_dev'),
 			$this->Sub_model->updateProgress($this->input->post('id_dev'), $totalProgress);
 
-			$this->session->set_flashdata('acc', 'Activity Successfully Added!');
+			$this->session->set_flashdata('acc', 'Activity Data baru berhasil ditambahkan!');
 		} else {
 			$this->session->set_flashdata('err', 'Cannot insert activity!');
 		}
@@ -661,6 +686,7 @@ class Project extends SDA_Controller
 			'actualendatesit' => $this->input->post('actualendatesit'),
 			'status' => 'Last Changed SIT',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'updated_by' => $updated_by
 		);
 		$upload_image = $_FILES['filesit']['name'];
 		if ($upload_image) {
@@ -706,6 +732,7 @@ class Project extends SDA_Controller
 			'actualendateuat' => $this->input->post('actualendateuat'),
 			'status' => 'Last Changed UAT',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'updated_by' => $updated_by
 		);
 		$upload_image = $_FILES['fileuat']['name'];
 		if ($upload_image) {
@@ -752,6 +779,7 @@ class Project extends SDA_Controller
 			'actualendatemigrasi' => $this->input->post('actualendatemigrasi'),
 			'status' => 'Last Changed Migrasi',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+			'updated_by' => $updated_by
 		);
 		$upload_image = $_FILES['filemigrasi']['name'];
 		if ($upload_image) {

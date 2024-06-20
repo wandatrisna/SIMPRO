@@ -1,6 +1,6 @@
 <div class="col-md-12">
 	<div class="float">
-		<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>" class="btn btn-danger mb-2">Kembali</a>
+		<a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>" class="btn btn-success mb-2">Kembali</a>
 	</div>
 
 	<div class="card shadow mb-4">
@@ -23,8 +23,8 @@
 			<?php if ($user1['role'] == 'Development') {   ?>
 			<div class="float-right">
 				<br>
-				<a data-toggle="modal" data-target="#modalAdd1" class="btn btn-danger mb-2">Add Activity</a>
-				<a data-toggle="modal" data-target="#modalSub2" class="btn btn-danger mb-2">Add
+				<a data-toggle="modal" data-target="#modalAdd1" class="btn btn-success mb-2">Add Activity</a>
+				<a data-toggle="modal" data-target="#modalSub2" class="btn btn-success mb-2">Add
 					Sub-Activity</a>
 			</div>
 			<?php } ?>
@@ -93,7 +93,7 @@
 									data-actualendate="<?php echo $d->actualendate ?>"
 									data-file="<?php echo $d->file ?>" data-toggle="modal"
 									data-target="#editModal_<?php echo $d->id ?>">
-									<button class="badge badge-warning">Perbarui</button>
+									<button class="badge badge-success">Perbarui</button>
 								</a>
 								<?php } ?>
 								<a href="javascript:;" data-toggle="modal"
@@ -196,7 +196,7 @@
 					</div> -->
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary" >Save</button>
+						<button type="submit" class="btn btn-primary" >Simpan</button>
 					</div>
 				</div>
 			</form>
@@ -296,7 +296,7 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-primary">Save</button>
+						<button type="submit" class="btn btn-primary">Simpan</button>
 					</div>
 				</div>
 			</form>

@@ -33,11 +33,12 @@
                             <td><?= $us['NIK']; ?></td>
                             <?php if ($user1['role'] == 'Superuser') {   ?>
                             <td>
+                            <a href="<?= base_url('User/editdev/'). $us['id_user']; ?>"
+                            class="badge badge-primary">Perbarui</a>
                                 <a href="<?= base_url('User/hapusdev/'). $us['id_user']; ?> " class="badge badge-danger"
                                     onclick="return confirm('Apakah kamu yakin untuk menghapus data ini?');"
                                     class="ik ik-trash-2 text-red">Hapus</a>
-                                <a href="<?= base_url('User/editdev/'). $us['id_user']; ?>"
-                                    class="badge badge-warning">Perbarui</a>
+                                
                             </td>
                             <?php } ?>
                         </tr>

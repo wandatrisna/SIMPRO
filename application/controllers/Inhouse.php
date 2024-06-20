@@ -390,7 +390,7 @@ class Inhouse extends SDA_Controller
 			$id_in = $this->input->post('id_in');
 			if ($this->Inhouse_model->update(['id_in' => $id_in], $data)) {
 				$this->_sendEmail($user_email, $new_image1, $new_image2, $new_image3);
-				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 				redirect('Inhouse/detailinhouse/' . $id_in);
 
 			} else {
@@ -449,7 +449,7 @@ class Inhouse extends SDA_Controller
 			];
 			$id_in = $this->input->post('id_in');
 			$this->Inhouse_model->update(['id_in' => $id_in], $data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully updated!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
 			redirect('Inhouse/detailinhouse/' . $id_in);
 		}
 	}
@@ -457,7 +457,7 @@ class Inhouse extends SDA_Controller
 	public function hapusinhouse($id)
 	{
 		$this->Inhouse_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Inhouse');
 	}
 

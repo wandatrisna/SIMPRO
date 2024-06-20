@@ -40,7 +40,7 @@ class Parameter extends SDA_Controller
 			];
 
 			$this->Jenisdokumen_model->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Parameter baru berhasil ditambahkan!</div>');
 			redirect('Parameter/indexdok');
 		}
 	}
@@ -48,7 +48,7 @@ class Parameter extends SDA_Controller
 	public function hapusdok($id)
 	{
 		$this->Jenisdokumen_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Parameter/indexdok');
 	}
 
@@ -72,7 +72,7 @@ class Parameter extends SDA_Controller
 			];
 
 			$this->Jenisproject_model->insert($data, $upload_image);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Parameter baru berhasil ditambahkan!</div>');
 			redirect('Parameter/indexproj');
 		}
 	}
@@ -80,7 +80,7 @@ class Parameter extends SDA_Controller
 	public function hapusproject($id)
 	{
 		$this->Jenisproject_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Parameter/indexproj');
 	}
 
@@ -104,7 +104,7 @@ class Parameter extends SDA_Controller
 			];
 
 			$this->Namadivisi_model->insert($data, $upload_image);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Parameter baru berhasil ditambahkan!</div>');
 			redirect('Parameter/indexdiv');
 		}
 	}
@@ -112,7 +112,7 @@ class Parameter extends SDA_Controller
 	public function hapusdiv($id)
 	{
 		$this->Namadivisi_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Parameter/indexdiv');
 	}
 
@@ -136,7 +136,7 @@ class Parameter extends SDA_Controller
 			];
 
 			$this->Jeniseksternal_model->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Parameter baru berhasil ditambahkan!</div>');
 			redirect('Parameter/indexeks');
 		}
 	}
@@ -144,7 +144,7 @@ class Parameter extends SDA_Controller
 	public function hapuseksternal($id)
 	{
 		$this->Jeniseksternal_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Parameter/indexeks');
 	}
 
@@ -168,7 +168,7 @@ class Parameter extends SDA_Controller
 			];
 
 			$this->Jenisaplikasi_model->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data added successfully!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Parameter baru berhasil ditambahkan!</div>');
 			redirect('Parameter/indexapp');
 		}
 	}
@@ -176,7 +176,7 @@ class Parameter extends SDA_Controller
 	public function hapusapp($id)
 	{
 		$this->Jenisaplikasi_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Parameter/indexapp');
 	}
 }

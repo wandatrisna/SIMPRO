@@ -193,7 +193,7 @@
 
                                         <div class="col-md-12">
                                             <button type="submit" name="tambah"
-                                                class="btn btn-warning btn-round btn-block">Perbarui</button>
+                                                class="btn btn-success btn-round btn-block">Perbarui</button>
                                         </div>
                             </form>
                         </div>

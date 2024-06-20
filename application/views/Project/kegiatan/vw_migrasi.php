@@ -9,7 +9,7 @@
                                 <div class="page-body">
                                     <div class="float">
                                         <a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-                                            class="btn btn-danger mb-2">Kembali</a>
+                                            class="btn btn-secondary mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
@@ -23,7 +23,7 @@
                                                 if ($user1['role'] == 'Planning') {
                                                 ?>
                                                             <a href="<?= base_url() ?>Project/editmigrasi"
-                                                                class="btn btn-warning btn-icon-split btn-sm">
+                                                                class="btn btn-success btn-icon-split btn-sm">
 
                                                                 <a href="javascript:;"
                                                                     data-id="<?php echo $project1['id_project'] ?>"
@@ -35,7 +35,7 @@
                                                                     data-actualendate="<?php echo $project1['actualendatemigrasi'] ?>"
                                                                     data-toggle="modal" data-target="#editModal">
                                                                     <button data-toggle="modal" data-target="#ubah-data"
-                                                                        class="btn btn-warning">Perbarui</button>
+                                                                        class="btn btn-success">Perbarui</button>
                                                                 </a>
                                                                 <?php
 												}
@@ -56,7 +56,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Value</strong>
+                                                                                <strong>Bobot Maksimal BRD</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -69,7 +69,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Progress</strong>
+                                                                                <strong>Progres Pengerjaan</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -82,8 +82,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Plan Start
-                                                                                    Date</strong></p>
+                                                                                <strong>Perencanaan Tanggal
+                                                                                Mulai</strong></p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
@@ -96,8 +96,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Plan End
-                                                                                    date</strong>
+                                                                                <strong>Perencanaan Tanggal
+                                                                                Selesai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -111,8 +111,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Actual Start
-                                                                                    Date</strong>
+                                                                                <strong>Aktual Tanggal Mulai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -126,8 +125,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Actual End
-                                                                                    Date</strong>
+                                                                                <strong>Aktual Tanggal Selesai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -143,7 +141,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>File</strong>
+                                                                                <strong>Dokumen (Oleh IT
+                                                                                Planning)</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -174,7 +173,7 @@
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title" id="exampleModalLabel">
-                                                                            Perbarui
+                                                                            Perbarui Data Migrasi
                                                                         </h5>
                                                                         <button type="button" class="close"
                                                                             data-dismiss="modal" aria-label="Close">
@@ -199,7 +198,7 @@
 
                                                                         <div class="form-group row">
                                                                             <label
-                                                                                class="col-sm-3 col-form-label">Progress</label>
+                                                                                class="col-sm-3 col-form-label">Progres Pengerjaan</label>
                                                                             <div class="col-sm-9">
                                                                                 <input type="number"
                                                                                     name="progresmigrasi"
@@ -212,8 +211,8 @@
                                                                         </div>
 
                                                                         <div class="form-group row">
-                                                                            <label class="col-sm-3 col-form-label">Plan
-                                                                                Start Date</label>
+                                                                            <label class="col-sm-3 col-form-label">Perencanaan
+                                                                            Tanggal Mulai</label>
                                                                             <div class="col-sm-9">
                                                                                 <input type="date"
                                                                                     id="planstdatemigrasi"
@@ -226,8 +225,8 @@
                                                                         </div>
 
                                                                         <div class="form-group row">
-                                                                            <label class="col-sm-3 col-form-label">Plan
-                                                                                End Date</label>
+                                                                            <label class="col-sm-3 col-form-label">Perencanaan
+                                                                            Tanggal Selesai</label>
                                                                             <div class="col-sm-9">
                                                                                 <input type="date"
                                                                                     id="planendatemigrasi"
@@ -241,8 +240,8 @@
 
                                                                         <div class="form-group row">
                                                                             <label
-                                                                                class="col-sm-3 col-form-label">Actual
-                                                                                Start Date
+                                                                                class="col-sm-3 col-form-label">Aktual
+                                                                                Tanggal Mulai
                                                                             </label>
                                                                             <div class="col-sm-9">
                                                                                 <input type="date"
@@ -257,8 +256,8 @@
 
                                                                         <div class="form-group row">
                                                                             <label
-                                                                                class="col-sm-3 col-form-label">Actual
-                                                                                End Date
+                                                                                class="col-sm-3 col-form-label">Aktual
+                                                                                Tanggal Selesai
                                                                             </label>
                                                                             <div class="col-sm-9">
                                                                                 <input type="date"
@@ -286,8 +285,8 @@
 															</div> -->
                                                                         <div class="form-group row">
                                                                             <label
-                                                                                class="col-sm-3 col-form-label">Upload
-                                                                                File</label>
+                                                                                class="col-sm-3 col-form-label">Unggah
+                                                                                Dokumen</label>
                                                                             <div class="col-sm-9">
                                                                                 <?php echo $project1['filemigrasi']; ?>
                                                                                 <input type="file" name="filemigrasi"
@@ -303,7 +302,7 @@
                                                                         <div class="modal-footer">
                                                                             <button type="button"
                                                                                 class="btn btn-secondary"
-                                                                                data-dismiss="modal">Close</button>
+                                                                                data-dismiss="modal">Tutup`</button>
                                                                             <button type="submit"
                                                                                 onclick="validateForm()"
                                                                                 class="btn btn-primary">Perbarui</button>

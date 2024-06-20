@@ -9,13 +9,13 @@
                                 <div class="page-body">
                                     <div class="float">
                                         <a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-                                            class="btn btn-danger mb-2">Kembali</a>
+                                            class="btn btn-secondary mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h4 class="title"><strong>SIT</strong></h4><br>
+                                                    <h4 class="title"><strong>System Integration Testing</strong></h4><br>
                                                     <div class="card-header-right">
                                                         <i class="icofont icofont-spinner-alt-5"></i>
                                                         <div class="float-right">
@@ -23,7 +23,7 @@
                                                 if ($user1['role'] == 'Development') {
                                                 ?>
                                                             <a href="<?= base_url() ?>Project/editsit"
-                                                                class="btn btn-warning btn-icon-split btn-sm">
+                                                                class="btn btn-success btn-icon-split btn-sm">
 
                                                                 <a href="javascript:;"
                                                                     data-id="<?php echo $project1['id_project'] ?>"
@@ -35,7 +35,7 @@
                                                                     data-actualendate="<?php echo $project1['actualendatesit'] ?>"
                                                                     data-toggle="modal" data-target="#editModal">
                                                                     <button data-toggle="modal" data-target="#ubah-data"
-                                                                        class="btn btn-warning">Perbarui</button>
+                                                                        class="btn btn-success">Perbarui</button>
                                                                 </a>
                                                                 <?php
 												}?>
@@ -55,7 +55,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Value</strong>
+                                                                                <strong>Bobot Maksimal SIT</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -68,7 +68,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Progress</strong>
+                                                                                <strong>Progres Pengerjaan</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -81,8 +81,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Plan Start
-                                                                                    Date</strong>
+                                                                                <strong>Perencanaan Tanggal
+                                                                                Mulai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -96,8 +96,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Plan End
-                                                                                    Date</strong>
+                                                                                <strong>Perencanaan Tanggal
+                                                                                Selesai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -111,8 +111,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Actual Start
-                                                                                    Date</strong>
+                                                                                <strong>Aktual Tanggal Mulai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -126,8 +125,7 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Actual End
-                                                                                    Date</strong>
+                                                                                <strong>Aktual Tanggal Selesai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -143,7 +141,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>File</strong>
+                                                                                <strong>Dokumen (Oleh IT
+                                                                                Development)</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -173,7 +172,7 @@
                                                         <div class="modal-dialog modal-lg" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Perbarui
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Perbarui Data SIT
                                                                     </h5>
                                                                     <button type="button" class="close"
                                                                         data-dismiss="modal" aria-label="Close">
@@ -186,7 +185,7 @@
                                                                         value="<?= $project1['id_project']; ?>">
                                                                     <div class="form-group row">
                                                                         <label
-                                                                            class="col-sm-3 col-form-label">Value</label>
+                                                                            class="col-sm-3 col-form-label">Bobot</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="number" name="bobotsit"
                                                                                 class="form-control" id="bobotsit"
@@ -197,7 +196,8 @@
 
                                                                     <div class="form-group row">
                                                                         <label
-                                                                            class="col-sm-3 col-form-label">Progress</label>
+                                                                            class="col-sm-3 col-form-label">Progres
+                                                                            Pengerjaan</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="number" name="progressit"
                                                                                 class="form-control form-control-user"
@@ -209,8 +209,8 @@
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Plan
-                                                                            Start Date</label>
+                                                                        <label class="col-sm-3 col-form-label">Perencanaan
+                                                                        Tanggal Mulai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="planstdatesit"
                                                                                 name="planstdatesit"
@@ -222,8 +222,8 @@
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Plan
-                                                                            End Date</label>
+                                                                        <label class="col-sm-3 col-form-label">Perencanaan
+                                                                        Tanggal Selesai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="planendatesit"
                                                                                 name="planendatesit"
@@ -235,8 +235,8 @@
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Actual
-                                                                            Start Date
+                                                                        <label class="col-sm-3 col-form-label">Aktual
+                                                                        Tanggal Mulai
                                                                         </label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="actualstdatesit"
@@ -249,8 +249,8 @@
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Actual
-                                                                            End Date
+                                                                        <label class="col-sm-3 col-form-label">Aktual
+                                                                        Tanggal Selesai
                                                                         </label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="actualendatesit"
@@ -263,8 +263,8 @@
                                                                     </div>
 
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Upload
-                                                                            File</label>
+                                                                        <label class="col-sm-3 col-form-label">Unggah
+                                                                        Dokumen</label>
                                                                         <div class="col-sm-9">
                                                                             <?php echo $project1['filesit']; ?>
                                                                             <input type="file" name="filesit"
@@ -278,7 +278,7 @@
 
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary"
-                                                                            data-dismiss="modal">Close</button>
+                                                                            data-dismiss="modal">Tutup</button>
                                                                         <button type="submit" onclick="validateForm()"
                                                                             class="btn btn-primary">Perbarui</button>
                                                                     </div>

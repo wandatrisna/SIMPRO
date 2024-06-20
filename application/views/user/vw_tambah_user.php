@@ -2,11 +2,11 @@
 <div class="container-fluid">
 	<div class="row justify-content-center">
 		<div class="col-md-12 ">
-			<a href="<?= base_url() ?>User/" class="btn btn-info">&larr; Kembali</a>
+			<a href="<?= base_url() ?>User/" class="btn btn-secondary">Kembali</a>
 			<br><br>
 			<div class="card">
 				<div class="card-header justify-content-center">
-					Add Data Form </div>
+					Tambah Data Pengguna SIMPRO </div>
 				<div class="card-body">
 					<form action="" method="POST">
 						<div class="form-group">
@@ -42,6 +42,7 @@
 							<div class="col-sm-10">
 								<input type="text" name="email" class="form-control" id="email"
 									placeholder="Masukkan E-mail">
+									<h6><font color="red">Kata sandi akan dikirimkan ke e-mail tersebut, mohon pastikan e-mail sesuai!</font><br></h6>
 
 							</div>
 						</div>
@@ -54,7 +55,7 @@
 									<option value="Pinbag">Pimpinan Bagian</option>
 									<option value="Planning">IT Planning</option>
 									<option value="Development">IT Development</option>
-									<option value="IT Support">IT Support</option>
+									<option value="Support">IT Support</option>
 								</select>
 							</div>
 						</div>
@@ -75,7 +76,7 @@
 						</div> -->
 
 						<div class="col-md-12">
-							<button type="submit" name="tambah" class="btn btn-primary float-right">Simpan Data</button>
+							<button type="submit" name="tambah" class="btn btn-primary float-right">Simpan</button>
 						</div>
 					</form>
 				</div>
