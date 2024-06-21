@@ -157,14 +157,14 @@
                 </a>
             </li>
 
-            <!-- <li
+            <li
                 class="nav-item <?= in_array($this->uri->segment(2), ['index', 'detaildash', 'editbrd', 'editfsd', 'detailfsd', 'detaildev', 'detailsit', 'detailbrd']) ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('Project/index') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-clipboard"></i>
                     <span>Proyek TSI</span>
                 </a>
-            </li> -->
+            </li>
 
             <li class="nav-item <?= in_array($this->uri->segment(2), [
         'indexlistproject', 'indexhistory', 'detail', 'editproject', 'tambahproject', 'hapusproject', 
@@ -326,13 +326,13 @@
                 </a>
             </li>
 
-            <!-- <li class="nav-item <?= $this->uri->segment(2) == 'index' ? ' active"' : '' ?>">
+            <li class="nav-item <?= $this->uri->segment(2) == 'index' ? ' active"' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('Project/index') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-clipboard"></i>
-                    <span>All Project</span>
+                    <span>Proyek TSI</span>
                 </a>
-            </li> -->
+            </li>
 
             <li
                 class="nav-item <?= $this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' ? ' active' : '' ?>">
