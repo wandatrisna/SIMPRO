@@ -77,7 +77,8 @@ class Project_model extends CI_Model
 		$query = $this->db->get();
 		return $query->result_array();
 	}
-	public function getById($id) {
+	public function getById($id)
+	{
 		$this->db->from($this->table);
 		$this->db->where('id_project', $id);
 		$query = $this->db->get();
@@ -85,8 +86,16 @@ class Project_model extends CI_Model
 		log_message('debug', 'Project Data: ' . print_r($result, TRUE)); // Debug log
 		return $result;
 	}
-	
 
+	public function project_lengkap()
+	{
+		$this->db->select('p.*,jp.namajenisproject,ja.namajenisaplikasi');
+		$this->db->from('tb_project p');
+		$this->db->join('jenisproject jp', 'jp.id_jenisproject = p.jenisproject');
+		$this->db->join('jenisaplikasi ja', 'ja.id_jenisaplikasi = p.jenisaplikasi');
+		$this->db->order_by('last_updated_time', 'desc');
+		return $this->db->get()->result_array();
+	}
 
 	function hitung()
 	{
@@ -94,7 +103,7 @@ class Project_model extends CI_Model
 
 		// return $this->db->get()->result();
 	}
-	
+
 	public function update($where, $data)
 	{
 		$this->db->update($this->table, $data, $where);
@@ -141,13 +150,14 @@ class Project_model extends CI_Model
 
 	}
 
-	public function ubah($data, $id) {
+	public function ubah($data, $id)
+	{
 		$this->db->where('id_project', $id);
 		$this->db->update('tb_project', $data);
 		return $this->db->affected_rows();
 	}
-	
-	
+
+
 
 
 	public function progresproject()
@@ -179,7 +189,7 @@ class Project_model extends CI_Model
 		$s = "BRD";
 		return $s;
 	}
-	
+
 	public function getjenispro($id)
 	{
 		$this->db->select('p.*,j.namajenisproject as jenisproject,');
@@ -200,10 +210,10 @@ class Project_model extends CI_Model
 	}
 
 	public function getBobot($id)
-    {
-        $query = 'SELECT sum(bobotdev) as bobotdev FROM `tb_project` WHERE id_project = "'.$id.'"';
-        return $this->db->query($query)->row_array();
-    }
+	{
+		$query = 'SELECT sum(bobotdev) as bobotdev FROM `tb_project` WHERE id_project = "' . $id . '"';
+		return $this->db->query($query)->row_array();
+	}
 
-	
+
 }
