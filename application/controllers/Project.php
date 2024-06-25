@@ -39,7 +39,20 @@ class Project extends SDA_Controller
 		$this->load->view('project/vw_dashboard', $data);
 		$this->load->view('layout/footer', $data);
 	}
-
+	public function print()
+	{
+		$data['user'] = $this->User_model->get();
+		$data['project'] = $this->Project_model->project_lengkap();
+		// var_dump($data['project']);
+		// die;
+		$data['progrespro'] = $this->Project_model->progresproject();
+		$data['donepro'] = $this->Project_model->doneproject();
+		$data['allpro'] = $this->Project_model->all();
+		$data['stat'] = $this->Project_model->status();
+		$data['dev'] = $this->Development_model->get();
+		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+		$this->load->view('project/print', $data);
+	}
 	public function done()
 	{
 		$data['user'] = $this->User_model->get();
@@ -236,34 +249,34 @@ class Project extends SDA_Controller
 
 	public function detaildash($id)
 	{
-    $data['user'] = $this->User_model->get();
-    $data['project'] = $this->Project_model->get();
-    $data['projectby'] = $this->Project_model->getBy();
-    $data['project1'] = $this->Project_model->getById($id);
-    $data['jenisp'] = $this->Project_model->getjenispro($id);
-    $data['jenisa'] = $this->Project_model->getjenisapp($id);
-    $data['dev'] = $this->Development_model->getkeg($id);
-    $data['jenisproject'] = $this->Jenisproject_model->get();
-    $data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
-    $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-    $data['hitung'] = $this->Project_model->hitung();
+		$data['user'] = $this->User_model->get();
+		$data['project'] = $this->Project_model->get();
+		$data['projectby'] = $this->Project_model->getBy();
+		$data['project1'] = $this->Project_model->getById($id);
+		$data['jenisp'] = $this->Project_model->getjenispro($id);
+		$data['jenisa'] = $this->Project_model->getjenisapp($id);
+		$data['dev'] = $this->Development_model->getkeg($id);
+		$data['jenisproject'] = $this->Jenisproject_model->get();
+		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
+		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+		$data['hitung'] = $this->Project_model->hitung();
 
-    // Ambil nama user berdasarkan updated_by
-    if (!empty($data['project1']['updated_by'])) {
-        $data['project1']['updated_by_name'] = $this->User_model->getUserNameByNIK($data['project1']['updated_by']);
-    } else {
-        $data['project1']['updated_by_name'] = 'N/A';
-    }
+		// Ambil nama user berdasarkan updated_by
+		if (!empty($data['project1']['updated_by'])) {
+			$data['project1']['updated_by_name'] = $this->User_model->getUserNameByNIK($data['project1']['updated_by']);
+		} else {
+			$data['project1']['updated_by_name'] = 'N/A';
+		}
 
-    $this->load->view('layout/header', $data);
-    $this->load->view('project/vw_detail_dashboard', $data);
-    $this->load->view('layout/footer', $data);
+		$this->load->view('layout/header', $data);
+		$this->load->view('project/vw_detail_dashboard', $data);
+		$this->load->view('layout/footer', $data);
 	}
 
-	public function editproject() 
+	public function editproject()
 	{
 		$updated_by = $this->session->userdata('NIK');
-		
+
 		$this->load->helper('date');
 		$this->form_validation->set_rules('bobotbrd', 'bobotbrd', 'required|less_than_equal_to[10]', [
 			'required' => 'required',
@@ -272,7 +285,7 @@ class Project extends SDA_Controller
 			'required' => 'required',
 			'less_than_equal_to[10]' => 'Progress tidak boleh lebih dari 10'
 		]);
-	
+
 		$id = $this->input->post('id_project');
 		$data = array(
 			'namaaplikasi' => $this->input->post('namaaplikasi'),
@@ -285,7 +298,7 @@ class Project extends SDA_Controller
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
 			'updated_by' => $updated_by // Simpan informasi pengguna yang melakukan perubahan
 		);
-	
+
 		$upload_image = $_FILES['urf']['name'];
 		if ($upload_image) {
 			$config['allowed_types'] = 'gif|jpg|png|jpeg|pdf';
@@ -303,15 +316,15 @@ class Project extends SDA_Controller
 				echo $this->upload->display_errors();
 			}
 		}
-	
+
 		// Tambahkan logging untuk melihat data yang akan diupdate
 		log_message('debug', 'Data yang akan diupdate: ' . print_r($data, TRUE));
-	
+
 		$this->Project_model->ubah($data, $id);
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detaildash/' . $id);
 	}
-	
+
 
 	public function hapusproject($id)
 	{
@@ -741,7 +754,7 @@ class Project extends SDA_Controller
 		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 		redirect('project/detailuat/' . $id);
 	}
-	
+
 	public function detailmigrasi($id)
 	{
 		$data['user'] = $this->User_model->get();
@@ -753,7 +766,7 @@ class Project extends SDA_Controller
 		$this->load->view("Project/kegiatan/vw_migrasi", $data);
 		$this->load->view("layout/footer");
 	}
-	
+
 	public function editmigrasi()
 	{
 		$this->load->helper('date');

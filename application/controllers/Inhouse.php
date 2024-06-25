@@ -47,6 +47,7 @@ class Inhouse extends SDA_Controller
 	public function detailinhouse($id)
 	{
 		$data['inhouse'] = $this->Inhouse_model->getById($id);
+		$data['nama_pic'] = $this->User_model->getById($data['inhouse']['pic_migrasi_in']);
 		$data['nomor'] = $this->Inhouse_model->nomor();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$this->load->view('layout/header', $data);
