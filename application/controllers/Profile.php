@@ -90,7 +90,7 @@ class Profile extends SDA_Controller
                     }
                     $new_image = $upload_data['file_name'];
                     $this->db->set('gambar', $new_image);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Foto Profil Berhasil Diubah!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Foto profil berhasil diubah!</div>');
                 }
             } else {
                 echo $this->upload->display_errors();

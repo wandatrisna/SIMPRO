@@ -31,11 +31,33 @@
                             <tbody>
                                 <?php $i = 1; ?>
                                 <?php foreach ($app as $us) : ?>
-                                <tr class="">
+                                <tr>
                                     <td><?= $i; ?>.</td>
                                     <td><?= $us['namajenisaplikasi']; ?></td>
                                     <td>
-                                        <a href="<?= base_url('Parameter/hapusapp/') . $us['id_jenisaplikasi']; ?>" class="badge badge-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini?');">Hapus</a>
+                                        <a href="#" class="badge badge-danger delete-btn" data-toggle="modal" data-target="#deleteModal<?= $us['id_jenisaplikasi']; ?>" data-id="<?= $us['id_jenisaplikasi']; ?>">Hapus</a>
+
+                                        <!-- Modal Konfirmasi Hapus -->
+                                        <div class="modal fade" id="deleteModal<?= $us['id_jenisaplikasi']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $us['id_jenisaplikasi']; ?>" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="deleteModalLabel<?= $us['id_jenisaplikasi']; ?>">Konfirmasi Penghapusan</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Apakah kamu yakin untuk menghapus data ini?
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                        <a href="<?= base_url('Parameter/hapusapp/') . $us['id_jenisaplikasi']; ?>" class="btn btn-danger">Hapus</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Modal -->
                                     </td>
                                 </tr>
                                 <?php $i++; ?>
@@ -47,5 +69,4 @@
             </div>
         </div>
     </div>
-</div>
 </div>

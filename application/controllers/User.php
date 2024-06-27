@@ -105,13 +105,24 @@ class User extends SDA_Controller
 		$this->load->library('email');
 		$password = generateRandomPassword(8);
 
-		$this->form_validation->set_rules('NIK', 'NIK', 'required|is_unique[user.NIK]', [
-			'required' => 'Required!',
-			'is_unique' => 'This data is already registered!',
+		$this->form_validation->set_rules('NIK', 'NIK', 'required|is_unique[user.NIK]|numeric', [
+			'required' => 'NIK harus diisi',
+			'is_unique' => 'NIK ini sudah terdaftar',
+			'numeric' => 'NIK hanya boleh berisi angka'
 		]);
 
 		$this->form_validation->set_rules('nama', 'nama', 'required', [
-			'required' => 'Required'
+			'required' => 'Nama harus diisi'
+		]);
+
+		$this->form_validation->set_rules('email', 'Email', 'required|valid_email', [
+			'required' => 'E-mail harus diisi',
+			'valid_email' => 'Format E-mail tidak valid',
+			//'is_unique' => 'E-mail ini sudah terdaftar',
+		]);		
+
+		$this->form_validation->set_rules('role', 'role', 'required', [
+			'required' => 'Subdivisi harus dipilih'
 		]);
 
 		if ($this->form_validation->run() == false) {
@@ -132,7 +143,7 @@ class User extends SDA_Controller
 			];
 			if ($this->User_model->insert($data)) {
 				$this->_sendEmail($password);
-				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data User Berhasil Bertambah silahkan cek di email yang didaftarkan</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data baru berhasil ditambah, silahkan cek email yang didaftarkan!</div>');
 				redirect('User');
 			} else {
 				// Jika pengiriman email gagal, tambahkan pesan kesalahan ke dalam flashdata
@@ -186,15 +197,11 @@ class User extends SDA_Controller
 		$data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['role'] = $this->User_model->role();
-
-		$this->form_validation->set_rules('NIK', 'NIK', 'required', [
-			'required' => 'Required!',
-		]);
 		$this->form_validation->set_rules('nama', 'nama', 'required', [
-			'required' => 'Required!'
+			'required' => 'Nama harus diisi'
 		]);
 		$this->form_validation->set_rules('role', 'role', 'required', [
-			'required' => 'Required!'
+			'required' => 'Subdivisi harus dipilih'
 		]);
 
 		if ($this->form_validation->run() == false) {
@@ -221,15 +228,11 @@ class User extends SDA_Controller
 		$data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['role'] = $this->User_model->role();
-
-		$this->form_validation->set_rules('NIK', 'NIK', 'required', [
-			'required' => 'Required!',
-		]);
 		$this->form_validation->set_rules('nama', 'nama', 'required', [
-			'required' => 'Required!'
+			'required' => 'Nama harus diisi'
 		]);
 		$this->form_validation->set_rules('role', 'role', 'required', [
-			'required' => 'Required!'
+			'required' => 'Subdivisi harus dipilih'
 		]);
 
 		if ($this->form_validation->run() == false) {
@@ -252,19 +255,14 @@ class User extends SDA_Controller
 
 	public function editdev($id)
 	{
-		//// //$this->check_session();
 		$data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['role'] = $this->User_model->role();
-
-		$this->form_validation->set_rules('NIK', 'NIK', 'required', [
-			'required' => 'Required!',
-		]);
 		$this->form_validation->set_rules('nama', 'nama', 'required', [
-			'required' => 'Required!'
+			'required' => 'Nama harus diisi'
 		]);
 		$this->form_validation->set_rules('role', 'role', 'required', [
-			'required' => 'Required!'
+			'required' => 'Subdivisi harus dipilih'
 		]);
 
 		if ($this->form_validation->run() == false) {
@@ -291,15 +289,11 @@ class User extends SDA_Controller
 		$data['user'] = $this->User_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['role'] = $this->User_model->role();
-
-		$this->form_validation->set_rules('NIK', 'NIK', 'required', [
-			'required' => 'Required!',
-		]);
 		$this->form_validation->set_rules('nama', 'nama', 'required', [
-			'required' => 'Required!'
+			'required' => 'Nama harus diisi'
 		]);
 		$this->form_validation->set_rules('role', 'role', 'required', [
-			'required' => 'Required!'
+			'required' => 'Subdivisi harus dipilih'
 		]);
 
 		if ($this->form_validation->run() == false) {

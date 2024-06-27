@@ -19,7 +19,7 @@
                                         <div class="custom-file">
                                             <br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<a
                                                 href="<?= base_url('Profile/edit/').$user1['id_user']; ?>"
-                                                class="badge badge-warning">Ubah Foto</a>
+                                                class="badge badge-primary">Ubah Foto</a>
                                         </div>
 
                                     </div>

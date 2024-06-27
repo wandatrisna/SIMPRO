@@ -25,8 +25,7 @@
                             <label class="col-sm-2 col-form-label">NIK</label>
                             <div class="col-sm-10">
                                 <input type="text" name="NIK" value="<?= $user['NIK']; ?>" class="form-control"
-                                    id="NIK">
-                                <?= form_error('NIK','<small class="text-danger pl-3">','</small>'); ?>
+                                    id="NIK" readonly>
                             </div>
                         </div>
 
@@ -52,6 +51,7 @@
                                         <?php } ?>
                                         <?php endforeach; ?>
                                 </select>
+                                <?= form_error('role','<small class="text-danger pl-3">','</small>'); ?>
                             </div>
                         </div>
 

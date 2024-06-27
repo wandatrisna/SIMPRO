@@ -24,16 +24,16 @@ class Parameter extends SDA_Controller
 	{
 		$data['dokumen'] = $this->Jenisdokumen_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$this->load->view('layout/header', $data);
-		$this->load->view('parameter/vw_param_dok', $data);
-		$this->load->view('layout/footer', $data);
 
 		$this->form_validation->set_rules('jenisdokumen', 'jenisdokumen', 'required', [
-			'required' => 'Required!'
+			'required' => 'Parameter harus diisi!'
 		]);
 
 		if ($this->form_validation->run() == false) {
-
+			$this->load->view('layout/header', $data);
+			$this->load->view('parameter/vw_param_dok', $data);
+			$this->load->view('layout/footer', $data);
+	
 		} else {
 			$data = [
 				'jenisdokumen' => $this->input->post('jenisdokumen')
@@ -56,16 +56,16 @@ class Parameter extends SDA_Controller
 	{
 		$data['project'] = $this->Jenisproject_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$this->load->view('layout/header', $data);
-		$this->load->view('parameter/vw_param_proj', $data);
-		$this->load->view('layout/footer', $data);
 
 		$this->form_validation->set_rules('namajenisproject', 'namajenisproject', 'required', [
-			'required' => 'Required!'
+			'required' => 'Parameter harus diisi'
 		]);
 
 		if ($this->form_validation->run() == false) {
-
+			$this->load->view('layout/header', $data);
+			$this->load->view('parameter/vw_param_proj', $data);
+			$this->load->view('layout/footer', $data);
+	
 		} else {
 			$data = [
 				'namajenisproject' => $this->input->post('namajenisproject')
@@ -88,16 +88,15 @@ class Parameter extends SDA_Controller
 	{
 		$data['divisi'] = $this->Namadivisi_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$this->load->view('layout/header', $data);
-		$this->load->view('parameter/vw_param_div', $data);
-		$this->load->view('layout/footer', $data);
-
 		$this->form_validation->set_rules('namadivisi', 'namadivisi', 'required', [
-			'required' => 'Required!'
+			'required' => 'Parameter harus diisi'
 		]);
 
 		if ($this->form_validation->run() == false) {
-
+			$this->load->view('layout/header', $data);
+			$this->load->view('parameter/vw_param_div', $data);
+			$this->load->view('layout/footer', $data);
+	
 		} else {
 			$data = [
 				'namadivisi' => $this->input->post('namadivisi')
@@ -120,16 +119,16 @@ class Parameter extends SDA_Controller
 	{
 		$data['eks'] = $this->Jeniseksternal_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$this->load->view('layout/header', $data);
-		$this->load->view('parameter/vw_param_eks', $data);
-		$this->load->view('layout/footer', $data);
-
 		$this->form_validation->set_rules('jenis_eks', 'jenis_eks', 'required', [
-			'required' => 'Required!'
+			'required' => 'Parameter harus diisi!'
 		]);
 
+		
 		if ($this->form_validation->run() == false) {
-
+			$this->load->view('layout/header', $data);
+			$this->load->view('parameter/vw_param_eks', $data);
+			$this->load->view('layout/footer', $data);
+	
 		} else {
 			$data = [
 				'jenis_eks' => $this->input->post('jenis_eks')
@@ -149,29 +148,37 @@ class Parameter extends SDA_Controller
 	}
 
 	public function indexapp()
-	{
-		$data['app'] = $this->Jenisaplikasi_model->get();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$this->load->view('layout/header', $data);
-		$this->load->view('parameter/vw_param_app', $data);
-		$this->load->view('layout/footer', $data);
+{
+    $data['app'] = $this->Jenisaplikasi_model->get();
+    $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
-		$this->form_validation->set_rules('namajenisaplikasi', 'namajenisaplikasi', 'required', [
-			'required' => 'Required!'
-		]);
+    // Form validation rules
+    $this->form_validation->set_rules('namajenisaplikasi', 'Jenis Aplikasi', 'required', [
+        'required' => 'Parameter harus diisi'
+    ]);
 
-		if ($this->form_validation->run() == false) {
+    if ($this->form_validation->run() == false) {
+        // Load views with errors
+        $this->load->view('layout/header', $data);
+        $this->load->view('parameter/vw_param_app', $data);
+        $this->load->view('layout/footer', $data);
+    } else {
+        // Jika validasi berhasil
+        $data_insert = [
+            'namajenisaplikasi' => $this->input->post('namajenisaplikasi')
+        ];
 
-		} else {
-			$data = [
-				'namajenisaplikasi' => $this->input->post('namajenisaplikasi')
-			];
+        // Insert data to database
+        $this->Jenisaplikasi_model->insert($data_insert);
 
-			$this->Jenisaplikasi_model->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Parameter baru berhasil ditambahkan!</div>');
-			redirect('Parameter/indexapp');
-		}
-	}
+        // Set flashdata message
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Parameter baru berhasil ditambahkan!</div>');
+        
+        // Redirect to the same page
+        redirect('Parameter/indexapp');
+    }
+}
+
 
 	public function hapusapp($id)
 	{
@@ -179,5 +186,8 @@ class Parameter extends SDA_Controller
 		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
 		redirect('Parameter/indexapp');
 	}
+
+
+
 }
 ?>

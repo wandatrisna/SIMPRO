@@ -38,10 +38,10 @@ class Jenisaplikasi_model extends CI_Model
     }
 
     public function delete($id)
-    {
-        $this->db->where($this->id, $id);
-        $this->db->delete($this->table);
-        return $this->db->affected_rows();
-    }
+{
+    $this->db->where('id_jenisaplikasi', $id);
+    $this->db->delete('jenisaplikasi');
+}
+
 }
 ?>
