@@ -29,7 +29,7 @@
                                                                         class="form-control form-control-user"
                                                                         value="<?= set_value('namaaplikasi'); ?>"
                                                                         id="namaaplikasi"
-                                                                        placeholder="Masukkan Nama Aplikasi">
+                                                                        placeholder="Masukkan nama aplikasi">
                                                                     <?= form_error('namaaplikasi', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
@@ -46,6 +46,7 @@
                                                                             <?php echo $p['namajenisproject']?></option>
                                                                         <?php } ?>
                                                                     </select>
+                                                                    <?= form_error('jenisproject', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
 
@@ -62,6 +63,7 @@
                                                                         </option>
                                                                         <?php } ?>
                                                                     </select>
+                                                                    <?= form_error('jenisaplikasi', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
 
@@ -109,14 +111,15 @@
                                                                 <label class="col-sm-2 col-form-label">Dokumen
                                                                     URF</label>
                                                                 <div class="col-sm-10">
+                                                                <h7>
+                                                                        <font color="red">Dokumen URF Harus Diunggah!
+                                                                        </font>
+                                                                    </h7>
                                                                     <input type="file" name="urf"
                                                                         value="<?= set_value('urf'); ?>"
                                                                         class="form-control form-control-user" id="urf"
                                                                         placeholder="Insert File">
-                                                                    <h6>
-                                                                        <font color="red">Dokumen URF Harus Diunggah!
-                                                                        </font><br>
-                                                                    </h6>
+                                                                    
                                                                     <?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
 

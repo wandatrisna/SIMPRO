@@ -21,8 +21,11 @@
                                                         <h3 class="mb-0">
                                                             <strong><?= $project1['namaaplikasi']; ?></strong>
                                                         </h3>
-                                                        <p class="text-muted mb-0">Terakhir diubah pada
-                                                            <?= $project1['last_updated_time'];?></p>
+                                                        <p>Terakhir diperbarui
+                                                        <?= isset($project1['last_updated_time']) ? htmlspecialchars($project1['last_updated_time']) : 'N/A'; ?>
+                                                        oleh
+                                                        <?= isset($project1['updated_by_name']) ? htmlspecialchars($project1['updated_by_name']) : 'N/A'; ?>
+                                                    </p>
                                                     </div>
                                                     <?php if ($user1['role'] == 'Planning') { ?>
                                                     <a href="javascript:;"

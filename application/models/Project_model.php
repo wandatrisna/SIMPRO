@@ -87,15 +87,17 @@ class Project_model extends CI_Model
 		return $result;
 	}
 
-	public function project_lengkap()
-	{
-		$this->db->select('p.*,jp.namajenisproject,ja.namajenisaplikasi');
-		$this->db->from('tb_project p');
-		$this->db->join('jenisproject jp', 'jp.id_jenisproject = p.jenisproject');
-		$this->db->join('jenisaplikasi ja', 'ja.id_jenisaplikasi = p.jenisaplikasi');
-		$this->db->order_by('last_updated_time', 'desc');
-		return $this->db->get()->result_array();
-	}
+	public function project_lengkap($tahun)
+{
+    $this->db->select('p.*, jp.namajenisproject, ja.namajenisaplikasi');
+    $this->db->from('tb_project p');
+    $this->db->join('jenisproject jp', 'jp.id_jenisproject = p.jenisproject');
+    $this->db->join('jenisaplikasi ja', 'ja.id_jenisaplikasi = p.jenisaplikasi');
+    $this->db->where('p.tahun', $tahun); // Menambahkan kondisi WHERE untuk tahun
+    $this->db->order_by('last_updated_time', 'desc');
+    return $this->db->get()->result_array();
+}
+
 
 	function hitung()
 	{
@@ -215,5 +217,10 @@ class Project_model extends CI_Model
 		return $this->db->query($query)->row_array();
 	}
 
+	public function getTahun() {
+		$query = $this->db->query("SELECT distinct tahun from tb_project");
+		return $query->result_array();
+	}
+	
 
 }

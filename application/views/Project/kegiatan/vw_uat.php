@@ -183,6 +183,7 @@
                                                                 <div class="modal-body">
                                                                     <input type="hidden" name="id_project"
                                                                         value="<?= $project1['id_project']; ?>">
+                                                                        <input type="hidden" name="updated_by" value="<?= $user1['NIK']; ?>">
                                                                     <div class="form-group row">
                                                                         <label
                                                                             class="col-sm-3 col-form-label">Bobot</label>
@@ -279,7 +280,7 @@
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-dismiss="modal">Tutup</button>
                                                                         <button type="submit" onclick="validateForm()"
-                                                                            class="btn btn-primary">Perbarui</button>
+                                                                            class="btn btn-success">Perbarui</button>
                                                                     </div>
                                                                 </div>
                                                             </div>

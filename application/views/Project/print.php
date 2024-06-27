@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,7 +102,7 @@
 				<th>Jenis proyek</th>
 				<th>jenis aplikasi</th>
 				<th>tahun </th>
-				<th>tanggal dibuat</th>
+				<!-- <th>tanggal dibuat</th> -->
 				<th>tanggal mulai</th>
 				<th>target selesai</th>
 				<th>status</th>
@@ -184,7 +185,7 @@
 					<td><?= $pro['namajenisproject']; ?></td>
 					<td><?= $pro['namajenisaplikasi']; ?></td>
 					<td><?= $pro['tahun']; ?></td>
-					<td><?= $pro['date_created']; ?></td>
+					<!-- <td><?= $pro['date_created']; ?></td> -->
 					<td><?= $pro['tanggalregister']; ?></td>
 					<td><?= $pro['target']; ?></td>
 					<td><?= $pro['status']; ?></td>

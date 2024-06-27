@@ -1,6 +1,6 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-10 ">
+        <div class="col-md-10">
             <div class="pcoded-content">
                 <section class="common-img-bg1">
                     <div class="pcoded-inner-content">
@@ -8,49 +8,38 @@
                             <div class="page-wrapper">
                                 <div class="page-body">
                                     <div class="float">
-                                        <a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
+                                        <a href="<?= base_url('Project/detail/') . $project1['id_project']; ?>"
                                             class="btn btn-secondary mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h4 class="title"><strong>Functional Specification Document</strong></h4><br>
+                                                    <h4 class="title"><strong>Functional Specification Document</strong>
+                                                    </h4><br>
                                                     <div class="card-header-right">
                                                         <i class="icofont icofont-spinner-alt-5"></i>
                                                         <div class="float-right">
-                                                            <?php
-                                                if ($user1['role'] == 'Development') {
-                                                ?>
-                                                            <a href="<?= base_url() ?>Project/editfsd"
-                                                                class="btn btn-success btn-icon-split btn-sm">
-
-                                                                <a href="javascript:;"
-                                                                    data-id="<?php echo $project1['id_project'] ?>"
-                                                                    data-bobot="<?php echo $project1['bobotfsd'] ?>"
-                                                                    data-progres="<?php echo $project1['progresfsd'] ?>"
-                                                                    data-planstdate="<?php echo $project1['planstdatefsd'] ?>"
-                                                                    data-planendate="<?php echo $project1['planendatefsd'] ?>"
-                                                                    data-actualstdate="<?php echo $project1['actualstdatefsd'] ?>"
-                                                                    data-actualendate="<?php echo $project1['actualendatefsd'] ?>"
-                                                                    data-toggle="modal" data-target="#editModal">
-                                                                    <button data-toggle="modal" data-target="#ubah-data"
-                                                                        class="btn btn-success">Perbarui</button>
-                                                                </a>
-                                                                <?php
-												}
-												?>
-                                                                </ul>
+                                                            <?php if ($user1['role'] == 'Development') { ?>
+                                                            <a href="javascript:;"
+                                                                data-id="<?php echo $project1['id_project']; ?>"
+                                                                data-bobot="<?php echo $project1['bobotfsd']; ?>"
+                                                                data-progres="<?php echo $project1['progresfsd']; ?>"
+                                                                data-planstdate="<?php echo $project1['planstdatefsd']; ?>"
+                                                                data-planendate="<?php echo $project1['planendatefsd']; ?>"
+                                                                data-actualstdate="<?php echo $project1['actualstdatefsd']; ?>"
+                                                                data-actualendate="<?php echo $project1['actualendatefsd']; ?>"
+                                                                data-toggle="modal" data-target="#editModal">
+                                                                <button class="btn btn-success">Perbarui</button>
+                                                            </a>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
-
                                                     <div class="card-header-right">
                                                         <i class="icofont icofont-spinner-alt-5"></i>
                                                     </div>
-
                                                     <div class="card-block">
                                                         <table class="table table-hover">
-
                                                             <tbody>
                                                                 <tr>
                                                                     <td>
@@ -62,7 +51,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <p class="d-inline-block m-r-20">
-                                                                            <?= $project1['bobotfsd'] ?></p>
+                                                                            <?= $project1['bobotfsd']; ?></p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -75,7 +64,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <p class="d-inline-block m-r-20">
-                                                                            <?= $project1['progresfsd'] ?></p>
+                                                                            <?= $project1['progresfsd']; ?></p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -83,14 +72,13 @@
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
                                                                                 <strong>Perencanaan Tanggal
-                                                                                Mulai</strong>
+                                                                                    Mulai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <p class="d-inline-block m-r-20">
-                                                                            <?= $project1['planstdatefsd'] ?></p>
-
+                                                                            <?= $project1['planstdatefsd']; ?></p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -98,14 +86,13 @@
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
                                                                                 <strong>Perencanaan Tanggal
-                                                                                Selesai</strong>
+                                                                                    Selesai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <p class="d-inline-block m-r-20">
-                                                                            <?= $project1['planendatefsd'] ?>
-                                                                        </p>
+                                                                            <?= $project1['planendatefsd']; ?></p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -118,8 +105,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <p class="d-inline-block m-r-20">
-                                                                            <?= $project1['actualstdatefsd'] ?>
-                                                                        </p>
+                                                                            <?= $project1['actualstdatefsd']; ?></p>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -132,25 +118,21 @@
                                                                     </td>
                                                                     <td>
                                                                         <p class="d-inline-block m-r-20">
-                                                                            <?= $project1['actualendatefsd'] ?>
-                                                                        </p>
-
+                                                                            <?= $project1['actualendatefsd']; ?></p>
                                                                     </td>
                                                                 </tr>
-
                                                                 <tr>
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
                                                                                 <strong>Dokumen (Oleh IT
-                                                                                Development)</strong>
+                                                                                    Development)</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
                                                                     <td>
                                                                         <a class="d-inline-block m-r-20"
-                                                                            href="<?php echo base_url('assets/dokumenfsd/' . $project1['filefsd']); ?>"><?= $project1['filefsd'] ?></a>
-                                                                        <!-- <img src="<?php echo base_url('assets/dokumenfsd/' . $project1['filefsd']); ?>"> -->
+                                                                            href="<?php echo base_url('assets/dokumenfsd/' . $project1['filefsd']); ?>"><?= $project1['filefsd']; ?></a>
                                                                         <div class="progress d-inline-block">
                                                                             <div class="progress-bar bg-c-blue"
                                                                                 role="progressbar" aria-valuemin="0"
@@ -165,7 +147,7 @@
                                                 </div>
 
                                                 <form
-                                                    action="<?php echo base_url('Project/editfsd/'). $project1['id_project'];?>"
+                                                    action="<?php echo base_url('Project/editfsd/') . $project1['id_project']; ?>"
                                                     method="POST" enctype="multipart/form-data" name="frm"
                                                     onsubmit="return validateForm()">
                                                     <div id="editModal" class="modal fade" tabindex="-1" role="dialog"
@@ -173,17 +155,18 @@
                                                         <div class="modal-dialog modal-lg" role="document">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="exampleModalLabel">Perbarui Data FSD
-                                                                    </h5>
+                                                                    <h5 class="modal-title" id="exampleModalLabel">
+                                                                        Perbarui Data FSD</h5>
                                                                     <button type="button" class="close"
                                                                         data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
                                                                 </div>
-
                                                                 <div class="modal-body">
                                                                     <input type="hidden" name="id_project"
                                                                         value="<?= $project1['id_project']; ?>">
+                                                                    <input type="hidden" name="updated_by"
+                                                                        value="<?= $user1['NIK']; ?>">
                                                                     <div class="form-group row">
                                                                         <label
                                                                             class="col-sm-3 col-form-label">Bobot</label>
@@ -194,77 +177,67 @@
                                                                             <?= form_error('bobotfsd', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="form-group row">
-                                                                        <label
-                                                                            class="col-sm-3 col-form-label">Progres Pengerjaan</label>
+                                                                        <label class="col-sm-3 col-form-label">Progres
+                                                                            Pengerjaan</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="number" name="progresfsd"
-                                                                                class="form-control form-control-user"
+                                                                                class="form-control"
                                                                                 value="<?php echo $project1['progresfsd']; ?>"
-                                                                                id="progresfsd"
+                                                                                id="progresfsd" max="5"
                                                                                 placeholder="Masukkan progres">
                                                                             <?= form_error('progresfsd', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Perencanaan
-                                                                        Tanggal Mulai</label>
+                                                                        <label
+                                                                            class="col-sm-3 col-form-label">Perencanaan
+                                                                            Tanggal Mulai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="planstdatefsd"
                                                                                 name="planstdatefsd"
                                                                                 class="form-control form-control-user"
-                                                                                value="<?php echo $project1['planstdatefsd']; ?>"
-                                                                                id="planstdatefsd">
+                                                                                value="<?php echo $project1['planstdatefsd']; ?>">
                                                                             <?= form_error('planstdatefsd', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Perencanaan
-                                                                        Tanggal Selesai</label>
+                                                                        <label
+                                                                            class="col-sm-3 col-form-label">Perencanaan
+                                                                            Tanggal Selesai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="planendatefsd"
                                                                                 name="planendatefsd"
                                                                                 class="form-control form-control-user"
-                                                                                value="<?php echo $project1['planendatefsd']; ?>"
-                                                                                id="planendatefsd">
+                                                                                value="<?php echo $project1['planendatefsd']; ?>">
                                                                             <?= form_error('planendatefsd', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Aktual
-                                                                        Tanggal Mulai
-                                                                        </label>
+                                                                            Tanggal Mulai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="actualstdatefsd"
                                                                                 name="actualstdatefsd"
                                                                                 class="form-control form-control-user"
-                                                                                value="<?php echo $project1['actualstdatefsd']; ?>"
-                                                                                id="actualstdatefsd">
+                                                                                value="<?php echo $project1['actualstdatefsd']; ?>">
                                                                             <?= form_error('actualstdatefsd', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Aktual
-                                                                        Tanggal Selesai
-                                                                        </label>
+                                                                            Tanggal Selesai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="actualendatefsd"
                                                                                 name="actualendatefsd"
                                                                                 class="form-control form-control-user"
-                                                                                value="<?php echo $project1['actualendatefsd']; ?>"
-                                                                                id="actualendatefsd">
+                                                                                value="<?php echo $project1['actualendatefsd']; ?>">
                                                                             <?= form_error('actualendatefsd', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                         </div>
                                                                     </div>
-
                                                                     <div class="form-group row">
                                                                         <label class="col-sm-3 col-form-label">Unggah
-                                                                        Dokumen</label>
+                                                                            Dokumen</label>
                                                                         <div class="col-sm-9">
                                                                             <?php echo $project1['filefsd']; ?>
                                                                             <input type="file" name="filefsd"
@@ -274,17 +247,16 @@
                                                                             <?= form_error('filefsd', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                         </div>
                                                                     </div>
-
-
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-dismiss="modal">Tutup</button>
                                                                         <button type="submit" onclick="validateForm()"
-                                                                            class="btn btn-primary">Perbarui</button>
+                                                                            class="btn btn-success">Perbarui</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
                                                 </form>
                                             </div>
                                         </div>
@@ -293,20 +265,18 @@
                             </div>
                         </div>
                     </div>
+                </section>
             </div>
         </div>
     </div>
 </div>
-</div>
-</div>
+
 <script>
 $(document).ready(function() {
-    // Untuk sunting
     $('#edit-data').on('show.bs.modal', function(event) {
-        var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+        var div = $(event.relatedTarget)
         var modal = $(this)
 
-        // Isi nilai pada field
         modal.find('#id_project').attr("value", div.data('id_project'));
         modal.find('#bobotfsd').attr("value", div.data('bobotfsd'));
         modal.find('#progresfsd').html(div.data('progresfsd'));
@@ -318,11 +288,11 @@ $(document).ready(function() {
     });
 });
 
-function validateForm() {
-    let x = document.forms["frm"]["progresfsd"].value;
-    if (x > 5) {
-        alert("Progress is not more than 5%");
-        return false;
+$('#progresbrd').on('input', function() {
+    var value = parseInt(this.value);
+    if (value > 10) {
+        this.value = 10;
+        alert('Nilai tidak boleh lebih dari 10');
     }
-}
+});
 </script>
