@@ -39,9 +39,18 @@ class Jenisdokumen_model extends CI_Model
 
     public function delete($id)
     {
-        $this->db->where($this->id, $id);
-        $this->db->delete($this->table);
-        return $this->db->affected_rows();
+        // Menggunakan transaksi untuk memastikan integritas data
+        $this->db->trans_start();
+    
+        // Coba hapus data
+        $this->db->where('id_jenisdokumen', $id);
+        $this->db->delete('jenisdokumen');
+    
+        $this->db->trans_complete();
+    
+        if ($this->db->trans_status() === FALSE) {
+            throw new Exception('Gagal menghapus data karena terkait dengan data lain!');
+        }
     }
 }
 ?>

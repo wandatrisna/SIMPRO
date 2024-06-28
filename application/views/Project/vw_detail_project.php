@@ -12,7 +12,6 @@
                                             class="btn btn-secondary mb-2">Kembali</a>
                                     </div>
                                     <div class="row">
-
                                         <div class="col-md-12 col-xl-8">
                                             <div class="card shadow mb-4">
                                                 <div
@@ -22,10 +21,10 @@
                                                             <strong><?= $project1['namaaplikasi']; ?></strong>
                                                         </h3>
                                                         <p>Terakhir diperbarui
-                                                        <?= isset($project1['last_updated_time']) ? htmlspecialchars($project1['last_updated_time']) : 'N/A'; ?>
-                                                        oleh
-                                                        <?= isset($project1['updated_by_name']) ? htmlspecialchars($project1['updated_by_name']) : 'N/A'; ?>
-                                                    </p>
+                                                            <?= isset($project1['last_updated_time']) ? htmlspecialchars($project1['last_updated_time']) : 'N/A'; ?>
+                                                            oleh
+                                                            <?= isset($project1['updated_by_name']) ? htmlspecialchars($project1['updated_by_name']) : 'N/A'; ?>
+                                                        </p>
                                                     </div>
                                                     <?php if ($user1['role'] == 'Planning') { ?>
                                                     <a href="javascript:;"
@@ -264,19 +263,22 @@
                                                                 </tr>
                                                                 <tr>
                                                                     <td>Development</td>
-                                                                    <td><?php $hasil= $project1['progresdev']*100;
-														if ($hasil==0){
-															echo $total=0  ;
-														}else{
-															echo floor($total=$hasil/$project1['bobotdev']);
-														}
-
-														?>%</td>
                                                                     <td>
-                                                                        <a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
+                                                                        <?php
+                                                                        $hasil = $project1['progresdev'] * 100;
+                                                                        if ($project1['bobotdev'] == 0) {
+                                                                            echo "0";
+                                                                        } else {
+                                                                            echo floor($total = $hasil / $project1['bobotdev']);
+                                                                        }
+                                                                        ?>%
+                                                                    </td>
+                                                                    <td>
+                                                                        <a href="<?= base_url('Project/detaildev/') . $project1['id_project']; ?>"
                                                                             class="badge badge-secondary">Detail</a>
                                                                     </td>
                                                                 </tr>
+
                                                                 <tr>
                                                                     <td>SIT</td>
                                                                     <td><?php $hasil= $project1['progressit'];
@@ -483,8 +485,8 @@
                                                 // Untuk sunting
                                                 $('#edit-data').on('show.bs.modal', function(event) {
                                                     var div = $(event
-                                                            .relatedTarget
-                                                            ) // Tombol dimana modal di tampilkan
+                                                        .relatedTarget
+                                                    ) // Tombol dimana modal di tampilkan
                                                     var modal = $(this)
 
                                                     // Isi nilai pada field
@@ -507,8 +509,6 @@
                                             });
                                             </script>
                                         </div>
-
-
                                     </div>
                                 </div>
                             </div>

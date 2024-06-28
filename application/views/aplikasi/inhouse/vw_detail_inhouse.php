@@ -7,8 +7,8 @@
 					<a href="<?= base_url('Inhouse/subinhouse/') . $inhouse['nama_in']; ?>"
 						class="btn btn-secondary">Kembali</a>
 				</div>
-			<?php } elseif ($user1['role'] == 'Support') { ?>
-				<div class="float">
+				<?php } elseif ($user1['role'] == 'Support' | $user1['role'] == 'Development') { ?>
+					<div class="float">
 					<a href="<?= base_url() ?>Inhouse/sup_indexinhouse" class="btn btn-secondary">Kembali</a>
 				</div>
 			<?php } ?>
@@ -133,7 +133,7 @@
 									class="btn btn-success btn-round btn-block">Perbarui (Dokumen)</a>
 
 							</div>
-						<?php } elseif ($user1['role'] == 'Support') { ?>
+						<?php } elseif ($user1['role'] == 'Support' | $user1['role'] == 'Development') { ?>
 							<div class="col-md-12">
 								<a href="<?= base_url('Inhouse/sup_editinhouse/') . $inhouse['id_in']; ?>"
 									class="btn btn-success btn-round btn-block">Perbarui Data</a>

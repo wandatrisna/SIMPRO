@@ -38,10 +38,21 @@ class Jenisaplikasi_model extends CI_Model
     }
 
     public function delete($id)
-{
-    $this->db->where('id_jenisaplikasi', $id);
-    $this->db->delete('jenisaplikasi');
-}
+    {
+        // Menggunakan transaksi untuk memastikan integritas data
+        $this->db->trans_start();
+    
+        // Coba hapus data
+        $this->db->where('id_jenisaplikasi', $id);
+        $this->db->delete('jenisaplikasi');
+    
+        $this->db->trans_complete();
+    
+        if ($this->db->trans_status() === FALSE) {
+            throw new Exception('Gagal menghapus data karena terkait dengan data lain!');
+        }
+    }
+    
 
 }
 ?>

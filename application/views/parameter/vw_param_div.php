@@ -11,7 +11,8 @@
                         <div class="form-group row">
                             <label for="namadivisi" class="col-sm-3 col-form-label">Parameter Baru</label>
                             <div class="col-sm-7">
-                                <input type="text" name="namadivisi" class="form-control" value="<?= set_value('namadivisi'); ?>" id="namadivisi" placeholder="Masukkan Data">
+                                <input type="text" name="namadivisi" class="form-control"
+                                    value="<?= set_value('namadivisi'); ?>" id="namadivisi" placeholder="Masukkan Data">
                                 <?= form_error('namadivisi', '<small class="text-danger pl-3">', '</small>'); ?>
                             </div>
                             <div class="col-sm-2">
@@ -35,17 +36,22 @@
                                     <td><?= $i; ?>.</td>
                                     <td><?= $us['namadivisi']; ?></td>
                                     <td>
-                                        <a href="#" class="badge badge-danger" data-toggle="modal" data-target="#deleteModal<?= $us['id_divisi']; ?>">Hapus</a>
+                                        <a href="#" class="badge badge-danger" data-toggle="modal"
+                                            data-target="#deleteModal<?= $us['id_divisi']; ?>">Hapus</a>
                                     </td>
                                 </tr>
 
                                 <!-- Modal Konfirmasi Hapus -->
-                                <div class="modal fade" id="deleteModal<?= $us['id_divisi']; ?>" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel<?= $us['id_divisi']; ?>" aria-hidden="true">
+                                <div class="modal fade" id="deleteModal<?= $us['id_divisi']; ?>" tabindex="-1"
+                                    role="dialog" aria-labelledby="deleteModalLabel<?= $us['id_divisi']; ?>"
+                                    aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteModalLabel<?= $us['id_divisi']; ?>">Konfirmasi Hapus</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <h5 class="modal-title" id="deleteModalLabel<?= $us['id_divisi']; ?>">
+                                                    Konfirmasi Hapus</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
@@ -53,8 +59,10 @@
                                                 Apakah kamu yakin untuk menghapus data ini?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                <a href="<?= base_url('Parameter/hapusdiv/') . $us['id_divisi']; ?>" class="btn btn-danger">Hapus</a>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Batal</button>
+                                                <a href="<?= base_url('Parameter/hapusdiv/') . $us['id_divisi']; ?>"
+                                                    class="btn btn-danger">Hapus</a>
                                             </div>
                                         </div>
                                     </div>
@@ -70,6 +78,7 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 
 <script>

@@ -47,8 +47,15 @@ class Parameter extends SDA_Controller
 
 	public function hapusdok($id)
 	{
-		$this->Jenisdokumen_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		try {
+			// Coba hapus data
+			$this->Jenisdokumen_model->delete($id);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		} catch (Exception $e) {
+			// Tangani kesalahan foreign key constraint
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal menghapus data karena terkait dengan data lain!</div>');
+		}
+		
 		redirect('Parameter/indexdok');
 	}
 
@@ -79,8 +86,15 @@ class Parameter extends SDA_Controller
 
 	public function hapusproject($id)
 	{
-		$this->Jenisproject_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		try {
+			// Coba hapus data
+			$this->Jenisproject_model->delete($id);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		} catch (Exception $e) {
+			// Tangani kesalahan foreign key constraint
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal menghapus data karena terkait dengan data lain!</div>');
+		}
+		
 		redirect('Parameter/indexproj');
 	}
 
@@ -110,8 +124,15 @@ class Parameter extends SDA_Controller
 
 	public function hapusdiv($id)
 	{
-		$this->Namadivisi_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		try {
+			// Coba hapus data
+			$this->Namadivisi_model->delete($id);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		} catch (Exception $e) {
+			// Tangani kesalahan foreign key constraint
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal menghapus data karena terkait dengan data lain!</div>');
+		}
+		
 		redirect('Parameter/indexdiv');
 	}
 
@@ -142,8 +163,15 @@ class Parameter extends SDA_Controller
 
 	public function hapuseksternal($id)
 	{
-		$this->Jeniseksternal_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		try {
+			// Coba hapus data
+			$this->Jeniseksternal_model->delete($id);
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+		} catch (Exception $e) {
+			// Tangani kesalahan foreign key constraint
+			$this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal menghapus data karena terkait dengan data lain!</div>');
+		}
+		
 		redirect('Parameter/indexeks');
 	}
 
@@ -180,12 +208,19 @@ class Parameter extends SDA_Controller
 }
 
 
-	public function hapusapp($id)
-	{
-		$this->Jenisaplikasi_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
-		redirect('Parameter/indexapp');
-	}
+public function hapusapp($id)
+{
+    try {
+        // Coba hapus data
+        $this->Jenisaplikasi_model->delete($id);
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus!</div>');
+    } catch (Exception $e) {
+        // Tangani kesalahan foreign key constraint
+        $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal menghapus data karena terkait dengan data lain!</div>');
+    }
+    redirect('Parameter/indexapp');
+}
+
 
 
 

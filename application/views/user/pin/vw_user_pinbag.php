@@ -68,7 +68,7 @@
         </div>
     </div>
 </div>
-
+</div>
 <!-- Script untuk menangani aksi Hapus -->
 <script>
 // Menangkap semua elemen dengan class delete-btn

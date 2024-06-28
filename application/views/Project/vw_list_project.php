@@ -1,14 +1,6 @@
 <div class="col-md-12">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <div class="float-right">
-                <?php if ($user1['role'] == 'Planning') {   ?>
-                <a href="<?= base_url() ?>Project/tambahproject" class="btn btn-success btn-icon-split btn-sm">
-                    <span class="icon text-white-50">
-                        <i class="fas fa-plus-square"></i>
-                    </span>
-                    <span class="text">Tambah Data</span> </a><?php } ?>
-            </div>
             <h6 class="m-0 font-weight-bold text-primary">Tabel Proyek - Sedang Berlangsung</h6>
         </div>
         <div class="card-body">
@@ -78,22 +70,16 @@
                                 <?php $total=$brd+$fsd+$sit+$uat+$dev+$migrasi;
 																					$persen = ($total/6);?>
                                 <?php if($persen == 100){ ?>
-
-                                <a class="badge badge-success" style="pointer-events: none"><?php echo floor($persen);?>
-                                    %</a>
-
-                                <?php }else if ($persen <=99){?>
-                                <a class="badge badge-warning" style="pointer-events: none"><?php echo floor($persen);?>
-                                    %</a>
-
-                                <?php  
-																						}?>
-
-                                <?php }else{echo $total=0; 
-													}
-													
-														 
-														?>
+                                <a class="badge badge-success"
+                                    style="pointer-events: none"><?php echo floor($persen); ?>%</a>
+                                <?php } else if ($persen > 0 && $persen <= 99) { ?>
+                                <a class="badge badge-warning"
+                                    style="pointer-events: none"><?php echo floor($persen); ?>%</a>
+                                <?php } else { ?>
+                                <a class="badge badge-danger"
+                                    style="pointer-events: none"><?php echo floor($persen); ?>%</a>
+                                <?php } ?>
+                                <?php } ?>
                             </td>
                             <td><?= $pro['status']; ?></td>
                             <td><?= $pro['tahun']; ?></td>
@@ -103,9 +89,9 @@
                                     class="badge badge-secondary">Detail</a>
                                 <?php if ($user1['role'] == 'Pinbag') {   ?>
                                 <a href="<?= base_url('Project/hapusproject/'). $pro['id_project']; ?> "
-															class="badge badge-danger"
-															onclick="return confirm('Are you sure want to delete this?');"
-															class="ik ik-trash-2 text-red">Hapus</a>
+                                    class="badge badge-danger"
+                                    onclick="return confirm('Are you sure want to delete this?');"
+                                    class="ik ik-trash-2 text-red">Hapus</a>
                                 <?php } ?>
                             </td>
                         </tr>

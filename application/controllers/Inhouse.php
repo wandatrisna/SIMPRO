@@ -38,6 +38,7 @@ class Inhouse extends SDA_Controller
 	{
 		$data['inhouse'] = $this->Inhouse_model->getByNama($nama_in);
 		$data['nomor'] = $this->Inhouse_model->nomor();
+		//$data['nama_pic'] = $this->User_model->getById($data['inhouse']['pic_migrasi_in']);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$this->load->view('layout/header', $data);
 		$this->load->view('aplikasi/inhouse/vw_sub_inhouse', $data);
@@ -138,7 +139,7 @@ class Inhouse extends SDA_Controller
 			];
 
 			$this->Inhouse_model->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data successfully added!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
 			redirect('Inhouse');
 		}
 	}
@@ -282,6 +283,9 @@ class Inhouse extends SDA_Controller
 		$data['kode'] = $this->Inhouse_model->nomor();
 		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+		$data['nama_pic'] = $this->User_model->getById($data['inhouse']['pic_migrasi_in']);
+		$data['pic_email'] = $data['nama_pic']['email']; // Ambil email dari PIC
+
 		$this->load->helper('date');
 
 		$this->form_validation->set_rules('nomor_in', 'nomor_in', 'required', [
@@ -396,7 +400,7 @@ class Inhouse extends SDA_Controller
 			$id_in = $this->input->post('id_in');
 			if ($this->Inhouse_model->update(['id_in' => $id_in], $data)) {
 				$this->_sendEmail($user_email, $new_image1, $new_image2, $new_image3, $new_image4);
-				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil dan email sudah dikirimkan</div>');
 				redirect('Inhouse/detailinhouse/' . $id_in);
 
 			} else {
@@ -415,7 +419,7 @@ class Inhouse extends SDA_Controller
 	{
 		$data['inhouse1'] = $this->Inhouse_model->getById($id);
 		$data['kode'] = $this->Inhouse_model->nomor();
-		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
+		$data['jenisdokumen'] = $this->Jenisdokumen_model->get();
 		$data['namadivisi'] = $this->Namadivisi_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
@@ -462,7 +466,7 @@ class Inhouse extends SDA_Controller
 	public function hapusinhouse($id)
 	{
 		$this->Inhouse_model->delete($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Successfully deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Berhasil dihapus</div>');
 		redirect('Inhouse');
 	}
 

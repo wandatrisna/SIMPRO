@@ -48,6 +48,7 @@ class Eksternal extends SDA_Controller
 		//$this->check_session();
 		$data['eksternal'] = $this->Eksternal_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+		$data['nama_pic'] = $this->User_model->getById($data['eksternal']['pic_migrasi_eks']);
 		$this->load->view('layout/header', $data);
 		$this->load->view('aplikasi/eksternal/vw_detail_eksternal', $data);
 		$this->load->view('layout/footer', $data);
@@ -129,7 +130,7 @@ class Eksternal extends SDA_Controller
 				'hapus_eks' => $this->input->post('hapus_eks'),
 			];
 			$this->Eksternal_model->insert($data);
-			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">New data successfully added!</div>');
+			$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil ditambah</div>');
 			redirect('Eksternal');
 		}
 	}
@@ -197,7 +198,8 @@ class Eksternal extends SDA_Controller
 		$data['eksternal'] = $this->Eksternal_model->getById($id);
 		$data['jenisaplikasi'] = $this->Jeniseksternal_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-
+		$data['nama_pic'] = $this->User_model->getById($data['eksternal']['pic_migrasi_eks']);
+		$data['pic_email'] = $data['nama_pic']['email']; // Ambil email dari PIC
 		$this->load->helper('date');
 
 		$this->form_validation->set_rules('nomor_eks', 'nomor_eks', 'required', [
@@ -318,7 +320,7 @@ class Eksternal extends SDA_Controller
 			$id_eks = $this->input->post('id_eks');
 			if ($this->Eksternal_model->update(['id_eks' => $id_eks], $data)) {
 				$this->_sendEmail($user_email,  $new_image, $new_image1, $new_image2, $new_image3);
-				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasil!</div>');
+				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Ubah data berhasildan email sudah dikirimkan</div>');
 				redirect('Eksternal/detaileksternal/' . $id_eks);
 
 			} else {

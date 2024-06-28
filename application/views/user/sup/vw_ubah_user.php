@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <button type="submit" name="tambah" class="btn btn-primary float-right">Ubah Data</button>
+                            <button type="submit" name="tambah" class="btn btn-success float-right">Simpan Perubahan</button>
                         </div>
                 </div>
                 </form>

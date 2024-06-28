@@ -37,7 +37,7 @@
 
                         <div class="form-group row">
                             <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Migrasi)</strong></label>
-                            <div class="col-sm-8 col-form-label">: <?= $eksternal['pic_migrasi_eks']; ?></div>
+                            <div class="col-sm-8 col-form-label">:  <?= $nama_pic['nama'] ?></div>
                         </div>
 
                         <div class="form-group row">
@@ -108,7 +108,9 @@
 
                         <div class="form-group row">
                             <div class="col-md-12">
-                                <button type="submit" name="tambah" class="btn btn-success btn-round btn-block">Perbarui</button>
+                                <button type="submit" name="tambah" class="btn btn-success btn-round btn-block"
+                                data-toggle="modal"
+                                    data-target="#confirmModal">Perbarui</button>
                             </div>
                         </div>
 
@@ -133,3 +135,34 @@
         </div>
     </div>
 </div>
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Konfirmasi Pengiriman Dokumen</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Apakah dokumen sudah benar? Dokumen akan dikirimkan ke email <?= $pic_email; ?>.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                <button type="button" class="btn btn-primary" id="confirmSubmit">Kirim</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script>
+document.getElementById('confirmSubmit').addEventListener('click', function() {
+    document.querySelector('form').submit();
+});
+</script>
