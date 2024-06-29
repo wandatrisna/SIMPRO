@@ -7,7 +7,7 @@
                     Kembali</a>
             </div>
             <br>
-            <div class="card">
+            <div class="card" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); transition: 0.3s;">
                 <div class="card-header justify-content-center">
                     <h6 class="m-0 font-weight-bold text-primary">Perbarui Data Inhouse</h6>
                 </div>

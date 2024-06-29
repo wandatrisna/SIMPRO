@@ -88,7 +88,6 @@
                 </a>
             </li>
 
-
             <li
                 class="nav-item <?= $this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'tambah' ? ' active' : '' ?>">
                 <a class="nav-link" href="<?= base_url('User/index') ?>">
@@ -148,8 +147,8 @@
             </li>
 
 
-            <?php } else if ($user1['role'] == 'Planning') { ?>
 
+            <?php } else if ($user1['role'] == 'Planning') { ?>
             <li class="nav-item <?= $this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
@@ -157,8 +156,7 @@
                 </a>
             </li>
 
-            <li
-                class="nav-item <?= in_array($this->uri->segment(2), ['index', 'detaildash', 'editbrd', 'editfsd', 'detailfsd', 'detaildev', 'detailsit', 'detailbrd']) ? ' active' : '' ?>">
+            <li class="nav-item <?= in_array($this->uri->segment(2), ['index', 'detaildash', 'editbrd', 'editfsd', 'detailfsd', 'detaildev', 'detailsit', 'detailbrd', 'tambahproject']) ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('Project/index') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-clipboard"></i>
@@ -167,7 +165,7 @@
             </li>
 
             <li class="nav-item <?= in_array($this->uri->segment(2), [
-        'indexlistproject', 'indexhistory', 'detail', 'editproject', 'tambahproject', 'hapusproject', 
+        'indexlistproject', 'indexhistory', 'detail', 'editproject', 'hapusproject', 
         'detaildev', 'editdev', 'subdev', 'hapuskeg', 'ubahdev', 
         'detailsit', 'editsit', 'detailuat', 'edituat', 'detailmigrasi', 'editmigrasi'
     ]) ? ' active' : '' ?>">
@@ -178,7 +176,7 @@
                 </a>
                 <div id="collapsePages1"
                     class="collapse <?= $this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail' || $this->uri->segment(2) == 'detailhistory'
-								|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'tambahproject' || $this->uri->segment(2) == 'hapusproject'
+								|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'hapusproject'
 								|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
 								|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
 								|| $this->uri->segment(2) == 'subdev' || $this->uri->segment(2) == 'hapuskeg' || $this->uri->segment(2) == 'ubahdev'

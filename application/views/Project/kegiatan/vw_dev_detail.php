@@ -17,6 +17,7 @@
 										<div class="modal-body">
 											<div class="form-group row">
 											<input type="hidden" name="project_id" value="<?= $project1['id_project']; ?>"readonly>
+											<input type="hidden" name="updated_by" value="<?= $user1['NIK']; ?>">
                                             <!-- <input type="text" name="id_project" value="<?= set_value('id'); ?>" id="bobot"> -->
 												
 												<label class="col-sm-3 col-form-label">Nama Kegiatan</label>
@@ -100,7 +101,7 @@
 											<div class="modal-footer">
 												<button type="button" class="btn btn-secondary"
 													data-dismiss="modal">Close</button>
-												<button type="submit" class="btn btn-primary">Simpan</button>
+												<button type="submit" class="btn btn-success">Simpan</button>
 											</div>
 										</div>
 									</div>

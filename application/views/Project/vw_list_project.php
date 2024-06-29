@@ -1,6 +1,6 @@
 <div class="col-md-12">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
+<div class="card" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); transition: 0.3s;">
+<div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Tabel Proyek - Sedang Berlangsung</h6>
         </div>
         <div class="card-body">
@@ -68,7 +68,7 @@
 															
 															?>
                                 <?php $total=$brd+$fsd+$sit+$uat+$dev+$migrasi;
-																					$persen = ($total/6);?>
+								$persen = ($total/6);?>
                                 <?php if($persen == 100){ ?>
                                 <a class="badge badge-success"
                                     style="pointer-events: none"><?php echo floor($persen); ?>%</a>

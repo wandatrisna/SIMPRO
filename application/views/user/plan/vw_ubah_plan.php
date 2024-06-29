@@ -4,7 +4,7 @@
         <div class="col-md-12 ">
             <a href="<?= base_url() ?>User/indexuserplanning" class="btn btn-secondary">Kembali</a>
             <br><br>
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header justify-content-center">
                     Ubah Data Pengguna
                 </div>

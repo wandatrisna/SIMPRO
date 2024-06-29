@@ -40,7 +40,7 @@
                                     <input type="hidden" name="password1" value="<?= $user1['password']; ?>">
                                     <input type="hidden" name="password2" value="<?= $user1['password']; ?>">
                                     <div class="col-md-12">
-                                        <button type="submit" name="tambah" class="btn btn-primary float">Perbarui</button>
+                                        <button type="submit" name="tambah" class="btn btn-success float">Perbarui Foto</button>
                                     </div>
                                 </div>
                             </div>

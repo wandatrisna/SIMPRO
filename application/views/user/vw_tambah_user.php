@@ -15,9 +15,10 @@
         <div class="col-md-12 ">
             <a href="<?= base_url() ?>User/" class="btn btn-secondary">Kembali</a>
             <br><br>
-            <div class="card">
+            <!-- Card dengan shadow -->
+            <div class="card shadow">
                 <div class="card-header justify-content-center">
-                    <strong>Tambah Data Baru</strong>
+                    Tambah Data Baru
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
@@ -66,7 +67,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <button type="submit" name="tambah" class="btn btn-success float-right">Simpan</button>
+                            <button type="submit" name="tambah" class="btn btn-success float-right">Simpan Data Data</button>
                         </div>
                     </form>
                 </div>
@@ -86,7 +87,7 @@
         </button>
       </div>
       <div class="modal-body">
-        Apakah email <span id="emailConfirm"></span> sudah sesuai? Kata sandi akan dikirimkan ke email ini.
+        Apakah email <span id="emailConfirm"></span> sudah sesuai? Kata sandi akan dikirim ke email ini.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

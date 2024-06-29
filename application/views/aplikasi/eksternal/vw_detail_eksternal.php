@@ -8,12 +8,13 @@
                     class="btn btn-secondary">Kembali</a>
             </div>
             <?php } elseif ($user1['role'] == 'Support' | $user1['role'] == 'Development') { ?>
-                <div class="float">
+            <div class="float">
                 <a href="<?= base_url() ?>Eksternal/sup_indexeksternal" class="btn btn-secondary">Kembali</a>
             </div>
             <?php } ?>
             <br>
-            <div class="card" style="background-color: white;">
+            <div class="card"
+                style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); transition: 0.3s;">
                 <div class="card-header justify-content-center text-primary">
                     <h6 class="m-0 font-weight-bold text-primary">Detail Eksternal</h6>
                 </div>
@@ -43,10 +44,10 @@
                                 <label class="col-sm-4 col-form-label"><strong>&emsp;PMF Oleh</strong></label>
                                 <div class="col-sm-8 col-form-label">: <?= $eksternal['pmf_by_eks']; ?></div>
                             </div>
-							<div class="form-group row">
-								<label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Migrasi)</strong></label>
-								<div class="col-sm-8 col-form-label">: <?= $nama_pic['nama'] ?></div>
-							</div>
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label"><strong>&emsp;PIC (Migrasi)</strong></label>
+                                <div class="col-sm-8 col-form-label">: <?= $nama_pic['nama'] ?></div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-sm-4 col-form-label"><strong>&emsp;Form PMF</strong></label>
                                 <div class="col-sm-8 col-form-label">
@@ -135,8 +136,8 @@
                             <a href="<?= base_url('Eksternal/editeksternal/'). $eksternal['id_eks']; ?>"
                                 class="btn btn-success btn-round btn-block">Perbarui Data (Dokumen)</a>
                         </div>
-						<?php } elseif ($user1['role'] == 'Support' | $user1['role'] == 'Development') { ?>
-                            <div class="col-md-12">
+                        <?php } elseif ($user1['role'] == 'Support' | $user1['role'] == 'Development') { ?>
+                        <div class="col-md-12">
                             <a href="<?= base_url('Eksternal/sup_editeksternal/'). $eksternal['id_eks']; ?>"
                                 class="btn btn-success btn-round btn-block">Perbarui Data</a>
                         </div>

@@ -1,6 +1,6 @@
 <div class="col-md-12">
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
+<div class="card" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); transition: 0.3s;">
+<div class="card-header py-3">
             <?php if ($user1['role'] == 'Planning') {   ?>
             <div class="float-right">
                 <a href="<?= base_url() ?>Eksternal/tambaheksternal" class="btn btn-success btn-icon-split btn-sm">

@@ -4,9 +4,10 @@
 <br>
 
 <div class="col-md-12">
-    <div class="card shadow mb-4">
+    <div class="card" style="background-color: white; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); transition: 0.3s;">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Detail Eksternal: Aplikasi <?= $eksternal[0]['nama_eks']; ?></h6>
+            <h6 class="m-0 font-weight-bold text-primary">Detail Eksternal: Aplikasi <?= $eksternal[0]['nama_eks']; ?>
+            </h6>
         </div>
         <div class="card-body">
             <?= $this->session->flashdata('message') ?>

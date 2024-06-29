@@ -7,27 +7,48 @@
     <title>New Application Form</title>
     <!-- Load jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+    .card {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 5px;
+    }
+
+    .card-header {
+        background-color: #f8f9fc;
+        padding: 10px 20px;
+        border-bottom: 1px solid #e3e6f0;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+    </style>
     <script>
     $(document).ready(function() {
         $('#role').change(function() {
             var role = $(this).val();
-            // alert(role);
-            var selectedRole = $(this).val(); // Ubah 'department' menjadi 'role'
+            var selectedRole = $(this).val();
             if (selectedRole === "Development" || selectedRole === "Support") {
                 $.ajax({
-                    url: '<?php echo base_url("Inhouse/get_user"); ?>', // Sesuaikan dengan nama controller Anda
+                    url: '<?php echo base_url("Inhouse/get_user"); ?>',
                     type: 'post',
                     data: {
                         role: selectedRole
-                    }, // Ubah 'department' menjadi 'role'
+                    },
                     dataType: 'json',
                     success: function(response) {
                         var len = response.length;
                         $("#pic_migrasi_in").empty();
                         for (var i = 0; i < len; i++) {
                             var id = response[i]['id_user'];
-                            var nama = response[i][
-                            'nama']; // Sesuaikan dengan nama kolom di tabel user
+                            var nama = response[i]['nama'];
                             $("#pic_migrasi_in").append("<option value='" + id + "'>" +
                                 nama + "</option>");
                         }
@@ -37,9 +58,8 @@
         });
         $(document).on('change', '.row .rile', function() {
             var id = $(this).val();
-            var parentRow = $(this).closest('.row'); // Dapatkan elemen .row terdekat
-            var stasiunDropdown = parentRow.find(
-            '.stasiun'); // Cari dropdown stasiun di dalam baris tersebut
+            var parentRow = $(this).closest('.row');
+            var stasiunDropdown = parentRow.find('.stasiun');
 
             data = {
                 [`${csrf}`]: csrf_hash,
@@ -68,26 +88,21 @@
 </head>
 
 <body>
-
-    <!-- Begin Page Content -->
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <a href="<?= base_url() ?>Inhouse" class="btn btn-secondary">Kembali</a>
-                <br><br>
+
                 <div class="card">
                     <div class="card-header justify-content-center text-primary">
-                        <h6 class="m-0 font-weight-bold text-primary">Tambah Data Inhouser</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Tambah Data Inhouse</h6>
                     </div>
-                </div>
-                <div class="card-body">
-                    <form action="" method="POST">
-                        <div class="form-group">
-
+                    <div class="card-body">
+                        <form action="" method="POST">
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Nomor Dokumen</label>
                                 <div class="col-sm-10">
-                                    <input type="nomor_in" name="nomor_in" class="form-control form-control-user"
+                                    <input type="text" name="nomor_in" class="form-control"
                                         value="<?php echo $nomor; ?>" id="nomor_in" readonly>
                                 </div>
                             </div>
@@ -168,7 +183,6 @@
                                 </div>
                             </div>
 
-                            <!-- Tujuan Migrasi -->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Tujuan Migrasi</label>
                                 <div class="col-sm-10">
@@ -176,21 +190,17 @@
                                         <option value="">Pilih Tujuan Migrasi..</option>
                                         <option value="Development">IT Development</option>
                                         <option value="Support">IT Support</option>
-                                        <!-- Add other options if needed -->
                                     </select>
                                 </div>
                             </div>
 
-                            <!-- PIC Migrasi -->
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">PIC Migrasi</label>
                                 <div class="col-sm-10">
                                     <select name="pic_migrasi_in" class="form-control" id="pic_migrasi_in">
-                                        <!-- Options will be loaded dynamically based on selected Tujuan Migrasi -->
                                     </select>
                                 </div>
                             </div>
-
 
                             <div class="form-group row">
                                 <label class="col-sm-2 col-form-label">Owner</label>
@@ -223,16 +233,15 @@
 
                             <input type="hidden" name="hapus_in" class="form-control" id="hapus_in" value="1">
 
-
                             <div class="col-md-12">
-                                <button type="submit" name="tambah" class="btn btn-success float-right">Simpan
-                                </button>
+                                <button type="submit" name="tambah" class="btn btn-success float-right">Simpan Data</button>
                             </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    </div><br>
-    <br>
-    </div>
+</body>
+
+</html>

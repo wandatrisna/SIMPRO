@@ -303,7 +303,7 @@
                                                                         <div class="modal-footer">
                                                                             <button type="button"
                                                                                 class="btn btn-secondary"
-                                                                                data-dismiss="modal">Tutup`</button>
+                                                                                data-dismiss="modal">Tutup</button>
                                                                             <button type="submit"
                                                                                 onclick="validateForm()"
                                                                                 class="btn btn-success">Perbarui</button>

@@ -1,10 +1,10 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="col-md-12 ">
+        <div class="col-md-12">
             <a href="<?= base_url() ?>User/indexuserpinbag" class="btn btn-secondary">Kembali</a>
             <br><br>
-            <div class="card">
+            <div class="card shadow">
                 <div class="card-header justify-content-center">
                     Ubah Data Pengguna
                 </div>
@@ -13,12 +13,9 @@
                         <input type="hidden" name="id_user" value="<?= $user['id_user']; ?>">
 
                         <div class="form-group">
-                            <div class="form-group">
-                                <label class="col-sm-2 col-form-label">Gambar</label>
-                                <img src="<?= base_url('assets/images/profile/') . $user['gambar']; ?>"
-                                    style="width : 250px;" class="img-thumbnail">
-                                <label for="gambar"> </label>
-                            </div>
+                            <label class="col-sm-2 col-form-label">Gambar</label>
+                            <img src="<?= base_url('assets/images/profile/') . $user['gambar']; ?>"
+                                style="width: 250px;" class="img-thumbnail">
                         </div>
 
                         <div class="form-group row">
@@ -38,18 +35,17 @@
                             </div>
                         </div>
 
-
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Sub Divisi</label>
                             <div class="col-sm-10">
                                 <select name="role" class="form-control form-control-user" id="role">
                                     <?php foreach ($role as $p) : ?>
-                                    <?php if($p['role'] == 'Pinbag'){ ?>
-                                    <option value="<?= $p['role']; ?>" selected> <?=  $p['role']; ?>
-                                        <?php }else{ ?>
-                                    <option value="<?= $p['role']; ?>"> <?=  $p['role']; ?>
+                                        <?php if($p['role'] == 'Pinbag'){ ?>
+                                            <option value="<?= $p['role']; ?>" selected><?=  $p['role']; ?></option>
+                                        <?php } else { ?>
+                                            <option value="<?= $p['role']; ?>"><?=  $p['role']; ?></option>
                                         <?php } ?>
-                                        <?php endforeach; ?>
+                                    <?php endforeach; ?>
                                 </select>
                                 <?= form_error('role','<small class="text-danger pl-3">','</small>'); ?>
                             </div>
@@ -74,10 +70,9 @@
                         <div class="col-md-12">
                             <button type="submit" name="tambah" class="btn btn-success float-right">Simpan Perubahan</button>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </div>
-</div>
 </div>

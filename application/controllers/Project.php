@@ -28,6 +28,7 @@ class Project extends SDA_Controller
 	{
 		////$this->check_session();
 		$data['user'] = $this->User_model->get();
+		$data['tahun'] = $this->Project_model->getTahun(); // Pastikan ini mengambil data tahun
 		$data['project'] = $this->Project_model->get();
 		$data['progrespro'] = $this->Project_model->progresproject();
 		$data['donepro'] = $this->Project_model->doneproject();
@@ -39,20 +40,25 @@ class Project extends SDA_Controller
 		$this->load->view('project/vw_dashboard', $data);
 		$this->load->view('layout/footer', $data);
 	}
+
+
 	public function print()
 	{
-		$data['user'] = $this->User_model->get();
-		$data['project'] = $this->Project_model->project_lengkap();
-		// var_dump($data['project']);
-		// die;
-		$data['progrespro'] = $this->Project_model->progresproject();
-		$data['donepro'] = $this->Project_model->doneproject();
-		$data['allpro'] = $this->Project_model->all();
-		$data['stat'] = $this->Project_model->status();
-		$data['dev'] = $this->Development_model->get();
-		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
-		$this->load->view('project/print', $data);
-	}
+    $tahun = $this->input->post('tahun'); // Mengambil tahun dari form
+    $data['user'] = $this->User_model->get();
+    $data['project'] = $this->Project_model->project_lengkap($tahun); // Mengirimkan tahun ke fungsi model
+    $data['tahun'] = $this->Project_model->getTahun(); 
+    $data['progrespro'] = $this->Project_model->progresproject();
+    $data['donepro'] = $this->Project_model->doneproject();
+    $data['allpro'] = $this->Project_model->all();
+    $data['stat'] = $this->Project_model->status();
+    $data['dev'] = $this->Development_model->get();
+    $data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
+    
+    // Load view dengan data yang dikirim
+    $this->load->view('project/print', $data);
+	}	
+
 	public function done()
 	{
 		$data['user'] = $this->User_model->get();
@@ -140,20 +146,29 @@ class Project extends SDA_Controller
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
 		$this->form_validation->set_rules('namaaplikasi', 'namaaplikasi', 'required', [
-			'required' => 'Required'
+			'required' => 'Nama aplikasi harus diisi'
 		]);
 		$this->form_validation->set_rules('jenisproject', 'jenisproject', 'required', [
-			'required' => 'Required'
+			'required' => 'Jenis proyek harus dipilih'
 		]);
 		$this->form_validation->set_rules('jenisaplikasi', 'jenisaplikasi', 'required', [
-			'required' => 'Required'
+			'required' => 'Jenis aplikasi harus dipilih'
+		]);
+		$this->form_validation->set_rules('tahun', 'tahun', 'required', [
+			'required' => 'Tahun harus dipilih'
 		]);
 		$this->form_validation->set_rules('target', 'target', 'required', [
-			'required' => 'Required'
+			'required' => 'Target harus dipilih'
+		]);
+		$this->form_validation->set_rules('tanggalregister', 'tanggalregister', 'required', [
+			'required' => 'Tanggal harus dipilih'
 		]);
 		// $this->form_validation->set_rules('urf', 'urf', 'required', [
-		// 	'required' => 'Target Selesai tidak boleh kosong'
+		// 	'required' => 'Dokumen harus diunggah'
 		// ]);
+		$this->form_validation->set_rules('keterangan', 'keterangan', 'required', [
+			'required' => 'Keterangan harus diisi'
+		]);
 		if ($this->form_validation->run() == false) {
 			$this->load->view("layout/header", $data);
 			$this->load->view("Project/vw_tambah_project", $data);
@@ -185,6 +200,9 @@ class Project extends SDA_Controller
 					'urf' => $filename,
 					'date_created' => time(),
 					'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
+					'status' => 'Not Started',
+					'keterangan' => $this->input->post('keterangan'),
+					'updated_by' => $this->input->post('updated_by'),
 				);
 				$this->Project_model->insert($data);
 				$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data baru berhasil ditambahkan!</div>');
@@ -206,6 +224,11 @@ class Project extends SDA_Controller
 		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['hitung'] = $this->Project_model->hitung();
+		if (!empty($data['project1']['updated_by'])) {
+			$data['project1']['updated_by_name'] = $this->User_model->getUserNameByNIK($data['project1']['updated_by']);
+		} else {
+			$data['project1']['updated_by_name'] = 'N/A';
+		}
 		$this->load->view('layout/header', $data);
 		$this->load->view('project/vw_detail_project', $data);
 		$this->load->view('layout/footer', $data);
@@ -224,6 +247,12 @@ class Project extends SDA_Controller
 		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['hitung'] = $this->Project_model->hitung();
+
+		if (!empty($data['project1']['updated_by'])) {
+			$data['project1']['updated_by_name'] = $this->User_model->getUserNameByNIK($data['project1']['updated_by']);
+		} else {
+			$data['project1']['updated_by_name'] = 'N/A';
+		}
 		$this->load->view('layout/header', $data);
 		$this->load->view('project/vw_detail_project_history', $data);
 		$this->load->view('layout/footer', $data);
@@ -296,7 +325,8 @@ class Project extends SDA_Controller
 			'target' => $this->input->post('target'),
 			'tanggalregister' => $this->input->post('tanggalregister'),
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
-			'updated_by' => $updated_by // Simpan informasi pengguna yang melakukan perubahan
+			'updated_by' => $this->input->post('updated_by'),
+ // Simpan informasi pengguna yang melakukan perubahan
 		);
 
 		$upload_image = $_FILES['urf']['name'];
@@ -321,7 +351,7 @@ class Project extends SDA_Controller
 		log_message('debug', 'Data yang akan diupdate: ' . print_r($data, TRUE));
 
 		$this->Project_model->ubah($data, $id);
-		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Berhasil ubah data</div>');
 		redirect('project/detaildash/' . $id);
 	}
 
@@ -376,7 +406,7 @@ class Project extends SDA_Controller
 			'actualendatebrd' => $this->input->post('actualendatebrd'),
 			'status' => 'Last Changed BRD',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
-			'updated_by' => $updated_by
+			'updated_by' => $this->input->post('updated_by'),
 		);
 		$upload_image = $_FILES['filebrd']['name'];
 		if ($upload_image) {
@@ -396,7 +426,7 @@ class Project extends SDA_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert">Berhasil mengubah data</div>');
 		redirect('project/detailbrd/' . $id);
 	}
 
@@ -424,7 +454,8 @@ class Project extends SDA_Controller
 			'actualendatefsd' => $this->input->post('actualendatefsd'),
 			'status' => 'Last Changed FSD',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
-			'updated_by' => $updated_by
+			'updated_by' => $this->input->post('updated_by'),
+
 		);
 		$upload_image = $_FILES['filefsd']['name'];
 		if ($upload_image) {
@@ -444,7 +475,7 @@ class Project extends SDA_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button></div>');
+		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert">Berhasil mengubah data</div>');
 		redirect('project/detailfsd/' . $id);
 	}
 
@@ -519,7 +550,7 @@ class Project extends SDA_Controller
 				// die();
 
 				$this->Development_model->insert($data);
-				$this->session->set_flashdata('acc', 'Successfully Added Activity!');
+				$this->session->set_flashdata('acc', 'Data Activity berhasil ditambah');
 			} else {
 				$this->session->set_flashdata('err', 'Progress is not more than value!');
 			}
@@ -549,7 +580,8 @@ class Project extends SDA_Controller
 			'allowed_types' => 'gif|jpg|png|jpeg|pdf',
 			'overwrite' => TRUE,
 			'max_size' => "2048000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
-			'updated_by' => $updated_by
+			'updated_by' => $this->input->post('updated_by'),
+
 		);
 
 		$this->load->library('upload', $config);
@@ -595,8 +627,7 @@ class Project extends SDA_Controller
 	{
 		$idd = $this->Development_model->getidd($id);
 		$this->Development_model->deletekeg($id);
-		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">
-		Successfully Deleted!</div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus</div>');
 		redirect('Project/detaildev/' . $idd->project_id);
 	}
 
@@ -683,7 +714,8 @@ class Project extends SDA_Controller
 			'actualendatesit' => $this->input->post('actualendatesit'),
 			'status' => 'Last Changed SIT',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
-			'updated_by' => $updated_by
+			'updated_by' => $this->input->post('updated_by'),
+
 		);
 		$upload_image = $_FILES['filesit']['name'];
 		if ($upload_image) {
@@ -703,7 +735,7 @@ class Project extends SDA_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data berhasil dihapus</div>');
 		redirect('project/detailsit/' . $id);
 	}
 
@@ -731,7 +763,8 @@ class Project extends SDA_Controller
 			'actualendateuat' => $this->input->post('actualendateuat'),
 			'status' => 'Last Changed UAT',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
-			'updated_by' => $updated_by
+			'updated_by' => $this->input->post('updated_by'),
+
 		);
 		$upload_image = $_FILES['fileuat']['name'];
 		if ($upload_image) {
@@ -751,7 +784,7 @@ class Project extends SDA_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Berhasil mengubah data</div>');
 		redirect('project/detailuat/' . $id);
 	}
 
@@ -780,7 +813,8 @@ class Project extends SDA_Controller
 			'actualendatemigrasi' => $this->input->post('actualendatemigrasi'),
 			'status' => 'Last Changed Migrasi',
 			'last_updated_time' => mdate('%Y-%m-%d %H:%i:%s', now()),
-			'updated_by' => $updated_by
+			'updated_by' => $this->input->post('updated_by'),
+
 		);
 		$upload_image = $_FILES['filemigrasi']['name'];
 		if ($upload_image) {
@@ -800,7 +834,7 @@ class Project extends SDA_Controller
 			}
 		}
 		$this->Project_model->ubah($data, $id, $upload_image);
-		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Successfully Updated! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+		$this->session->set_flashdata('notif', '<div class="alert alert-success" role="alert"> Berhasil mengubah data</div>');
 		redirect('project/detailmigrasi/' . $id);
 	}
 }
