@@ -100,7 +100,7 @@
 						$this->uri->segment(2) == 'indexusersupport' || $this->uri->segment(2) == 'indexuserpinbag' ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-fw fa-user"></i>
                     <span>Sub Divisi TSI</span>
                 </a>
                 <div id="collapsePages" class="collapse <?= $this->uri->segment(2) == 'indexuserplanning' || $this->uri->segment(2) == 'indexuserdevelopment' ||
@@ -147,7 +147,7 @@
             </li>
 
 
-
+            <!-- //PLANNING -->
             <?php } else if ($user1['role'] == 'Planning') { ?>
             <li class="nav-item <?= $this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
@@ -156,7 +156,7 @@
                 </a>
             </li>
 
-            <li class="nav-item <?= in_array($this->uri->segment(2), ['index', 'detaildash', 'editbrd', 'editfsd', 'detailfsd', 'detaildev', 'detailsit', 'detailbrd', 'tambahproject']) ? ' active' : '' ?>">
+            <li class="nav-item <?= in_array($this->uri->segment(2), ['index', 'tambahproject']) ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="<?= base_url('Project/index') ?>" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-clipboard"></i>
@@ -165,23 +165,23 @@
             </li>
 
             <li class="nav-item <?= in_array($this->uri->segment(2), [
-        'indexlistproject', 'indexhistory', 'detail', 'editproject', 'hapusproject', 
-        'detaildev', 'editdev', 'subdev', 'hapuskeg', 'ubahdev', 
-        'detailsit', 'editsit', 'detailuat', 'edituat', 'detailmigrasi', 'editmigrasi'
-    ]) ? ' active' : '' ?>">
+                'indexlistproject', 'indexhistory', 'detail', 'detailhistory', 'editproject', 'hapusproject', 'detailbrd', 'detailfsd', 'detaildev', 
+                'subdev', 'editbrd', 'editfsd', 'detailsit', 'editsit', 'detailuat', 'edituat', 'detailmigrasi', 'editmigrasi'
+            ]) ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages1"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-list"></i>
+                    <i class="fas fa-tasks"></i>
                     <span>Proyek</span>
                 </a>
+
                 <div id="collapsePages1"
                     class="collapse <?= $this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detail' || $this->uri->segment(2) == 'detailhistory'
-								|| $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'hapusproject'
-								|| $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
-								|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
-								|| $this->uri->segment(2) == 'subdev' || $this->uri->segment(2) == 'hapuskeg' || $this->uri->segment(2) == 'ubahdev'
-								|| $this->uri->segment(2) == 'detailsit' || $this->uri->segment(2) == 'editsit' || $this->uri->segment(2) == 'detailuat'
-								|| $this->uri->segment(2) == 'edituat' || $this->uri->segment(2) == 'detailmigrasi' || $this->uri->segment(2) == 'editmigrasi' ? ' show' : '' ?>"
+            || $this->uri->segment(2) == 'editproject' || $this->uri->segment(2) == 'hapusproject'
+            || $this->uri->segment(2) == 'detailbrd' || $this->uri->segment(2) == 'editbrd' || $this->uri->segment(2) == 'detailfsd'
+            || $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
+            || $this->uri->segment(2) == 'subdev' || $this->uri->segment(2) == 'hapuskeg' || $this->uri->segment(2) == 'ubahdev'
+            || $this->uri->segment(2) == 'detailsit' || $this->uri->segment(2) == 'editsit' || $this->uri->segment(2) == 'detailuat'
+            || $this->uri->segment(2) == 'edituat' || $this->uri->segment(2) == 'detailmigrasi' || $this->uri->segment(2) == 'editmigrasi' ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Proyek :</h6>
@@ -190,7 +190,9 @@
                         <a class="collapse-item <?= $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detailhistory' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexhistory') ?>">Riwayat</a>
                     </div>
+                </div>
             </li>
+
 
             <li class="nav-item <?= $this->uri->segment(1) == 'Inhouse' || $this->uri->segment(1) == 'Eksternal'
 							|| $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'subeksternal'
@@ -198,7 +200,7 @@
 							|| $this->uri->segment(2) == 'editinhouse' || $this->uri->segment(2) == 'editeksternal' ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-list"></i>
+                    <i class="fas fa-envelope"></i>
                     <span>Migrasi Aplikasi</span>
                 </a>
 

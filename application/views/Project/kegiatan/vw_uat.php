@@ -7,9 +7,14 @@
                         <div class="main-body">
                             <div class="page-wrapper">
                                 <div class="page-body">
-                                    <div class="float">
-                                        <a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
-                                            class="btn btn-secondary mb-2">Kembali</a>
+                                <div class="float">
+                                        <?php $previous_url = $this->session->userdata('previous_url'); ?>
+                                        <?php if ($previous_url): ?>
+                                        <a href="<?= $previous_url ?>" class="btn btn-secondary">Kembali</a>
+                                        <?php else: ?>
+                                        <a href="javascript:history.back()" class="btn btn-secondary">Kembali</a>
+                                        <?php endif; ?>
+                                        
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">

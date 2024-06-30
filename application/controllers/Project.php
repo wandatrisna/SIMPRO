@@ -14,6 +14,7 @@ class Project extends SDA_Controller
 		$this->load->model('Development_model');
 		$this->load->model('Sub_model');
 		$this->load->helper('url');
+		$this->load->library('user_agent'); 
 		$this->requiredLogin();
 		preventAccessPengguna(
 			array(
@@ -224,15 +225,22 @@ class Project extends SDA_Controller
 		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['hitung'] = $this->Project_model->hitung();
+		
 		if (!empty($data['project1']['updated_by'])) {
 			$data['project1']['updated_by_name'] = $this->User_model->getUserNameByNIK($data['project1']['updated_by']);
 		} else {
 			$data['project1']['updated_by_name'] = 'N/A';
 		}
+		
+		$this->session->set_userdata('previous_url', current_url());
+
+		$data['content_view'] = 'Project/detail';
 		$this->load->view('layout/header', $data);
 		$this->load->view('project/vw_detail_project', $data);
 		$this->load->view('layout/footer', $data);
 	}
+
+
 
 	public function detailhistory($id)
 	{
@@ -247,16 +255,21 @@ class Project extends SDA_Controller
 		$data['jenisaplikasi'] = $this->Jenisaplikasi_model->get();
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 		$data['hitung'] = $this->Project_model->hitung();
-
+		
 		if (!empty($data['project1']['updated_by'])) {
 			$data['project1']['updated_by_name'] = $this->User_model->getUserNameByNIK($data['project1']['updated_by']);
 		} else {
 			$data['project1']['updated_by_name'] = 'N/A';
 		}
+		
+		$this->session->set_userdata('previous_url', current_url());
+
+		$data['content_view'] = 'Project/detailhistory';
 		$this->load->view('layout/header', $data);
 		$this->load->view('project/vw_detail_project_history', $data);
 		$this->load->view('layout/footer', $data);
 	}
+
 
 	public function detailall($id)
 	{
@@ -437,10 +450,23 @@ class Project extends SDA_Controller
 		$data['project1'] = $this->Project_model->getById($id);
 		$data['user1'] = $this->db->get_where('user', ['NIK' => $this->session->userdata('NIK')])->row_array();
 
+		if (!$data['project1']) {
+			show_404(); // Tampilkan halaman 404 jika project tidak ditemukan
+		}
+
+		// Simpan URL sebelumnya ke session
+		$this->session->set_userdata('previous_url', $this->agent->referrer());
+
+		// Debug log
+		log_message('debug', 'Detail FSD Project Data: ' . print_r($data['project1'], TRUE));
+		log_message('debug', 'Previous URL: ' . $this->session->userdata('previous_url'));
+
 		$this->load->view("layout/header", $data);
 		$this->load->view("Project/kegiatan/vw_fsd", $data);
 		$this->load->view("layout/footer");
 	}
+
+
 	public function editfsd()
 	{
 		$this->load->helper('date');

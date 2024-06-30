@@ -1,8 +1,14 @@
 <div class="col-md-12">
     <div class="float">
+        <?php
+                                            $previous_url = $this->session->userdata('previous_url');
+                                            ?>
+        <a href="<?= $previous_url ?>" class="btn btn-secondary">Kembali</a>
+    </div>
+    <!-- <div class="float">
         <a href="<?= base_url('Project/detail/'). $project1['id_project']; ?>"
             class="btn btn-secondary mb-2">Kembali</a>
-    </div>
+    </div> -->
 
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -83,12 +89,12 @@
 
                             <td>
                                 <center>
-                                    
+
                                     <a href="javascript:;" data-toggle="modal"
                                         data-target="#subdevModal_<?php echo $d->id ?>">
                                         <button class="badge badge-primary">Detail Sub-Activity</button>
                                     </a>
-									<?php if ($user1['role'] == 'Development') {   ?>
+                                    <?php if ($user1['role'] == 'Development') {   ?>
                                     <a href="javascript:;" data-id="<?php echo $d->id ?>"
                                         data-idpro="<?php echo $d->project_id ?>"
                                         data-namakeg="<?php echo $d->namakeg ?>" data-bobot="<?php echo $d->bobot ?>"
@@ -147,7 +153,8 @@
                                         <div class="col-sm-10">
                                             <input type="number" name="bobot" class="form-control form-control-user"
                                                 value="" id="bobot" max=60 title="Bobot maksimal adalah 60">
-												<small class="text-danger">Bobot tidak boleh lebih dari 60</small> <!-- Tulisan kecil merah -->
+                                            <small class="text-danger">Bobot tidak boleh lebih dari 60</small>
+                                            <!-- Tulisan kecil merah -->
                                             <?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                     </div>
@@ -245,8 +252,9 @@
                                         <div class="col-sm-10">
                                             <input type="number" name="bobot" class="form-control form-control-user"
                                                 value="<?= set_value('bobot'); ?>" id="bobot"
-                                                placeholder="Masukkan bobot" >
-												<small class="text-danger">Bobot tidak boleh lebih besar dari bobot activity induk</small> <!-- Tulisan kecil merah -->
+                                                placeholder="Masukkan bobot">
+                                            <small class="text-danger">Bobot tidak boleh lebih besar dari bobot activity
+                                                induk</small> <!-- Tulisan kecil merah -->
                                             <?= form_error('bobot', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                     </div>
@@ -331,12 +339,13 @@
                                 <div class="modal-body">
                                     <input type="hidden" name="id_project">
                                     <input type="hidden" name="updated_by" value="<?= $user1['NIK']; ?>">
-                                    <div class="form-group row">									
+                                    <div class="form-group row">
                                         <label class="col-sm-3 col-form-label">Bobot</label>
-                                        <div class="col-sm-9">								
+                                        <div class="col-sm-9">
                                             <input type="number" name="bobotbrd" class="form-control" id="bobotbrd"
                                                 value="<?php echo $d->bobot; ?>">
-												<small class="text-danger">Bobot total tidak boleh lebih dari 60</small> <!-- Tulisan kecil merah -->
+                                            <small class="text-danger">Bobot total tidak boleh lebih dari 60</small>
+                                            <!-- Tulisan kecil merah -->
                                             <?= form_error('bobotbrd', '<small class="text-danger pl-3">', '</small>'); ?>
                                         </div>
                                     </div>

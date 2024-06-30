@@ -7,15 +7,19 @@
                         <div class="main-body">
                             <div class="page-wrapper">
                                 <div class="page-body">
+
                                     <div class="float">
-                                        <a href="<?= base_url('Project/detail/') . $project1['id_project']; ?>"
-                                            class="btn btn-secondary mb-2">Kembali</a>
+                                        <?php
+                                            $previous_url = $this->session->userdata('previous_url');
+                                            ?>
+                                        <a href="<?= $previous_url ?>" class="btn btn-secondary">Kembali</a>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="card shadow mb-4">
                                                 <div class="card-header py-3">
-                                                    <h4 class="title"><strong>Business Requirement Document (BRD)</strong></h4><br>
+                                                    <h4 class="title"><strong>Business Requirement Document
+                                                            (BRD)</strong></h4><br>
                                                     <div class="card-header-right">
                                                         <i class="icofont icofont-spinner-alt-5"></i>
                                                         <div class="float-right">
@@ -34,7 +38,7 @@
                                                                     <button data-toggle="modal" data-target="#ubah-data"
                                                                         class="btn btn-success">Perbarui</button>
                                                                 </a>
-                                                            <?php } ?>
+                                                                <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="card-block">
@@ -70,7 +74,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Perencanaan Tanggal Mulai</strong>
+                                                                                <strong>Perencanaan Tanggal
+                                                                                    Mulai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -83,7 +88,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Perencanaan Tanggal Selesai</strong>
+                                                                                <strong>Perencanaan Tanggal
+                                                                                    Selesai</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -125,7 +131,8 @@
                                                                     <td>
                                                                         <div class="task-contain">
                                                                             <p class="d-inline-block m-l-20">
-                                                                                <strong>Dokumen (Oleh IT Planning)</strong>
+                                                                                <strong>Dokumen (Oleh IT
+                                                                                    Planning)</strong>
                                                                             </p>
                                                                         </div>
                                                                     </td>
@@ -144,7 +151,8 @@
                                                         </table>
                                                     </div>
                                                 </div>
-                                                <form action="<?= base_url('Project/editbrd/') . $project1['id_project']; ?>"
+                                                <form
+                                                    action="<?= base_url('Project/editbrd/') . $project1['id_project']; ?>"
                                                     method="POST" enctype="multipart/form-data" name="frm">
                                                     <div id="editModal" class="modal fade" tabindex="-1" role="dialog"
                                                         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -165,7 +173,8 @@
                                                                     <input type="hidden" name="updated_by"
                                                                         value="<?= $user1['NIK']; ?>">
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Bobot</label>
+                                                                        <label
+                                                                            class="col-sm-3 col-form-label">Bobot</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="number" name="bobotbrd"
                                                                                 class="form-control" id="bobotbrd"
@@ -174,7 +183,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Progres Pengerjaan</label>
+                                                                        <label class="col-sm-3 col-form-label">Progres
+                                                                            Pengerjaan</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="number" name="progresbrd"
                                                                                 class="form-control form-control-user"
@@ -184,7 +194,9 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Perencanaan Tanggal Mulai</label>
+                                                                        <label
+                                                                            class="col-sm-3 col-form-label">Perencanaan
+                                                                            Tanggal Mulai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="planstdatebrd"
                                                                                 name="planstdatebrd"
@@ -194,7 +206,9 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Perencanaan Tanggal Selesai</label>
+                                                                        <label
+                                                                            class="col-sm-3 col-form-label">Perencanaan
+                                                                            Tanggal Selesai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="planendatebrd"
                                                                                 name="planendatebrd"
@@ -204,7 +218,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Aktual Tanggal Mulai</label>
+                                                                        <label class="col-sm-3 col-form-label">Aktual
+                                                                            Tanggal Mulai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="actualstdatebrd"
                                                                                 name="actualstdatebrd"
@@ -214,7 +229,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Aktual Tanggal Selesai</label>
+                                                                        <label class="col-sm-3 col-form-label">Aktual
+                                                                            Tanggal Selesai</label>
                                                                         <div class="col-sm-9">
                                                                             <input type="date" id="actualendatebrd"
                                                                                 name="actualendatebrd"
@@ -224,7 +240,8 @@
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">
-                                                                        <label class="col-sm-3 col-form-label">Unggah Dokumen</label>
+                                                                        <label class="col-sm-3 col-form-label">Unggah
+                                                                            Dokumen</label>
                                                                         <div class="col-sm-9">
                                                                             <?= $project1['filebrd']; ?>
                                                                             <input type="file" name="filebrd"

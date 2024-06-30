@@ -10,6 +10,7 @@
                                     <div class="float">
                                         <a href="<?= base_url('Project/indexlistproject/'). $project1['id_project']; ?>"
                                             class="btn btn-secondary mb-2">Kembali</a>
+                                            
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-xl-8">
