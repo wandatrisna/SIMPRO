@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <?php if ($user1['role'] == 'Planning') { ?>
+            <?php if ($user1['role'] == 'Planning' || $user1['role'] == 'Pinbag') { ?>
             <div class="float">
                 <a href="<?= base_url('Eksternal/subeksternal/'). $eksternal['nama_eks']; ?>"
                     class="btn btn-secondary">Kembali</a>

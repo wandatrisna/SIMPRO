@@ -10,7 +10,7 @@
                                     <div class="float">
                                         <a href="<?= base_url('Project/indexlistproject/'). $project1['id_project']; ?>"
                                             class="btn btn-secondary mb-2">Kembali</a>
-                                            
+
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12 col-xl-8">
@@ -107,7 +107,7 @@
                                                                     <td>
                                                                         <?php
                                                                         $hasil = $project1['progresbrd'];
-                                                                        if ($hasil == 0) {
+                                                                        if ($project1['bobotbrd'] == 0) {
                                                                             echo '0%';
                                                                         } else {
                                                                             echo round($hasil / $project1['bobotbrd'] * 100) . '%';
@@ -116,7 +116,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailbrd/') . $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -124,16 +124,18 @@
                                                                     <td>
                                                                         <?php
                                                                         $hasil = $project1['progresfsd'];
-                                                                        if ($hasil == 0) {
-                                                                            echo '0%';
-                                                                        } else {
-                                                                            echo round($hasil / $project1['bobotfsd'] * 100) . '%';
-                                                                        }
+                                                                        echo ($project1['bobotfsd'] == 0) ? '0%' : round($hasil / $project1['bobotfsd'] * 100) . '%';
                                                                         ?>
                                                                     </td>
                                                                     <td>
+                                                                        <?php if ($project1['bobotbrd'] != 0 && round($project1['progresbrd'] / $project1['bobotbrd'] * 100) == 100) { ?>
                                                                         <a href="<?= base_url('Project/detailfsd/') . $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
+                                                                        <?php } else { ?>
+                                                                        <a href="#" class="badge badge-secondary"
+                                                                            data-toggle="modal"
+                                                                            data-target="#errorModal1">Detail</a>
+                                                                        <?php } ?>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -149,8 +151,14 @@
                                                                         ?>
                                                                     </td>
                                                                     <td>
+                                                                        <?php if ($project1['bobotfsd'] != 0 && round($project1['progresfsd'] / $project1['bobotfsd'] * 100) == 100) { ?>
                                                                         <a href="<?= base_url('Project/detaildev/') . $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
+                                                                        <?php } else { ?>
+                                                                            <a href="#" class="badge badge-secondary"
+                                                                            data-toggle="modal"
+                                                                            data-target="#errorModal1">Detail</a>
+                                                                        <?php } ?>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -158,7 +166,7 @@
                                                                     <td>
                                                                         <?php
                                                                         $hasil = $project1['progressit'];
-                                                                        if ($hasil == 0) {
+                                                                        if ($project1['bobotsit'] == 0) {
                                                                             echo '0%';
                                                                         } else {
                                                                             echo round($hasil / $project1['bobotsit'] * 100) . '%';
@@ -166,8 +174,14 @@
                                                                         ?>
                                                                     </td>
                                                                     <td>
+                                                                        <?php if ($project1['bobotdev'] != 0 && round($project1['progresdev'] * 100 / $project1['bobotdev']) == 100) { ?>
                                                                         <a href="<?= base_url('Project/detailsit/') . $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
+                                                                        <?php } else { ?>
+                                                                            <a href="#" class="badge badge-secondary"
+                                                                            data-toggle="modal"
+                                                                            data-target="#errorModal1">Detail</a>
+                                                                        <?php } ?>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -175,7 +189,7 @@
                                                                     <td>
                                                                         <?php
                                                                         $hasil = $project1['progresuat'];
-                                                                        if ($hasil == 0) {
+                                                                        if ($project1['bobotuat'] == 0) {
                                                                             echo '0%';
                                                                         } else {
                                                                             echo round($hasil / $project1['bobotuat'] * 100) . '%';
@@ -183,8 +197,14 @@
                                                                         ?>
                                                                     </td>
                                                                     <td>
+                                                                        <?php if ($project1['bobotsit'] != 0 && round($project1['progressit'] / $project1['bobotsit'] * 100) == 100) { ?>
                                                                         <a href="<?= base_url('Project/detailuat/') . $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
+                                                                        <?php } else { ?>
+                                                                            <a href="#" class="badge badge-secondary"
+                                                                            data-toggle="modal"
+                                                                            data-target="#errorModal1">Detail</a>
+                                                                        <?php } ?>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -192,7 +212,7 @@
                                                                     <td>
                                                                         <?php
                                                                         $hasil = $project1['progresmigrasi'];
-                                                                        if ($hasil == 0) {
+                                                                        if ($project1['bobotmigrasi'] == 0) {
                                                                             echo '0%';
                                                                         } else {
                                                                             echo round($hasil / $project1['bobotmigrasi'] * 100) . '%';
@@ -200,12 +220,21 @@
                                                                         ?>
                                                                     </td>
                                                                     <td>
+                                                                        <?php if ($project1['bobotuat'] != 0 && round($project1['progresuat'] / $project1['bobotuat'] * 100) == 100) { ?>
                                                                         <a href="<?= base_url('Project/detailmigrasi/') . $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
+                                                                        <?php } else { ?>
+                                                                        <a href="#" class="badge badge-secondary"
+                                                                            data-toggle="modal"
+                                                                            data-target="#errorModal1">Detail</a>
+                                                                        <?php } ?>
                                                                     </td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
+
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -214,7 +243,7 @@
 
                                         <!-- form edit -->
                                         <form
-                                            action="<?php echo base_url('Project/editproject/'). $project1['id_project'];?>"
+                                            action="<?php echo base_url('Project/editproject/') . $project1['id_project']; ?>"
                                             method="POST" enctype="multipart/form-data">
                                             <div id="editModal" class="modal fade" tabindex="-1" role="dialog"
                                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -222,13 +251,12 @@
                                                     <div class="modal-content">
                                                         <div class="modal-header">
                                                             <h5 class="modal-title" id="exampleModalLabel">Perbarui
-                                                            </h5>
+                                                                Project</h5>
                                                             <button type="button" class="close" data-dismiss="modal"
                                                                 aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
-
                                                         <div class="modal-body">
                                                             <input type="hidden" name="id_project"
                                                                 value="<?= $project1['id_project']; ?>">
@@ -239,8 +267,8 @@
                                                                 <label class="col-sm-3 col-form-label">Nama
                                                                     Aplikasi</label>
                                                                 <div class="col-sm-9">
-                                                                    <input type="namaaplikasi" name="namaaplikasi"
-                                                                        class="form-control form-control-user"
+                                                                    <input type="text" name="namaaplikasi"
+                                                                        class="form-control"
                                                                         value="<?= $project1['namaaplikasi']; ?>"
                                                                         id="namaaplikasi"
                                                                         placeholder="Masukkan nama aplikasi">
@@ -252,13 +280,12 @@
                                                                 <label class="col-sm-3 col-form-label">Jenis
                                                                     Proyek</label>
                                                                 <div class="col-sm-9">
-
                                                                     <select name="jenisproject" class="form-control"
                                                                         id="jenisproject">
                                                                         <?php foreach ($jenisproject as $p) { ?>
-                                                                        <option
-                                                                            value="<?php echo $p['id_jenisproject']?>">
-                                                                            <?php echo $p['namajenisproject']?>
+                                                                        <option value="<?= $p['id_jenisproject'] ?>"
+                                                                            <?= ($project1['jenisproject'] == $p['id_jenisproject']) ? 'selected' : ''; ?>>
+                                                                            <?= $p['namajenisproject'] ?>
                                                                         </option>
                                                                         <?php } ?>
                                                                     </select>
@@ -272,9 +299,9 @@
                                                                     <select name="jenisaplikasi" class="form-control"
                                                                         id="jenisaplikasi">
                                                                         <?php foreach ($jenisaplikasi as $p) { ?>
-                                                                        <option
-                                                                            value="<?php echo $p['id_jenisaplikasi']?>">
-                                                                            <?php echo $p['namajenisaplikasi']?>
+                                                                        <option value="<?= $p['id_jenisaplikasi'] ?>"
+                                                                            <?= ($project1['jenisaplikasi'] == $p['id_jenisaplikasi']) ? 'selected' : ''; ?>>
+                                                                            <?= $p['namajenisaplikasi'] ?>
                                                                         </option>
                                                                         <?php } ?>
                                                                     </select>
@@ -287,15 +314,17 @@
                                                                     <select class="form-control" name="tahun"
                                                                         id="tahun">
                                                                         <?php
-                                                                        for ($year = (int)date('Y'); 2000 <= $year; $year--): ?>
-                                                                        <option value="<?=$year;?>"><?=$year;?>
+                                                                        for ($year = (int)date('Y'); 2000 <= $year; $year--) {
+                                                                        ?>
+                                                                        <option value="<?= $year; ?>"
+                                                                            <?= ($project1['tahun'] == $year) ? 'selected' : ''; ?>>
+                                                                            <?= $year; ?>
                                                                         </option>
-                                                                        <?php endfor; ?>
+                                                                        <?php } ?>
                                                                     </select>
                                                                     <?= form_error('tahun', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
-
 
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">Target
@@ -303,8 +332,8 @@
                                                                 <div class="col-sm-9">
                                                                     <input type="month" name="target"
                                                                         value="<?= $project1['target']; ?>"
-                                                                        class="form-control form-control-user"
-                                                                        id="target" placeholder="Masukkan Target">
+                                                                        class="form-control" id="target"
+                                                                        placeholder="Masukkan Target">
                                                                     <?= form_error('target', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
@@ -315,76 +344,113 @@
                                                                 <div class="col-sm-9">
                                                                     <input type="date" name="tanggalregister"
                                                                         value="<?= $project1['tanggalregister']; ?>"
-                                                                        class="form-control form-control-user"
-                                                                        id="tanggalregister"
+                                                                        class="form-control" id="tanggalregister"
                                                                         placeholder="Masukkan Tanggal register">
                                                                     <?= form_error('tanggalregister', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
+
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">Unggah
                                                                     Dokumen</label>
                                                                 <div class="col-sm-9">
-                                                                    <?php echo $project1['urf']; ?>
-                                                                    <input type="file" name="urf"
-                                                                        class="form-control form-control-user"
-                                                                        value="<?php echo $project1['urf']; ?>"
+                                                                    <input type="file" name="urf" class="form-control"
                                                                         id="file" placeholder="Masukkan file">
-                                                                    <?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?><?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
+                                                                    <?= form_error('urf', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
+
                                                             <div class="form-group row">
                                                                 <label class="col-sm-3 col-form-label">Catatan</label>
                                                                 <div class="col-sm-9">
                                                                     <input type="text" name="keterangan"
                                                                         value="<?= $project1['keterangan']; ?>"
-                                                                        class="form-control form-control-user"
-                                                                        id="keterangan"
+                                                                        class="form-control" id="keterangan"
                                                                         placeholder="Masukkan keterangan">
                                                                     <?= form_error('keterangan', '<small class="text-danger pl-3">', '</small>'); ?>
                                                                 </div>
                                                             </div>
+                                                        </div>
 
-
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal">Tutup</button>
-                                                                <button type="submit"
-                                                                    class="btn btn-success">Perbarui</button>
-                                                            </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Tutup</button>
+                                                            <button type="submit"
+                                                                class="btn btn-success">Perbarui</button>
                                                         </div>
                                                     </div>
                                                 </div>
+                                            </div>
                                         </form>
 
+
+                                        <!-- Modal for Error Message -->
+                                        <div class="modal fade" id="errorModal1" tabindex="-1" role="dialog"
+                                            aria-labelledby="errorModalLabel2" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="errorModalLabel2">Peringatan</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        Harap selesaikan aktivitas sebelumnya sebelum melanjutkan
+                                                        progres!
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Tutup</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <!-- Include jQuery and Bootstrap JS for modal functionality -->
+                                        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+                                        <script
+                                            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+                                        </script>
+
+                                        <!-- Script for handling modals -->
                                         <script>
                                         $(document).ready(function() {
-                                            // Untuk sunting
-                                            $('#edit-data').on('show.bs.modal', function(event) {
-                                                var div = $(event
-                                                    .relatedTarget
-                                                ) // Tombol dimana modal di tampilkan
-                                                var modal = $(this)
-
-                                                // Isi nilai pada field
-                                                modal.find('#id_project').attr("value", div.data(
-                                                    'id_project'));
-                                                modal.find('#namaaplikasi').attr("value", div.data(
-                                                    'namaaplikasi'));
-                                                modal.find('#jenisproject').html(div.data(
-                                                    'jenisproject'));
-                                                modal.find('#jenisaplikasi').html(div.data(
-                                                    'jenisaplikasi'));
-                                                modal.find('#tahun').html(div.data('tahun'));
-                                                modal.find('#keterangan').html(div.data(
-                                                    'keterangan'));
-                                                modal.find('#target').html(div.data('target'));
-                                                modal.find('#tanggalregister').html(div.data(
-                                                    'tanggalregister'));
-                                                modal.find('#urf').html(div.data('urf'));
+                                            // Event listener untuk memicu error modal jika progres tidak terpenuhi
+                                            $('.badge-secondary').on('click', function() {
+                                                $('#errorModal1').modal('show');
                                             });
                                         });
+
+                                        $(document).ready(function() {
+                                            // Untuk sunting data
+                                            $('#edit-data').on('show.bs.modal', function(event) {
+                                                var div = $(event
+                                                    .relatedTarget); // Tombol dimana modal di tampilkan
+                                                var modal = $(this);
+
+                                                // Isi nilai pada field
+                                                modal.find('#id_project').val(div.data('id_project'));
+                                                modal.find('#namaaplikasi').val(div.data(
+                                                    'namaaplikasi'));
+                                                modal.find('#jenisproject').val(div.data(
+                                                    'jenisproject'));
+                                                modal.find('#jenisaplikasi').val(div.data(
+                                                    'jenisaplikasi'));
+                                                modal.find('#tahun').val(div.data('tahun'));
+                                                modal.find('#keterangan').val(div.data('keterangan'));
+                                                modal.find('#target').val(div.data('target'));
+                                                modal.find('#tanggalregister').val(div.data(
+                                                    'tanggalregister'));
+                                                modal.find('#urf').val(div.data('urf'));
+                                            });
+
+                                        });
                                         </script>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -393,6 +459,4 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>

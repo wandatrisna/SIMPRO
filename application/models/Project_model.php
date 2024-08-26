@@ -8,84 +8,98 @@ class Project_model extends CI_Model
 	{
 		parent::__construct();
 	}
+	
+	
 	public function get($keyword = null)
-	{
-		$this->db->select('*');
-		$this->db->from('tb_project');
-		if (!empty($keyword)) {
-			$this->db->like('namaaplikasi', $keyword);
-		}
-		$this->db->order_by('last_updated_time', 'desc');
-		return $this->db->get()->result_array();
-	}
-	public function getDone($keyword = null)
-	{
-		$this->db->select('*');
-		$this->db->from('tb_project');
-		$this->db->where('progresmigrasi', '5');
-		if (!empty($keyword)) {
-			$this->db->like('namaaplikasi', $keyword);
-		}
-		$this->db->order_by('last_updated_time', 'desc');
-		return $this->db->get()->result_array();
-	}
-	public function getUndone($keyword = null)
-	{
-		$this->db->select('*');
-		$this->db->from('tb_project');
-		$this->db->where_not_in('progresmigrasi', '5');
-		if (!empty($keyword)) {
-			$this->db->like('namaaplikasi', $keyword);
-		}
-		$this->db->order_by('last_updated_time', 'desc');
-		return $this->db->get()->result_array();
-	}
-	public function gethistory($keyword = null)
-	{
-		$this->db->select('*');
-		$this->db->from('tb_project');
-		$this->db->where('progresmigrasi', '5');
-		if (!empty($keyword)) {
-			$this->db->like('namaaplikasi', $keyword);
-		}
-		$this->db->order_by('last_updated_time', 'desc');
-		return $this->db->get()->result_array();
-	}
-	public function getBy()
-	{
-		$this->db->from($this->table);
-		$this->db->where('id_project', $this->session->userdata('id_project'));
-		$query = $this->db->get();
-		return $query->row_array();
-	}
+{
+    $this->db->select('*');
+    $this->db->from('tb_project');
+    $this->db->where('hapus_proyek', 1);  // Tambahkan kondisi ini
+    if (!empty($keyword)) {
+        $this->db->like('namaaplikasi', $keyword);
+    }
+    $this->db->order_by('last_updated_time', 'desc');
+    return $this->db->get()->result_array();
+}
 
-	public function getByprov()
-	{
-		$this->db->select('u.*,i.nama_instansi as nama_instansi,');
-		$this->db->from('user u');
-		$this->db->join('instansi i', 'u.id_instansi = i.id_instansi');
-		$this->db->where('NIK', $this->session->userdata('NIK'));
-		$query = $this->db->get();
-		return $query->row_array();
-	}
+public function getDone($keyword = null)
+{
+    $this->db->select('*');
+    $this->db->from('tb_project');
+    $this->db->where('progresmigrasi', '5');
+    $this->db->where('hapus_proyek', 1);  // Tambahkan kondisi ini
+    if (!empty($keyword)) {
+        $this->db->like('namaaplikasi', $keyword);
+    }
+    $this->db->order_by('last_updated_time', 'desc');
+    return $this->db->get()->result_array();
+}
 
-	public function getprov()
-	{
-		$this->db->select('p.*,i.singkatan as singkatan,');
-		$this->db->from('user p');
-		$this->db->join('instansi i', 'p.id_instansi = i.id_instansi');
-		$query = $this->db->get();
-		return $query->result_array();
-	}
-	public function getById($id)
-	{
-		$this->db->from($this->table);
-		$this->db->where('id_project', $id);
-		$query = $this->db->get();
-		$result = $query->row_array();
-		log_message('debug', 'Project Data: ' . print_r($result, TRUE)); // Debug log
-		return $result;
-	}
+public function getUndone($keyword = null)
+{
+    $this->db->select('*');
+    $this->db->from('tb_project');
+    $this->db->where_not_in('progresmigrasi', '5');
+    $this->db->where('hapus_proyek', 1);  // Tambahkan kondisi ini
+    if (!empty($keyword)) {
+        $this->db->like('namaaplikasi', $keyword);
+    }
+    $this->db->order_by('last_updated_time', 'desc');
+    return $this->db->get()->result_array();
+}
+
+public function gethistory($keyword = null)
+{
+    $this->db->select('*');
+    $this->db->from('tb_project');
+    $this->db->where('progresmigrasi', '5');
+    $this->db->where('hapus_proyek', 1);  // Tambahkan kondisi ini
+    if (!empty($keyword)) {
+        $this->db->like('namaaplikasi', $keyword);
+    }
+    $this->db->order_by('last_updated_time', 'desc');
+    return $this->db->get()->result_array();
+}
+
+public function getBy()
+{
+    $this->db->from($this->table);
+    $this->db->where('id_project', $this->session->userdata('id_project'));
+    $this->db->where('hapus_proyek', 1);  // Tambahkan kondisi ini
+    $query = $this->db->get();
+    return $query->row_array();
+}
+
+public function getByprov()
+{
+    $this->db->select('u.*,i.nama_instansi as nama_instansi,');
+    $this->db->from('user u');
+    $this->db->join('instansi i', 'u.id_instansi = i.id_instansi');
+    $this->db->where('NIK', $this->session->userdata('NIK'));
+    $query = $this->db->get();
+    return $query->row_array();
+}
+
+public function getprov()
+{
+    $this->db->select('p.*,i.singkatan as singkatan,');
+    $this->db->from('user p');
+    $this->db->join('instansi i', 'p.id_instansi = i.id_instansi');
+    $query = $this->db->get();
+    return $query->result_array();
+}
+
+public function getById($id)
+{
+    $this->db->from($this->table);
+    $this->db->where('id_project', $id);
+    $this->db->where('hapus_proyek', 1);  // Tambahkan kondisi ini
+    $query = $this->db->get();
+    $result = $query->row_array();
+    log_message('debug', 'Project Data: ' . print_r($result, TRUE)); // Debug log
+    return $result;
+}
+
 
 	public function project_lengkap($tahun)
 {
@@ -117,11 +131,10 @@ class Project_model extends CI_Model
 		return $this->db->insert_id();
 	}
 	public function delete($id)
-	{
-		$this->db->where($this->id, $id);
-		$this->db->delete($this->table);
-		return $this->db->affected_rows();
-	}
+    {
+        $this->db->query("UPDATE tb_project set hapus_proyek = '0' where id_project = $id");
+        return $this->db->affected_rows();
+    }
 	public function searchRecord($key)
 	{
 		$this->db->select('p.*,u.nama as nama,');

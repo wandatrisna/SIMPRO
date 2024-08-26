@@ -12,6 +12,7 @@
                             <th width="5px">No</th>
                             <th>Gambar</th>
                             <th>Nama</th>
+                            <th>Email</th>
                             <th>Sub Divisi</th>
                             <th>NIK</th>
                             <?php if ($user1['role'] == 'Superuser') { ?>
@@ -27,6 +28,7 @@
                             <td><img src="<?= base_url('assets/images/profile/') . $us['gambar']; ?>"
                                     style="width: 50px;" class="img-thumbnail"></td>
                             <td><?= $us['nama']; ?></td>
+                            <td><?= $us['email']; ?></td>
                             <td><?= $us['role']; ?></td>
                             <td><?= $us['NIK']; ?></td>
                             <?php if ($user1['role'] == 'Superuser') { ?>

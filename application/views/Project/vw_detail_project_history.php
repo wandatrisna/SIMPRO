@@ -113,7 +113,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailbrd/'). $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -128,7 +128,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailfsd/'). $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -143,7 +143,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detaildev/'). $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -158,7 +158,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailsit/'). $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -173,7 +173,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailuat/'). $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
                                                                     </td>
                                                                 </tr>
                                                                 <tr>
@@ -187,7 +187,7 @@
 														?>%</td>
                                                                     <td>
                                                                         <a href="<?= base_url('Project/detailmigrasi/'). $project1['id_project']; ?>"
-                                                                            class="badge badge-secondary">Detail</a>
+                                                                            class="badge badge-success">Detail</a>
                                                                     </td>
                                                                 </tr>
 

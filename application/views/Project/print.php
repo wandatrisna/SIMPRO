@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Print Pegawai</title>
+	<title>Cetak Data Proyek</title>
 	<style>
 		body {
 			font-family: Arial, sans-serif;
@@ -31,20 +31,17 @@
 		}
 
 		.kop-surat img {
-			width: 100px;
+			width: 150px;
 			/* Adjusted the width for larger logo */
 			height: auto;
 			position: absolute;
-			top: 10px;
+			top: 20px;
 			/* Adjust the top position to vertically align */
 		}
 
-		.kop-surat img.left {
-			left: 15px;
-		}
 
 		.kop-surat img.right {
-			right: 15px;
+			right: 50px;
 		}
 
 		.garis {
@@ -82,8 +79,7 @@
 
 <body>
 	<div class="kop-surat">
-		<img src="<?= base_url('assets/images/logoxx.png'); ?>" class="left" style="width:65px;">
-		<img src="<?= base_url('assets/images/tes.png'); ?>" class="right" width="100">
+		<img src="<?= base_url('assets/images/Logo_BRK_Syariah.png'); ?>" class="right" width="100">
 		<h1>PT Bank Riau Kepri Syariah (Perseroda)</h1>
 		<h1>Divisi Teknologi & Sistem Informasi</h1>
 		<p>Menara Dang Merdu PT Bank Riau Kepri Syariah (Perseroda)</p>
@@ -92,7 +88,7 @@
 	</div>
 	<div class="garis"></div>
 	<br>
-	<div class="judul">Laporan All Projet</div>
+	<div class="judul">Laporan Proyek Divisi TSI </div>
 	<table>
 		<thead>
 			<tr class="table-warning">

@@ -22,6 +22,8 @@
     <!-- Custom styles for this page -->
     <link href="<?= base_url('assets/') ?>vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
     .small-canvas {
         width: 200px;
@@ -225,6 +227,7 @@
 
 
             <?php } else if ($user1['role'] == 'Pinbag') { ?>
+
             <li class="nav-item <?= $this->uri->segment(1) == 'Dashboard' ? ' active"' : '' ?>">
                 <a class="nav-link" href="<?= base_url('Dashboard') ?>">
                     <i class="fas fa-fw fa-home"></i>
@@ -252,43 +255,44 @@
 									|| $this->uri->segment(2) == 'editfsd' || $this->uri->segment(2) == 'detaildev' || $this->uri->segment(2) == 'editdev'
 									|| $this->uri->segment(2) == 'subdev' || $this->uri->segment(2) == 'hapuskeg' || $this->uri->segment(2) == 'ubahdev'
 									|| $this->uri->segment(2) == 'detailsit' || $this->uri->segment(2) == 'editsit' || $this->uri->segment(2) == 'detailuat'
-									|| $this->uri->segment(2) == 'edituat' || $this->uri->segment(2) == 'detailmigrasi' || $this->uri->segment(2) == 'editmigrasi' ? ' show' : '' ?>"
+									|| $this->uri->segment(2) == 'edituat' || $this->uri->segment(2) == 'detailmigrasi' || $this->uri->segment(2) == 'editmigrasi' || $this->uri->segment(2) == 'detailhistory' ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Proyek:</h6>
                         <a class="collapse-item <?= $this->uri->segment(2) == 'index' ? ' active' : '' ?>"
                             href="<?= base_url('Project/index') ?>">Seluruh Proyek</a>
-                        <a class="collapse-item <?= $this->uri->segment(2) == 'indexlistproject' ? ' active' : '' ?>"
+                        <a class="collapse-item <?= $this->uri->segment(2) == 'indexlistproject' || $this->uri->segment(2) == 'detail' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexlistproject') ?>">Sedang Berlangsung</a>
-                        <a class="collapse-item <?= $this->uri->segment(2) == 'indexhistory' ? ' active' : '' ?>"
+                        <a class="collapse-item <?= $this->uri->segment(2) == 'indexhistory' || $this->uri->segment(2) == 'detailhistory' ? ' active' : '' ?>"
                             href="<?= base_url('Project/indexhistory') ?>">Riwayat</a>
 
                     </div>
             </li>
+
             <li class="nav-item <?= $this->uri->segment(1) == 'Inhouse' || $this->uri->segment(1) == 'Eksternal'
-								|| $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'subeksternal'
-								|| $this->uri->segment(2) == 'detailinhouse' || $this->uri->segment(2) == 'detaileksternal'
-								|| $this->uri->segment(2) == 'editinhouse' || $this->uri->segment(2) == 'editeksternal' ? ' active' : '' ?>">
+							|| $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'subeksternal'
+							|| $this->uri->segment(2) == 'detailinhouse' || $this->uri->segment(2) == 'detaileksternal'
+							|| $this->uri->segment(2) == 'editinhouse' || $this->uri->segment(2) == 'editeksternal' ? ' active' : '' ?>">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages2"
                     aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-list"></i>
-                    <span>Aplikasi</span>
+                    <i class="fas fa-envelope"></i>
+                    <span>Migrasi Aplikasi</span>
                 </a>
 
                 <div id="collapsePages2" class="collapse <?= $this->uri->segment(1) == 'Inhouse' || $this->uri->segment(1) == 'Eksternal'
-									|| $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'subeksternal'
-									|| $this->uri->segment(2) == 'detailinhouse' || $this->uri->segment(2) == 'detaileksternal'
-									|| $this->uri->segment(2) == 'editinhouse' || $this->uri->segment(2) == 'editeksternal' ? ' show' : '' ?>"
+								|| $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'subeksternal'
+								|| $this->uri->segment(2) == 'detailinhouse' || $this->uri->segment(2) == 'detaileksternal'
+								|| $this->uri->segment(2) == 'editinhouse' || $this->uri->segment(2) == 'editeksternal' ? ' show' : '' ?>"
                     aria-labelledby="headingPages" data-parent="#accordionSidebar">
 
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Application Version :</h6>
+                        <h6 class="collapse-header">Jenis Aplikasi :</h6>
                         <a class="collapse-item <?= $this->uri->segment(1) == 'Inhouse'
-										|| $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'detailinhouse'
-										|| $this->uri->segment(2) == 'editinhouse' ? ' active' : '' ?>" href="<?= base_url('Inhouse') ?>">Inhouse</a>
+									|| $this->uri->segment(2) == 'subinhouse' || $this->uri->segment(2) == 'detailinhouse'
+									|| $this->uri->segment(2) == 'editinhouse' ? ' active' : '' ?>" href="<?= base_url('Inhouse') ?>">Inhouse</a>
                         <a class="collapse-item <?= $this->uri->segment(1) == 'Eksternal'
-										|| $this->uri->segment(2) == 'subeksternal' || $this->uri->segment(2) == 'detaileksternal'
-										|| $this->uri->segment(2) == 'editeksternal' ? ' active' : '' ?>"
+									|| $this->uri->segment(2) == 'subeksternal' || $this->uri->segment(2) == 'detaileksternal'
+									|| $this->uri->segment(2) == 'editeksternal' ? ' active' : '' ?>"
                             href="<?= base_url('Eksternal') ?>">Eksternal</a>
                     </div>
             </li>

@@ -24,8 +24,7 @@
                                                         <i class="icofont icofont-spinner-alt-5"></i>
                                                         <div class="float-right">
                                                             <?php if ($user1['role'] == 'Planning') { ?>
-                                                            <a href="<?= base_url() ?>Project/editbrd"
-                                                                class="btn btn-success btn-icon-split btn-sm">
+                                                         
                                                                 <a href="javascript:;"
                                                                     data-id="<?= $project1['id_project'] ?>"
                                                                     data-bobot="<?= $project1['bobotbrd'] ?>"
@@ -244,6 +243,7 @@
                                                                             Dokumen</label>
                                                                         <div class="col-sm-9">
                                                                             <?= $project1['filebrd']; ?>
+                                                                            <!-- <small class="text-danger">Dokumen wajib diunggah!</small> -->
                                                                             <input type="file" name="filebrd"
                                                                                 class="form-control form-control-user"
                                                                                 value="<?= $project1['filebrd']; ?>"

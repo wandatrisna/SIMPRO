@@ -105,10 +105,7 @@
                                                                 <label for="urf" class="col-sm-2 col-form-label">Dokumen
                                                                     URF</label>
                                                                 <div class="col-sm-10">
-                                                                    <h7>
-                                                                        <font color="red">Dokumen URF Harus Diunggah!
-                                                                        </font>
-                                                                    </h7>
+                                                                <small class="text-danger">Dokumen wajib diunggah</small>
                                                                     <input type="file" name="urf"
                                                                         class="form-control form-control-user"
                                                                         value="<?= set_value('urf'); ?>" id="urf"
